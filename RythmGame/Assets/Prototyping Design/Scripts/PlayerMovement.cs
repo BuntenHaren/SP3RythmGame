@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         dashTimer = dashCD;
     }
 

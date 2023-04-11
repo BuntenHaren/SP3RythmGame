@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SceneTrigger : MonoBehaviour
 {
-    public SceneChanger sceneChanger;
+    private SceneChanger sceneChanger;
     [SerializeField]
     private string scene;
+
+    void Awake()
+    {
+        sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
+    }
 
     void OnTriggerEnter(Collider col)
     {
