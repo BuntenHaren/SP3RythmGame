@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     void ProcessInput()
     {
         //Movement
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         anim.SetFloat("speed", Mathf.Abs(moveX) + Mathf.Abs(moveY));
