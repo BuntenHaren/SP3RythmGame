@@ -9,6 +9,7 @@ public class ChangeSortAxis : MonoBehaviour
 
     void Awake()
     {
-        //Camera.main.transparencySortAxis = sortAxis;
+        Camera.main.transparencySortMode = TransparencySortMode.CustomAxis;
+        Camera.main.transparencySortAxis = sortAxis;
     }
 }
