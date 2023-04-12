@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638168975138764706
+  lastModified: 638168982893015146
   FileSizes:
   - Name: 
-    Value: 848
+    Value: 894
   Exists: 1
 --- !u!114 &-5812527672349776745
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638168975138744638
+  lastModified: 638168982892950028
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -85,13 +85,41 @@ MonoBehaviour:
   - {fileID: 7028799644998755265}
   EditorEvents:
   - {fileID: -5812527672349776745}
+  - {fileID: 216707545347886461}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3112292271770137560}
   StringsBanks:
   - {fileID: -6047074081414393973}
-  cacheTime: 638168975139044636
+  cacheTime: 638168982893436189
   cacheVersion: 131603
+--- !u!114 &216707545347886461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/test
+  m_EditorClassIdentifier: 
+  Path: event:/test
+  Guid:
+    Data1: -10474810
+    Data2: 1142194005
+    Data3: -228265311
+    Data4: 1141555726
+  Banks:
+  - {fileID: 7028799644998755265}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3869821697793530482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +135,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638168975139014503
+  lastModified: 638168982893361095
   FileSizes: []
   Exists: 1
 --- !u!114 &7028799644998755265
@@ -125,6 +153,6 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638168975139044636
+  lastModified: 638168982893436189
   FileSizes: []
   Exists: 1
