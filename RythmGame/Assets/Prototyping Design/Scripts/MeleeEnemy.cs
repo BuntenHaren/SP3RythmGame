@@ -48,13 +48,11 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (beatManager.dashing == true)
         {
-            Debug.Log("dashing");
             speed = dashingSpeed;
         }
         else
         {
             speed = walkingSpeed;
-            //Debug.Log("walking");
         }
         timeSinceLastAttack += Time.deltaTime;
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)

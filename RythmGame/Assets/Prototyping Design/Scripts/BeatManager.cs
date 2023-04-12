@@ -33,7 +33,6 @@ public class BeatManager : MonoBehaviour
         if(beatCounter >= beatInterval-0.1f)
         {
             dashing = true;
-            //Debug.Log("aa");
         }
         if(beatCounter >= beatInterval)
         {
