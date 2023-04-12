@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 12.32, z: -20.07}
+  m_TrackedObjectOffset: {x: 0, y: 14.6, z: -30}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -397,20 +397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432c0669ed830b44b8ab38509cd2c496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatSound: {fileID: 1251216889}
-  beatsPerMinute: 70
-  onBeat: 0
-  dashing: 0
-  meleeEnemies:
-  - {fileID: 1211310590}
-  - {fileID: 509824092}
-  - {fileID: 1441671075}
-  rangedEnemies:
-  - {fileID: 1209362810}
-  - {fileID: 1346553328}
-  - {fileID: 682431963}
-  - {fileID: 1883752153}
-  - {fileID: 1227760468}
 --- !u!4 &235965106
 Transform:
   m_ObjectHideFlags: 0
@@ -530,8 +516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc354bedd95c7344a778625dc49ae0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 258848653}
-  animationTime: 0
 --- !u!1 &264662201
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +788,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c347206643c0d514294fd0eb5d4d3496, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -986,7 +970,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c347206643c0d514294fd0eb5d4d3496, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1126,7 +1110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a1a2e844f8c984f8ad06ee09683750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParent: {fileID: 1441671078}
 --- !u!135 &476537593
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1332,18 +1315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a02deb487d818b4ca0eda3a881ca943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4588935485563627}
-  speed: 0.05
-  dashingSpeed: 0.2
-  distanceToStop: 0.6
-  rb: {fileID: 509824094}
-  attackScript: {fileID: 982823693}
-  attackCD: 1
-  attacking: 0
-  inAttackRange: 0
-  dashForce: 10
-  dashDuration: 0.1
-  beatManager: {fileID: 235965105}
 --- !u!212 &509824096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1425,9 +1396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!75 &509824099
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -1563,8 +1531,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c347206643c0d514294fd0eb5d4d3496, type: 3}
-  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
+  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -2244,9 +2212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!114 &682431965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2259,11 +2224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c56fd3a3fac8f4cb0267fc9c67ff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4236014642316180313, guid: d02b6955526307440ae25cdfaf2f5e63,
-    type: 3}
-  distanceToStop: 5
-  speed: 0.05
-  player: {fileID: 4588935485563627}
 --- !u!136 &682431966
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2904,7 +2864,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c347206643c0d514294fd0eb5d4d3496, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2997,10 +2957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c060373b5b10ce4eafab1747513c335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 963194227}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!4 &800896057
 Transform:
   m_ObjectHideFlags: 0
@@ -3075,7 +3031,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c347206643c0d514294fd0eb5d4d3496, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3217,8 +3173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbcc88dee4ce004a8ba7dee1e914656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChanger: {fileID: 1626467531}
-  scene: TestScene
 --- !u!1 &875800931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,8 +3332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbcc88dee4ce004a8ba7dee1e914656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChanger: {fileID: 1626467531}
-  scene: TestScene
 --- !u!65 &887547546
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3453,7 +3405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a1a2e844f8c984f8ad06ee09683750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParent: {fileID: 1211310595}
 --- !u!135 &940226812
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3525,7 +3476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9686bef640ae55e4f9d65b37d022d1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,12 +3515,12 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 32.96973
+  m_LensShift: {x: 0, y: -2}
+  m_FocalLength: 137.16063
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -3579,7 +3529,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 10
+  field of view: 10.000001
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3605,7 +3555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 1, y: 17.320002, z: -28.730253}
+  m_LocalPosition: {x: 1, y: 32.643974, z: -27.341011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3742,13 +3692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ffe799449c54d4f8f490120842f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeEnemy: {fileID: 509824095}
-  beatManager: {fileID: 235965105}
-  sr: {fileID: 982823694}
-  startingColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 0}
-  windUpColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 0.5176471}
-  damageColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 1}
-  damageObject: {fileID: 1962231910}
 --- !u!212 &982823694
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3862,9 +3805,9 @@ MonoBehaviour:
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
-    LensShift: {x: 0, y: 0}
+    LensShift: {x: 0, y: -2}
     GateFit: 2
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 36, y: 24}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3881,7 +3824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003657058}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 1, y: 17.320002, z: -28.730253}
+  m_LocalPosition: {x: 1, y: 32.643974, z: -27.341011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4025,7 +3968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9686bef640ae55e4f9d65b37d022d1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
 --- !u!1 &1209362810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,11 +4002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c56fd3a3fac8f4cb0267fc9c67ff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4236014642316180313, guid: d02b6955526307440ae25cdfaf2f5e63,
-    type: 3}
-  distanceToStop: 5
-  speed: 0.05
-  player: {fileID: 4588935485563627}
 --- !u!136 &1209362812
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4174,9 +4111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!75 &1209362817
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -4322,18 +4256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a02deb487d818b4ca0eda3a881ca943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4588935485563627}
-  speed: 0.05
-  dashingSpeed: 0.2
-  distanceToStop: 0.6
-  rb: {fileID: 1211310594}
-  attackScript: {fileID: 1286671227}
-  attackCD: 1
-  attacking: 0
-  inAttackRange: 0
-  dashForce: 10
-  dashDuration: 0.1
-  beatManager: {fileID: 235965105}
 --- !u!114 &1211310596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4346,9 +4268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!75 &1211310597
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -4395,9 +4314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!114 &1227760470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4410,11 +4326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c56fd3a3fac8f4cb0267fc9c67ff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4236014642316180313, guid: d02b6955526307440ae25cdfaf2f5e63,
-    type: 3}
-  distanceToStop: 5
-  speed: 0.05
-  player: {fileID: 4588935485563627}
 --- !u!136 &1227760471
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4835,13 +4746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ffe799449c54d4f8f490120842f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeEnemy: {fileID: 1211310595}
-  beatManager: {fileID: 235965105}
-  sr: {fileID: 1286671226}
-  startingColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 0}
-  windUpColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 0.5176471}
-  damageColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 1}
-  damageObject: {fileID: 1201157993}
 --- !u!1 &1324289717
 GameObject:
   m_ObjectHideFlags: 0
@@ -4947,11 +4851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c56fd3a3fac8f4cb0267fc9c67ff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4236014642316180313, guid: d02b6955526307440ae25cdfaf2f5e63,
-    type: 3}
-  distanceToStop: 5
-  speed: 0.05
-  player: {fileID: 4588935485563627}
 --- !u!136 &1346553330
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5061,9 +4960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!75 &1346553335
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -5275,7 +5171,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c347206643c0d514294fd0eb5d4d3496, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5396,18 +5292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a02deb487d818b4ca0eda3a881ca943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4588935485563627}
-  speed: 0.05
-  dashingSpeed: 0.2
-  distanceToStop: 0.6
-  rb: {fileID: 1441671077}
-  attackScript: {fileID: 1884590531}
-  attackCD: 1
-  attacking: 0
-  inAttackRange: 0
-  dashForce: 10
-  dashDuration: 0.1
-  beatManager: {fileID: 235965105}
 --- !u!212 &1441671079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5489,9 +5373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!75 &1441671082
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -5882,7 +5763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e860bafb41598b94c91a9bff23ac1d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
 --- !u!135 &1680703543
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6131,7 +6011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a1a2e844f8c984f8ad06ee09683750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParent: {fileID: 509824095}
 --- !u!135 &1855651616
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6380,9 +6259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0714b99813858904eaa52980676234af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  damageColor: {r: 0.6415094, g: 0.03933786, b: 0.03933786, a: 1}
-  damageColorTime: 0.5
 --- !u!114 &1883752155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6395,11 +6271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c56fd3a3fac8f4cb0267fc9c67ff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4236014642316180313, guid: d02b6955526307440ae25cdfaf2f5e63,
-    type: 3}
-  distanceToStop: 5
-  speed: 0.05
-  player: {fileID: 4588935485563627}
 --- !u!136 &1883752156
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6539,13 +6410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ffe799449c54d4f8f490120842f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeEnemy: {fileID: 1441671078}
-  beatManager: {fileID: 235965105}
-  sr: {fileID: 1884590532}
-  startingColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 0}
-  windUpColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 0.5176471}
-  damageColor: {r: 0.9529412, g: 0.2901961, b: 0.2901961, a: 1}
-  damageObject: {fileID: 946579942}
 --- !u!212 &1884590532
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6757,7 +6621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9686bef640ae55e4f9d65b37d022d1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
 --- !u!1 &1970988343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6967,11 +6830,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4588935485563627}
   - component: {fileID: 212652214370970191}
-  - component: {fileID: 212652214370970193}
   - component: {fileID: 212652214370970192}
   - component: {fileID: 212652214370970194}
   - component: {fileID: 212652214370970195}
   - component: {fileID: 212652214370970196}
+  - component: {fileID: 212652214370970199}
+  - component: {fileID: 212652214370970198}
   - component: {fileID: 212652214370970197}
   m_Layer: 3
   m_Name: Player
@@ -6987,7 +6851,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463393972542889}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6995,7 +6859,7 @@ Transform:
   - {fileID: 1680703541}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!212 &212652214370970191
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7064,34 +6928,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &212652214370970193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463393972542889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ab273e14ba39b4da18145ef56b516f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  moveSpeedDuringAttack: 2.5
-  rb: {fileID: 212652214370970192}
-  anim: {fileID: 212652214370970194}
-  sr: {fileID: 212652214370970191}
-  attackDuration: 0.5
-  attackWindUp: 0.3
-  attackObject: {fileID: 1680703540}
-  dashForce: 10
-  dashCD: 1
-  dashDuration: 0.1
-  constantForce: {fileID: 212652214370970195}
-  isDashing: 0
-  playerProjectile: {fileID: 4236014642316180313, guid: 04a16f0cd170e944ca5778970e303101,
-    type: 3}
-  test: 0
 --- !u!95 &212652214370970194
 Animator:
   serializedVersion: 4
@@ -7102,7 +6938,7 @@ Animator:
   m_GameObject: {fileID: 1463393972542889}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 569e21aaae49a054e93c15eded83bbfb, type: 2}
+  m_Controller: {fileID: 9100000, guid: ba5084d214e154947ba371bbb201fddd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7147,12 +6983,53 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463393972542889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad26b764d35f43d4cbd5b9e61cdfdd3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7218a8735e844e24597ce1787de8e8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthBar: {fileID: 258848654}
-  damageCD: 0.5
-  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  moveSpeed: 5
+  moveSpeedDuringAttack: 2
+  rb: {fileID: 212652214370970192}
+  anim: {fileID: 212652214370970194}
   sr: {fileID: 212652214370970191}
-  playerMovement: {fileID: 212652214370970193}
+  attackDuration: 0.75
+  attackWindUp: 0.25
+  attackObject: {fileID: 1680703540}
+  dashForce: 1
+  dashCD: 0.5
+  dashDuration: 0.25
+  constantForce: {fileID: 212652214370970195}
+  isDashing: 0
+  playerProjectile: {fileID: 4236014642316180313, guid: a926f5036f4611547a55cb16519ae7b7,
+    type: 3}
+  test: 0
+--- !u!114 &212652214370970198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463393972542889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73cb99c1b3a89554a8a99f632bc9cc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  healthBar: {fileID: 0}
+  damageCD: 0
+  damageColor: {r: 0, g: 0, b: 0, a: 0}
+  sr: {fileID: 0}
+  playerMovement: {fileID: 0}
+--- !u!114 &212652214370970199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463393972542889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5da2ba1ca329748a3f08c7e5f42e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
