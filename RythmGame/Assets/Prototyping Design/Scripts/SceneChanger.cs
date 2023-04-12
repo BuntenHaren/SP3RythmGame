@@ -5,14 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    [SerializeField]
+    private Transform player;
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void ChangeScene(string sceneName)
+    public void ChangeScene(string sceneName, Vector3 spawnPoint)
     {
-        Debug.Log("a");
         SceneManager.LoadScene(sceneName);
+        player.position = spawnPoint;
     }
 }

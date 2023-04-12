@@ -7,6 +7,8 @@ public class SceneTrigger : MonoBehaviour
     private SceneChanger sceneChanger;
     [SerializeField]
     private string scene;
+    [SerializeField]
+    private Vector3 spawnPoint;
 
     void Awake()
     {
@@ -17,7 +19,7 @@ public class SceneTrigger : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
-            sceneChanger.ChangeScene(scene);
+            sceneChanger.ChangeScene(scene, spawnPoint);
         }
     }
 }
