@@ -25,7 +25,11 @@ public class ScriptUsageTimeline : MonoBehaviour
 
     private int newBeatLimit = 0;
 
-    [SerializeField] public UnityEvent trigger;
+    private bool beatIsOn = false;
+
+    public TimelineBeat timelineBeat;
+
+    //[SerializeField] public UnityEvent trigger;
 
 #if UNITY_EDITOR
         void Reset()
@@ -61,15 +65,21 @@ public class ScriptUsageTimeline : MonoBehaviour
         if(previousBeat > newBeatLimit)      //If previous beat is more than the newBeatLimit that is choosen of the previousBeat
         {
             //Do Thing you want to do on beat
-            trigger.Invoke(); //Starts a Choosen UnityEvent object script
+            //trigger.Invoke(); //Starts a Choosen UnityEvent object script
+            beatIsOn = true;
+            timelineBeat.doThing = true;
             Debug.Log(previousBeat + "Now");  //Test Debug log
             newBeatLimit = previousBeat;    //Changing newBeatLimit to the previousBeat
+            beatIsOn = false;
         }
         if(previousBeat < newBeatLimit)  //If previousBeat is lower than newBeatLimit, This is incase of loops in FMOD
         {
             //Do Thing you want to do on beat incase of looping in FMOD
-            trigger.Invoke();    //Triggers the choosen UnityEvent object script
+            //trigger.Invoke();    //Triggers the choosen UnityEvent object script
+            beatIsOn = true;
+            timelineBeat.doThing = true;
             newBeatLimit = previousBeat;   //Changing newBeatLimit to the previousBeat
+            beatIsOn = false;
         }
         //Check if changing unity event and invoke to other to reduce pulling and choosing scsripts
     }
