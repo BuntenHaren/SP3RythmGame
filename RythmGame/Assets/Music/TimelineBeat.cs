@@ -21,7 +21,7 @@ public class TimelineBeat : MonoBehaviour
     {
         if (doThing == true)
         {
-            //Do specialized thing in script of enemy
+            //Find chosen script of gameobject with the chosen tag. Activate one thing inside of the script. Most likely tha attack or maybe a reference in the script that looks if doThing is false or true to get the chosen activity
             Debug.Log("Jippie");
             doThing = false;
         }
