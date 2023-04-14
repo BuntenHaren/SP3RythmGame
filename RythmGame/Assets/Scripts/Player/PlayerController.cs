@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -15,17 +11,25 @@ public class PlayerController : MonoBehaviour
     private float baseDashForce;
 
     private float currentDashForce;
-    private float currentDashCooldown;
+    private float currentDashCooldownAmount;
+    private bool dashReady = true;
     private float currentMovementSpeed;
     private Rigidbody rb;
-    private Vector2 moveDir;
     private Vector3 newMove;
+    private Vector2 moveDir;
+    private Timer dashTimer;
 
     private void Start()
     {
-        currentDashForce = baseDashForce;
-        currentMovementSpeed = baseMovementSpeed;
         rb = GetComponent<Rigidbody>();
+        
+        //Set some dash variables
+        dashTimer = new Timer();
+        dashTimer.TimerDone += () => dashReady = true;
+        currentDashForce = baseDashForce;
+        currentDashCooldownAmount = baseDashCooldown;
+        
+        currentMovementSpeed = baseMovementSpeed;
     }
 
     public void OnMove(InputValue value)
@@ -38,11 +42,14 @@ public class PlayerController : MonoBehaviour
         Dash();
     }
 
+    private void Update()
+    {
+        dashTimer.UpdateTimer(Time.fixedDeltaTime);
+    }
+    
     private void FixedUpdate()
     {
         Move();
-        if(currentDashCooldown > -10)
-            currentDashCooldown -= Time.fixedDeltaTime;
     }
 
     private void Move()
@@ -54,12 +61,13 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        if(currentDashCooldown <= 0)
-        {
-            rb.AddForce(newMove * currentDashForce, ForceMode.Impulse);
-            currentDashCooldown = baseDashCooldown;
-            Debug.Log("Dashed");
-        }
+        if(!dashReady)
+            return;
+        
+        dashReady = false;
+        rb.AddForce(newMove * currentDashForce, ForceMode.Impulse);
+        dashTimer.StartTimer(currentDashCooldownAmount);
+        Debug.Log("Dashed");
     }
-    
+
 }
