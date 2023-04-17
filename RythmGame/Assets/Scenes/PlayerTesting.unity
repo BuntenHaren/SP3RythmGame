@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 52a31094d2a6b5a4198a046e32a52ca1,
+  m_Actions: {fileID: -944628639613478452, guid: d4a0773b45b8b6842a03f78a4b78a2a4,
     type: 3}
   m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
@@ -384,7 +384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMovementSpeed: 10
   baseDashCooldown: 2
-  baseDashForce: 0
+  baseDashDistance: 5
+  baseDashDuration: 0.1
 --- !u!114 &441829096
 MonoBehaviour:
   m_ObjectHideFlags: 0
