@@ -493,6 +493,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3316062980249253142, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
+        type: 3}
+      propertyPath: musicEventPort
+      value: 
+      objectReference: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83,
+        type: 2}
     - target: {fileID: 4925542782663943086, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -894,6 +900,7 @@ MonoBehaviour:
   player: {fileID: 1670027492}
   moveSpeed: 0.1
   distanceToStop: 2.5
+  maxHealth: 0
   coneAttackObject: {fileID: 1688294046}
   coneAttackWindUp: 1
   coneAttackRecoverTime: 1
@@ -901,6 +908,7 @@ MonoBehaviour:
   circleAttackWindUp: 1
   circleAttackRecoverTime: 1
   attackCD: 2
+  attackRange: 6
 --- !u!54 &1973910679
 Rigidbody:
   m_ObjectHideFlags: 0

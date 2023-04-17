@@ -36,7 +36,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     void Start()
     {
-        eventPort.onBeat += ExecuteAttack;
+
     }
 
     void Update()

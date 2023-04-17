@@ -14,6 +14,8 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     private float moveSpeed;
     [SerializeField]
     private float distanceToStop;
+    private float distanceToPlayer;
+
 
     //Health
     private int health;
@@ -35,9 +37,11 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     private float circleAttackRecoverTime;
     [SerializeField]
     private float attackCD;
-    private float timeSinceAttack;
-    private bool inAttackRange = false;
+    [SerializeField]
+    private float attackRange;
+    private float timeSinceAttack = 0f;
     private bool attacking = false;
+
 
     void Start()
     {
@@ -46,19 +50,18 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
 
     void FixedUpdate()
     {
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
         timeSinceAttack += Time.deltaTime;
         Move();
     }
 
     private void Attack()
     {
-        Debug.Log("Attack");
         var randomNumber = Random.Range(0, 1);
-        if (inAttackRange && timeSinceAttack > attackCD)
+        if (distanceToPlayer < attackRange && timeSinceAttack > attackCD)
         {
             attacking = true;
             timeSinceAttack = 0f;
-
             if (randomNumber == 0)
             {
                 StartCoroutine(ConeAttack());
@@ -73,14 +76,6 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     private void Move()
     {
         //Fix navmesh pathfinding when obstacles are introduced
-        if(Vector3.Dot(player.position, transform.position) < 0)
-        {
-            Debug.Log("Left");
-        }
-        else
-        {
-            Debug.Log("Right");
-        }
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
