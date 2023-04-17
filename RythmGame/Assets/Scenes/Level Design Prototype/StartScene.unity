@@ -887,7 +887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8079dadaa5f96f24287d96591d670b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortAxis: {x: 0, y: 1, z: 0}
 --- !u!4 &526217012
 Transform:
   m_ObjectHideFlags: 0
@@ -1289,7 +1288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811222b9f558b364f8e1c6fc0336269b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1799338058}
 --- !u!114 &678661153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,7 +2144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb744fdd2fc1244190ce5bf81104464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
 --- !u!135 &1008470843
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3093,23 +3090,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1799338057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73e95f3307a9bb43aff80bfd3b3140e, type: 3}
+  m_Script: {fileID: 11500000, guid: c3c77fe44b8b5a5418c26fef41c3fe4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  moveSpeedDuringAttack: 1.5
+  moveSpeed: 2
+  moveSpeedDuringAttack: 2
   rb: {fileID: 1799338066}
   anim: {fileID: 1799338065}
   sr: {fileID: 1799338067}
   attackDuration: 0.75
   attackWindUp: 0.25
   attackObject: {fileID: 1008470840}
-  dashForce: 1.7
-  dashCD: 0.5
-  dashDuration: 0.17
+  dashForce: 0
+  dashCD: 0
+  dashDuration: 0
   constantForce: {fileID: 1799338064}
   isDashing: 0
-  playerProjectile: {fileID: 0}
+  playerProjectile: {fileID: 4236014642316180313, guid: a926f5036f4611547a55cb16519ae7b7,
+    type: 3}
   test: 0
 --- !u!136 &1799338063
 CapsuleCollider:
@@ -3879,8 +3877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f54bfab03e64e1489b2586ec3433b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: FirstRoom
-  spawnPoint: {x: 8, y: 0, z: 0}
 --- !u!65 &2124566430
 BoxCollider:
   m_ObjectHideFlags: 0
