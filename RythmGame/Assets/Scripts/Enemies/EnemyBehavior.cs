@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class EnemyBehavior : MonoBehaviour
+public class EnemyBehavior : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private MusicEventPort eventPort;
@@ -16,15 +15,24 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float distanceToStop;
 
+    //Health
+    private int health;
+    [SerializeField]
+    private int maxHealth;
+
     //Attack
     [SerializeField]
     private GameObject coneAttackObject;
     [SerializeField]
-    private float coneAttackDuration;
+    private float coneAttackWindUp;
+    [SerializeField]
+    private float coneAttackRecoverTime;
     [SerializeField]
     private GameObject circleAttackObject;
     [SerializeField]
-    private float circleAttackDuration;
+    private float circleAttackWindUp;
+    [SerializeField]
+    private float circleAttackRecoverTime;
     [SerializeField]
     private float attackCD;
     private float timeSinceAttack;
@@ -44,6 +52,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Attack()
     {
+        Debug.Log("Attack");
         var randomNumber = Random.Range(0, 1);
         if (inAttackRange && timeSinceAttack > attackCD)
         {
@@ -63,6 +72,15 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Move()
     {
+        //Fix navmesh pathfinding when obstacles are introduced
+        if(Vector3.Dot(player.position, transform.position) < 0)
+        {
+            Debug.Log("Left");
+        }
+        else
+        {
+            Debug.Log("Right");
+        }
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
@@ -71,14 +89,46 @@ public class EnemyBehavior : MonoBehaviour
 
     private IEnumerator ConeAttack()
     {
+        Debug.Log("ConeAttack");
         //Animator.SetBool("ConeAttack", true);
-        coneAttackObject.SetActive(true);
-        yield return new WaitForSeconds(coneAttackDuration);
+        coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
+        yield return new WaitForSeconds(coneAttackWindUp);
+        coneAttackObject.GetComponent<EnemyMeleeAttack>().ExecuteAttack();
+        yield return new WaitForSeconds(coneAttackRecoverTime);
+        //Animator.SetBool("ConeAttack", false);
+        attacking = false;
+
     }
     private IEnumerator CircleAttack()
     {
+        Debug.Log("CircleAttack");
         //Animator.SetBool("CircleAttack", true);
-        circleAttackObject.SetActive(true);
-        yield return new WaitForSeconds(circleAttackDuration);
+        circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
+        yield return new WaitForSeconds(circleAttackWindUp);
+        circleAttackObject.GetComponent<EnemyMeleeAttack>().ExecuteAttack();
+        yield return new WaitForSeconds(circleAttackRecoverTime);
+        //Animator.SetBool("CircleAttack", false);
+        attacking = false;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health = health - damage;
+
+        if (health <= 0)
+        {
+            Debug.Log("Dead");
+            //Die
+            //Animator.SetBool("IsDead", true)
+        }
+    }
+
+    public void HealDamage(int damage)
+    {
+        health = health + damage;
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 }
