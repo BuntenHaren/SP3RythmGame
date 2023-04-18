@@ -497,7 +497,7 @@ PrefabInstance:
         type: 3}
       propertyPath: musicEventPort
       value: 
-      objectReference: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83,
+      objectReference: {fileID: 11400000, guid: 49462a922aefd4844aba082f666d5bd6,
         type: 2}
     - target: {fileID: 4925542782663943086, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
@@ -786,16 +786,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
+  eventPort: {fileID: 11400000, guid: 49462a922aefd4844aba082f666d5bd6, type: 2}
+  enemyScript: {fileID: 1973910678}
   player: {fileID: 1670027492}
   rotationPivot: {fileID: 449114342}
   sr: {fileID: 1688294050}
   originalColor: {r: 1, g: 1, b: 1, a: 0}
   windUpColor: {r: 1, g: 1, b: 1, a: 0.5882353}
   executeColor: {r: 1, g: 1, b: 1, a: 1}
-  attackQueued: 0
-  playerHealth: {fileID: 0}
-  damageAmount: 0
+  playerHealth: {fileID: 1670027495}
+  damageAmount: 25
+  minimumAttackWindUp: 0.1
 --- !u!64 &1688294049
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -896,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ce6cde92c7d544692556fca465564e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
+  eventPort: {fileID: 11400000, guid: 49462a922aefd4844aba082f666d5bd6, type: 2}
   player: {fileID: 1670027492}
   moveSpeed: 0.1
   distanceToStop: 2.5
@@ -1120,16 +1121,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
+  eventPort: {fileID: 11400000, guid: 49462a922aefd4844aba082f666d5bd6, type: 2}
+  enemyScript: {fileID: 1973910678}
   player: {fileID: 1670027492}
   rotationPivot: {fileID: 0}
   sr: {fileID: 2001581594}
   originalColor: {r: 1, g: 1, b: 1, a: 0}
   windUpColor: {r: 1, g: 1, b: 1, a: 0.5882353}
   executeColor: {r: 1, g: 1, b: 1, a: 1}
-  attackQueued: 0
-  playerHealth: {fileID: 0}
-  damageAmount: 0
+  playerHealth: {fileID: 1670027495}
+  damageAmount: 25
+  minimumAttackWindUp: 0.1
 --- !u!135 &2001581596
 SphereCollider:
   m_ObjectHideFlags: 0

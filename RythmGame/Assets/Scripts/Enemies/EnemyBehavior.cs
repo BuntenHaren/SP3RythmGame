@@ -57,18 +57,17 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        var randomNumber = Random.Range(0, 1);
-        if (distanceToPlayer < attackRange && timeSinceAttack > attackCD)
+        var randomNumber = Random.Range(0, 2);
+        if (distanceToPlayer < attackRange && timeSinceAttack > attackCD && !attacking)
         {
             attacking = true;
-            timeSinceAttack = 0f;
-            if (randomNumber == 0)
+            if (randomNumber == 1)
             {
-                StartCoroutine(ConeAttack());
+                ConeAttack();
             }
             else
             {
-                StartCoroutine(CircleAttack());
+                CircleAttack();
             }
         }
     }
@@ -82,28 +81,16 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
         }
     }
 
-    private IEnumerator ConeAttack()
+    private void ConeAttack()
     {
-        Debug.Log("ConeAttack");
         //Animator.SetBool("ConeAttack", true);
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
-        yield return new WaitForSeconds(coneAttackWindUp);
-        coneAttackObject.GetComponent<EnemyMeleeAttack>().ExecuteAttack();
-        yield return new WaitForSeconds(coneAttackRecoverTime);
-        //Animator.SetBool("ConeAttack", false);
-        attacking = false;
 
     }
-    private IEnumerator CircleAttack()
+    private void CircleAttack()
     {
-        Debug.Log("CircleAttack");
         //Animator.SetBool("CircleAttack", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
-        yield return new WaitForSeconds(circleAttackWindUp);
-        circleAttackObject.GetComponent<EnemyMeleeAttack>().ExecuteAttack();
-        yield return new WaitForSeconds(circleAttackRecoverTime);
-        //Animator.SetBool("CircleAttack", false);
-        attacking = false;
     }
 
     public void TakeDamage(int damage)
@@ -125,5 +112,13 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
         {
             health = maxHealth;
         }
+    }
+
+    public void stopAttack()
+    {
+        attacking = false;
+        timeSinceAttack = 0f;
+        //Animator.SetBool("CircleAttack", false);
+        //Animator.SetBool("ConeAttack", false);
     }
 }

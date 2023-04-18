@@ -7,6 +7,8 @@ public class EnemyMeleeAttack : MonoBehaviour
 {
     [SerializeField]
     private MusicEventPort eventPort;
+    [SerializeField]
+    private EnemyBehavior enemyScript;
 
     //Rotation
     [SerializeField]
@@ -25,7 +27,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private Color executeColor;
 
     private bool playerInDamageArea = false;
-    public bool attackQueued = false;
 
     //Attack
     [SerializeField]
@@ -33,15 +34,19 @@ public class EnemyMeleeAttack : MonoBehaviour
     [SerializeField]
     private int damageAmount;
     private bool attacking = false;
+    [SerializeField]
+    private float minimumAttackWindUp;
+    private float attackTimer = 0f;
 
     void Start()
     {
-
+        eventPort.onBeat += Attack;
     }
 
     void Update()
     {
-        if(rotationPivot != null && !attacking)
+        attackTimer += Time.deltaTime;
+        if (rotationPivot != null && !attacking)
         {
             rotationPivot.rotation = Quaternion.LookRotation(rotationPivot.position - player.position);
         }
@@ -63,24 +68,26 @@ public class EnemyMeleeAttack : MonoBehaviour
         }
     }
 
-    public void ExecuteAttack()
+    public void Attack()
     {
-        sr.DOColor(executeColor, 0.1f).SetEase(Ease.OutElastic).OnComplete(FadeOutTelegraph);
-        if (attackQueued && playerInDamageArea)
+        if(attacking && attackTimer > minimumAttackWindUp)
         {
-            playerHealth.TakeDamage(damageAmount);
+            Debug.Log("executeAttackSucess");
+            sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
+            if (playerInDamageArea)
+            {
+                //playerHealth.TakeDamage(damageAmount);
+            }
+            attacking = false;
+            enemyScript.stopAttack();
         }
-        attacking = false;
     }
 
     public void StartTelegraph()
     {
+        Debug.Log("StartTelegraph");
+        attackTimer = 0f;
         attacking = true;
         sr.DOColor(windUpColor, 0.4f).SetEase(Ease.OutSine);
-    }
-
-    private void FadeOutTelegraph()
-    {
-        sr.DOColor(originalColor, 0.2f).SetEase(Ease.InOutSine);
     }
 }
