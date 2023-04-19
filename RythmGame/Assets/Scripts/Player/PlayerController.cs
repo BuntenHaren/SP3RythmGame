@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Variables")]
     [SerializeField]
     private float baseMovementSpeed = 10;
+    
     [Header("Dash Variables")]
     [SerializeField]
     private float baseDashCooldown = 2;
@@ -15,7 +16,11 @@ public class PlayerController : MonoBehaviour
     private float baseDashDistance = 5;
     [SerializeField] 
     private float baseDashDuration = 0.1f;
-
+    
+    [Header("Animation and VFX")]
+    [SerializeField]
+    private Animator playerAnimator;
+    
     //private dash variables
     private float currentDashDistance;
     private float currentDashDuration;
@@ -68,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        
         newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
         newMove.y = rb.velocity.y;
         rb.velocity = newMove;
