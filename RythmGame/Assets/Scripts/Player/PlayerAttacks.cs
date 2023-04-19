@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerAttacks : MonoBehaviour
 {
@@ -16,6 +19,8 @@ public class PlayerAttacks : MonoBehaviour
     private float baseAttackRate = 1;
     [SerializeField]
     private float baseAttackRadius = 1;
+    [SerializeField]
+    public EventReference PlayerAttack;
     
     //Current variables which is used for everything
     private int currentAttackDamage;
@@ -74,6 +79,9 @@ public class PlayerAttacks : MonoBehaviour
                 hit.TakeDamage(currentAttackDamage);
             }
         }
+
+        //Player attack audio
+        RuntimeManager.PlayOneShotAttached(PlayerAttack, gameObject);
     }
 
     private void FixedUpdate()
