@@ -403,6 +403,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicEventManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5785664661236629408, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7501388632917679275, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7, type: 3}
@@ -1040,6 +1045,13 @@ MonoBehaviour:
   baseAttackDamage: 1
   baseAttackRate: 1
   baseAttackRadius: 1
+  PlayerAttack:
+    Guid:
+      Data1: 1491594658
+      Data2: 1312788962
+      Data3: -429482597
+      Data4: -678446934
+    Path: event:/SFX/Player/Player_Attack_Melee
 --- !u!54 &1870834009
 Rigidbody:
   m_ObjectHideFlags: 0
