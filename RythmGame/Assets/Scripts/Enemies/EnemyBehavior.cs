@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour, IDamageable
+public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField]
     private MusicEventPort eventPort;
 
     //Movement
-    [SerializeField]
     private Transform player;
     [SerializeField]
     private float moveSpeed;
@@ -26,25 +25,18 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     [SerializeField]
     private GameObject coneAttackObject;
     [SerializeField]
-    private float coneAttackWindUp;
-    [SerializeField]
-    private float coneAttackRecoverTime;
-    [SerializeField]
     private GameObject circleAttackObject;
-    [SerializeField]
-    private float circleAttackWindUp;
-    [SerializeField]
-    private float circleAttackRecoverTime;
     [SerializeField]
     private float attackCD;
     [SerializeField]
     private float attackRange;
-    private float timeSinceAttack = 0f;
+    private float timeSinceAttack = 5f;
     private bool attacking = false;
 
 
     void Start()
     {
+        player = GameObject.Find("Player").transform;
         eventPort.onBeat += Attack;
     }
 
@@ -91,27 +83,6 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     {
         //Animator.SetBool("CircleAttack", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health = health - damage;
-
-        if (health <= 0)
-        {
-            Debug.Log("Dead");
-            //Die
-            //Animator.SetBool("IsDead", true)
-        }
-    }
-
-    public void HealDamage(int damage)
-    {
-        health = health + damage;
-        if(health > maxHealth)
-        {
-            health = maxHealth;
-        }
     }
 
     public void stopAttack()
