@@ -67,7 +67,6 @@ public class MusicEventManager : MonoBehaviour
         if(previousBeat > newBeatLimit)      
         {
             musicEventPort.onBeat.Invoke();
-            Debug.Log(previousBeat + "Now");
             newBeatLimit = previousBeat;
         }
         //If previousBeat is lower than newBeatLimit, This is incase of loops in FMOD

@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using FMOD;
-using FMODUnity;
-using FMOD.Studio;
+using UnityEngine.Serialization;
+using UnityEngine.VFX;
 
 public class PlayerAttacks : MonoBehaviour
 {
+    [SerializeField]
+    private MusicEventPort musicEventPort;
+    
     [Header("Base Attack Values")]
     [SerializeField]
     private float baseAttackDistance = 1;
@@ -20,21 +22,43 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField]
     private float baseAttackRadius = 1;
     [SerializeField]
-    public EventReference PlayerAttack;
+    private double timeForBeatWindow;
     
-    //Current variables which is used for everything
+    [Header("Animation and VFX")]
+    [SerializeField]
+    private Animator playerAnimator;
+    [SerializeField]
+    private VisualEffect attackVFX;
+
+    [Header("SFX")] 
+    [SerializeField]
+    private AudioClip normalAttackSFX;
+    [SerializeField]
+    private AudioClip onBeatAttackSFX;
+    
+    //Current variables which is used for attacks
     private int currentAttackDamage;
     private float currentAttackDistance;
     private float currentAttackRate;
     private float currentAttackRadius;
+    
+    //Other private variables
     private Timer attackCooldownTimer;
     private bool readyToAttack = true;
-
+    private double lastBeatTime;
+    private double timeBetweenBeats;
+    private AudioClip attackSFXtoPlay;
+    private AudioSource audio;
     private Vector3 finalPoint;
     private Camera cam;
     
     private void Start()
     {
+        musicEventPort.onBeat += OnBeat;
+
+        audio = GetComponent<AudioSource>();
+        cam = Camera.main;
+        
         currentAttackDamage = baseAttackDamage;
         currentAttackDistance = baseAttackDistance;
         currentAttackRate = baseAttackRate;
@@ -42,18 +66,30 @@ public class PlayerAttacks : MonoBehaviour
         
         attackCooldownTimer = new Timer();
         attackCooldownTimer.TimerDone += () => readyToAttack = true;
-        cam = Camera.main;
     }
 
     private void OnAttack()
     {
         if(!readyToAttack)
             return;
+
+        attackSFXtoPlay = normalAttackSFX;
         
+        if(CheckIfWithinBeatTimeframe())
+        {
+            ApplyOnBeatEffects();
+            Debug.Log("Attack was on beat!");
+        }
+        
+        //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
+        audio.PlayOneShot(attackSFXtoPlay);
+        attackVFX.Play();
         attackCooldownTimer.StartTimer(currentAttackRate);
         readyToAttack = false;
+        
         Vector2 mousePosOnScreen = Mouse.current.position.ReadValue();
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePosOnScreen.x, mousePosOnScreen.y, transform.position.y));
+        
         
         //Honestly I don't care enough to figure out exactly how the math on this works right now, but it works so I'm gonna use it
         //Using some math to calculate the point of intersection between the line going through the camera and the mouse position with the XZ-Plane
@@ -61,6 +97,7 @@ public class PlayerAttacks : MonoBehaviour
         finalPoint = new Vector3(t * (mousePos.x - cam.transform.position.x) + cam.transform.position.x, 1, t * (mousePos.z - cam.transform.position.z) + cam.transform.position.z);
         Collider[] potentialHits = Physics.OverlapSphere(transform.position + 
                                                          (finalPoint - transform.position).normalized * currentAttackDistance, currentAttackRadius);
+        
         
         //So we don't damage ourselves accidentally
         HashSet<IDamageable> selfDamageables = new HashSet<IDamageable>();
@@ -79,11 +116,24 @@ public class PlayerAttacks : MonoBehaviour
                 hit.TakeDamage(currentAttackDamage);
             }
         }
-
-        //Player attack audio
-        RuntimeManager.PlayOneShotAttached(PlayerAttack, gameObject);
     }
 
+    private void OnBeat()
+    {
+        timeBetweenBeats = Time.realtimeSinceStartupAsDouble - lastBeatTime;
+        lastBeatTime = Time.realtimeSinceStartupAsDouble;
+    }
+
+    private void ApplyOnBeatEffects()
+    {
+        attackSFXtoPlay = onBeatAttackSFX;
+    }
+
+    private bool CheckIfWithinBeatTimeframe()
+    {
+        return Time.realtimeSinceStartupAsDouble <= lastBeatTime + timeForBeatWindow * 0.5f || Time.realtimeSinceStartupAsDouble >= lastBeatTime + timeBetweenBeats - timeForBeatWindow * 0.5f;
+    }
+    
     private void FixedUpdate()
     {
         attackCooldownTimer.UpdateTimer(Time.fixedDeltaTime);
