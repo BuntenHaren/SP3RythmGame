@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private int maxHealth;
@@ -28,6 +28,15 @@ public class EnemyHealth : MonoBehaviour
         if(health <= 0)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    public void HealDamage(int damage)
+    {
+        health = health + damage;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
         }
     }
 

@@ -46,12 +46,9 @@ public class EnemyMeleeAttack : MonoBehaviour
     void Update()
     {
         attackTimer += Time.deltaTime;
-        if (rotationPivot != null && !attacking)
-        {
-            rotationPivot.rotation = Quaternion.LookRotation(rotationPivot.position - player.position);
-        }
     }
 
+    //Check if player is in damage area
     void OnTriggerEnter(Collider col)
     {
         if(col.CompareTag("Player"))
@@ -72,11 +69,10 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(attacking && attackTimer > minimumAttackWindUp)
         {
-            Debug.Log("executeAttackSucess");
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
             if (playerInDamageArea)
             {
-                //playerHealth.TakeDamage(damageAmount);
+                playerHealth.TakeDamage(damageAmount);
             }
             attacking = false;
             enemyScript.stopAttack();
@@ -85,7 +81,10 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     public void StartTelegraph()
     {
-        Debug.Log("StartTelegraph");
+        if(rotationPivot != null)
+        {
+            rotationPivot.rotation = Quaternion.LookRotation(rotationPivot.position - player.position);
+        }
         attackTimer = 0f;
         attacking = true;
         sr.DOColor(windUpColor, 0.4f).SetEase(Ease.OutSine);
