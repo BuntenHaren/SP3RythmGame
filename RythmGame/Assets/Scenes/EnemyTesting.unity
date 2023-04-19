@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
   moveSpeed: 0.1
-  moveAwayFromEnemySpeed: 0.08
+  moveAwayFromEnemySpeed: 0.2
   distanceToStop: 2.5
   closestEnemy: {fileID: 0}
   maxHealth: 100
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 331035515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 455410250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
@@ -686,8 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465370909}
   - component: {fileID: 465370911}
-  - component: {fileID: 465370910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySpacing
   m_TagString: ClosestEnemyDetector
   m_Icon: {fileID: 0}
@@ -709,18 +708,6 @@ Transform:
   m_Father: {fileID: 31333617}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &465370910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465370908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5af5087574e4684e8d0259acf6dd627, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &465370911
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -729,10 +716,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465370908}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.32368
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &509573931
 GameObject:
@@ -744,8 +731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509573932}
   - component: {fileID: 509573934}
-  - component: {fileID: 509573933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySpacing
   m_TagString: ClosestEnemyDetector
   m_Icon: {fileID: 0}
@@ -767,18 +753,6 @@ Transform:
   m_Father: {fileID: 598426834}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &509573933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509573931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5af5087574e4684e8d0259acf6dd627, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &509573934
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -787,10 +761,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509573931}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.32368
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &598426827
 GameObject:
@@ -843,7 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
   moveSpeed: 0.1
-  moveAwayFromEnemySpeed: 0.08
+  moveAwayFromEnemySpeed: 0.2
   distanceToStop: 2.5
   closestEnemy: {fileID: 0}
   maxHealth: 100
@@ -1029,7 +1003,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 755034319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
@@ -1327,8 +1301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1229860342}
   - component: {fileID: 1229860344}
-  - component: {fileID: 1229860343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySpacing
   m_TagString: ClosestEnemyDetector
   m_Icon: {fileID: 0}
@@ -1350,18 +1323,6 @@ Transform:
   m_Father: {fileID: 1973910683}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1229860343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229860341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5af5087574e4684e8d0259acf6dd627, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1229860344
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1370,10 +1331,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229860341}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.32368
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1326543566
 GameObject:
@@ -1456,7 +1417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326543566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
@@ -1689,7 +1650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
   moveSpeed: 0.1
-  moveAwayFromEnemySpeed: 0.08
+  moveAwayFromEnemySpeed: 0.2
   distanceToStop: 2.5
   closestEnemy: {fileID: 0}
   maxHealth: 100
@@ -2016,7 +1977,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1688294046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
@@ -2106,8 +2067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692897254}
   - component: {fileID: 1692897255}
-  - component: {fileID: 1692897256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemySpacing
   m_TagString: ClosestEnemyDetector
   m_Icon: {fileID: 0}
@@ -2137,23 +2097,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692897253}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.32368
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1692897256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692897253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5af5087574e4684e8d0259acf6dd627, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1702735219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1702735219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
@@ -2313,7 +2261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
   moveSpeed: 0.1
-  moveAwayFromEnemySpeed: 0.08
+  moveAwayFromEnemySpeed: 0.2
   distanceToStop: 2.5
   closestEnemy: {fileID: 0}
   maxHealth: 100
@@ -2530,7 +2478,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2001581592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
@@ -2638,7 +2586,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2129806484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a31310bef74ee4ab9ccb6501a66345, type: 3}
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}

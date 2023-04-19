@@ -70,13 +70,15 @@ public class EnemyBehavior : MonoBehaviour
     private void Move()
     {
         //Fix navmesh pathfinding when obstacles are introduced
+
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
         }
         if(closestEnemy != null && !attacking)
         {
-            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.position, -1 * moveAwayFromEnemySpeed);
+            var distance = Vector3.Distance(transform.position, closestEnemy.position);
+            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.position, -1 * (moveAwayFromEnemySpeed / distance));
         }
     }
 
