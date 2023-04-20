@@ -4,6 +4,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private Health healthObject;
+    [SerializeField]
+    private GameObject youDiedText;
 
     private bool Invurnerable = false;
     private Timer InvincibilityTimer;
@@ -25,6 +27,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if(!Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
+            if(healthObject.CurrentHealth <= 0)
+            {
+                youDiedText.SetActive(true);
+            }
         }
     }
 
