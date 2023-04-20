@@ -35,6 +35,9 @@ public class EnemyBehavior : MonoBehaviour
     private float timeSinceAttack = 5f;
     private bool attacking = false;
 
+    //Animation
+    [SerializeField]
+    private Animator anim;
 
     void Start()
     {
@@ -81,13 +84,13 @@ public class EnemyBehavior : MonoBehaviour
 
     private void ConeAttack()
     {
-        //Animator.SetBool("ConeAttack", true);
+        //anim.SetBool("ConeAttack", true);
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
 
     }
     private void CircleAttack()
     {
-        //Animator.SetBool("CircleAttack", true);
+        //anim.SetBool("CircleAttack", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
     }
 
