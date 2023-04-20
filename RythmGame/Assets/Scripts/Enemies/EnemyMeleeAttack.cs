@@ -36,6 +36,10 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float minimumAttackWindUp;
     private float attackTimer = 0f;
 
+    //Parent Animator
+    [SerializeField]
+    private Animator anim;
+
     void Start()
     {
         player = GameObject.Find("Player").transform;
@@ -69,6 +73,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(attacking && attackTimer > minimumAttackWindUp)
         {
+            anim.SetBool("Telegraphing", false);
+            anim.SetBool("ExecuteAttack", true);
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
             if (playerInDamageArea)
             {

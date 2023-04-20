@@ -85,10 +85,12 @@ public class EnemyBehavior : MonoBehaviour
             anim.SetBool("Moving", true);
             if(transform.position.x > player.position.x)
             {
+                Debug.Log("facingleft");
                 anim.SetBool("FacingLeft", true);
             }
             else
             {
+                Debug.Log("facingright");
                 anim.SetBool("FacingLeft", false);
             }
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
@@ -101,13 +103,11 @@ public class EnemyBehavior : MonoBehaviour
 
     private void ConeAttack()
     {
-        //anim.SetBool("ConeAttack", true);
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
 
     }
     private void CircleAttack()
     {
-        //anim.SetBool("Telegraph", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
     }
 
