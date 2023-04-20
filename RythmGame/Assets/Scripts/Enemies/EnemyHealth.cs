@@ -14,6 +14,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField]
     private float damageColorTime;
 
+    [SerializeField]
+    private Animator anim;
+
     void Awake()
     {
         health = maxHealth;
@@ -27,7 +30,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if(health <= 0)
         {
-            gameObject.SetActive(false);
+            anim.SetBool("Dead", true);
+            this.enabled = false;
         }
     }
 
