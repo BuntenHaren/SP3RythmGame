@@ -234,7 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f867f827a545f87439495480bc5e75ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatPort: {fileID: 11400000, guid: f7097fb78f5ad7f4d8e6a2bb85c863ea, type: 2}
 --- !u!1 &441829088
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +250,7 @@ GameObject:
   - component: {fileID: 441829097}
   - component: {fileID: 441829096}
   - component: {fileID: 441829095}
+  - component: {fileID: 441829098}
   - component: {fileID: 441829094}
   m_Layer: 0
   m_Name: Player
@@ -402,7 +402,7 @@ MonoBehaviour:
   baseDashCooldown: 2
   baseDashDistance: 5
   baseDashDuration: 0.1
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 441829098}
 --- !u!114 &441829096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,10 +434,30 @@ MonoBehaviour:
   baseAttackRate: 1
   baseAttackRadius: 1
   timeForBeatWindow: 0.15
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 441829098}
   attackVFX: {fileID: 1563699224}
   normalAttackSFX: {fileID: 0}
   onBeatAttackSFX: {fileID: 0}
+--- !u!95 &441829098
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441829088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9858a58427c9fd442991bce932eeae87, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &479037733
 GameObject:
   m_ObjectHideFlags: 0

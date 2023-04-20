@@ -39,8 +39,10 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if(!TryGetComponent<PlayerHealth>(out playerHealth))
-            playerHealth = null;
+        if(!TryGetComponent(out PlayerHealth h))
+            playerHealth = h;
+        if(!TryGetComponent(out Animator a))
+            playerAnimator = a;
             
         //Set some current variables
         dashTimer = new Timer();
@@ -73,6 +75,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        //Set animator values
+        if(moveDir != Vector2.zero)
+            playerAnimator.SetBool("IsMoving", true);
+        playerAnimator.SetFloat("Right", moveDir.x);
+        playerAnimator.SetFloat("Up", moveDir.y);
         
         newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
         newMove.y = rb.velocity.y;
@@ -83,7 +90,9 @@ public class PlayerController : MonoBehaviour
     {
         if(!dashReady)
             return;
-
+        
+        playerAnimator.SetBool("IsDashing", true);
+        
         Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * currentDashDistance;
         StartCoroutine(LerpPosition(targetPosition, currentDashDuration));
         playerHealth.MakeInvurnerableForTime(currentDashDuration);
@@ -102,5 +111,6 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         transform.position = targetPosition;
+        playerAnimator.SetBool("IsDashing", false);
     }
 }
