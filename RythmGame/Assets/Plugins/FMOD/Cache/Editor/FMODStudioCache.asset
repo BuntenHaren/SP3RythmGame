@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9091186593835298138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: 
+  Guid:
+    Data1: 1736013516
+    Data2: 1174857588
+    Data3: 1876497306
+    Data4: -1932669153
+  Banks:
+  - {fileID: 3869821697793530482}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32040
 --- !u!114 &-8775709278929862885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,8 +72,7 @@ MonoBehaviour:
     Data2: 1174857588
     Data3: 1876497306
     Data4: -1932669153
-  Banks:
-  - {fileID: 3869821697793530482}
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -96,7 +122,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638175180718059605
+  lastModified: 638175849221787140
   FileSizes:
   - Name: 
     Value: 1156
@@ -116,7 +142,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/testbank.bank
   Name: testbank
   StudioPath: bank:/testbank
-  lastModified: 638168989320253832
+  lastModified: 638169044664546641
   FileSizes: []
   Exists: 1
 --- !u!114 &-3112292271770137560
@@ -134,7 +160,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638175180718059605
+  lastModified: 638175849221777026
   FileSizes: []
   Exists: 1
 --- !u!114 &-1655626697533950460
@@ -188,12 +214,13 @@ MonoBehaviour:
   - {fileID: -1655626697533950460}
   - {fileID: 3299754660768636306}
   - {fileID: -8660219081010660916}
+  - {fileID: -9091186593835298138}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3112292271770137560}
   StringsBanks:
   - {fileID: -6047074081414393973}
-  cacheTime: 638175180718080361
+  cacheTime: 638175849221807095
   cacheVersion: 131603
 --- !u!114 &3299754660768636306
 MonoBehaviour:
@@ -237,7 +264,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638175141090112516
+  lastModified: 638173477607708046
   FileSizes: []
   Exists: 1
 --- !u!114 &7028799644998755265
@@ -255,6 +282,6 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638175180718080361
+  lastModified: 638175849221807095
   FileSizes: []
   Exists: 1
