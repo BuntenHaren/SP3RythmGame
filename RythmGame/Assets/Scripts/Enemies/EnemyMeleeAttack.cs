@@ -28,7 +28,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool playerInDamageArea = false;
 
     //Attack
-    private PHealth playerHealth;
+    private PlayerHealth playerHealth;
     [SerializeField]
     private int damageAmount;
     private bool attacking = false;
@@ -45,7 +45,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        playerHealth = GameObject.Find("Player").GetComponent<PHealth>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         eventPort.onBeat += Attack;
     }
 
