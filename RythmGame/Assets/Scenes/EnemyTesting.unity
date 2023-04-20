@@ -174,13 +174,13 @@ MonoBehaviour:
   moveSpeed: 0.1
   moveAwayFromEnemySpeed: 0.2
   distanceToStop: 2.5
-  engaged: 0
+  engaged: 1
   maxHealth: 100
   coneAttackObject: {fileID: 755034319}
   circleAttackObject: {fileID: 2129806484}
   attackCD: 0.5
   attackRange: 5
-  anim: {fileID: 0}
+  anim: {fileID: 329450385}
 --- !u!54 &31333613
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -510,13 +510,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
   enemyScript: {fileID: 31333612}
-  player: {fileID: 0}
   rotationPivot: {fileID: 1390623538}
   sr: {fileID: 755034320}
   originalColor: {r: 1, g: 1, b: 1, a: 0}
   windUpColor: {r: 1, g: 1, b: 1, a: 0.5882353}
   executeColor: {r: 1, g: 1, b: 1, a: 1}
-  playerHealth: {fileID: 0}
   damageAmount: 25
   minimumAttackWindUp: 0.1
 --- !u!64 &755034322
@@ -771,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 6053565837231093622, guid: df82b4914f35a4e4893b47e87197086f,
         type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6053565837231093625, guid: df82b4914f35a4e4893b47e87197086f,
         type: 3}
@@ -1519,13 +1517,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
   enemyScript: {fileID: 31333612}
-  player: {fileID: 0}
   rotationPivot: {fileID: 0}
   sr: {fileID: 2129806485}
   originalColor: {r: 1, g: 1, b: 1, a: 0}
   windUpColor: {r: 1, g: 1, b: 1, a: 0.5882353}
   executeColor: {r: 1, g: 1, b: 1, a: 1}
-  playerHealth: {fileID: 0}
   damageAmount: 25
   minimumAttackWindUp: 0.1
 --- !u!135 &2129806487

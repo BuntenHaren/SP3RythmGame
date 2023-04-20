@@ -11,7 +11,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private EnemyBehavior enemyScript;
 
     //Rotation
-    [SerializeField]
     private Transform player;
     [SerializeField]
     private Transform rotationPivot;
@@ -29,7 +28,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool playerInDamageArea = false;
 
     //Attack
-    [SerializeField]
     private PHealth playerHealth;
     [SerializeField]
     private int damageAmount;
@@ -40,6 +38,8 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Player").transform;
+        playerHealth = GameObject.Find("Player").GetComponent<PHealth>();
         eventPort.onBeat += Attack;
     }
 
