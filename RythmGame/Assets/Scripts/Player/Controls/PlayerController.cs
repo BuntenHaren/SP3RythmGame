@@ -80,10 +80,12 @@ public class PlayerController : MonoBehaviour
     {
         //Set animator values
         if(moveDir != Vector2.zero)
-            playerAnimator.SetBool("IsMoving", true);
-        playerAnimator.SetFloat("Right", moveDir.x);
-        playerAnimator.SetFloat("Up", moveDir.y);
-        
+            playerAnimator.SetBool("Run", true);
+        else
+        {
+            playerAnimator.SetBool("Run", false);
+        }
+
         //Move the character in the right direction
         newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
         newMove.y = rb.velocity.y;
@@ -96,7 +98,7 @@ public class PlayerController : MonoBehaviour
             return;
         
         //Set some stuff for dash functionality
-        playerAnimator.SetBool("IsDashing", true);
+        playerAnimator.SetBool("Dash", true);
         playerHealth.MakeInvurnerableForTime(currentDashDuration);
         dashTimer.StartTimer(currentDashCooldownAmount);
         dashReady = false;
@@ -121,6 +123,6 @@ public class PlayerController : MonoBehaviour
         
         //Finish up the dash movement
         transform.position = targetPosition;
-        playerAnimator.SetBool("IsDashing", false);
+        playerAnimator.SetBool("Dash", false);
     }
 }
