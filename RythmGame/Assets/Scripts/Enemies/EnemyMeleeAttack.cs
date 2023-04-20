@@ -35,6 +35,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     [SerializeField]
     private float minimumAttackWindUp;
     private float attackTimer = 0f;
+    [SerializeField]
+    private float attackHoldWaitTime;
 
     //Parent Animator
     [SerializeField]
@@ -73,8 +75,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(attacking && attackTimer > minimumAttackWindUp)
         {
-            anim.SetBool("Telegraphing", false);
             anim.SetBool("ExecuteAttack", true);
+            anim.SetBool("AttackHold", false);
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
             if (playerInDamageArea)
             {
@@ -94,5 +96,13 @@ public class EnemyMeleeAttack : MonoBehaviour
         attackTimer = 0f;
         attacking = true;
         sr.DOColor(windUpColor, 0.4f).SetEase(Ease.OutSine);
+        StartCoroutine(AttackHoldAnimation(attackHoldWaitTime));
+    }
+
+    private IEnumerator AttackHoldAnimation(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        anim.SetBool("Telegraphing", false);
+        anim.SetBool("AttackHold", true);
     }
 }
