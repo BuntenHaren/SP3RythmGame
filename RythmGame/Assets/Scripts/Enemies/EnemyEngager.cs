@@ -14,6 +14,10 @@ public class EnemyEngager : MonoBehaviour
             for (int i = 0; i < enemies.Length; i++)
             {
                 enemies[i].engaged = true;
+                if (!enemies[i].isActiveAndEnabled)
+                {
+                    enemies[i].gameObject.SetActive(true);
+                }
             }
         }
     }
