@@ -102,7 +102,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     private IEnumerator AttackHoldAnimation(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        anim.SetBool("Telegraphing", false);
+        anim.SetBool("SwipeAttack", false);
+        anim.SetBool("CircleAttack", false);
         anim.SetBool("AttackHold", true);
     }
 }
