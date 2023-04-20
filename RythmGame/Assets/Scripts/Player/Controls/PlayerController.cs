@@ -1,0 +1,126 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+
+public class PlayerController : MonoBehaviour
+{
+    [Header("Movement Variables")]
+    [SerializeField]
+    private float baseMovementSpeed = 10;
+    
+    [Header("Dash Variables")]
+    [SerializeField]
+    private float baseDashCooldown = 2;
+    [SerializeField]
+    private float baseDashDistance = 5;
+    [SerializeField] 
+    private float baseDashDuration = 0.1f;
+    
+    [Header("Animation and VFX")]
+    [SerializeField]
+    private Animator playerAnimator;
+    
+    //private dash variables
+    private float currentDashDistance;
+    private float currentDashDuration;
+    private float currentDashCooldownAmount;
+    private bool dashReady = true;
+    private Timer dashTimer;
+    
+    //private movement variables
+    private float currentMovementSpeed;
+    private Rigidbody rb;
+    private Vector3 newMove;
+    private Vector2 moveDir;
+
+    private PlayerHealth playerHealth;
+
+    private void Start()
+    {
+        //Fix component variables
+        rb = GetComponent<Rigidbody>();
+        if(!TryGetComponent(out PlayerHealth h))
+            playerHealth = h;
+        if(!TryGetComponent(out Animator a))
+            playerAnimator = a;
+        
+        //Get some new stuff ready
+        dashTimer = new Timer();
+        dashTimer.TimerDone += () => dashReady = true;
+        
+        //Set some current variables
+        currentDashDistance = baseDashDistance;
+        currentDashDuration = baseDashDuration;
+        currentDashCooldownAmount = baseDashCooldown;
+        currentMovementSpeed = baseMovementSpeed;
+    }
+
+    public void OnMove(InputValue value)
+    {
+        moveDir = value.Get<Vector2>();
+    }
+
+    public void OnDash()
+    {
+        Dash();
+    }
+
+    private void Update()
+    {
+        dashTimer.UpdateTimer(Time.fixedDeltaTime);
+    }
+    
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void Move()
+    {
+        //Set animator values
+        if(moveDir != Vector2.zero)
+            playerAnimator.SetBool("IsMoving", true);
+        playerAnimator.SetFloat("Right", moveDir.x);
+        playerAnimator.SetFloat("Up", moveDir.y);
+        
+        //Move the character in the right direction
+        newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
+        newMove.y = rb.velocity.y;
+        rb.velocity = newMove;
+    }
+
+    private void Dash()
+    {
+        if(!dashReady)
+            return;
+        
+        //Set some stuff for dash functionality
+        playerAnimator.SetBool("IsDashing", true);
+        playerHealth.MakeInvurnerableForTime(currentDashDuration);
+        dashTimer.StartTimer(currentDashCooldownAmount);
+        dashReady = false;
+        
+        //Actually make the player do the dash
+        Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * currentDashDistance;
+        StartCoroutine(LerpPosition(targetPosition, currentDashDuration));
+    }
+
+    private IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = transform.position;
+        
+        //Incremental movement towards the target position
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        
+        //Finish up the dash movement
+        transform.position = targetPosition;
+        playerAnimator.SetBool("IsDashing", false);
+    }
+}
