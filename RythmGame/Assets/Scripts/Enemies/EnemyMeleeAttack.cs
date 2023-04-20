@@ -30,7 +30,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     //Attack
     [SerializeField]
-    private PHealth playerHealth;
+    private PlayerHealth playerHealth;
     [SerializeField]
     private int damageAmount;
     private bool attacking = false;

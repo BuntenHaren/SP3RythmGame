@@ -34,12 +34,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 newMove;
     private Vector2 moveDir;
 
-    private PHealth playerHealth;
+    private PlayerHealth playerHealth;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if(!TryGetComponent<PHealth>(out playerHealth))
+        if(!TryGetComponent<PlayerHealth>(out playerHealth))
             playerHealth = null;
             
         //Set some current variables
