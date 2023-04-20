@@ -108,12 +108,14 @@ public class EnemyBehavior : MonoBehaviour
 
     private void ConeAttack()
     {
+        anim.SetBool("SwipeAttack", true);
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
         RuntimeManager.PlayOneShot(WarewolfSwipeAttack);
 
     }
     private void CircleAttack()
     {
+        anim.SetBool("CircleAttack", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
         RuntimeManager.PlayOneShot(WarewolfHowlAttack);
     }
@@ -122,7 +124,13 @@ public class EnemyBehavior : MonoBehaviour
     {
         attacking = false;
         timeSinceAttack = 0f;
+        StartCoroutine(StopAttackDelay(0.1f));
         //Animator.SetBool("CircleAttack", false);
         //Animator.SetBool("ConeAttack", false);
+    }
+    private IEnumerator StopAttackDelay(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        anim.SetBool("ExecuteAttack", false);
     }
 }

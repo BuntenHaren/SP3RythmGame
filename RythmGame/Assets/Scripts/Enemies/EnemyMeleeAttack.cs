@@ -11,7 +11,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private EnemyBehavior enemyScript;
 
     //Rotation
-    [SerializeField]
     private Transform player;
     [SerializeField]
     private Transform rotationPivot;
@@ -29,17 +28,24 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool playerInDamageArea = false;
 
     //Attack
-    [SerializeField]
-    private PlayerHealth playerHealth;
+    private PHealth playerHealth;
     [SerializeField]
     private int damageAmount;
     private bool attacking = false;
     [SerializeField]
     private float minimumAttackWindUp;
     private float attackTimer = 0f;
+    [SerializeField]
+    private float attackHoldWaitTime;
+
+    //Parent Animator
+    [SerializeField]
+    private Animator anim;
 
     void Start()
     {
+        player = GameObject.Find("Player").transform;
+        playerHealth = GameObject.Find("Player").GetComponent<PHealth>();
         eventPort.onBeat += Attack;
     }
 
@@ -69,6 +75,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(attacking && attackTimer > minimumAttackWindUp)
         {
+            anim.SetBool("ExecuteAttack", true);
+            anim.SetBool("AttackHold", false);
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
             if (playerInDamageArea)
             {
@@ -88,5 +96,14 @@ public class EnemyMeleeAttack : MonoBehaviour
         attackTimer = 0f;
         attacking = true;
         sr.DOColor(windUpColor, 0.4f).SetEase(Ease.OutSine);
+        StartCoroutine(AttackHoldAnimation(attackHoldWaitTime));
+    }
+
+    private IEnumerator AttackHoldAnimation(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        anim.SetBool("SwipeAttack", false);
+        anim.SetBool("CircleAttack", false);
+        anim.SetBool("AttackHold", true);
     }
 }
