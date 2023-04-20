@@ -17,6 +17,8 @@ public class EnemyBehavior : MonoBehaviour
     private float distanceToStop;
     private float distanceToPlayer;
     [HideInInspector]
+    public bool engaged;
+    [HideInInspector]
     public Transform closestEnemy;
 
     //Health
@@ -47,7 +49,10 @@ public class EnemyBehavior : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         timeSinceAttack += Time.deltaTime;
-        Move();
+        if(engaged)
+        {
+            Move();
+        }
     }
 
     private void Attack()
