@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.VFX;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerAttacks : MonoBehaviour
 {
@@ -30,11 +32,11 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField]
     private VisualEffect attackVFX;
 
-    [Header("SFX")] 
+    [Header("SFX")]
     [SerializeField]
-    private AudioClip normalAttackSFX;
+    public EventReference PlayerAttack;
     [SerializeField]
-    private AudioClip onBeatAttackSFX;
+    public EventReference onBeatPlayerAttack;
     
     //Current variables which is used for attacks
     private int currentAttackDamage;
@@ -73,7 +75,7 @@ public class PlayerAttacks : MonoBehaviour
         if(!readyToAttack)
             return;
 
-        attackSFXtoPlay = normalAttackSFX;
+        
         
         if(CheckIfWithinBeatTimeframe())
         {
@@ -82,7 +84,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
-        audio.PlayOneShot(attackSFXtoPlay);
+        RuntimeManager.PlayOneShot(PlayerAttack);
         attackVFX.Play();
         attackCooldownTimer.StartTimer(currentAttackRate);
         readyToAttack = false;
@@ -126,7 +128,7 @@ public class PlayerAttacks : MonoBehaviour
 
     private void ApplyOnBeatEffects()
     {
-        attackSFXtoPlay = onBeatAttackSFX;
+        RuntimeManager.PlayOneShot(onBeatPlayerAttack);
     }
 
     private bool CheckIfWithinBeatTimeframe()
