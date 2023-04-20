@@ -47,7 +47,7 @@ public class PlayerAttacks : MonoBehaviour
     
     //Other private variables
     private Timer attackCooldownTimer;
-    private bool readyToAttack = true;
+    private bool readyToAttack;
     private double lastBeatTime;
     private double timeBetweenBeats;
     private AudioClip attackSFXtoPlay;
@@ -69,6 +69,7 @@ public class PlayerAttacks : MonoBehaviour
         
         attackCooldownTimer = new Timer();
         attackCooldownTimer.TimerDone += AttackOffCooldown;
+        attackCooldownTimer.StartTimer(currentAttackRate);
     }
 
     private void OnAttack()
@@ -87,7 +88,6 @@ public class PlayerAttacks : MonoBehaviour
         
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
         RuntimeManager.PlayOneShot(actualAttackSFX);
-        attackVFX.Play();
         attackCooldownTimer.StartTimer(currentAttackRate);
         readyToAttack = false;
         
