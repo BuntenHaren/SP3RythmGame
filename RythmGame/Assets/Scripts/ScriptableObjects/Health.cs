@@ -4,7 +4,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "ScriptableObjects/Health")]
 public class Health : ScriptableObject
 {
-    public UnityAction<int> onChange = delegate {  };
+    public UnityAction<int> onChange = delegate {};
     
     public int MaxHealth;
     

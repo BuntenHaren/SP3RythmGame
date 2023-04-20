@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private Health healthObject;

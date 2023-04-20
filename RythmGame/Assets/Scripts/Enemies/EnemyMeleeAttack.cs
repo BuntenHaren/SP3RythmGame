@@ -11,6 +11,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     private EnemyBehavior enemyScript;
 
     //Rotation
+    [SerializeField]
     private Transform player;
     [SerializeField]
     private Transform rotationPivot;
@@ -28,7 +29,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool playerInDamageArea = false;
 
     //Attack
-    private PHealth playerHealth;
+    [SerializeField]
+    private PlayerHealth playerHealth;
     [SerializeField]
     private int damageAmount;
     private bool attacking = false;
@@ -36,14 +38,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float minimumAttackWindUp;
     private float attackTimer = 0f;
 
-    //Parent Animator
-    [SerializeField]
-    private Animator anim;
-
     void Start()
     {
-        player = GameObject.Find("Player").transform;
-        playerHealth = GameObject.Find("Player").GetComponent<PHealth>();
         eventPort.onBeat += Attack;
     }
 
@@ -73,8 +69,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(attacking && attackTimer > minimumAttackWindUp)
         {
-            anim.SetBool("Telegraphing", false);
-            anim.SetBool("ExecuteAttack", true);
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
             if (playerInDamageArea)
             {
