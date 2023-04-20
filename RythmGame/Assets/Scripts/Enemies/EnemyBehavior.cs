@@ -16,10 +16,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float distanceToStop;
     private float distanceToPlayer;
-    [HideInInspector]
     public bool engaged;
-    [HideInInspector]
-    public Transform closestEnemy;
 
     //Health
     private int health;
@@ -79,11 +76,6 @@ public class EnemyBehavior : MonoBehaviour
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
-        }
-        if(closestEnemy != null && !attacking)
-        {
-            var distance = Vector3.Distance(transform.position, closestEnemy.position);
-            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.position, -1 * (moveAwayFromEnemySpeed / distance));
         }
     }
 
