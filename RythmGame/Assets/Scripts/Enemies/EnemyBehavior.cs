@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -16,8 +18,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float distanceToStop;
     private float distanceToPlayer;
-    [HideInInspector]
-    public Transform closestEnemy;
+    public bool engaged;
+    private Rigidbody rb;
 
     //Health
     private int health;
@@ -36,9 +38,18 @@ public class EnemyBehavior : MonoBehaviour
     private float timeSinceAttack = 5f;
     private bool attacking = false;
 
+    //Animation
+    [SerializeField]
+    private Animator anim;
+
+    //Sound
+    [SerializeField]
+    public EventReference WarewolfSwipeAttack;
+    public EventReference WarewolfHowlAttack;
 
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
         eventPort.onBeat += Attack;
     }
@@ -47,15 +58,20 @@ public class EnemyBehavior : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         timeSinceAttack += Time.deltaTime;
-        Move();
+        if(engaged)
+        {
+            Move();
+        }
     }
 
     private void Attack()
     {
-        var randomNumber = Random.Range(0, 2);
         if (distanceToPlayer < attackRange && timeSinceAttack > attackCD && !attacking)
         {
+            anim.SetBool("Telegraphing", true);
+            anim.SetBool("Moving", false);
             attacking = true;
+            var randomNumber = Random.Range(0, 2);
             if (randomNumber == 1)
             {
                 ConeAttack();
@@ -70,28 +86,36 @@ public class EnemyBehavior : MonoBehaviour
     private void Move()
     {
         //Fix navmesh pathfinding when obstacles are introduced
+        if (transform.position.x > player.position.x)
+        {
+            anim.SetBool("FacingLeft", true);
+        }
+        else
+        {
+            anim.SetBool("FacingLeft", false);
+        }
 
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
+            anim.SetBool("Moving", true);
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
         }
-        if(closestEnemy != null && !attacking)
+        else
         {
-            var distance = Vector3.Distance(transform.position, closestEnemy.position);
-            transform.position = Vector3.MoveTowards(transform.position, closestEnemy.position, -1 * (moveAwayFromEnemySpeed / distance));
+            anim.SetBool("Moving", false);
         }
     }
 
     private void ConeAttack()
     {
-        //Animator.SetBool("ConeAttack", true);
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
+        RuntimeManager.PlayOneShot(WarewolfSwipeAttack);
 
     }
     private void CircleAttack()
     {
-        //Animator.SetBool("CircleAttack", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
+        RuntimeManager.PlayOneShot(WarewolfHowlAttack);
     }
 
     public void stopAttack()
