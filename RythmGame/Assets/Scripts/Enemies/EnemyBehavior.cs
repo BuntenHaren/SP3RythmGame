@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -39,6 +41,11 @@ public class EnemyBehavior : MonoBehaviour
     //Animation
     [SerializeField]
     private Animator anim;
+
+    //Sound
+    [SerializeField]
+    public EventReference WarewolfSwipeAttack;
+    public EventReference WarewolfHowlAttack;
 
     void Start()
     {
@@ -102,11 +109,13 @@ public class EnemyBehavior : MonoBehaviour
     private void ConeAttack()
     {
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
+        RuntimeManager.PlayOneShot(WarewolfSwipeAttack);
 
     }
     private void CircleAttack()
     {
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
+        RuntimeManager.PlayOneShot(WarewolfHowlAttack);
     }
 
     public void stopAttack()
