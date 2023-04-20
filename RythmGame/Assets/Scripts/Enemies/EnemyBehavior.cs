@@ -79,20 +79,18 @@ public class EnemyBehavior : MonoBehaviour
     private void Move()
     {
         //Fix navmesh pathfinding when obstacles are introduced
-        
+        if (transform.position.x > player.position.x)
+        {
+            anim.SetBool("FacingLeft", true);
+        }
+        else
+        {
+            anim.SetBool("FacingLeft", false);
+        }
+
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
             anim.SetBool("Moving", true);
-            if(transform.position.x > player.position.x)
-            {
-                Debug.Log("facingleft");
-                anim.SetBool("FacingLeft", true);
-            }
-            else
-            {
-                Debug.Log("facingright");
-                anim.SetBool("FacingLeft", false);
-            }
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
         }
         else
