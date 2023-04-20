@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156534836426496360}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.95000005, z: 0}
-  m_LocalScale: {x: 11.029332, y: 11.658297, z: 2.2463005}
+  m_LocalPosition: {x: 0, y: -0.00000035062, z: 0}
+  m_LocalScale: {x: 32.10366, y: 33.93442, z: 6.5384254}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156534836675248397}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
+  eventPort: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f, type: 2}
   enemyScript: {fileID: 156534836675248400}
   rotationPivot: {fileID: 0}
   sr: {fileID: 156534836426496361}
@@ -349,8 +349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156534837293774131}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.3599999, z: -2.85}
-  m_LocalScale: {x: 4.91, y: 5.1899996, z: 1}
+  m_LocalPosition: {x: -8.94, y: 0.19, z: 0.02}
+  m_LocalScale: {x: 15.591732, y: 16.480875, z: 3.1755059}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156534835823617742}
@@ -382,13 +382,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPort: {fileID: 11400000, guid: 3617bcf2402f4784c99673c558fcdd83, type: 2}
+  eventPort: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f, type: 2}
   enemyScript: {fileID: 156534836675248400}
   rotationPivot: {fileID: 156534835823617742}
   sr: {fileID: 156534837293774124}
-  originalColor: {r: 1, g: 1, b: 1, a: 0}
-  windUpColor: {r: 1, g: 1, b: 1, a: 0.5882353}
-  executeColor: {r: 1, g: 1, b: 1, a: 1}
+  originalColor: {r: 1, g: 0, b: 0, a: 0}
+  windUpColor: {r: 1, g: 0, b: 0, a: 0.5882353}
+  executeColor: {r: 1, g: 0, b: 0, a: 1}
   damageAmount: 25
   minimumAttackWindUp: 0.1
   attackHoldWaitTime: 0.2
@@ -435,7 +435,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
