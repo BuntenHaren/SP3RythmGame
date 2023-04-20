@@ -68,7 +68,7 @@ public class PlayerAttacks : MonoBehaviour
         currentAttackRadius = baseAttackRadius;
         
         attackCooldownTimer = new Timer();
-        attackCooldownTimer.TimerDone += () => readyToAttack = true;
+        attackCooldownTimer.TimerDone += AttackOffCooldown;
     }
 
     private void OnAttack()
@@ -77,6 +77,7 @@ public class PlayerAttacks : MonoBehaviour
             return;
 
         actualAttackSFX = PlayerAttack;
+        playerAnimator.SetBool("Attack", true);
         
         if(CheckIfWithinBeatTimeframe())
         {
@@ -132,6 +133,12 @@ public class PlayerAttacks : MonoBehaviour
         actualAttackSFX = onBeatPlayerAttack;
     }
 
+    private void AttackOffCooldown()
+    {
+        playerAnimator.SetBool("Attack", false);
+        readyToAttack = true;
+    }
+
     private bool CheckIfWithinBeatTimeframe()
     {
         return Time.realtimeSinceStartupAsDouble <= lastBeatTime + timeForBeatWindow * 0.5f || Time.realtimeSinceStartupAsDouble >= lastBeatTime + timeBetweenBeats - timeForBeatWindow * 0.5f;
@@ -141,5 +148,10 @@ public class PlayerAttacks : MonoBehaviour
     {
         attackCooldownTimer.UpdateTimer(Time.fixedDeltaTime);
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawSphere(transform.position + (finalPoint - transform.position).normalized * currentAttackDistance, currentAttackRadius);
+    }
 }
