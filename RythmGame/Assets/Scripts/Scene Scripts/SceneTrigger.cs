@@ -12,7 +12,7 @@ public class SceneTrigger : MonoBehaviour
 
     void Awake()
     {
-        sceneChanger = GameObject.Find("SceneManager").GetComponent<SceneChanger>();
+        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
     }
 
     void OnTriggerEnter(Collider col)
