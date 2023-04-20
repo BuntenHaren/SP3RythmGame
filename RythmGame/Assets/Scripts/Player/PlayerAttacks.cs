@@ -43,6 +43,7 @@ public class PlayerAttacks : MonoBehaviour
     private float currentAttackDistance;
     private float currentAttackRate;
     private float currentAttackRadius;
+    private EventReference actualAttackSFX;
     
     //Other private variables
     private Timer attackCooldownTimer;
@@ -75,7 +76,7 @@ public class PlayerAttacks : MonoBehaviour
         if(!readyToAttack)
             return;
 
-        
+        actualAttackSFX = PlayerAttack;
         
         if(CheckIfWithinBeatTimeframe())
         {
@@ -84,7 +85,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
-        RuntimeManager.PlayOneShot(PlayerAttack);
+        RuntimeManager.PlayOneShot(actualAttackSFX);
         attackVFX.Play();
         attackCooldownTimer.StartTimer(currentAttackRate);
         readyToAttack = false;
@@ -128,7 +129,7 @@ public class PlayerAttacks : MonoBehaviour
 
     private void ApplyOnBeatEffects()
     {
-        RuntimeManager.PlayOneShot(onBeatPlayerAttack);
+        actualAttackSFX = onBeatPlayerAttack;
     }
 
     private bool CheckIfWithinBeatTimeframe()
