@@ -236,7 +236,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &224947392
 PrefabInstance:
@@ -305,6 +305,67 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: engaged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: eventPort
+      value: 
+      objectReference: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f,
+        type: 2}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfHowlAttack.Path
+      value: event:/SFX/Enemy/Warewolf_Attack_Howl
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfSwipeAttack.Path
+      value: event:/SFX/Enemy/Warewolf_Attack_Swipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfHowlAttack.Guid.Data1
+      value: -618265613
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfHowlAttack.Guid.Data2
+      value: 1241819269
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfHowlAttack.Guid.Data3
+      value: -425628271
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfHowlAttack.Guid.Data4
+      value: -429900980
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfSwipeAttack.Guid.Data1
+      value: -795492207
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfSwipeAttack.Guid.Data2
+      value: 1255148732
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfSwipeAttack.Guid.Data3
+      value: 600845984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317417877265015036, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: WarewolfSwipeAttack.Guid.Data4
+      value: 560937281
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a1ab12149490943899d9f41c1691c7, type: 3}
 --- !u!1001 &334791664
@@ -314,6 +375,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6053565837231093618, guid: df82b4914f35a4e4893b47e87197086f,
+        type: 3}
+      propertyPath: musicEventPort
+      value: 
+      objectReference: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f,
+        type: 2}
     - target: {fileID: 6053565837231093622, guid: df82b4914f35a4e4893b47e87197086f,
         type: 3}
       propertyPath: m_Name
@@ -472,7 +539,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &813526294
 PrefabInstance:
@@ -486,6 +553,12 @@ PrefabInstance:
       propertyPath: EventName.Path
       value: event:/Music/Filip/Rum1
       objectReference: {fileID: 0}
+    - target: {fileID: 3316062980249253142, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
+        type: 3}
+      propertyPath: musicEventPort
+      value: 
+      objectReference: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f,
+        type: 2}
     - target: {fileID: 3316062980249253142, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
       propertyPath: EventName.Guid.Data1
@@ -509,7 +582,7 @@ PrefabInstance:
     - target: {fileID: 4925542782663943086, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4925542782663943086, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
@@ -698,11 +771,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117686511}
-  m_LocalRotation: {x: 0.57299304, y: -0, z: -0, w: 0.8195602}
-  m_LocalPosition: {x: 0, y: 13.78, z: -0.29}
+  m_LocalRotation: {x: 0.33263627, y: -0, z: -0, w: 0.94305515}
+  m_LocalPosition: {x: 1.3, y: 6.88, z: -8.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 69.918, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 38.858, y: 0, z: 0}
