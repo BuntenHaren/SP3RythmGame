@@ -38,15 +38,18 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //Fix component variables
         rb = GetComponent<Rigidbody>();
         if(!TryGetComponent(out PlayerHealth h))
             playerHealth = h;
         if(!TryGetComponent(out Animator a))
             playerAnimator = a;
-            
-        //Set some current variables
+        
+        //Get some new stuff ready
         dashTimer = new Timer();
         dashTimer.TimerDone += () => dashReady = true;
+        
+        //Set some current variables
         currentDashDistance = baseDashDistance;
         currentDashDuration = baseDashDuration;
         currentDashCooldownAmount = baseDashCooldown;
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetFloat("Right", moveDir.x);
         playerAnimator.SetFloat("Up", moveDir.y);
         
+        //Move the character in the right direction
         newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
         newMove.y = rb.velocity.y;
         rb.velocity = newMove;
@@ -91,25 +95,31 @@ public class PlayerController : MonoBehaviour
         if(!dashReady)
             return;
         
+        //Set some stuff for dash functionality
         playerAnimator.SetBool("IsDashing", true);
-        
-        Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * currentDashDistance;
-        StartCoroutine(LerpPosition(targetPosition, currentDashDuration));
         playerHealth.MakeInvurnerableForTime(currentDashDuration);
         dashTimer.StartTimer(currentDashCooldownAmount);
         dashReady = false;
+        
+        //Actually make the player do the dash
+        Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * currentDashDistance;
+        StartCoroutine(LerpPosition(targetPosition, currentDashDuration));
     }
 
     private IEnumerator LerpPosition(Vector3 targetPosition, float duration)
     {
         float time = 0;
         Vector3 startPosition = transform.position;
+        
+        //Incremental movement towards the target position
         while (time < duration)
         {
             transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
             time += Time.deltaTime;
             yield return null;
         }
+        
+        //Finish up the dash movement
         transform.position = targetPosition;
         playerAnimator.SetBool("IsDashing", false);
     }

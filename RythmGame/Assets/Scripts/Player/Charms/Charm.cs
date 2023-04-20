@@ -6,6 +6,8 @@ public abstract class Charm : ScriptableObject
 {
     [SerializeField]
     protected Health playerHealth;
+    [SerializeField]
+    protected JuiceCounter juiceCounter;
     
     public void Start()
     {
