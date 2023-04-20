@@ -40,9 +40,9 @@ public class PlayerController : MonoBehaviour
     {
         //Fix component variables
         rb = GetComponent<Rigidbody>();
-        if(!TryGetComponent(out PlayerHealth h))
+        if(TryGetComponent(out PlayerHealth h))
             playerHealth = h;
-        if(!TryGetComponent(out Animator a))
+        if(TryGetComponent(out Animator a))
             playerAnimator = a;
         
         //Get some new stuff ready
@@ -108,10 +108,25 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(LerpPosition(targetPosition, currentDashDuration));
     }
 
+    private RaycastHit CheckForObstruction(Vector3 origin, Vector3 direction, float range)
+    {
+        RaycastHit hit = new RaycastHit();
+        LayerMask mask = LayerMask.GetMask("Player");
+        mask = ~mask;
+        Physics.Raycast(origin, direction, out hit, range, mask);
+        return hit;
+    }
+
     private IEnumerator LerpPosition(Vector3 targetPosition, float duration)
     {
         float time = 0;
         Vector3 startPosition = transform.position;
+        Vector3 dashDirection = targetPosition - startPosition;
+        
+        //Check for obstruction and make it so you can't dash through walls
+        RaycastHit potentialObstruction = CheckForObstruction(startPosition, dashDirection, dashDirection.magnitude);
+        if(potentialObstruction.collider != null)
+            targetPosition = startPosition + dashDirection.normalized * potentialObstruction.distance;
         
         //Incremental movement towards the target position
         while (time < duration)
