@@ -11,8 +11,11 @@ using FMOD.Studio;
 
 public class PlayerAttacks : MonoBehaviour
 {
+    [Header("Event Ports and Counters")]
     [SerializeField]
     private MusicEventPort musicEventPort;
+    [SerializeField]
+    private JuiceCounter juiceCounter;
     
     [Header("Base Attack Values")]
     [SerializeField]
@@ -79,6 +82,8 @@ public class PlayerAttacks : MonoBehaviour
 
         actualAttackSFX = PlayerAttack;
         playerAnimator.SetBool("Attack", true);
+        juiceCounter.CurrentJuice++;
+        Debug.Log(juiceCounter.CurrentJuice);
         
         if(CheckIfWithinBeatTimeframe())
         {
