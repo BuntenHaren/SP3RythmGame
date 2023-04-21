@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f613c051ac315814fbde75c76504cf3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthObject: {fileID: 11400000, guid: 15a8376ef690c6444a90110deeb88b10, type: 2}
+  healthObject: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5, type: 2}
 --- !u!114 &3851929254961021300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5452084a1454e694db968d00203b8127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
+  musicEventPort: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f, type: 2}
   baseAttackDistance: 1
   baseAttackDamage: 1
   baseAttackRate: 1
@@ -809,18 +809,18 @@ MonoBehaviour:
   attackVFX: {fileID: 0}
   PlayerAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1491594658
+      Data2: 1312788962
+      Data3: -429482597
+      Data4: -678446934
+    Path: event:/SFX/Player/Player_Attack_Melee
   onBeatPlayerAttack:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -344386568
+      Data2: 1130062781
+      Data3: -998684515
+      Data4: 1530519288
+    Path: event:/SFX/Player/Player_Attack_Melee_Crit
 --- !u!65 &6144045589139959495
 BoxCollider:
   m_ObjectHideFlags: 0

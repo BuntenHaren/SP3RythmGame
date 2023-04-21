@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     [SerializeField]
     private Color damageColor;
+    [SerializeField]
     private SpriteRenderer sr;
     [SerializeField]
     private float damageColorTime;
@@ -20,18 +21,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     void Awake()
     {
         health = maxHealth;
-        sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamage(int damage)
     {
         health = health - damage;
-        StartCoroutine(ChangeColor());
+        //StartCoroutine(ChangeColor());
 
         if(health <= 0)
         {
             anim.SetBool("Dead", true);
-            this.enabled = false;
+            gameObject.SetActive(false);
         }
     }
 
