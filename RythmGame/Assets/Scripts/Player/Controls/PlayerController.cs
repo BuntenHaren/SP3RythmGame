@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit = new RaycastHit();
         LayerMask mask = LayerMask.GetMask("Player");
+        mask += LayerMask.GetMask("Ignore Raycast");
+        mask += LayerMask.GetMask("EnemySpacing");
         mask = ~mask;
         Physics.Raycast(origin, direction, out hit, range, mask);
         return hit;

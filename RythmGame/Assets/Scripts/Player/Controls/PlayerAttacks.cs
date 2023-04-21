@@ -1,13 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.VFX;
-using FMODUnity;
-using FMOD.Studio;
 
 public class PlayerAttacks : MonoBehaviour
 {
@@ -16,18 +11,8 @@ public class PlayerAttacks : MonoBehaviour
     private MusicEventPort musicEventPort;
     [SerializeField]
     private JuiceCounter juiceCounter;
-    
-    [Header("Base Attack Values")]
     [SerializeField]
-    private float baseAttackDistance = 1;
-    [SerializeField]
-    private int baseAttackDamage = 1;
-    [SerializeField]
-    private float baseAttackRate = 1;
-    [SerializeField]
-    private float baseAttackRadius = 1;
-    [SerializeField]
-    private double timeForBeatWindow;
+    private PlayerStats playerStats;
     
     [Header("Animation and VFX")]
     [SerializeField]
@@ -37,42 +22,26 @@ public class PlayerAttacks : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField]
-    public EventReference PlayerAttack;
+    private EventReference PlayerAttack;
     [SerializeField]
-    public EventReference onBeatPlayerAttack;
-    
-    //Current variables which is used for attacks
-    private int currentAttackDamage;
-    private float currentAttackDistance;
-    private float currentAttackRate;
-    private float currentAttackRadius;
-    private EventReference actualAttackSFX;
+    private EventReference onBeatPlayerAttack;
     
     //Other private variables
     private Timer attackCooldownTimer;
     private bool readyToAttack;
     private double lastBeatTime;
     private double timeBetweenBeats;
-    private AudioClip attackSFXtoPlay;
-    private AudioSource audio;
+    private EventReference actualAttackSFX;
     private Vector3 finalPoint;
     private Camera cam;
     
     private void Start()
     {
         musicEventPort.onBeat += OnBeat;
-
-        audio = GetComponent<AudioSource>();
         cam = Camera.main;
-        
-        currentAttackDamage = baseAttackDamage;
-        currentAttackDistance = baseAttackDistance;
-        currentAttackRate = baseAttackRate;
-        currentAttackRadius = baseAttackRadius;
-        
+
         attackCooldownTimer = new Timer();
         attackCooldownTimer.TimerDone += AttackOffCooldown;
-        attackCooldownTimer.StartTimer(currentAttackRate);
     }
 
     private void OnAttack()
@@ -82,6 +51,8 @@ public class PlayerAttacks : MonoBehaviour
 
         actualAttackSFX = PlayerAttack;
         playerAnimator.SetBool("Attack", true);
+        
+        //This is temporary testing
         juiceCounter.CurrentJuice++;
         Debug.Log(juiceCounter.CurrentJuice);
         
@@ -93,7 +64,7 @@ public class PlayerAttacks : MonoBehaviour
         
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
         RuntimeManager.PlayOneShot(actualAttackSFX);
-        attackCooldownTimer.StartTimer(currentAttackRate);
+        attackCooldownTimer.StartTimer(playerStats.CurrentAttackRate * playerStats.AttackRateMultiplier);
         readyToAttack = false;
         
         Vector2 mousePosOnScreen = Mouse.current.position.ReadValue();
@@ -105,7 +76,7 @@ public class PlayerAttacks : MonoBehaviour
         float t = cam.transform.position.y / (cam.transform.position.y - mousePos.y);
         finalPoint = new Vector3(t * (mousePos.x - cam.transform.position.x) + cam.transform.position.x, 1, t * (mousePos.z - cam.transform.position.z) + cam.transform.position.z);
         Collider[] potentialHits = Physics.OverlapSphere(transform.position + 
-                                                         (finalPoint - transform.position).normalized * currentAttackDistance, currentAttackRadius);
+                                                         (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.AttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.AttackRadiusMultiplier);
         
         
         //So we don't damage ourselves accidentally
@@ -122,7 +93,7 @@ public class PlayerAttacks : MonoBehaviour
             {
                 if(selfDamageables.Contains(hit))
                     continue;
-                hit.TakeDamage(currentAttackDamage);
+                hit.TakeDamage(playerStats.CurrentAttackDamage * playerStats.AttackDamageMultiplier);
             }
         }
     }
@@ -146,7 +117,7 @@ public class PlayerAttacks : MonoBehaviour
 
     private bool CheckIfWithinBeatTimeframe()
     {
-        return Time.realtimeSinceStartupAsDouble <= lastBeatTime + timeForBeatWindow * 0.5f || Time.realtimeSinceStartupAsDouble >= lastBeatTime + timeBetweenBeats - timeForBeatWindow * 0.5f;
+        return Time.realtimeSinceStartupAsDouble <= lastBeatTime + playerStats.CurrentTimeForBeatWindow * 0.5f || Time.realtimeSinceStartupAsDouble >= lastBeatTime + timeBetweenBeats - playerStats.CurrentTimeForBeatWindow * 0.5f;
     }
     
     private void FixedUpdate()
@@ -157,6 +128,6 @@ public class PlayerAttacks : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(transform.position + (finalPoint - transform.position).normalized * currentAttackDistance, currentAttackRadius);
+        Gizmos.DrawSphere(transform.position + (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.AttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.AttackRadiusMultiplier);
     }
 }

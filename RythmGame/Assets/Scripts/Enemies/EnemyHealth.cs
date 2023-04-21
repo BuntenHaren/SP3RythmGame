@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
-    private int maxHealth;
-    private int health;
+    private float maxHealth;
+    private float health;
 
     [SerializeField]
     private Color damageColor;
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         health = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health = health - damage;
         //StartCoroutine(ChangeColor());
@@ -35,7 +35,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
     }
 
-    public void HealDamage(int damage)
+    public void HealDamage(float damage)
     {
         health = health + damage;
         if (health > maxHealth)
