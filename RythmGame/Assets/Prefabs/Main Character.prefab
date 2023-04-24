@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f613c051ac315814fbde75c76504cf3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthObject: {fileID: 11400000, guid: d205a3cb748e0a54fbb3659fa44e66f7, type: 2}
+  healthObject: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5, type: 2}
   youDiedText: {fileID: 0}
 --- !u!114 &3851929254961021300
 MonoBehaviour:
@@ -800,9 +800,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5452084a1454e694db968d00203b8127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
-  juiceCounter: {fileID: 11400000, guid: fa84ed04b96afbb41863e33abda536d5, type: 2}
-  playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
+  musicEventPort: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f, type: 2}
+  baseAttackDistance: 1
+  baseAttackDamage: 25
+  baseAttackRate: 1
+  baseAttackRadius: 2
+  timeForBeatWindow: 0.15
   playerAnimator: {fileID: 203423476337507904}
   attackVFX: {fileID: 0}
   PlayerAttack:

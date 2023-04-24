@@ -85,6 +85,9 @@ crashlytics-build.properties
 [Aa]ssets/Plugins/FMOD/Cache.meta
 [Aa]ssets/Plugins/FMOD/Cache/Editor.meta
 
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+
 # Log-files
 fmod.log
 fmod_editor.log
@@ -101,9 +104,7 @@ OnThinIce/Assets/Fungus/Integrations/Spine/Fungus-Spine.unitypackage.meta
 OnThinIce/Assets/Fungus/Integrations/Playmaker/Fungus-PlayMaker.unitypackage.meta
 OnThinIce/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
 *.log
-# *.meta
-# *.meta
-# *.meta
+
 RythmGame/Logs/AssetImportWorker0-prev.log
 RythmGame/Logs/AssetImportWorker0.log
 RythmGame/Logs/shadercompiler-AssetImportWorker0.log
