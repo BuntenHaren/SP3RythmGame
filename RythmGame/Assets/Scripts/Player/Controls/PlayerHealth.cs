@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
+    private PlayerHealthBar healthBar;
+    [SerializeField]
     private Health healthObject;
     [SerializeField]
     private GameObject youDiedText;
@@ -20,6 +22,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
+        healthBar.SetMaxHealth(healthObject.MaxHealth);
     }
 
     public void TakeDamage(float amount)
@@ -27,6 +30,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if(!Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
+            healthBar.SetHealth(healthObject.CurrentHealth);
             if(healthObject.CurrentHealth <= 0)
             {
                 OnDeath();
