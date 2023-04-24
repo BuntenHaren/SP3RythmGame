@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private Health healthObject;
     [SerializeField]
     private GameObject youDiedText;
+    private SceneChanger sceneChanger;
 
     private Timer InvincibilityTimer;
 
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
         healthBar.SetMaxHealth(healthObject.MaxHealth);
+        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
     }
 
     public void TakeDamage(float amount)
@@ -39,10 +41,23 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void OnDeath()
     {
+        MakeInvurnerableForTime(2f);
         enabled = false;
         GetComponent<PlayerAttacks>().enabled = false;
         GetComponent<PlayerController>().enabled = false;
         youDiedText.SetActive(true);
+        StartCoroutine(sceneChanger.ReloadCurrentScene(2f));
+    }
+
+    public void Spawn()
+    {
+        enabled = true;
+        GetComponent<PlayerAttacks>().enabled = true;
+        GetComponent<PlayerController>().enabled = true;
+        youDiedText.SetActive(false);
+        HealDamage(healthObject.MaxHealth);
+        healthBar.SetHealth(healthObject.CurrentHealth);
+        Debug.Log(healthObject.CurrentHealth);
     }
 
     public void HealDamage(float amount)

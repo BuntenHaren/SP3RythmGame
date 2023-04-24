@@ -8009,6 +8009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1071308254}
+  checkpoint: {x: 0, y: 0, z: 0}
 --- !u!4 &357143304
 Transform:
   m_ObjectHideFlags: 0
@@ -9377,7 +9378,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -296.1, y: 206.8}
-  m_SizeDelta: {x: 363.9038, y: 45.4879}
+  m_SizeDelta: {x: 363.9038, y: 85.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &412333747
 MonoBehaviour:
@@ -9426,7 +9427,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9443,8 +9444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 412333747}
-  animationTime: 0.4
-  scaleTo: {x: 1.3, y: 1.3, z: 1.3}
+  animationTime: 0.2
+  scaleTo: {x: 1.2, y: 1.2, z: 1.2}
 --- !u!1 &413362228
 GameObject:
   m_ObjectHideFlags: 0
@@ -9496,7 +9497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11451,7 +11452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.4481132, b: 0.4481132, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18298,14 +18299,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27790,6 +27791,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5,
         type: 2}
+    - target: {fileID: 3621327776889939892, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 357143302}
     - target: {fileID: 3851929254961021300, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: baseDashCooldown
