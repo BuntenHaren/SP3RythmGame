@@ -68,7 +68,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (distanceToPlayer < attackRange && timeSinceAttack > attackCD && !attacking)
         {
-            anim.SetBool("Telegraphing", true);
             anim.SetBool("Moving", false);
             attacking = true;
             var randomNumber = Random.Range(0, 2);

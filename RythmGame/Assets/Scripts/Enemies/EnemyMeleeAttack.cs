@@ -77,6 +77,8 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             anim.SetBool("ExecuteAttack", true);
             anim.SetBool("AttackHold", false);
+            anim.SetBool("SwipeAttack", false);
+            anim.SetBool("CircleAttack", false);
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
             if (playerInDamageArea)
             {
@@ -102,8 +104,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private IEnumerator AttackHoldAnimation(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        anim.SetBool("SwipeAttack", false);
-        anim.SetBool("CircleAttack", false);
         anim.SetBool("AttackHold", true);
     }
 }
