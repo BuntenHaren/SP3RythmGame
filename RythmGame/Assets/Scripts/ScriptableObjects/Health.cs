@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Health : ScriptableObject
 {
     public UnityAction<float> onChange = delegate {};
+
+    public bool Invurnerable;
     
     public float MaxHealth;
     
@@ -19,6 +21,9 @@ public class Health : ScriptableObject
         }
         set
         {
+            if(Invurnerable)
+                return;
+            
             if(Math.Abs(currentHealth - value) > 0.05f)
             {
                 float healthChange = value - currentHealth;

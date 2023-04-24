@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,31 +6,39 @@ using UnityEngine;
 public abstract class Charm : ScriptableObject
 {
     [Header("Base stuff for every charm")]
+    public Sprite CharmSprite;
     [SerializeField]
     protected Health playerHealth;
     [SerializeField]
     protected JuiceCounter juiceCounter;
     [SerializeField]
+    protected MusicEventPort beatPort;
+    [SerializeField]
     protected PlayerStats playerStats;
 
-    public void Start()
+    public virtual void Start()
+    {
+        PlayerAttacks.onPlayerAttackAction += OnPlayerAttackAction;
+    }
+
+    public virtual void OnPlayerAttackAction()
     {
         
     }
 
-    public void Update()
+    public virtual void Update()
     {
         
     }
 
-    public void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         
     }
 
-    public void Finish()
+    public virtual void Finish()
     {
-        
+        PlayerAttacks.onPlayerAttackAction -= OnPlayerAttackAction;
     }
-    
+
 }
