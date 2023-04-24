@@ -659,7 +659,6 @@ GameObject:
   - component: {fileID: 6144045589139959495}
   - component: {fileID: 1654442049198922910}
   - component: {fileID: 3931127047261943256}
-  - component: {fileID: 7826260881519737813}
   m_Layer: 7
   m_Name: Main Character
   m_TagString: Player
@@ -800,12 +799,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5452084a1454e694db968d00203b8127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventPort: {fileID: 11400000, guid: e09590aa3f0bf0b4284bfa35a91cfc3f, type: 2}
-  baseAttackDistance: 1
-  baseAttackDamage: 25
-  baseAttackRate: 1
-  baseAttackRadius: 2
-  timeForBeatWindow: 0.15
+  musicEventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
+  juiceCounter: {fileID: 11400000, guid: fa84ed04b96afbb41863e33abda536d5, type: 2}
+  playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
   playerAnimator: {fileID: 203423476337507904}
   attackVFX: {fileID: 0}
   PlayerAttack:
@@ -882,18 +878,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7826260881519737813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375341716502672327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b348a84b14389c429c26c1448f314e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &390289991614757772
 GameObject:
   m_ObjectHideFlags: 0
