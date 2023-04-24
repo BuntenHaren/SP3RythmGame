@@ -4,11 +4,14 @@ using UnityEngine;
 
 public abstract class Charm : ScriptableObject
 {
+    [Header("Base stuff for every charm")]
     [SerializeField]
     protected Health playerHealth;
     [SerializeField]
     protected JuiceCounter juiceCounter;
-    
+    [SerializeField]
+    protected PlayerStats playerStats;
+
     public void Start()
     {
         
@@ -23,7 +26,10 @@ public abstract class Charm : ScriptableObject
     {
         
     }
-    
-    
+
+    public void Finish()
+    {
+        
+    }
     
 }

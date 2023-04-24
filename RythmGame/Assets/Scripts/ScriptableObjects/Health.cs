@@ -1,16 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Health")]
 public class Health : ScriptableObject
 {
-    public UnityAction<int> onChange = delegate {};
+    public UnityAction<float> onChange = delegate {};
     
-    public int MaxHealth;
+    public float MaxHealth;
     
-    private int currentHealth;
+    private float currentHealth;
 
-    public int CurrentHealth
+    public float CurrentHealth
     {
         get
         {
@@ -18,9 +19,9 @@ public class Health : ScriptableObject
         }
         set
         {
-            if (currentHealth != value)
+            if(Math.Abs(currentHealth - value) > 0.05f)
             {
-                int healthChange = value - currentHealth;
+                float healthChange = value - currentHealth;
                 currentHealth = value;
                 onChange.Invoke(healthChange);
             }

@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField]
     private GameObject youDiedText;
 
-    private bool Invurnerable = false;
+    private bool Invurnerable;
     private Timer InvincibilityTimer;
 
     private void OnValidate()
@@ -22,19 +22,27 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         if(!Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
             if(healthObject.CurrentHealth <= 0)
             {
-                youDiedText.SetActive(true);
+                OnDeath();
             }
         }
     }
 
-    public void HealDamage(int amount)
+    private void OnDeath()
+    {
+        enabled = false;
+        GetComponent<PlayerAttacks>().enabled = false;
+        GetComponent<PlayerController>().enabled = false;
+        youDiedText.SetActive(true);
+    }
+
+    public void HealDamage(float amount)
     {
         healthObject.CurrentHealth += amount;
     }

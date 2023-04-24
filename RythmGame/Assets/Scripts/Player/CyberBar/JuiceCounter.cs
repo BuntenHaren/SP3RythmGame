@@ -5,8 +5,8 @@ using UnityEngine.Events;
 public class JuiceCounter : ScriptableObject
 {
     public UnityAction<int> onChange = delegate {};
-    
-    public int MaxJuice;
+
+    public int MaxJuice { private set; get; } = 10;
     
     private int currentJuice;
 
@@ -18,7 +18,7 @@ public class JuiceCounter : ScriptableObject
         }
         set
         {
-            if (currentJuice != value)
+            if(currentJuice != value && value <= MaxJuice)
             {
                 int juiceChange = value - currentJuice;
                 currentJuice = value;
