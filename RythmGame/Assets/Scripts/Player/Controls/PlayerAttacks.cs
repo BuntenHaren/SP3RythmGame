@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.VFX;
 
 public class PlayerAttacks : MonoBehaviour
 {
+    public static UnityAction onPlayerAttackAction = delegate {};
+
     [Header("Event Ports and Counters")]
     [SerializeField]
     private MusicEventPort musicEventPort;
