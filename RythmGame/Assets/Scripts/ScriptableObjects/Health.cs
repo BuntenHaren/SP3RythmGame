@@ -7,6 +7,7 @@ public class Health : ScriptableObject
 {
     public UnityAction<float> onChange = delegate {};
 
+    [HideInInspector]
     public bool Invurnerable;
     
     public float MaxHealth;
