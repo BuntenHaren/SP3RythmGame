@@ -8009,6 +8009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1071308254}
+  checkpoint: {x: 0, y: 0, z: 0}
 --- !u!4 &357143304
 Transform:
   m_ObjectHideFlags: 0
@@ -10492,12 +10493,6 @@ Transform:
   m_Father: {fileID: 1491569173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &461640064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 375341716502672327, guid: b4a2b186af76c56439f9e10794272418,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384834553}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &462918971
 GameObject:
   m_ObjectHideFlags: 0
@@ -22807,18 +22802,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1384834553}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1071308263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461640064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b348a84b14389c429c26c1448f314e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1071313695
 GameObject:
   m_ObjectHideFlags: 0
@@ -27808,6 +27791,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5,
         type: 2}
+    - target: {fileID: 3621327776889939892, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 357143302}
     - target: {fileID: 3851929254961021300, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: baseDashCooldown
