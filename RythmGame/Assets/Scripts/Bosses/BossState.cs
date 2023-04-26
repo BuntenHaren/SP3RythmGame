@@ -7,7 +7,7 @@ public abstract class BossState
 {
 
 
-    public virtual void Start(BossBehaviour bossBehaviour)
+    public virtual void Entry(BossBehaviour bossBehaviour)
     {
         
     }
@@ -22,7 +22,7 @@ public abstract class BossState
         
     }
 
-    public virtual void Finish(BossBehaviour bossBehaviour)
+    public virtual void Exit(BossBehaviour bossBehaviour)
     {
         
     }

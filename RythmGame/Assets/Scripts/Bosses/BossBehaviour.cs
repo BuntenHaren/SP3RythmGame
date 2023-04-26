@@ -14,7 +14,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void Start()
     {
-        currentBossState.Start(this);
+        currentBossState.Entry(this);
     }
 
     private void Update()
@@ -27,11 +27,11 @@ public class BossBehaviour : MonoBehaviour
         currentBossState.FixedUpdate(this);
     }
 
-    public void ChangeCurrentState(BossState newState)
+    public void Transition(BossState targetState)
     {
-        currentBossState.Finish(this);
-        currentBossState = newState;
-        currentBossState.Start(this);
+        currentBossState.Exit(this);
+        currentBossState = targetState;
+        currentBossState.Entry(this);
     }
     
 }
