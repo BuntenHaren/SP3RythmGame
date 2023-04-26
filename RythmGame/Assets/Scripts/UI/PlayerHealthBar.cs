@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,31 +7,18 @@ using DG.Tweening;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-<<<<<<< Updated upstream
-=======
-    [SerializeField]
-    private MusicEventPort eventPort;
-
     [SerializeField] 
     private Health playerHealth;
->>>>>>> Stashed changes
     [SerializeField]
     public Slider slider;
     [SerializeField]
-    private float scaleUpTime;
-    [SerializeField]
-    private float scaleDownTime;
+    private float animationTime;
     [SerializeField]
     private Vector3 scaleTo;
 
-<<<<<<< Updated upstream
-    public void SetMaxHealth(float health)
-=======
     private void Start()
     {
         SetMaxHealth(playerHealth.MaxHealth);
-
-        eventPort.onBeat += HealthBarBeatAnimation;
     }
 
     private void OnEnable()
@@ -44,22 +32,24 @@ public class PlayerHealthBar : MonoBehaviour
     }
 
     private void SetMaxHealth(float health)
->>>>>>> Stashed changes
     {
         slider.maxValue = health;
         slider.value = health;
     }
 
-    public void SetHealth(float health)
+    private void SetHealth(float health)
     {
         slider.value = health;
+        HealthBarAnimation();
     }
 
-    private void HealthBarBeatAnimation()
+    private void HealthBarAnimation()
     {
-        transform.DOScale(scaleTo, scaleUpTime).SetEase(Ease.InOutBounce).OnComplete(() =>
-        {
-            transform.DOScale(new Vector3(1f, 1f, 1f), scaleDownTime).SetEase(Ease.InOutSine);
-        });
+        transform.DOScale(scaleTo, animationTime).SetEase(Ease.InOutBounce).OnComplete(ResetTransformAnimation);
+    }
+
+    private void ResetTransformAnimation()
+    {
+        transform.DOScale(new Vector3 (1f, 1f, 1f), animationTime).SetEase(Ease.InOutBounce);
     }
 }
