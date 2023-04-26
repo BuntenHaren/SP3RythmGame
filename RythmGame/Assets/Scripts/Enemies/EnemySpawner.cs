@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
+    private SpawnPort spawnPort;
+    [SerializeField]
     private GameObject objectToSpawn;
     [SerializeField]
     private float timeBetweenSpawns;
@@ -34,23 +36,24 @@ public class EnemySpawner : MonoBehaviour
         if(spawnsLeft <= 0)
             return;
         
-        Instantiate(objectToSpawn, spawnPoints[currentSpawnPoint]);
+        GameObject obj = Instantiate(objectToSpawn, spawnPoints[currentSpawnPoint]);
         currentSpawnPoint++;
         if(currentSpawnPoint == spawnPoints.Count)
             currentSpawnPoint = 0;
         spawnTimer.StartTimer(timeBetweenSpawns);
         spawnsLeft--;
+        spawnPort.onEnemySpawn.Invoke(obj);
     }
 
     private void Update()
     {
         spawnTimer.UpdateTimer(Time.deltaTime);
         bool startSpawn = true;
-        for(int i = 0; i < enemiesToKillBefore.Count; i++)
+        /*for(int i = 0; i < enemiesToKillBefore.Count; i++)
         {
             if(enemiesToKillBefore[i].enabled)
                 startSpawn = false;
-        }
+        }*/
         if(startSpawn)
             spawnTimer.StartTimer(timeBetweenSpawns);
     }
