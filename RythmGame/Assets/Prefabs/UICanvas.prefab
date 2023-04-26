@@ -4736,8 +4736,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.75, y: 1}
-  m_AnchoredPosition: {x: -21.463, y: -181.95}
-  m_SizeDelta: {x: 214.0003, y: -163.6053}
+  m_AnchoredPosition: {x: 0.35875702, y: -3.2013855}
+  m_SizeDelta: {x: 130.26929, y: -5.677307}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6301827048341423235
 GameObject:
@@ -4882,8 +4882,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.1, y: -160.4}
-  m_SizeDelta: {x: 85.85, y: 363.9038}
+  m_AnchoredPosition: {x: -2.7218, y: -339.14862}
+  m_SizeDelta: {x: 253.3119, y: 205.9758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7510363638507161322
 MonoBehaviour:
@@ -4948,8 +4948,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6191d448134b14b881b999fcc2ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventPort: {fileID: 0}
+  playerHealth: {fileID: 0}
   slider: {fileID: 7510363638507161322}
-  animationTime: 0.2
+  scaleUpTime: 0
+  scaleDownTime: 0
   scaleTo: {x: 1.2, y: 1.2, z: 1.2}
 --- !u!1 &6409076109824886287
 GameObject:
@@ -5154,7 +5157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.25, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 63.687256, y: 99.78461}
   m_SizeDelta: {x: 249, y: 191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4277343048870446925
@@ -5280,6 +5283,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 0.36849213, y: -3.201538}
+  m_SizeDelta: {x: -4.3117676, y: -14.972473}
   m_Pivot: {x: 0.5, y: 0.5}

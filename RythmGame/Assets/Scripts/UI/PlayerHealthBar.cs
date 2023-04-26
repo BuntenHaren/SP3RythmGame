@@ -7,18 +7,24 @@ using DG.Tweening;
 
 public class PlayerHealthBar : MonoBehaviour
 {
+    [SerializeField]
+    private MusicEventPort eventPort;
+
     [SerializeField] 
     private Health playerHealth;
     [SerializeField]
     public Slider slider;
     [SerializeField]
-    private float animationTime;
+    private float scaleUpTime;
+    [SerializeField]
+    private float scaleDownTime;
     [SerializeField]
     private Vector3 scaleTo;
 
     private void Start()
     {
         SetMaxHealth(playerHealth.MaxHealth);
+        eventPort.onBeat += HealthBarBeatAnimation;
     }
 
     private void OnEnable()
@@ -40,16 +46,14 @@ public class PlayerHealthBar : MonoBehaviour
     private void SetHealth(float health)
     {
         slider.value = health;
-        HealthBarAnimation();
     }
 
-    private void HealthBarAnimation()
+    private void HealthBarBeatAnimation()
     {
-        transform.DOScale(scaleTo, animationTime).SetEase(Ease.InOutBounce).OnComplete(ResetTransformAnimation);
+        transform.DOScale(scaleTo, scaleUpTime).SetEase(Ease.InOutSine).OnComplete(() =>
+        {
+            transform.DOScale(new Vector3(1f, 1f, 1f), scaleDownTime).SetEase(Ease.InOutSine);
+        });
     }
 
-    private void ResetTransformAnimation()
-    {
-        transform.DOScale(new Vector3 (1f, 1f, 1f), animationTime).SetEase(Ease.InOutBounce);
-    }
 }
