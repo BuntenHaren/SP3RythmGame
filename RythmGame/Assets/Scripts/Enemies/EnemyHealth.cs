@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private DeathPort deathPort;
 
     void Awake()
     {
@@ -25,11 +27,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        health = health - damage;
+        health -= damage;
         //StartCoroutine(ChangeColor());
 
         if(health <= 0)
         {
+            deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
             gameObject.SetActive(false);
         }

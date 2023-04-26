@@ -3,12 +3,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
-    private PlayerHealthBar healthBar;
-    [SerializeField]
     private Health healthObject;
     [SerializeField]
-    private GameObject youDiedText;
-    private SceneChanger sceneChanger;
+    private DeathPort deathPort;
 
     private Timer InvincibilityTimer;
 
@@ -22,8 +19,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
-        healthBar.SetMaxHealth(healthObject.MaxHealth);
-        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
     }
 
     public void TakeDamage(float amount)
@@ -31,7 +26,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if(!healthObject.Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
-            healthBar.SetHealth(healthObject.CurrentHealth);
             if(healthObject.CurrentHealth <= 0)
             {
                 OnDeath();
@@ -45,8 +39,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         enabled = false;
         GetComponent<PlayerAttacks>().enabled = false;
         GetComponent<PlayerController>().enabled = false;
-        youDiedText.SetActive(true);
-        StartCoroutine(sceneChanger.ReloadCurrentScene(2f));
+        deathPort.onPlayerDeath.Invoke(gameObject);
     }
 
     public void Spawn()
@@ -54,9 +47,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         enabled = true;
         GetComponent<PlayerAttacks>().enabled = true;
         GetComponent<PlayerController>().enabled = true;
-        youDiedText.SetActive(false);
         HealDamage(healthObject.MaxHealth);
-        healthBar.SetHealth(healthObject.CurrentHealth);
         Debug.Log(healthObject.CurrentHealth);
     }
 

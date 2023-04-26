@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using DG.Tweening;
 
 public class PlayerHealthBar : MonoBehaviour
 {
+    [SerializeField] 
+    private Health playerHealth;
     [SerializeField]
     public Slider slider;
     [SerializeField]
@@ -13,13 +16,28 @@ public class PlayerHealthBar : MonoBehaviour
     [SerializeField]
     private Vector3 scaleTo;
 
-    public void SetMaxHealth(float health)
+    private void Start()
+    {
+        SetMaxHealth(playerHealth.MaxHealth);
+    }
+
+    private void OnEnable()
+    {
+        playerHealth.onChange += SetHealth;
+    }
+
+    private void OnDisable()
+    {
+        playerHealth.onChange -= SetHealth;
+    }
+
+    private void SetMaxHealth(float health)
     {
         slider.maxValue = health;
         slider.value = health;
     }
 
-    public void SetHealth(float health)
+    private void SetHealth(float health)
     {
         slider.value = health;
         HealthBarAnimation();
