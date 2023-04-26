@@ -27,11 +27,11 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void HealthBarAnimation()
     {
-        transform.DOScale(scaleTo, animationTime).OnComplete(ResetTransformAnimation);
+        transform.DOScale(scaleTo, animationTime).SetEase(Ease.InOutBounce).OnComplete(ResetTransformAnimation);
     }
 
     private void ResetTransformAnimation()
     {
-        transform.DOScale(new Vector3 (1f, 1f, 1f), animationTime);
+        transform.DOScale(new Vector3 (1f, 1f, 1f), animationTime).SetEase(Ease.InOutBounce);
     }
 }
