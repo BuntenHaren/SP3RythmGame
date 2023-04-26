@@ -28,6 +28,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 219224
+--- !u!114 &-8999835574650549788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Music/Banks/Desktop/Desktop/Master.bank
+  Name: Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 638181042116379416
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-8924209635575142456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +263,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638179405844385950
+  lastModified: 638176034018516556
   FileSizes:
   - Name: 
     Value: 1468
@@ -268,6 +286,33 @@ MonoBehaviour:
   lastModified: 638173232651288903
   FileSizes: []
   Exists: 1
+--- !u!114 &-4678346073569395308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: 
+  Guid:
+    Data1: 1736013516
+    Data2: 1174857588
+    Data3: 1876497306
+    Data4: -1932669153
+  Banks:
+  - {fileID: 3806287784457953894}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32040
 --- !u!114 &-3991837360455032571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +328,25 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638179405844376113
+  lastModified: 638181028484838848
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-3468045811647741627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Music/Banks/Desktop/Desktop/SFX.bank
+  Name: Desktop/SFX
+  StudioPath: bank:/SFX
+  lastModified: 638181042117221960
   FileSizes: []
   Exists: 1
 --- !u!114 &-3112292271770137560
@@ -531,6 +594,8 @@ MonoBehaviour:
   - {fileID: 3806287784457953894}
   - {fileID: 7317560920573927950}
   - {fileID: 6361657557191430345}
+  - {fileID: -8999835574650549788}
+  - {fileID: -3468045811647741627}
   EditorEvents:
   - {fileID: -1444367438345262466}
   - {fileID: -8924209635575142456}
@@ -538,14 +603,16 @@ MonoBehaviour:
   - {fileID: 2492741660893528807}
   - {fileID: 3255856467201634388}
   - {fileID: 2855736826703215488}
-  - {fileID: 2734564895470338506}
+  - {fileID: -4678346073569395308}
+  - {fileID: 3389574621489639356}
   EditorParameters:
   - {fileID: 4618167991616576824}
   MasterBanks:
   - {fileID: -3991837360455032571}
+  - {fileID: -8999835574650549788}
   StringsBanks:
   - {fileID: -5742849947029976355}
-  cacheTime: 638179405844385950
+  cacheTime: 638181042117221960
   cacheVersion: 131603
 --- !u!114 &744196701496282332
 MonoBehaviour:
@@ -649,6 +716,7 @@ MonoBehaviour:
     Data4: -678446934
   Banks:
   - {fileID: 7317560920573927950}
+  - {fileID: -3468045811647741627}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -656,33 +724,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2313
---- !u!114 &2734564895470338506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: 
-  Guid:
-    Data1: 1736013516
-    Data2: 1174857588
-    Data3: 1876497306
-    Data4: -1932669153
-  Banks:
-  - {fileID: 3806287784457953894}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32040
 --- !u!114 &2855736826703215488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,6 +744,7 @@ MonoBehaviour:
     Data4: 1530519288
   Banks:
   - {fileID: 7317560920573927950}
+  - {fileID: -3468045811647741627}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -730,6 +772,7 @@ MonoBehaviour:
     Data4: -429900980
   Banks:
   - {fileID: 7317560920573927950}
+  - {fileID: -3468045811647741627}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -737,6 +780,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3500
+--- !u!114 &3389574621489639356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: 
+  Guid:
+    Data1: 675005730
+    Data2: 1204828513
+    Data3: 301952143
+    Data4: -2103646915
+  Banks:
+  - {fileID: -3468045811647741627}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 780
 --- !u!114 &3806287784457953894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +822,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638175825394753630
+  lastModified: 638175141090112516
   FileSizes: []
   Exists: 1
 --- !u!114 &3869821697793530482
@@ -883,7 +953,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/testbank.bank
   Name: testbank
   StudioPath: 
-  lastModified: 638170686755998798
+  lastModified: 638168989320253832
   FileSizes: []
   Exists: 1
 --- !u!114 &6533660960100658058
@@ -960,6 +1030,7 @@ MonoBehaviour:
     Data4: 560937281
   Banks:
   - {fileID: 7317560920573927950}
+  - {fileID: -3468045811647741627}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -982,7 +1053,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638179403805357132
+  lastModified: 638175995911695981
   FileSizes: []
   Exists: 1
 --- !u!114 &7753349157751205399
@@ -1018,7 +1089,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Filip.bank
   Name: Filip
   StudioPath: bank:/Filip
-  lastModified: 638179403803871303
+  lastModified: 638176020314202646
   FileSizes: []
   Exists: 1
 --- !u!114 &8054430285837611731
@@ -1054,6 +1125,6 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Johan.bank
   Name: Johan
   StudioPath: bank:/Johan
-  lastModified: 638179405844326059
+  lastModified: 638181028484818981
   FileSizes: []
   Exists: 1
