@@ -6,7 +6,9 @@ using UnityEngine;
 public class BossBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private BossStats bossStats;
+    private BossStats firstPhaseStats;
+    [SerializeField]
+    private BossStats secondPhaseStats;
     [SerializeField]
     private Health bossHealth;
     [SerializeField]
@@ -16,7 +18,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void Start()
     {
-        currentBossState.Entry(this, bossStats, bossHealth);
+        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth);
     }
 
     private void OnEnable()
@@ -43,7 +45,7 @@ public class BossBehaviour : MonoBehaviour
     {
         currentBossState.Exit();
         currentBossState = targetState;
-        currentBossState.Entry(this, bossStats, bossHealth);
+        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth);
     }
 
     private void OnDisable()

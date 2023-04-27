@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class FirstPhaseState : BossState
 {
-    public override void Entry(BossBehaviour bossBehaviour, BossStats bossStats, Health bossHealth)
+    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
     {
-        base.Entry(bossBehaviour, bossStats, bossHealth);
+        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth);
         health.onChange += CheckForEnrage;
     }
 
     private void CheckForEnrage(float amount)
     {
-        if(health.CurrentHealth <= stats.ThresholdForEnrage)
+        if(health.CurrentHealth <= firstPhaseStats.ThresholdForEnrage)
             behaviour.Transition(new NextPhaseState());
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        health.onChange -= CheckForEnrage;
     }
 }

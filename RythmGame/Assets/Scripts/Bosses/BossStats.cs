@@ -5,11 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "RythmGame/Boss/BossStats")]
 public class BossStats : ScriptableObject
 {
-    [field: Header("Movement Variables")] 
-    public float BaseMovementSpeed { private set; get; } = 10;
-        
-    [field: Header("Movement Multipliers")]
-    public float MovementSpeedMultiplier = 1;
+    [field: Header("Circle Sector Attack Variables")]
+    public int AmountOfSlices;
+    public float Radius;
+    public float SectorAngle;
+    public float CircleDamage;
+
+    [field: Header("Hoof Stomp Attack Variables")]
+    public float StompDamage;
+    
     
     [field: Header("Thresholds")]
     public float ThresholdForEnrage;
@@ -17,9 +21,4 @@ public class BossStats : ScriptableObject
     [field: Header("Health Multipliers")]
     public float HealingRecievedMultiplier = 1;
     public float DamageRecievedMultiplier = 1;
-    
-    public float CurrentMovementSpeed;
-
-    public int CurrentAttackDamage;
-    public float CurrentAttackRate;
 }
