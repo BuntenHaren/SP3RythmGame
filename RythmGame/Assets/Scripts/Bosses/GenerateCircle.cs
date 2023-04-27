@@ -27,6 +27,7 @@ public class GenerateCircle : MonoBehaviour
         List<Vector3> verticesList = new List<Vector3>();
         float x;
         float y;
+        verticesList.Add(Vector3.zero);
         for (int i = 0; i < sides; i ++)
         {
             x = radius * Mathf.Sin((sectorAngle * Mathf.Deg2Rad * i) / sides);
@@ -37,7 +38,7 @@ public class GenerateCircle : MonoBehaviour
 
         //triangles
         List<int> trianglesList = new List<int>();
-        for(int i = 0; i < (sides-2); i++)
+        for(int i = 0; i < sides - 2; i++)
         {
             trianglesList.Add(0);
             trianglesList.Add(i+1);
