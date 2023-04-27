@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Health")]
+[CreateAssetMenu(menuName = "RythmGame/Health")]
 public class Health : ScriptableObject
 {
     public UnityAction<float> onChange = delegate {};
