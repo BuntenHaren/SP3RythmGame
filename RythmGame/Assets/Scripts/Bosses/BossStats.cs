@@ -10,7 +10,10 @@ public class BossStats : ScriptableObject
         
     [field: Header("Movement Multipliers")]
     public float MovementSpeedMultiplier = 1;
-
+    
+    [field: Header("Thresholds")]
+    public float ThresholdForEnrage;
+    
     [field: Header("Health Multipliers")]
     public float HealingRecievedMultiplier = 1;
     public float DamageRecievedMultiplier = 1;
