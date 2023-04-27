@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "RythmGame/Counters/Juice Counter")]
+[CreateAssetMenu(menuName = "RythmGame/Counters/JuiceCounter")]
 public class JuiceCounter : ScriptableObject
 {
     public UnityAction<int> onChange = delegate {};

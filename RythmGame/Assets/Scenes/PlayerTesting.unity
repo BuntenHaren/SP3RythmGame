@@ -123,6 +123,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &121220179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5785664661236629408, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 813992689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &121220180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121220179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6494d9bea91c41742b4c1533bd232721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterTrigger: {fileID: 121220181}
+  spawnPort: {fileID: 11400000, guid: 849f723e6844d404cba7ecb0d4a7edf9, type: 2}
+  deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
+--- !u!114 &121220181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121220179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Parameter: TestParamter Johan
+  TriggerEvent: 0
+  Value: 0
 --- !u!1 &126725678
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +380,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621327776889939892, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
+      propertyPath: deathPort
+      value: 
+      objectReference: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f,
+        type: 2}
+    - target: {fileID: 3621327776889939892, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
       propertyPath: healthObject
       value: 
       objectReference: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5,
@@ -500,6 +543,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f867f827a545f87439495480bc5e75ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &286420069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286420071}
+  - component: {fileID: 286420070}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &286420070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286420069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121f2dad76299134e98e1d09f44d7e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPort: {fileID: 11400000, guid: 849f723e6844d404cba7ecb0d4a7edf9, type: 2}
+  objectToSpawn: {fileID: 137886, guid: 6659b306e482a694ebc9e4f8a84e2d9d, type: 3}
+  timeBetweenSpawns: 0
+  totalAmountToSpawn: 3
+  enemiesToKillBefore: []
+  spawnPoints: []
+--- !u!4 &286420071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286420069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479037733
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RythmGame/Boss/Boss Stats")]
+[CreateAssetMenu(menuName = "RythmGame/Boss/BossStats")]
 public class BossStats : ScriptableObject
 {
     [field: Header("Movement Variables")] 
@@ -10,7 +10,10 @@ public class BossStats : ScriptableObject
         
     [field: Header("Movement Multipliers")]
     public float MovementSpeedMultiplier = 1;
-
+    
+    [field: Header("Thresholds")]
+    public float ThresholdForEnrage;
+    
     [field: Header("Health Multipliers")]
     public float HealingRecievedMultiplier = 1;
     public float DamageRecievedMultiplier = 1;

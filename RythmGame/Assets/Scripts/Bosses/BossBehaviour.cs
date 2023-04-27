@@ -9,29 +9,45 @@ public class BossBehaviour : MonoBehaviour
     private BossStats bossStats;
     [SerializeField]
     private Health bossHealth;
+    [SerializeField]
+    private MusicEventPort beatPort;
     
     private BossState currentBossState;
 
     private void Start()
     {
-        currentBossState.Entry(this);
+        currentBossState.Entry(this, bossStats, bossHealth);
+    }
+
+    private void OnEnable()
+    {
+        beatPort.onBeat += OnBeat;
     }
 
     private void Update()
     {
-        currentBossState.Update(this);
+        currentBossState.Update();
     }
 
     private void FixedUpdate()
     {
-        currentBossState.FixedUpdate(this);
+        currentBossState.FixedUpdate();
+    }
+
+    private void OnBeat()
+    {
+        currentBossState.OnBeat();
     }
 
     public void Transition(BossState targetState)
     {
-        currentBossState.Exit(this);
+        currentBossState.Exit();
         currentBossState = targetState;
-        currentBossState.Entry(this);
+        currentBossState.Entry(this, bossStats, bossHealth);
     }
-    
+
+    private void OnDisable()
+    {
+        beatPort.onBeat -= OnBeat;
+    }
 }

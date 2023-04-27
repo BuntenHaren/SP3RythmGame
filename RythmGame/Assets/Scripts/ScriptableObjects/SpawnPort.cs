@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "RythmGame/Event Ports/Spawn Port")]
+[CreateAssetMenu(menuName = "RythmGame/EventPorts/SpawnPort")]
 public class SpawnPort : ScriptableObject
 {
     public UnityAction<GameObject> onEnemySpawn = delegate {};
