@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RythmGame/Player/Active Charm")]
+[CreateAssetMenu(menuName = "RythmGame/Player/ActiveCharm")]
 public abstract class ActiveCharm : Charm
 {
     [SerializeField]

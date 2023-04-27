@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RythmGame/Boss/Boss Stats")]
+[CreateAssetMenu(menuName = "RythmGame/Boss/BossStats")]
 public class BossStats : ScriptableObject
 {
     [field: Header("Movement Variables")] 
