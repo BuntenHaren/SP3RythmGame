@@ -33,6 +33,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public void TakeDamageOnBeat(float amount)
+    {
+        if (!healthObject.Invurnerable)
+        {
+            healthObject.CurrentHealth -= amount;
+            if (healthObject.CurrentHealth <= 0)
+            {
+                OnDeath();
+            }
+        }
+    }
+
     private void OnDeath()
     {
         MakeInvurnerableForTime(2f);
