@@ -31,7 +31,7 @@ public class PlayerAttacks : MonoBehaviour
     
     //Other private variables
     private Timer attackCooldownTimer;
-    private bool readyToAttack;
+    private bool readyToAttack = true;
     private double lastBeatTime;
     private double timeBetweenBeats;
     private EventReference actualAttackSFX;
@@ -49,7 +49,7 @@ public class PlayerAttacks : MonoBehaviour
 
     private void OnAttack()
     {
-        if(!readyToAttack)
+        if (!readyToAttack)
             return;
 
         actualAttackSFX = PlayerAttack;
@@ -64,7 +64,6 @@ public class PlayerAttacks : MonoBehaviour
             ApplyOnBeatEffects();
             Debug.Log("Attack was on beat!");
         }
-        
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
         RuntimeManager.PlayOneShot(actualAttackSFX);
         attackCooldownTimer.StartTimer(playerStats.CurrentAttackRate * playerStats.AttackRateMultiplier);
