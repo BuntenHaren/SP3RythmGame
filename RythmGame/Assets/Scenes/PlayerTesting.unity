@@ -1001,7 +1001,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Music
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4462143856876486347, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7, type: 3}
 --- !u!1 &846924085
 GameObject:
@@ -1035,7 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cd38f3458afa540b3dc1aa30205298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sides: 100
+  sides: 6
   radius: 10
   sectorAngle: 360
 --- !u!64 &846924087
