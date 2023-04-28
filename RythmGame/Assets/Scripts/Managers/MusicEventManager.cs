@@ -38,7 +38,7 @@ public class MusicEventManager : MonoBehaviour
     }
 #endif
 
-    void Start()
+    private void Start()
     {
         //Not original code
         timelineInfo = new TimelineInfo();
@@ -54,6 +54,25 @@ public class MusicEventManager : MonoBehaviour
         // Pass the object through the userdata of the instance
         musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
 
+        musicInstance.setCallback(beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+        musicInstance.start();
+    }
+
+    public void ChangeMusicImmediate(EventReference eventName)
+    {
+        musicInstance.stop(STOP_MODE.IMMEDIATE);
+        musicInstance = RuntimeManager.CreateInstance(eventName);
+        musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
+        musicInstance.setCallback(beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+        musicInstance.start();
+    }
+    
+    //Doesn't work for the moment and I can't be arsed to understand the fade out time rn so...
+    public void ChangeMusicAllowFadeOut(EventReference eventName, float fadeTime)
+    {
+        musicInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        musicInstance = RuntimeManager.CreateInstance(eventName);
+        musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
         musicInstance.setCallback(beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
         musicInstance.start();
     }
@@ -85,12 +104,7 @@ public class MusicEventManager : MonoBehaviour
         musicInstance.release();
         timelineHandle.Free();
     }
-
-    void OnGUI()
-    {
-        GUILayout.Box(String.Format("Current Bar = {0}, Last Marker = {1}", timelineInfo.CurrentMusicBar, (string)timelineInfo.LastMarker));
-    }
-
+    
     [MonoPInvokeCallback(typeof(EVENT_CALLBACK))]
     static RESULT BeatEventCallback(EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameterPtr)
     {

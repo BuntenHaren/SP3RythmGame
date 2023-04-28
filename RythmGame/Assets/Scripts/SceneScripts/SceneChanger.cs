@@ -10,11 +10,6 @@ public class SceneChanger : MonoBehaviour
 
     public Vector3 checkpoint;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     public void ChangeScene(string sceneName, Vector3 spawnPoint)
     {
         SceneManager.LoadScene(sceneName);

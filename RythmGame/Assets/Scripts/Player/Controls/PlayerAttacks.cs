@@ -31,7 +31,7 @@ public class PlayerAttacks : MonoBehaviour
     
     //Other private variables
     private Timer attackCooldownTimer;
-    private bool readyToAttack;
+    private bool readyToAttack = true;
     private double lastBeatTime;
     private double timeBetweenBeats;
     private EventReference actualAttackSFX;
@@ -49,7 +49,7 @@ public class PlayerAttacks : MonoBehaviour
 
     private void OnAttack()
     {
-        if(!readyToAttack)
+        if (!readyToAttack)
             return;
 
         actualAttackSFX = PlayerAttack;
@@ -57,22 +57,53 @@ public class PlayerAttacks : MonoBehaviour
         
         //This is temporary testing
         juiceCounter.CurrentJuice++;
-        Debug.Log(juiceCounter.CurrentJuice);
-        
+        onPlayerAttackAction.Invoke();
+
         if(CheckIfWithinBeatTimeframe())
         {
             ApplyOnBeatEffects();
             Debug.Log("Attack was on beat!");
         }
         
+        ActivateAttackStuff();
+        HitEverythingInRange();
+        
+    }
+
+    private void OnBeat()
+    {
+        timeBetweenBeats = Time.realtimeSinceStartupAsDouble - lastBeatTime;
+        lastBeatTime = Time.realtimeSinceStartupAsDouble;
+    }
+
+    private void ApplyOnBeatEffects()
+    {
+        actualAttackSFX = onBeatPlayerAttack;
+    }
+
+    private void AttackOffCooldown()
+    {
+        playerAnimator.SetBool("Attack", false);
+        readyToAttack = true;
+    }
+
+    private void ActivateAttackStuff()
+    {
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
         RuntimeManager.PlayOneShot(actualAttackSFX);
         attackCooldownTimer.StartTimer(playerStats.CurrentAttackRate * playerStats.AttackRateMultiplier);
         readyToAttack = false;
-        
+    }
+
+    private bool CheckIfWithinBeatTimeframe()
+    {
+        return Time.realtimeSinceStartupAsDouble <= lastBeatTime + playerStats.CurrentTimeForBeatWindow * 0.5f || Time.realtimeSinceStartupAsDouble >= lastBeatTime + timeBetweenBeats - playerStats.CurrentTimeForBeatWindow * 0.5f;
+    }
+
+    private void HitEverythingInRange()
+    {
         Vector2 mousePosOnScreen = Mouse.current.position.ReadValue();
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePosOnScreen.x, mousePosOnScreen.y, transform.position.y));
-        
         
         //Honestly I don't care enough to figure out exactly how the math on this works right now, but it works so I'm gonna use it
         //Using some math to calculate the point of intersection between the line going through the camera and the mouse position with the XZ-Plane
@@ -99,28 +130,6 @@ public class PlayerAttacks : MonoBehaviour
                 hit.TakeDamage(playerStats.CurrentAttackDamage * playerStats.AttackDamageMultiplier);
             }
         }
-    }
-
-    private void OnBeat()
-    {
-        timeBetweenBeats = Time.realtimeSinceStartupAsDouble - lastBeatTime;
-        lastBeatTime = Time.realtimeSinceStartupAsDouble;
-    }
-
-    private void ApplyOnBeatEffects()
-    {
-        actualAttackSFX = onBeatPlayerAttack;
-    }
-
-    private void AttackOffCooldown()
-    {
-        playerAnimator.SetBool("Attack", false);
-        readyToAttack = true;
-    }
-
-    private bool CheckIfWithinBeatTimeframe()
-    {
-        return Time.realtimeSinceStartupAsDouble <= lastBeatTime + playerStats.CurrentTimeForBeatWindow * 0.5f || Time.realtimeSinceStartupAsDouble >= lastBeatTime + timeBetweenBeats - playerStats.CurrentTimeForBeatWindow * 0.5f;
     }
     
     private void FixedUpdate()
