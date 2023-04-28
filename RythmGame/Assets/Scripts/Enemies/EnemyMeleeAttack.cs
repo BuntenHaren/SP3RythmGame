@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 using DG.Tweening;
 
 public class EnemyMeleeAttack : MonoBehaviour
@@ -75,6 +77,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(attacking && attackTimer > minimumAttackWindUp)
         {
+            //Execute attack sound here
             anim.SetBool("ExecuteAttack", true);
             anim.SetBool("AttackHold", false);
             anim.SetBool("SwipeAttack", false);
@@ -91,6 +94,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     public void StartTelegraph()
     {
+        //Start of telegraph sound here
         if(rotationPivot != null)
         {
             rotationPivot.rotation = Quaternion.LookRotation(rotationPivot.position - player.position);
