@@ -97,6 +97,8 @@ public class PlayerController : MonoBehaviour
         if(!dashReady)
             return;
         
+        //Insert your SFX below this comment for the dash :)
+        
         //Set some stuff for dash functionality
         playerAnimator.SetBool("Dash", true);
         playerHealth.MakeInvurnerableForTime(currentDashDuration);
