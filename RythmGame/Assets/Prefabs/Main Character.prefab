@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5307063631273065602}
   - component: {fileID: 1669306947678361570}
   - component: {fileID: 3699864624794231039}
+  - component: {fileID: 274598333397252107}
   m_Layer: 7
   m_Name: middle_1
   m_TagString: Untagged
@@ -108,6 +109,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &274598333397252107
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34439850118896316}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &120361251320798806
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +162,7 @@ GameObject:
   - component: {fileID: 6842530813629338985}
   - component: {fileID: 4737326626161023287}
   - component: {fileID: 1949010350084940083}
+  - component: {fileID: 6129564028358000358}
   m_Layer: 7
   m_Name: mask
   m_TagString: Untagged
@@ -249,6 +262,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &6129564028358000358
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138930482589732202}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &177274450751331754
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +570,7 @@ GameObject:
   - component: {fileID: 537901009602588146}
   - component: {fileID: 1352867246317753106}
   - component: {fileID: 4077811872388180278}
+  - component: {fileID: 2213827807884670357}
   m_Layer: 7
   m_Name: hand base_1
   m_TagString: Untagged
@@ -642,6 +667,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &2213827807884670357
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350000006749185935}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &375341716502672327
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthObject: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5, type: 2}
-  youDiedText: {fileID: 0}
+  deathPort: {fileID: 0}
 --- !u!114 &3851929254961021300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,6 +991,7 @@ GameObject:
   - component: {fileID: 7272943269407998730}
   - component: {fileID: 1402483041312004703}
   - component: {fileID: 1151533986975736632}
+  - component: {fileID: 8742060670768095717}
   m_Layer: 7
   m_Name: R
   m_TagString: Untagged
@@ -1051,6 +1088,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &8742060670768095717
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507712189779827637}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &514538309729063961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1172,7 @@ GameObject:
   - component: {fileID: 8901496475314212912}
   - component: {fileID: 3228074554769864967}
   - component: {fileID: 8093106878487347433}
+  - component: {fileID: 6753331511952860260}
   m_Layer: 7
   m_Name: hand base
   m_TagString: Untagged
@@ -1220,6 +1269,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &6753331511952860260
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653562927722277278}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &740602029674811249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1354,7 @@ GameObject:
   - component: {fileID: 9220884836889521512}
   - component: {fileID: 4262119861825308200}
   - component: {fileID: 5938772343041070365}
+  - component: {fileID: 6926340276246441866}
   m_Layer: 7
   m_Name: lower arm L
   m_TagString: Untagged
@@ -1390,6 +1451,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &6926340276246441866
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955330948422912213}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &1077632895051299934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,6 +1508,7 @@ GameObject:
   - component: {fileID: 8665734858035885254}
   - component: {fileID: 1542689754883165655}
   - component: {fileID: 2080177129044761284}
+  - component: {fileID: 6718472196705505746}
   m_Layer: 7
   m_Name: Bang R
   m_TagString: Untagged
@@ -1533,6 +1606,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &6718472196705505746
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132404105102408490}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &1202430742683790671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1754,7 @@ GameObject:
   - component: {fileID: 7854092645806066803}
   - component: {fileID: 5141687527609660094}
   - component: {fileID: 1649522239295126507}
+  - component: {fileID: 2629343710540520431}
   m_Layer: 7
   m_Name: leg R
   m_TagString: Untagged
@@ -1767,6 +1852,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &2629343710540520431
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2213886810145953193}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &2318928457966857935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1905,7 @@ GameObject:
   - component: {fileID: 2168396988734130358}
   - component: {fileID: 7172385785129290457}
   - component: {fileID: 4332918423410468466}
+  - component: {fileID: 7835940661551968864}
   m_Layer: 7
   m_Name: Foot R
   m_TagString: Untagged
@@ -1906,6 +2003,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &7835940661551968864
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2386143899694067744}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &2571849913500736140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,6 +2057,7 @@ GameObject:
   - component: {fileID: 5501757553571999205}
   - component: {fileID: 1595205703347276939}
   - component: {fileID: 1213430130933241805}
+  - component: {fileID: 5232379833346431959}
   m_Layer: 7
   m_Name: Foot L
   m_TagString: Untagged
@@ -2046,6 +2155,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &5232379833346431959
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845500796660760155}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &3180066615612797615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,6 +2177,7 @@ GameObject:
   - component: {fileID: 4554371159077218842}
   - component: {fileID: 199726051860422660}
   - component: {fileID: 922009824489283181}
+  - component: {fileID: 5839212736424610374}
   m_Layer: 7
   m_Name: B
   m_TagString: Untagged
@@ -2153,6 +2274,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &5839212736424610374
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180066615612797615}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &3225436584026299765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,6 +2425,7 @@ GameObject:
   - component: {fileID: 4249135391355814113}
   - component: {fileID: 4891767410138865327}
   - component: {fileID: 6780851465343970315}
+  - component: {fileID: 8426596542420224610}
   m_Layer: 7
   m_Name: hair
   m_TagString: Untagged
@@ -2393,6 +2526,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &8426596542420224610
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108164016500947943}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &4179912741825827368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2435,6 +2579,7 @@ GameObject:
   - component: {fileID: 1198033661506930958}
   - component: {fileID: 426923520918525140}
   - component: {fileID: 4312168375219467247}
+  - component: {fileID: 5300840395002031157}
   m_Layer: 7
   m_Name: pinkie
   m_TagString: Untagged
@@ -2532,6 +2677,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &5300840395002031157
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4197378133740929832}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &4233121173703322653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,6 +2730,7 @@ GameObject:
   - component: {fileID: 1724795320488501570}
   - component: {fileID: 8747852047466105365}
   - component: {fileID: 8787679993659535475}
+  - component: {fileID: 2067989018483771475}
   m_Layer: 7
   m_Name: thumb
   m_TagString: Untagged
@@ -2670,6 +2827,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &2067989018483771475
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255284866329913768}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &4551243245697188791
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,6 +2880,7 @@ GameObject:
   - component: {fileID: 4883429928034685680}
   - component: {fileID: 2020841150978818458}
   - component: {fileID: 1528292014560457086}
+  - component: {fileID: 4255345248506088895}
   m_Layer: 7
   m_Name: upper arm L
   m_TagString: Untagged
@@ -2807,6 +2976,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &4255345248506088895
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757067951290774187}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &4823780786117007664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2998,7 @@ GameObject:
   - component: {fileID: 1528138522777179735}
   - component: {fileID: 5036299864623399430}
   - component: {fileID: 2271462005364657700}
+  - component: {fileID: 845225497011181771}
   m_Layer: 7
   m_Name: middle
   m_TagString: Untagged
@@ -2915,6 +3096,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &845225497011181771
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823780786117007664}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &4913020099875045143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,6 +3150,7 @@ GameObject:
   - component: {fileID: 3670408781178443174}
   - component: {fileID: 1085560042429171236}
   - component: {fileID: 7526901912480942827}
+  - component: {fileID: 8730518465840261103}
   m_Layer: 7
   m_Name: pinkie_1
   m_TagString: Untagged
@@ -3055,6 +3248,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &8730518465840261103
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155149498427360423}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &5168361558033285146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3067,6 +3271,7 @@ GameObject:
   - component: {fileID: 444442316204175992}
   - component: {fileID: 3230996635798074109}
   - component: {fileID: 203423476140695157}
+  - component: {fileID: 1383251538260535147}
   m_Layer: 7
   m_Name: mask pattern
   m_TagString: Untagged
@@ -3181,6 +3386,17 @@ MonoBehaviour:
   alphaThreshold: 0
   drawOutside: 0
   enableInstancing: 0
+--- !u!210 &1383251538260535147
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168361558033285146}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &5323227662799826263
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,6 +3439,7 @@ GameObject:
   - component: {fileID: 7832818402565071584}
   - component: {fileID: 2031346262974224384}
   - component: {fileID: 5411959154095347211}
+  - component: {fileID: 2242190234594556533}
   m_Layer: 7
   m_Name: Bang L
   m_TagString: Untagged
@@ -3321,6 +3538,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &2242190234594556533
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5363547906786755295}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &5432138860088266347
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3656,7 @@ GameObject:
   - component: {fileID: 4790236684194038491}
   - component: {fileID: 5031165923115516293}
   - component: {fileID: 3457255078967455564}
+  - component: {fileID: 3240654731338446969}
   m_Layer: 7
   m_Name: Layer 18
   m_TagString: Untagged
@@ -3526,6 +3755,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &3240654731338446969
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126133744517607319}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &6250771035779032400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,6 +3777,7 @@ GameObject:
   - component: {fileID: 699257687093557373}
   - component: {fileID: 8802089501700766010}
   - component: {fileID: 8221877627890715593}
+  - component: {fileID: 2086702139528408435}
   m_Layer: 7
   m_Name: Knot
   m_TagString: Untagged
@@ -3633,6 +3874,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &2086702139528408435
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250771035779032400}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &6266862438447725262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,6 +3959,7 @@ GameObject:
   - component: {fileID: 1817069338777429001}
   - component: {fileID: 286420918138360459}
   - component: {fileID: 1340490179116182074}
+  - component: {fileID: 8598829151534096456}
   m_Layer: 7
   m_Name: lower arm R
   m_TagString: Untagged
@@ -3803,6 +4056,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &8598829151534096456
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429480694389320323}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &6599382668243013204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,6 +4141,7 @@ GameObject:
   - component: {fileID: 4187562124669763786}
   - component: {fileID: 3799721650594932898}
   - component: {fileID: 4160913808646045193}
+  - component: {fileID: 5430633970303083272}
   m_Layer: 7
   m_Name: index
   m_TagString: Untagged
@@ -3974,6 +4239,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &5430633970303083272
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766516428608568842}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &6832911716801509540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,6 +4386,7 @@ GameObject:
   - component: {fileID: 6046904943234753389}
   - component: {fileID: 7051347528054133341}
   - component: {fileID: 4404390011250370384}
+  - component: {fileID: 7972041419199037227}
   m_Layer: 7
   m_Name: Ankle R
   m_TagString: Untagged
@@ -4207,6 +4484,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &7972041419199037227
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427105074668140004}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &7470627867575462979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,6 +4506,7 @@ GameObject:
   - component: {fileID: 2089887801852874799}
   - component: {fileID: 3869275997080290388}
   - component: {fileID: 7865716340993227697}
+  - component: {fileID: 6272573740227208783}
   m_Layer: 7
   m_Name: Ankle L
   m_TagString: Untagged
@@ -4315,6 +4604,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &6272573740227208783
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7470627867575462979}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &7490008235979646470
 GameObject:
   m_ObjectHideFlags: 0
@@ -4390,6 +4690,7 @@ GameObject:
   - component: {fileID: 1372561371683904699}
   - component: {fileID: 699186027603825017}
   - component: {fileID: 5822978076184973608}
+  - component: {fileID: 4935818386332052854}
   m_Layer: 7
   m_Name: leg L
   m_TagString: Untagged
@@ -4487,6 +4788,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &4935818386332052854
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680856105343298539}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &7690558372732964337
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,6 +4875,7 @@ GameObject:
   - component: {fileID: 4349030472565907266}
   - component: {fileID: 7956011716640412440}
   - component: {fileID: 7404667837946413417}
+  - component: {fileID: 7056523284207959857}
   m_Layer: 7
   m_Name: L
   m_TagString: Untagged
@@ -4659,6 +4972,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &7056523284207959857
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900107529963539980}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &8273032053573086589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4705,6 +5029,7 @@ GameObject:
   - component: {fileID: 3000009975953220450}
   - component: {fileID: 8395642489616446314}
   - component: {fileID: 3953962051869647158}
+  - component: {fileID: 564222930179194889}
   m_Layer: 7
   m_Name: index_1
   m_TagString: Untagged
@@ -4802,6 +5127,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &564222930179194889
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358737394165963146}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &8372531675931663841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4949,6 +5285,7 @@ GameObject:
   - component: {fileID: 884111977139936223}
   - component: {fileID: 1104286058403149274}
   - component: {fileID: 230519467765066470}
+  - component: {fileID: 3175449288424918406}
   m_Layer: 7
   m_Name: body
   m_TagString: Untagged
@@ -5047,6 +5384,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &3175449288424918406
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921190461466285000}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &8929456035106375454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5406,7 @@ GameObject:
   - component: {fileID: 4658959756649562719}
   - component: {fileID: 8340842076350850177}
   - component: {fileID: 2739371768244299842}
+  - component: {fileID: 21141530966631166}
   m_Layer: 7
   m_Name: thumb_1
   m_TagString: Untagged
@@ -5155,6 +5504,17 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &21141530966631166
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929456035106375454}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &9200669047589946985
 GameObject:
   m_ObjectHideFlags: 0
@@ -5197,6 +5557,7 @@ GameObject:
   - component: {fileID: 3946446726825324025}
   - component: {fileID: 3147660858716107401}
   - component: {fileID: 6138300258178221520}
+  - component: {fileID: 7140503414555698729}
   m_Layer: 7
   m_Name: upper arm R
   m_TagString: Untagged
@@ -5293,3 +5654,14 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!210 &7140503414555698729
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219586947847573249}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
