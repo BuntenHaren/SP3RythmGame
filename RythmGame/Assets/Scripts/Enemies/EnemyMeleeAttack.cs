@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 using DG.Tweening;
 
 public class EnemyMeleeAttack : MonoBehaviour
@@ -41,12 +43,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     //Parent Animator
     [SerializeField]
     private Animator anim;
-
-    //Sound
-    [SerializeField]
-    public EventReference WerewolfAttackExecuteSound;
-    [SerializeField]
-    public EventReference WerewolfAttackStartSound;
 
     void Start()
     {
