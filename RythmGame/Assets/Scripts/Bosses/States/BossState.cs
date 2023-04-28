@@ -9,9 +9,12 @@ public abstract class BossState
     protected BossStats firstPhaseStats;
     protected BossStats secondPhaseStats;
     protected Health health;
+    protected Timer timer;
     
     public virtual void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
     {
+        timer = new Timer();
+        timer.TimerDone += TimerDone;
         behaviour = bossBehaviour;
         firstPhaseStats = firstPhase;
         secondPhaseStats = secondPhase;
@@ -25,6 +28,11 @@ public abstract class BossState
 
     public virtual void FixedUpdate()
     {
+        timer.UpdateTimer(Time.fixedDeltaTime);
+    }
+
+    protected virtual void TimerDone()
+    {
         
     }
 
@@ -35,7 +43,7 @@ public abstract class BossState
 
     public virtual void Exit()
     {
-        
+        timer.TimerDone -= TimerDone;
     }
     
 }
