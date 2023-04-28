@@ -21,6 +21,8 @@ public abstract class ActiveCharm : Charm
     public virtual void ActivateCharm()
     {
         activationTimer.StartTimer(activeDuration);
+        //Insert your SFX below this comment for the charm activation and probably start playing the active SFX as well :)
+        
     }
 
     protected virtual bool CheckIfCanActivate()

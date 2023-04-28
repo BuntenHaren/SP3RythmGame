@@ -6,13 +6,15 @@ using UnityEngine;
 public abstract class BossState
 {
     protected BossBehaviour behaviour;
-    protected BossStats stats;
+    protected BossStats firstPhaseStats;
+    protected BossStats secondPhaseStats;
     protected Health health;
     
-    public virtual void Entry(BossBehaviour bossBehaviour, BossStats bossStats, Health bossHealth)
+    public virtual void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
     {
         behaviour = bossBehaviour;
-        stats = bossStats;
+        firstPhaseStats = firstPhase;
+        secondPhaseStats = secondPhase;
         health = bossHealth;
     }
 
