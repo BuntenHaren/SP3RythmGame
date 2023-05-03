@@ -84,6 +84,16 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        SetAnimations();
+
+        //Move the character in the right direction
+        newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
+        newMove.y = rb.velocity.y;
+        rb.velocity = newMove;
+    }
+
+    private void SetAnimations()
+    {
         //Set animator values
         if(moveDir != Vector2.zero)
             playerAnimator.SetBool("Run", true);
@@ -92,10 +102,23 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("Run", false);
         }
 
-        //Move the character in the right direction
-        newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
-        newMove.y = rb.velocity.y;
-        rb.velocity = newMove;
+        if(moveDir == Vector2.up)
+        {
+            playerAnimator.SetTrigger("Up");
+        }
+        else if(moveDir == Vector2.down)
+        {
+            playerAnimator.SetTrigger("Down");
+        }
+        else if(moveDir == Vector2.left)
+        {
+            playerAnimator.SetTrigger("Left");
+        }
+        else if(moveDir == Vector2.right)
+        {
+            playerAnimator.SetTrigger("Right");
+        }
+        
     }
 
     private void Dash()
