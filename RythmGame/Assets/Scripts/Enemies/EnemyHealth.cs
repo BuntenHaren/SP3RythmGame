@@ -32,9 +32,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         health -= damage;
-
+        //Hit sound
         if(health <= 0)
         {
+            //death sound
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
             gameObject.SetActive(false);
@@ -44,10 +45,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void TakeDamageOnBeat(float damage)
     {
         health -= damage;
+        //Hit sound
         Instantiate(onBeatParticles);
 
         if (health <= 0)
         {
+            //death sound
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
             gameObject.SetActive(false);
