@@ -6,8 +6,11 @@ using FMOD.Studio;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    //Other scripts
     [SerializeField]
     private EnemyBehavior enemyBehavior;
+    [SerializeField]
+    private EnemiesInCombatCounter enemiesInCombatCounter;
 
     //Stats
     [SerializeField]
@@ -51,6 +54,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
+            enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
@@ -68,6 +72,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
+            enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
