@@ -22,6 +22,7 @@ public class ArcaneGorger : PassiveCharm
 
         // get beat window 
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
+        //playerStats.CurrentMaxHealth *= 0.75;                         for when there is a variable for max health
     }
 
     public override void OnPlayerAttackAction()
