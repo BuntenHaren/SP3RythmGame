@@ -237,15 +237,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
-  moveSpeed: 0.1
+  moveSpeed: 0.4
   moveAwayFromEnemySpeed: 0.2
-  distanceToStop: 1.5
+  distanceToStop: 6
   engaged: 0
   maxHealth: 100
   coneAttackObject: {fileID: 156534837293774131}
   circleAttackObject: {fileID: 156534836426496360}
   attackCD: 1
-  attackRange: 5
+  attackRange: 10
   anim: {fileID: 1904246249768545524}
   WarewolfSwipeAttack:
     Guid:
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   damageColor: {r: 1, g: 0.36320752, b: 0.36320752, a: 1}
+  sr: {fileID: 0}
   damageColorTime: 0.5
   onBeatParticles: {fileID: 8785997882179965958, guid: b21e1852a05579e4b9669220cd4a1a81,
     type: 3}
