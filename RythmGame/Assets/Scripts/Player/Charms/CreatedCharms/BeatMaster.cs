@@ -9,7 +9,7 @@ public class BeatMaster : PassiveCharm
     private float BeatAccuracy = 0f;
 
     private float BeatAccuracyMultiplier = 0.5f;
-    private float BaseMultiplier = 0.7f;
+    private float BaseMultiplier = 0.5f;
     private float JuiceLevelMultiplier = 1f;
 
     private float DistanceToLastBeat = 0f;
@@ -45,7 +45,5 @@ public class BeatMaster : PassiveCharm
 
         // set damage multiplier
         playerStats.AttackDamageMultiplier = BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy;
-        Debug.Log("Attack Damage Multiplier: " + playerStats.AttackDamageMultiplier);
-        Debug.Log("Attack Damage Multiplier: " + playerStats.AttackDamageMultiplier);
     }
 }
