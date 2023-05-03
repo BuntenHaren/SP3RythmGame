@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class HoofStompState : FirstPhaseState
 {
-    private int numberOfBeatsWaited = 1;
+    private int numberOfBeatsWaited;
     private bool attackTelegraphStarted;
     private bool startedAttacking;
     private Vector3 attackPosition;
     private GenerateCircle outerRingTelegraph;
     private GenerateCircle innerCircleTelegraph;
 
-    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
+    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth, MusicEventPort beatPort)
     {
-        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth);
+        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
         outerRingTelegraph = behaviour.GenerateCircles[0];
         innerCircleTelegraph = behaviour.GenerateCircles[1];
     }
@@ -30,8 +30,8 @@ public class HoofStompState : FirstPhaseState
             return;
         
         numberOfBeatsWaited++;
-
-        if(numberOfBeatsWaited + 1>= firstPhaseStats.NumberOfBeatsWarningForStomp)
+        
+        if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
             StartAttack();
     }
 
@@ -46,13 +46,14 @@ public class HoofStompState : FirstPhaseState
 
     public override void Update()
     {
-        innerCircleTelegraph.SetMesh(innerCircleTelegraph.CreateCircleMesh(100, firstPhaseStats.StompRadius * (1 - (1 / (numberOfBeatsWaited))), 360));
+        innerCircleTelegraph.SetMesh(innerCircleTelegraph.CreateCircleMesh(100, firstPhaseStats.StompRadius * (numberOfBeatsWaited / (float)firstPhaseStats.NumberOfBeatsWarningForStomp), 360));
     }
 
     private void StartAttack()
     {
         startedAttacking = true;
         timer.StartTimer(3);
+        outerRingTelegraph.SetMesh(new Mesh());
 
         Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
         foreach(Collider hit in potentialHit)
@@ -68,5 +69,12 @@ public class HoofStompState : FirstPhaseState
     protected override void TimerDone()
     {
         behaviour.Transition(new IdleFirstPhase());
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        innerCircleTelegraph.SetMesh(new Mesh());
+        outerRingTelegraph.SetMesh(new Mesh());
     }
 }

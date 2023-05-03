@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class IdleFirstPhase : FirstPhaseState
 {
-    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
+    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth, MusicEventPort beatPort)
     {
-        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth);
+        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
         timer.StartTimer(Random.Range(firstPhaseStats.IdleTimeRangeMin, firstPhase.IdleTimeRangeMax));
     }
 
@@ -14,8 +14,8 @@ public class IdleFirstPhase : FirstPhaseState
     {
         int nextAttack = Random.Range(0, 2);
         if(nextAttack == 1)
-            behaviour.Transition(new HoofStompState());
-        else
             behaviour.Transition(new PieSliceState());
+        else
+            behaviour.Transition(new HoofStompState());
     }
 }

@@ -24,7 +24,7 @@ public class BossBehaviour : MonoBehaviour
     {
         currentBossState = new IdleFirstPhase();
         GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
-        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth);
+        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
     }
 
     private void OnEnable()
@@ -44,7 +44,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void OnBeat()
     {
-        currentBossState.OnBeat();
+        
     }
 
     public Vector3 GetPlayerPos()
@@ -59,7 +59,7 @@ public class BossBehaviour : MonoBehaviour
     {
         currentBossState.Exit();
         currentBossState = targetState;
-        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth);
+        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
     }
 
     private void OnDisable()

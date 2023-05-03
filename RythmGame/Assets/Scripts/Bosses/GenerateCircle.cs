@@ -47,7 +47,7 @@ public class GenerateCircle : MonoBehaviour
         pointsList.AddRange(innerPoints);
         Vector3[] vertices = pointsList.ToArray();
 
-        int[] triangles = DrawHollowTriangles(sides);
+        int[] triangles = DrawHollowTriangles(vertices);
 
         Vector3[] normals = GetNormals(vertices);
 
@@ -80,9 +80,9 @@ public class GenerateCircle : MonoBehaviour
         return points;
     }
 
-    private int[] DrawHollowTriangles(int numberOfSides)
+    private int[] DrawHollowTriangles(Vector3[] points)
     {
-        int sidesAmount = numberOfSides / 2;
+        int sidesAmount = points.Length / 2;
         List<int> newTriangles = new List<int>();
         
         for(int i = 0; i < sidesAmount; i++)
@@ -148,7 +148,7 @@ public class GenerateCircle : MonoBehaviour
 
     public void SetMesh(Mesh targetMesh)
     {
+        mf.mesh.Clear();
         mf.mesh = targetMesh;
-        
     }
 }

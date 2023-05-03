@@ -8,10 +8,11 @@ public abstract class BossState
     protected BossBehaviour behaviour;
     protected BossStats firstPhaseStats;
     protected BossStats secondPhaseStats;
+    protected MusicEventPort beatPort;
     protected Health health;
     protected Timer timer;
     
-    public virtual void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
+    public virtual void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth, MusicEventPort beatPort)
     {
         timer = new Timer();
         timer.TimerDone += TimerDone;
@@ -19,6 +20,8 @@ public abstract class BossState
         firstPhaseStats = firstPhase;
         secondPhaseStats = secondPhase;
         health = bossHealth;
+        this.beatPort = beatPort;
+        this.beatPort.onBeat += OnBeat;
     }
 
     public virtual void Update()
@@ -44,6 +47,7 @@ public abstract class BossState
     public virtual void Exit()
     {
         timer.TimerDone -= TimerDone;
+        beatPort.onBeat -= OnBeat;
     }
     
 }
