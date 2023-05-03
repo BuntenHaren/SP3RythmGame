@@ -6,6 +6,9 @@ using FMOD.Studio;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    private EnemyBehavior enemyBehavior;
+
     //Stats
     [SerializeField]
     private float maxHealth;
@@ -47,7 +50,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             RuntimeManager.PlayOneShot(enemyDeathSound);
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
-            gameObject.SetActive(false);
+            enemyBehavior.isDead = true;
         }
     }
 
@@ -64,7 +67,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             RuntimeManager.PlayOneShot(enemyDeathSound);
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
-            gameObject.SetActive(false);
+            enemyBehavior.isDead = true;
         }
     }
 
