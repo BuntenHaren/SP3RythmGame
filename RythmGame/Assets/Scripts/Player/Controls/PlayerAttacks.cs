@@ -80,7 +80,6 @@ public class PlayerAttacks : MonoBehaviour
     private void ApplyOnBeatEffects()
     {
         actualAttackSFX = onBeatPlayerAttack;
-        juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.JuiceAmountOnBeatMultiplier;
     }
 
     private void AttackOffCooldown()
@@ -132,8 +131,9 @@ public class PlayerAttacks : MonoBehaviour
                 hit.TakeDamage(playerStats.CurrentAttackDamage * playerStats.AttackDamageMultiplier);
             }
         }
+        juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.JuiceAmountOnBeatMultiplier;
     }
-    
+
     private void FixedUpdate()
     {
         attackCooldownTimer.UpdateTimer(Time.fixedDeltaTime);
