@@ -13,6 +13,8 @@ public abstract class Charm : ScriptableObject
     protected JuiceCounter juiceCounter;
     [SerializeField]
     protected PlayerStats playerStats;
+    [SerializeField]
+    protected MusicEventPort beatPort;
 
     public virtual void Start()
     {

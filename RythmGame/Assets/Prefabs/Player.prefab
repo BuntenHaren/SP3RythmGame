@@ -4102,6 +4102,7 @@ GameObject:
   - component: {fileID: 8859187983352621151}
   - component: {fileID: 6523958805769126169}
   - component: {fileID: 7784448655751007819}
+  - component: {fileID: 3478877275612365177}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -4226,10 +4227,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: 20
-  baseDashCooldown: 1
-  baseDashDistance: 15
-  baseDashDuration: 0.1
+  baseDashCooldown: 3
+  baseDashDistance: 500
+  baseDashDuration: 0.18
   playerAnimator: {fileID: 7986393270820178561}
+  playerDash:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &5704338087674025854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4332,6 +4340,19 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
+--- !u!114 &3478877275612365177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580281111026730758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4aaf5d5f20f4c847bafd33aacde5ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
 --- !u!1 &7596864909683101517
 GameObject:
   m_ObjectHideFlags: 0
