@@ -44,6 +44,6 @@ public class BeatMaster : PassiveCharm
         }
 
         // set damage multiplier
-        playerStats.AttackDamageMultiplier = BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy;
+        playerStats.BaseAttackDamageMultiplier = BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy;
     }
 }
