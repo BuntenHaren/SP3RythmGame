@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSwipe: 0
   eventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
   enemyScript: {fileID: 156534836675248400}
   rotationPivot: {fileID: 0}
@@ -98,6 +99,34 @@ MonoBehaviour:
   originalColor: {r: 1, g: 1, b: 1, a: 0}
   windUpColor: {r: 1, g: 1, b: 1, a: 0.5882353}
   executeColor: {r: 1, g: 1, b: 1, a: 1}
+  warewolfSwipeAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  warewolfHowlAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  telegraphSwipeAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  telegraphHowlAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   damageAmount: 25
   minimumAttackWindUp: 0.1
   attackHoldWaitTime: 0.2
@@ -237,30 +266,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
-  moveSpeed: 0.1
+  moveSpeed: 0.4
   moveAwayFromEnemySpeed: 0.2
-  distanceToStop: 1.5
+  distanceToStop: 6
   engaged: 0
   maxHealth: 100
   coneAttackObject: {fileID: 156534837293774131}
   circleAttackObject: {fileID: 156534836426496360}
   attackCD: 1
-  attackRange: 5
+  attackRange: 10
   anim: {fileID: 1904246249768545524}
-  WarewolfSwipeAttack:
-    Guid:
-      Data1: -795492207
-      Data2: 1255148732
-      Data3: 600845984
-      Data4: 560937281
-    Path: event:/SFX/Enemy/Warewolf_Attack_Swipe
-  WarewolfHowlAttack:
-    Guid:
-      Data1: -618265613
-      Data2: 1241819269
-      Data3: -425628271
-      Data4: -429900980
-    Path: event:/SFX/Enemy/Warewolf_Attack_Howl
 --- !u!114 &156534836675248407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,13 +288,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bd679578034934dbb89d54546cd140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 100
   damageColor: {r: 1, g: 0.36320752, b: 0.36320752, a: 1}
+  sr: {fileID: 0}
   damageColorTime: 0.5
   onBeatParticles: {fileID: 8785997882179965958, guid: b21e1852a05579e4b9669220cd4a1a81,
     type: 3}
   anim: {fileID: 1904246249768545524}
   deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
+  enemyHitSound:
+    Guid:
+      Data1: 892848494
+      Data2: 1176082498
+      Data3: 715627142
+      Data4: 1478017596
+    Path: event:/SFX/Enemy/Minion_Hurt
+  enemyDeathSound:
+    Guid:
+      Data1: -168435316
+      Data2: 1159661073
+      Data3: 376319371
+      Data4: 1250205960
+    Path: event:/SFX/Enemy/Minion_Death
 --- !u!1 &156534837050761952
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSwipe: 1
   eventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
   enemyScript: {fileID: 156534836675248400}
   rotationPivot: {fileID: 156534835823617742}
@@ -392,6 +423,34 @@ MonoBehaviour:
   originalColor: {r: 1, g: 0, b: 0, a: 0}
   windUpColor: {r: 1, g: 0, b: 0, a: 0.5882353}
   executeColor: {r: 1, g: 0, b: 0, a: 1}
+  warewolfSwipeAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  warewolfHowlAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  telegraphSwipeAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  telegraphHowlAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   damageAmount: 25
   minimumAttackWindUp: 0.1
   attackHoldWaitTime: 0.2
@@ -515,6 +574,11 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.x
       value: 0.5548569
       objectReference: {fileID: 0}
+    - target: {fileID: 621619057895661155, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 0.3480075
+      objectReference: {fileID: 0}
     - target: {fileID: 657502368428636484, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -595,6 +659,11 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Center.x
       value: -0.0008714199
       objectReference: {fileID: 0}
+    - target: {fileID: 1817829068932510211, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
     - target: {fileID: 1869672698226658978, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -609,6 +678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Extent.x
       value: 0.4442134
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869672698226658978, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 0.39516407
       objectReference: {fileID: 0}
     - target: {fileID: 1990199707558467762, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
@@ -664,6 +738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: 0.0007253885
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052028178644670809, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 0.0022244453
       objectReference: {fileID: 0}
     - target: {fileID: 3052028178644670809, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
@@ -1104,6 +1183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Extent.x
       value: 2.6411405
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755714147442310616, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 2.3379755
       objectReference: {fileID: 0}
     - target: {fileID: 8909522928742510074, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
