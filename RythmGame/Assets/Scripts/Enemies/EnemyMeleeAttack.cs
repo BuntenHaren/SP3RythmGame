@@ -30,6 +30,13 @@ public class EnemyMeleeAttack : MonoBehaviour
     [SerializeField]
     private Color executeColor;
 
+    //Sound
+    [SerializeField]
+    public EventReference warewolfSwipeAttack;
+    public EventReference warewolfHowlAttack;
+    public EventReference telegraphSwipeAttack;
+    public EventReference telegraphHowlAttack;
+
     private bool playerInDamageArea = false;
 
     //Attack
@@ -83,11 +90,11 @@ public class EnemyMeleeAttack : MonoBehaviour
             //Execute attack sound here
             if(isSwipe)
             {
-
+                RuntimeManager.PlayOneShot(warewolfSwipeAttack);
             }
             else
             {
-
+                RuntimeManager.PlayOneShot(warewolfHowlAttack);
             }
             anim.SetBool("ExecuteAttack", true);
             anim.SetBool("AttackHold", false);
@@ -108,11 +115,11 @@ public class EnemyMeleeAttack : MonoBehaviour
         //Start of telegraph sound here
         if (isSwipe)
         {
-
+            RuntimeManager.PlayOneShot(telegraphSwipeAttack);
         }
         else
         {
-
+            RuntimeManager.PlayOneShot(telegraphHowlAttack);
         }
         if (rotationPivot != null)
         {

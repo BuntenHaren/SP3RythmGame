@@ -42,11 +42,6 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    //Sound
-    [SerializeField]
-    public EventReference WarewolfSwipeAttack;
-    public EventReference WarewolfHowlAttack;
-
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -109,14 +104,12 @@ public class EnemyBehavior : MonoBehaviour
     {
         anim.SetBool("SwipeAttack", true);
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
-        RuntimeManager.PlayOneShot(WarewolfSwipeAttack);
 
     }
     private void CircleAttack()
     {
         anim.SetBool("CircleAttack", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
-        RuntimeManager.PlayOneShot(WarewolfHowlAttack);
     }
 
     public void stopAttack()
