@@ -1,69 +1,71 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Bosses.States;
 using UnityEngine;
 
-public class BossBehaviour : MonoBehaviour
+namespace Bosses
 {
-    [HideInInspector]
-    public List<GenerateCircle> GenerateCircles;
+    public class BossBehaviour : MonoBehaviour
+    {
+        [HideInInspector]
+        public List<GenerateCircle> GenerateCircles;
 
-    [SerializeField]
-    private BossStats firstPhaseStats;
-    [SerializeField]
-    private BossStats secondPhaseStats;
-    [SerializeField]
-    private Health bossHealth;
-    [SerializeField]
-    private MusicEventPort beatPort;
+        [SerializeField]
+        private FirstPhaseStats firstPhaseStats;
+        [SerializeField]
+        private SecondPhaseState secondPhaseStats;
+        [SerializeField]
+        private Health bossHealth;
+        [SerializeField]
+        private MusicEventPort beatPort;
     
-    private BossState currentBossState;
+        private BossState currentBossState;
 
-    private void Start()
-    {
-        currentBossState = new IdleFirstPhase();
-        GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
-        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
-    }
+        private void Start()
+        {
+            currentBossState = new IdleFirstPhase();
+            GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
+            currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
+        }
 
-    private void OnEnable()
-    {
-        beatPort.onBeat += OnBeat;
-    }
+        private void OnEnable()
+        {
+            beatPort.onBeat += OnBeat;
+        }
 
-    private void Update()
-    {
-        currentBossState.Update();
-    }
+        private void Update()
+        {
+            currentBossState.Update();
+        }
 
-    private void FixedUpdate()
-    {
-        currentBossState.FixedUpdate();
-    }
+        private void FixedUpdate()
+        {
+            currentBossState.FixedUpdate();
+        }
 
-    private void OnBeat()
-    {
+        private void OnBeat()
+        {
         
-    }
+        }
 
-    public Vector3 GetPlayerPos()
-    {
-        GameObject potentialPlayer = GameObject.FindWithTag("Player");
-        if(potentialPlayer == null)
-            return transform.position;
-        return potentialPlayer.transform.position;
-    }
+        public Vector3 GetPlayerPos()
+        {
+            GameObject potentialPlayer = GameObject.FindWithTag("Player");
+            if(potentialPlayer == null)
+                return transform.position;
+            return potentialPlayer.transform.position;
+        }
 
-    public void Transition(BossState targetState)
-    {
-        currentBossState.Exit();
-        currentBossState = targetState;
-        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
-    }
+        public void Transition(BossState targetState)
+        {
+            currentBossState.Exit();
+            currentBossState = targetState;
+            currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
+        }
 
-    private void OnDisable()
-    {
-        beatPort.onBeat -= OnBeat;
+        private void OnDisable()
+        {
+            beatPort.onBeat -= OnBeat;
+        }
     }
 }

@@ -1,80 +1,81 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HoofStompState : FirstPhaseState
+namespace Bosses.States
 {
-    private int numberOfBeatsWaited;
-    private bool attackTelegraphStarted;
-    private bool startedAttacking;
-    private Vector3 attackPosition;
-    private GenerateCircle outerRingTelegraph;
-    private GenerateCircle innerCircleTelegraph;
-
-    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth, MusicEventPort beatPort)
+    public class HoofStompState : FirstPhaseState
     {
-        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
-        outerRingTelegraph = behaviour.GenerateCircles[0];
-        innerCircleTelegraph = behaviour.GenerateCircles[1];
-    }
+        private int numberOfBeatsWaited;
+        private bool attackTelegraphStarted;
+        private bool startedAttacking;
+        private Vector3 attackPosition;
+        private GenerateCircle outerRingTelegraph;
+        private GenerateCircle innerCircleTelegraph;
 
-    public override void OnBeat()
-    {
-        if(!attackTelegraphStarted)
+        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseState secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
-            StartTelegraphAttack();
-            return;
+            base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
+            outerRingTelegraph = behaviour.GenerateCircles[0];
+            innerCircleTelegraph = behaviour.GenerateCircles[1];
         }
 
-        if(startedAttacking)
-            return;
-        
-        numberOfBeatsWaited++;
-        
-        if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
-            StartAttack();
-    }
-
-    private void StartTelegraphAttack()
-    {
-        attackTelegraphStarted = true;
-        attackPosition = behaviour.GetPlayerPos();
-        outerRingTelegraph.transform.position = attackPosition;
-        outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, firstPhaseStats.StompRadius - 0.1f, firstPhaseStats.StompRadius, 360));
-        innerCircleTelegraph.transform.position = attackPosition;
-    }
-
-    public override void Update()
-    {
-        innerCircleTelegraph.SetMesh(innerCircleTelegraph.CreateCircleMesh(100, firstPhaseStats.StompRadius * (numberOfBeatsWaited / (float)firstPhaseStats.NumberOfBeatsWarningForStomp), 360));
-    }
-
-    private void StartAttack()
-    {
-        startedAttacking = true;
-        timer.StartTimer(3);
-        outerRingTelegraph.SetMesh(new Mesh());
-
-        Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
-        foreach(Collider hit in potentialHit)
+        public override void OnBeat()
         {
-            if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable damaged))
+            if(!attackTelegraphStarted)
             {
-                damaged.TakeDamage(firstPhaseStats.StompDamage);
+                StartTelegraphAttack();
+                return;
             }
+
+            if(startedAttacking)
+                return;
+        
+            numberOfBeatsWaited++;
+        
+            if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
+                StartAttack();
         }
 
-    }
+        private void StartTelegraphAttack()
+        {
+            attackTelegraphStarted = true;
+            attackPosition = behaviour.GetPlayerPos();
+            outerRingTelegraph.transform.position = attackPosition;
+            outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, firstPhaseStats.StompRadius - 0.1f, firstPhaseStats.StompRadius, 360));
+            innerCircleTelegraph.transform.position = attackPosition;
+        }
 
-    protected override void TimerDone()
-    {
-        behaviour.Transition(new IdleFirstPhase());
-    }
+        public override void Update()
+        {
+            innerCircleTelegraph.SetMesh(innerCircleTelegraph.CreateCircleMesh(100, firstPhaseStats.StompRadius * (numberOfBeatsWaited / (float)firstPhaseStats.NumberOfBeatsWarningForStomp), 360));
+        }
 
-    public override void Exit()
-    {
-        base.Exit();
-        innerCircleTelegraph.SetMesh(new Mesh());
-        outerRingTelegraph.SetMesh(new Mesh());
+        private void StartAttack()
+        {
+            startedAttacking = true;
+            timer.StartTimer(3);
+            outerRingTelegraph.SetMesh(new Mesh());
+
+            Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
+            foreach(Collider hit in potentialHit)
+            {
+                if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable damaged))
+                {
+                    damaged.TakeDamage(firstPhaseStats.StompDamage);
+                }
+            }
+
+        }
+
+        protected override void TimerDone()
+        {
+            behaviour.Transition(new IdleFirstPhase());
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            innerCircleTelegraph.SetMesh(new Mesh());
+            outerRingTelegraph.SetMesh(new Mesh());
+        }
     }
 }

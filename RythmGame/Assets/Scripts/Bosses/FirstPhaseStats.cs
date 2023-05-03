@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Bosses
 {
-    [CreateAssetMenu(menuName = "RythmGame/Boss/SecondPhaseStats")]
-    public class SeondPhaseStats : ScriptableObject
+    [CreateAssetMenu(menuName = "RythmGame/Boss/FirstPhaseStats")]
+    public class FirstPhaseStats : ScriptableObject
     {
         [field: Header("Circle Sector Attack Variables")]
-        public int AmountOfSlices;
-        public float Range;
-        public float SectorAngle;
-        public float CircleDamage;
+        public int PieSliceAmountOfSlices;
+        public float PieSliceRange;
+        public float PieSliceSectorAngle;
+        public float PieSliceCircleDamage;
 
         [field: Header("Hoof Stomp Attack Variables")]
         public float StompDamage;
