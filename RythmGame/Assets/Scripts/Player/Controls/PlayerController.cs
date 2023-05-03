@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +22,10 @@ public class PlayerController : MonoBehaviour
     [Header("Animation and VFX")]
     [SerializeField]
     private Animator playerAnimator;
+
+    [Header("SFX")]
+    [SerializeField]
+    private EventReference playerDash;
     
     //private dash variables
     private float currentDashDistance;
@@ -96,8 +102,9 @@ public class PlayerController : MonoBehaviour
     {
         if(!dashReady)
             return;
-        
+
         //Insert your SFX below this comment for the dash :)
+        RuntimeManager.PlayOneShot(playerDash);
         
         //Set some stuff for dash functionality
         playerAnimator.SetBool("Dash", true);
