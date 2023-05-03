@@ -45,14 +45,14 @@ public class ArcaneGorger : PassiveCharm
         }
 
         // set heal multiplier
-        playerStats.HealOnAttack = BaseMultiplier * BeatAccuracy * JuiceLevelRatio;
+        playerStats.CurrentHealOnAttack = BaseMultiplier * BeatAccuracy * JuiceLevelRatio;
 
         Debug.Log("Beat accuracy: " + BeatAccuracy + 
             "\nBase multiplier: " + BaseMultiplier + 
             "\nCurrent juice: " + juiceCounter.CurrentJuice + 
             "\nJuice ratio: " + JuiceLevelRatio + 
             "\nJuice multiplier: " + JuiceLevelMultiplier + 
-            "\nHeal amount: " + playerStats.HealOnAttack + 
+            "\nHeal amount: " + playerStats.CurrentHealOnAttack + 
             "\n");
     }
 }
