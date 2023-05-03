@@ -6,6 +6,7 @@ using FMOD.Studio;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    //Other Scripts
     [SerializeField]
     private MusicEventPort eventPort;
 
