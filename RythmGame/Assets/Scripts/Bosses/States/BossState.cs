@@ -6,12 +6,12 @@ namespace Bosses.States
     {
         protected BossBehaviour behaviour;
         protected FirstPhaseStats firstPhaseStats;
-        protected SecondPhaseState secondPhaseStats;
+        protected SecondPhaseStats secondPhaseStats;
         protected MusicEventPort beatPort;
         protected Health health;
         protected Timer timer;
     
-        public virtual void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseState secondPhase, Health bossHealth, MusicEventPort beatPort)
+        public virtual void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
             timer = new Timer();
             timer.TimerDone += TimerDone;

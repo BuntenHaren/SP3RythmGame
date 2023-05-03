@@ -9,19 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f204a3e6e932d343ad519874fbeeb38, type: 3}
+  m_Script: {fileID: 11500000, guid: b9d799268d001a94eb81d6345089422f, type: 3}
   m_Name: FirstPhaseStats
   m_EditorClassIdentifier: 
-  AmountOfSlices: 0
-  Range: 0
-  SectorAngle: 0
-  CircleDamage: 0
-  StompDamage: 10
-  NumberOfStompsTotal: 1
-  NumberOfBeatsWarningForStomp: 4
-  StompRadius: 3
-  IdleTimeRangeMax: 3
-  IdleTimeRangeMin: 1
+  PieSliceAmountOfSlices: 0
+  PieSliceRange: 0
+  PieSliceSectorAngle: 0
+  PieSliceCircleDamage: 0
+  PieSliceStartingOffset: 0
+  PieSliceAngleBetweenSlices: 0
+  StompDamage: 0
+  NumberOfStompsTotal: 0
+  NumberOfBeatsWarningForStomp: 0
+  StompRadius: 0
+  IdleTimeRangeMax: 0
+  IdleTimeRangeMin: 0
   ThresholdForEnrage: 0
   HealingRecievedMultiplier: 1
   DamageRecievedMultiplier: 1

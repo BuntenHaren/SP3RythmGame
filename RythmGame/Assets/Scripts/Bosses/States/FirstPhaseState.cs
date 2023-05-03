@@ -2,7 +2,7 @@ namespace Bosses.States
 {
     public class FirstPhaseState : BossState
     {
-        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseState secondPhase, Health bossHealth, MusicEventPort beatPort)
+        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
             health.onChange += CheckForEnrage;

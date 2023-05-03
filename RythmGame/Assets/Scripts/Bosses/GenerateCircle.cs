@@ -14,9 +14,9 @@ namespace Bosses
             collider = GetComponent<MeshCollider>();
         }
 
-        public Mesh CreateCircleMesh(int sides, float radius, float sectorAngle)
+        public Mesh CreateCircleMesh(int sides, float radius, float sectorAngle, float angleStartOffset)
         {
-            Vector3[] vertices = GetPointsOnRadius(radius, sides, sectorAngle);
+            Vector3[] vertices = GetPointsOnRadius(radius, sides, sectorAngle, angleStartOffset);
 
             int[] triangles = DrawFilledTriangles(sides);
 
@@ -35,12 +35,12 @@ namespace Bosses
             return createdMesh;
         }
 
-        public Mesh CreateHollowCircle(int sides, float innerRadius, float outerRadius, float angleInDegrees)
+        public Mesh CreateHollowCircle(int sides, float innerRadius, float outerRadius, float angleInDegrees, float angleStartOffset)
         {
             //Vertices
             List<Vector3> pointsList = new List<Vector3>();
-            Vector3[] outerPoints = GetPointsOnRadius(outerRadius, sides, angleInDegrees);
-            Vector3[] innerPoints = GetPointsOnRadius(innerRadius, sides, angleInDegrees);
+            Vector3[] outerPoints = GetPointsOnRadius(outerRadius, sides, angleInDegrees, angleStartOffset);
+            Vector3[] innerPoints = GetPointsOnRadius(innerRadius, sides, angleInDegrees, angleStartOffset);
             pointsList.AddRange(outerPoints);
             pointsList.AddRange(innerPoints);
             Vector3[] vertices = pointsList.ToArray();
@@ -61,7 +61,7 @@ namespace Bosses
             return createdMesh;
         }
 
-        private Vector3[] GetPointsOnRadius(float radius, int sides, float angleInDegrees)
+        private Vector3[] GetPointsOnRadius(float radius, int sides, float angleInDegrees, float angleStartOffset)
         {
             List<Vector3> pointsList = new List<Vector3>();
             float x;
@@ -69,8 +69,8 @@ namespace Bosses
             pointsList.Add(Vector3.zero);
             for (int i = 0; i < sides + 2; i ++)
             {
-                x = radius * Mathf.Sin((angleInDegrees * Mathf.Deg2Rad * i) / sides);
-                y = radius * Mathf.Cos((angleInDegrees * Mathf.Deg2Rad * i) / sides);
+                x = radius * Mathf.Sin((angleInDegrees * Mathf.Deg2Rad * i + angleStartOffset * Mathf.Deg2Rad) / sides);
+                y = radius * Mathf.Cos((angleInDegrees * Mathf.Deg2Rad * i + angleStartOffset * Mathf.Deg2Rad) / sides);
                 pointsList.Add(new Vector3(x, 0, y));
             }
             Vector3[] points = pointsList.ToArray();

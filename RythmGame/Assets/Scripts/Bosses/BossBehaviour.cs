@@ -13,7 +13,7 @@ namespace Bosses
         [SerializeField]
         private FirstPhaseStats firstPhaseStats;
         [SerializeField]
-        private SecondPhaseState secondPhaseStats;
+        private SecondPhaseStats secondPhaseStats;
         [SerializeField]
         private Health bossHealth;
         [SerializeField]

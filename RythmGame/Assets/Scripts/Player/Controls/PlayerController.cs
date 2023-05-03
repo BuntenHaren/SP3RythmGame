@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 newMove;
     private Vector2 moveDir;
+    private Animator currentDirectionAnimator;
 
     private PlayerHealth playerHealth;
 
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
             playerHealth = h;
         if(TryGetComponent(out Animator a))
             playerAnimator = a;
+        
+        SetCurrentlyActiveAnimator();
         
         //Get some new stuff ready
         dashTimer = new Timer();
@@ -94,14 +97,6 @@ public class PlayerController : MonoBehaviour
 
     private void SetAnimations()
     {
-        //Set animator values
-        if(moveDir != Vector2.zero)
-            playerAnimator.SetBool("Run", true);
-        else
-        {
-            playerAnimator.SetBool("Run", false);
-        }
-
         if(moveDir == Vector2.up)
         {
             playerAnimator.SetTrigger("Up");
@@ -119,8 +114,32 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetTrigger("Right");
         }
         
+        SetCurrentlyActiveAnimator();
+
+        if(moveDir != Vector2.zero)
+        {
+            currentDirectionAnimator.SetBool("Run", true);
+        }
+        else
+        {
+            currentDirectionAnimator.SetBool("Run", false);
+        }
+
+        
     }
 
+    private void SetCurrentlyActiveAnimator()
+    {
+        foreach(var anim in GetComponentsInChildren<Animator>())
+        {
+            if(anim != playerAnimator)
+            {
+                currentDirectionAnimator = anim;
+                return;
+            }
+        }
+    }
+    
     private void Dash()
     {
         if(!dashReady)
@@ -130,7 +149,7 @@ public class PlayerController : MonoBehaviour
         RuntimeManager.PlayOneShot(playerDash);
         
         //Set some stuff for dash functionality
-        playerAnimator.SetBool("Dash", true);
+        currentDirectionAnimator.SetBool("Dash", true);
         playerHealth.MakeInvurnerableForTime(currentDashDuration);
         dashTimer.StartTimer(currentDashCooldownAmount);
         dashReady = false;
@@ -172,6 +191,6 @@ public class PlayerController : MonoBehaviour
         
         //Finish up the dash movement
         transform.position = targetPosition;
-        playerAnimator.SetBool("Dash", false);
+        currentDirectionAnimator.SetBool("Dash", false);
     }
 }
