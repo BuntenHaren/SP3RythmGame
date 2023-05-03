@@ -25,6 +25,7 @@ public class EnemyBehavior : MonoBehaviour
     private int health;
     [SerializeField]
     private int maxHealth;
+    public bool isDead = false;
 
     //Attack
     [SerializeField]
@@ -46,14 +47,17 @@ public class EnemyBehavior : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
-        eventPort.onBeat += Attack;
+        if(!isDead)
+        {
+            eventPort.onBeat += Attack;
+        }
     }
 
     void FixedUpdate()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         timeSinceAttack += Time.deltaTime;
-        if(engaged)
+        if(engaged && !isDead)
         {
             Move();
         }
