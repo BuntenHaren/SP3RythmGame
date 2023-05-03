@@ -22,13 +22,17 @@ public class PlayerStats : ScriptableObject
     public float BaseAttackRadius { private set; get; } = 1;
     public float BaseAttackDistance { private set; get; } = 1;
     public float BasetimeForBeatWindow { private set; get; }
+    public float BaseJuiceAmountOnBeat { private set; get; } = 1;
+    
     [field: Header("Attack Multipliers")]
     public float AttackDamageMultiplier = 1;
     public float AttackRateMultiplier = 1;
     public float AttackRadiusMultiplier = 1;
     public float AttackDistanceMultiplier = 1;
+    public float JuiceAmountOnBeatMultiplier = 1;
 
-    [field: Header("Health Multipliers")]
+    [field: Header("Health Multipliers")] 
+    public float HealOnAttack;
     public float HealingRecievedMultiplier = 1;
     public float DamageRecievedMultiplier = 1;
     
@@ -42,6 +46,7 @@ public class PlayerStats : ScriptableObject
     public float CurrentAttackRadius;
     public float CurrentAttackDistance;
     public float CurrentTimeForBeatWindow;
+    public float CurrentJuiceAmountOnBeat;
 
     [field: Header("Charms")]
     public Charm CurrentActiveCharm;

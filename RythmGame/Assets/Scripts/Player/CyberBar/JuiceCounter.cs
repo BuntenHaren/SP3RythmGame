@@ -4,13 +4,13 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "RythmGame/Counters/JuiceCounter")]
 public class JuiceCounter : ScriptableObject
 {
-    public UnityAction<int> onChange = delegate {};
+    public UnityAction<float> onChange = delegate {};
 
-    public int MaxJuice { private set; get; } = 10;
+    public float MaxJuice { private set; get; } = 10;
     
-    private int currentJuice;
+    private float currentJuice;
 
-    public int CurrentJuice
+    public float CurrentJuice
     {
         get
         {
@@ -20,7 +20,7 @@ public class JuiceCounter : ScriptableObject
         {
             if(currentJuice != value && value <= MaxJuice)
             {
-                int juiceChange = value - currentJuice;
+                float juiceChange = value - currentJuice;
                 currentJuice = value;
                 onChange.Invoke(juiceChange);
             }

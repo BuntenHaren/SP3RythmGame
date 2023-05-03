@@ -16,6 +16,8 @@ public class PlayerAttacks : MonoBehaviour
     private JuiceCounter juiceCounter;
     [SerializeField]
     private PlayerStats playerStats;
+    [SerializeField]
+    private Health playerHealth;
     
     [Header("Animation and VFX")]
     [SerializeField]
@@ -56,7 +58,6 @@ public class PlayerAttacks : MonoBehaviour
         playerAnimator.SetBool("Attack", true);
         
         //This is temporary testing
-        juiceCounter.CurrentJuice++;
         onPlayerAttackAction.Invoke();
 
         if(CheckIfWithinBeatTimeframe())
@@ -79,6 +80,7 @@ public class PlayerAttacks : MonoBehaviour
     private void ApplyOnBeatEffects()
     {
         actualAttackSFX = onBeatPlayerAttack;
+        juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.JuiceAmountOnBeatMultiplier;
     }
 
     private void AttackOffCooldown()
