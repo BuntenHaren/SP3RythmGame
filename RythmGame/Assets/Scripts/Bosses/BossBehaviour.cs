@@ -1,10 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
 {
+    [HideInInspector]
+    public List<GenerateCircle> GenerateCircles;
+
     [SerializeField]
     private BossStats firstPhaseStats;
     [SerializeField]
@@ -18,7 +22,9 @@ public class BossBehaviour : MonoBehaviour
 
     private void Start()
     {
-        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth);
+        currentBossState = new IdleFirstPhase();
+        GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
+        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
     }
 
     private void OnEnable()
@@ -38,14 +44,22 @@ public class BossBehaviour : MonoBehaviour
 
     private void OnBeat()
     {
-        currentBossState.OnBeat();
+        
+    }
+
+    public Vector3 GetPlayerPos()
+    {
+        GameObject potentialPlayer = GameObject.FindWithTag("Player");
+        if(potentialPlayer == null)
+            return transform.position;
+        return potentialPlayer.transform.position;
     }
 
     public void Transition(BossState targetState)
     {
         currentBossState.Exit();
         currentBossState = targetState;
-        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth);
+        currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
     }
 
     private void OnDisable()

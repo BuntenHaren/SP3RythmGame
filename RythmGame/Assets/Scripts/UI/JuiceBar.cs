@@ -20,7 +20,7 @@ public class JuiceBar : MonoBehaviour
         juiceCounter.onChange += ChangeSliderValue;
     }
 
-    private void ChangeSliderValue(int amount)
+    private void ChangeSliderValue(float amount)
     {
         slider.value += amount;
     }

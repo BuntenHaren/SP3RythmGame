@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FirstPhaseState : BossState
 {
-    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
+    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth, MusicEventPort beatPort)
     {
-        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth);
+        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
         health.onChange += CheckForEnrage;
     }
 

@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if(spawnsLeft <= 0)
             return;
-        
+
         GameObject obj = Instantiate(objectToSpawn, spawnPoints[currentSpawnPoint]);
         currentSpawnPoint++;
         if(currentSpawnPoint == spawnPoints.Count)
@@ -49,11 +49,11 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnTimer.UpdateTimer(Time.deltaTime);
         bool startSpawn = true;
-        /*for(int i = 0; i < enemiesToKillBefore.Count; i++)
+        for(int i = 0; i < enemiesToKillBefore.Count; i++)
         {
-            if(enemiesToKillBefore[i].enabled)
+            if(enemiesToKillBefore[i].isDead)
                 startSpawn = false;
-        }*/
+        }
         if(startSpawn)
             spawnTimer.StartTimer(timeBetweenSpawns);
     }

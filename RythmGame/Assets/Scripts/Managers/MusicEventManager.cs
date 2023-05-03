@@ -37,6 +37,11 @@ public class MusicEventManager : MonoBehaviour
         EventName = EventReference.Find("event:/music/music");
     }
 #endif
+    
+    void OnGUI()
+    {
+        GUILayout.Box(String.Format("Current Bar = {0}, Last Marker = {1}", timelineInfo.CurrentMusicBar, (string)timelineInfo.LastMarker));
+    }
 
     private void Start()
     {
