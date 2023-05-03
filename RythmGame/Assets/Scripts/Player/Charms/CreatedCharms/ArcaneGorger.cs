@@ -51,7 +51,7 @@ public class ArcaneGorger : PassiveCharm
             "\nCurrent juice: " + juiceCounter.CurrentJuice + 
             "\nJuice ratio: " + JuiceLevelRatio + 
             "\nJuice multiplier: " + JuiceLevelMultiplier + 
-            "\nAttack damage multiplier: " + playerStats.HealOnAttack + 
+            "\nHeal amount: " + playerStats.HealOnAttack + 
             "\n");
     }
 }
