@@ -61,7 +61,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponentInParent<Animator>();
-        Debug.Log(anim);
         player = GameObject.Find("Player").transform;
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         eventPort.onBeat += Attack;
