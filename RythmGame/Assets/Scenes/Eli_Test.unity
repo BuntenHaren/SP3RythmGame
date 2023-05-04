@@ -464,6 +464,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0000009834765
       objectReference: {fileID: 0}
+    - target: {fileID: 1904246251446516031, guid: 66a1ab12149490943899d9f41c1691c7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00040850037
+      objectReference: {fileID: 0}
     - target: {fileID: 4571768178273477658, guid: 66a1ab12149490943899d9f41c1691c7,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -496,6 +501,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a1ab12149490943899d9f41c1691c7, type: 3}
+--- !u!1 &1556392524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 156534836675248406, guid: 66a1ab12149490943899d9f41c1691c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1556392523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1556392525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556392524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23beb69c9c805e342b1e10d102bbdabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSwipe: 0
+  eventPort: {fileID: 0}
+  enemyScript: {fileID: 0}
+  rotationPivot: {fileID: 0}
+  sr: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  windUpColor: {r: 0, g: 0, b: 0, a: 0}
+  executeColor: {r: 0, g: 0, b: 0, a: 0}
+  warewolfSwipeAttack:
+    Guid:
+      Data1: -795492207
+      Data2: 1255148732
+      Data3: 600845984
+      Data4: 560937281
+    Path: event:/SFX/Enemy/Warewolf_Attack_Swipe
+  warewolfHowlAttack:
+    Guid:
+      Data1: -618265613
+      Data2: 1241819269
+      Data3: -425628271
+      Data4: -429900980
+    Path: event:/SFX/Enemy/Warewolf_Attack_Howl
+  telegraphSwipeAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  telegraphHowlAttack:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  damageAmount: 0
+  minimumAttackWindUp: 0
+  attackHoldWaitTime: 0
+  anim: {fileID: 0}
 --- !u!1 &1732754025
 GameObject:
   m_ObjectHideFlags: 0

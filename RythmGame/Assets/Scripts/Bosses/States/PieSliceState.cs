@@ -1,8 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PieSliceState : FirstPhaseState
+namespace Bosses.States
 {
-    
+    public class PieSliceState : FirstPhaseState
+    {
+        private int numberOfBeatsWaited;
+        private bool attackTelegraphStarted;
+        private bool startedAttacking;
+        private Vector3 attackPosition;
+        private Mesh attackTelegraphMesh;
+
+        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
+        {
+            base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
+        
+        }
+
+        public override void OnBeat()
+        {
+            if(!attackTelegraphStarted)
+            {
+                StartTelegraphAttack();
+                return;
+            }
+
+            if(startedAttacking)
+                return;
+        
+            numberOfBeatsWaited++;
+        
+            if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
+                StartAttack();
+        }
+
+        private void StartTelegraphAttack()
+        {
+            attackTelegraphStarted = true;
+            attackPosition = behaviour.GetPlayerPos();
+            
+            CombineInstance[] combine = new CombineInstance[firstPhaseStats.PieSliceAmountOfSlices];
+            for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
+            {
+                combine[i].mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
+                    firstPhaseStats.PieSliceRange, 
+                    firstPhaseStats.PieSliceSectorAngle,
+                    firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
+            }
+            //attackTelegraphMesh.CombineMeshes(combine);
+            behaviour.GenerateCircles[0].SetMesh(attackTelegraphMesh);
+        }
+
+        public override void Update()
+        {
+        
+        }
+
+        private void StartAttack()
+        {
+            startedAttacking = true;
+            timer.StartTimer(3);
+        
+        
+
+        }
+
+        protected override void TimerDone()
+        {
+            behaviour.Transition(new IdleFirstPhase());
+        }
+    }
 }

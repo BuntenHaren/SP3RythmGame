@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyEngager : MonoBehaviour
 {
     [SerializeField]
+    private EnemiesInCombatCounter enemiesInCombatCounter;
+
+    [SerializeField]
     private EnemyBehavior[] enemies;
 
     void OnTriggerEnter(Collider col)
@@ -14,10 +17,7 @@ public class EnemyEngager : MonoBehaviour
             for (int i = 0; i < enemies.Length; i++)
             {
                 enemies[i].engaged = true;
-                if (!enemies[i].isActiveAndEnabled)
-                {
-                    enemies[i].gameObject.SetActive(true);
-                }
+                enemiesInCombatCounter.AddEnemyToList(enemies[i]);
             }
         }
     }

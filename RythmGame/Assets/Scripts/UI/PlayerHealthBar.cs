@@ -23,7 +23,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void Start()
     {
-        SetMaxHealth(playerHealth.MaxHealth);
+        SetMaxHealth(playerHealth.CurrentMaxHealth);
         eventPort.onBeat += HealthBarBeatAnimation;
     }
 

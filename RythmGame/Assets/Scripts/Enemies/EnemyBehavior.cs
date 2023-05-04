@@ -6,6 +6,7 @@ using FMOD.Studio;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    //Other Scripts
     [SerializeField]
     private MusicEventPort eventPort;
 
@@ -25,6 +26,7 @@ public class EnemyBehavior : MonoBehaviour
     private int health;
     [SerializeField]
     private int maxHealth;
+    public bool isDead = false;
 
     //Attack
     [SerializeField]
@@ -42,23 +44,21 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    //Sound
-    [SerializeField]
-    public EventReference WarewolfSwipeAttack;
-    public EventReference WarewolfHowlAttack;
-
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
-        eventPort.onBeat += Attack;
+        if(!isDead)
+        {
+            eventPort.onBeat += Attack;
+        }
     }
 
     void FixedUpdate()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         timeSinceAttack += Time.deltaTime;
-        if(engaged)
+        if(engaged && !isDead)
         {
             Move();
         }
@@ -109,14 +109,12 @@ public class EnemyBehavior : MonoBehaviour
     {
         anim.SetBool("SwipeAttack", true);
         coneAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
-        RuntimeManager.PlayOneShot(WarewolfSwipeAttack);
 
     }
     private void CircleAttack()
     {
         anim.SetBool("CircleAttack", true);
         circleAttackObject.GetComponent<EnemyMeleeAttack>().StartTelegraph();
-        RuntimeManager.PlayOneShot(WarewolfHowlAttack);
     }
 
     public void stopAttack()

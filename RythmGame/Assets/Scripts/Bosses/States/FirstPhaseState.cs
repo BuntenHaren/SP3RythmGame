@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FirstPhaseState : BossState
+namespace Bosses.States
 {
-    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth)
+    public class FirstPhaseState : BossState
     {
-        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth);
-        health.onChange += CheckForEnrage;
-    }
+        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
+        {
+            base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
+            health.onChange += CheckForEnrage;
+        }
 
-    private void CheckForEnrage(float amount)
-    {
-        if(health.CurrentHealth <= firstPhaseStats.ThresholdForEnrage)
-            behaviour.Transition(new NextPhaseState());
-    }
+        private void CheckForEnrage(float amount)
+        {
+            if(health.CurrentHealth <= firstPhaseStats.ThresholdForEnrage)
+                behaviour.Transition(new NextPhaseState());
+        }
 
-    public override void Exit()
-    {
-        base.Exit();
-        health.onChange -= CheckForEnrage;
+        public override void Exit()
+        {
+            base.Exit();
+            health.onChange -= CheckForEnrage;
+        }
     }
 }

@@ -10,7 +10,9 @@ public class Health : ScriptableObject
     [HideInInspector]
     public bool Invurnerable;
     
-    public float MaxHealth;
+    public float BaseMaxHealth;
+    [HideInInspector]
+    public float CurrentMaxHealth;
     
     private float currentHealth;
 
@@ -28,6 +30,8 @@ public class Health : ScriptableObject
             if(Math.Abs(currentHealth - value) > 0.05f)
             {
                 float healthChange = value - currentHealth;
+                if(value > CurrentMaxHealth)
+                    return;
                 currentHealth = value;
                 onChange.Invoke(healthChange);
             }
@@ -36,6 +40,7 @@ public class Health : ScriptableObject
 
     private void OnEnable()
     {
-        currentHealth = MaxHealth;
+        currentHealth = BaseMaxHealth;
+        CurrentMaxHealth = BaseMaxHealth;
     }
 }
