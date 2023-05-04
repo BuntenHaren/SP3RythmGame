@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 namespace Bosses.States
 {
@@ -10,6 +12,8 @@ namespace Bosses.States
         private Vector3 attackPosition;
         private GenerateCircle outerRingTelegraph;
         private GenerateCircle innerCircleTelegraph;
+        [SerializeField]
+        private EventReference hoofStompSound;
 
         public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
@@ -39,6 +43,7 @@ namespace Bosses.States
         {
             attackTelegraphStarted = true;
             attackPosition = behaviour.GetPlayerPos();
+            attackPosition.y = 0.05f;
             outerRingTelegraph.transform.position = attackPosition;
             outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, firstPhaseStats.StompRadius - 0.1f, firstPhaseStats.StompRadius, 360, 0));
             innerCircleTelegraph.transform.position = attackPosition;
@@ -55,6 +60,9 @@ namespace Bosses.States
             timer.StartTimer(3);
             outerRingTelegraph.SetMesh(new Mesh());
 
+            //Insert SFX code below this comment :)
+            RuntimeManager.PlayOneShot(hoofStompSound);
+            
             Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
             foreach(Collider hit in potentialHit)
             {
