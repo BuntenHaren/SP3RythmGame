@@ -25,6 +25,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         SetMaxHealth(playerHealth.CurrentMaxHealth);
         eventPort.onBeat += HealthBarBeatAnimation;
+        SetHealth(playerHealth.BaseMaxHealth);
     }
 
     private void OnEnable()
@@ -35,6 +36,7 @@ public class PlayerHealthBar : MonoBehaviour
     private void OnDisable()
     {
         playerHealth.onChange -= SetHealth;
+        eventPort.onBeat -= HealthBarBeatAnimation;
     }
 
     private void SetMaxHealth(float health)
