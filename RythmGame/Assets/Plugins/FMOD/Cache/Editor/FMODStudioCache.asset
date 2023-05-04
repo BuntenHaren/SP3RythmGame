@@ -372,10 +372,10 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638187213782844202
+  lastModified: 638187948201878683
   FileSizes:
   - Name: 
-    Value: 1990
+    Value: 2094
   Exists: 1
 --- !u!114 &-5236058414057084014
 MonoBehaviour:
@@ -488,7 +488,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638187213782798991
+  lastModified: 638187948201747099
   FileSizes: []
   Exists: 1
 --- !u!114 &-3540376257540451863
@@ -557,6 +557,60 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-2863399831488371166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Telegraph_Swipe_Attack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/Telegraph_Swipe_Attack
+  Guid:
+    Data1: 42029393
+    Data2: 1122195914
+    Data3: -1786070604
+    Data4: -363135868
+  Banks:
+  - {fileID: 7317560920573927950}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1636
+--- !u!114 &-2452996297961004325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Minion_Spawn_Attack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Boss/Minion_Spawn_Attack
+  Guid:
+    Data1: 555121996
+    Data2: 1339382378
+    Data3: 60604565
+    Data4: -2010704518
+  Banks:
+  - {fileID: 7317560920573927950}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 85
+  Length: 4000
 --- !u!114 &-1825966712911917570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,6 +881,8 @@ MonoBehaviour:
   - {fileID: -7712307853636520769}
   - {fileID: -4441240318789353614}
   - {fileID: -6887822156957136203}
+  - {fileID: -2452996297961004325}
+  - {fileID: -2863399831488371166}
   EditorParameters:
   - {fileID: 4618167991616576824}
   - {fileID: -4528585200636216160}
@@ -835,7 +891,7 @@ MonoBehaviour:
   - {fileID: -3991837360455032571}
   StringsBanks:
   - {fileID: -5742849947029976355}
-  cacheTime: 638187213784499630
+  cacheTime: 638187948205077335
   cacheVersion: 131603
 --- !u!114 &449903127907797515
 MonoBehaviour:
@@ -1414,7 +1470,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638187213784499630
+  lastModified: 638187948205077335
   FileSizes: []
   Exists: 1
 --- !u!114 &7753349157751205399
