@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        healthObject.ResetHealth();
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
     }
@@ -66,7 +67,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         GetComponent<PlayerAttacks>().enabled = true;
         GetComponent<PlayerController>().enabled = true;
         HealDamage(healthObject.CurrentMaxHealth);
-        Debug.Log(healthObject.CurrentHealth);
     }
 
     public void HealDamage(float amount)

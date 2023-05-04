@@ -51,11 +51,16 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackHoldWaitTime;
 
     //Parent Animator
-    [SerializeField]
     private Animator anim;
+
+    void OnDisable()
+    {
+        eventPort.onBeat -= Attack;
+    }
 
     void Start()
     {
+        anim = gameObject.GetComponentInParent<Animator>();
         player = GameObject.Find("Player").transform;
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         eventPort.onBeat += Attack;

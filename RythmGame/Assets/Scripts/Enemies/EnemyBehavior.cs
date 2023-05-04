@@ -51,6 +51,11 @@ public class EnemyBehavior : MonoBehaviour
         eventPort.onBeat += Attack;
     }
 
+    void OnDisable()
+    {
+        eventPort.onBeat -= Attack;
+    }
+
     void FixedUpdate()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);

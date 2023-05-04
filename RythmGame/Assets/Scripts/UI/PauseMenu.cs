@@ -110,7 +110,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        playerHealth.CurrentHealth = playerHealth.BaseMaxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

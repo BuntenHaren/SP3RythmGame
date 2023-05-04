@@ -38,9 +38,16 @@ public class Health : ScriptableObject
         }
     }
 
+    public void ResetHealth()
+    {
+        Debug.Log("BaseMaxHealth" + BaseMaxHealth);
+        currentHealth = BaseMaxHealth;
+        Debug.Log("CurrentHealth" + currentHealth);
+        CurrentMaxHealth = BaseMaxHealth;
+    }
+
     private void OnEnable()
     {
-        currentHealth = BaseMaxHealth;
-        CurrentMaxHealth = BaseMaxHealth;
+        ResetHealth();
     }
 }
