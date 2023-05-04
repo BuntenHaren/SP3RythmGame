@@ -39,7 +39,8 @@ public class PlayerAttacks : MonoBehaviour
     private EventReference actualAttackSFX;
     private Vector3 finalPoint;
     private Camera cam;
-    
+    private Animator currentDirectionAnimator;
+
     private void Start()
     {
         musicEventPort.onBeat += OnBeat;
@@ -54,8 +55,9 @@ public class PlayerAttacks : MonoBehaviour
         if (!readyToAttack)
             return;
 
+        SetCurrentlyActiveAnimator();
         actualAttackSFX = PlayerAttack;
-        playerAnimator.SetBool("Attack", true);
+        currentDirectionAnimator.SetBool("Attack", true);
         
         //This is temporary testing
         onPlayerAttackAction.Invoke();
@@ -69,6 +71,18 @@ public class PlayerAttacks : MonoBehaviour
         ActivateAttackStuff();
         HitEverythingInRange();
         
+    }
+
+    private void SetCurrentlyActiveAnimator()
+    {
+        foreach (var anim in GetComponentsInChildren<Animator>())
+        {
+            if (anim != playerAnimator)
+            {
+                currentDirectionAnimator = anim;
+                return;
+            }
+        }
     }
 
     private void OnBeat()
