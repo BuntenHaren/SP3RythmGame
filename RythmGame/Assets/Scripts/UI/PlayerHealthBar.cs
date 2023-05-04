@@ -39,13 +39,13 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void SetMaxHealth(float health)
     {
-        slider.maxValue = health;
-        slider.value = health;
+        slider.maxValue = playerHealth.CurrentMaxHealth;
+        slider.value = playerHealth.CurrentHealth;
     }
 
     private void SetHealth(float health)
     {
-        slider.value = health;
+        slider.value = playerHealth.CurrentHealth;
     }
 
     private void HealthBarBeatAnimation()
