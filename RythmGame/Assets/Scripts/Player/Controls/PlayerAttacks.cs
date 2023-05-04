@@ -98,7 +98,7 @@ public class PlayerAttacks : MonoBehaviour
 
     private void AttackOffCooldown()
     {
-        playerAnimator.SetBool("Attack", false);
+        currentDirectionAnimator.SetBool("Attack", false);
         readyToAttack = true;
     }
 

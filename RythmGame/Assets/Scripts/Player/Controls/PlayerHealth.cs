@@ -31,7 +31,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if(!healthObject.Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
-            Debug.Log(healthObject.CurrentHealth);
             if(healthObject.CurrentHealth <= 0)
             {
                 OnDeath();
