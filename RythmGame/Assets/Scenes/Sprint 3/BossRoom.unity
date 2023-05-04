@@ -25513,6 +25513,41 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1572094984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572094978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80bd679578034934dbb89d54546cd140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBehavior: {fileID: 0}
+  enemiesInCombatCounter: {fileID: 0}
+  maxHealth: 10
+  damageColor: {r: 0, g: 0, b: 0, a: 0}
+  sr: {fileID: 0}
+  damageColorTime: 0
+  onBeatParticles: {fileID: 0}
+  anim: {fileID: 0}
+  deathPort: {fileID: 0}
+  enemyHitSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  enemyDeathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1572339032
 GameObject:
   m_ObjectHideFlags: 0
