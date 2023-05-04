@@ -9,6 +9,7 @@ using FMOD.Studio;
 public class PlayerController : MonoBehaviour
 {
     [Header("Stats")] 
+    [SerializeField]
     private PlayerStats playerStats;
     
     [Header("Animation and VFX")]
@@ -143,7 +144,7 @@ public class PlayerController : MonoBehaviour
         
         //Actually make the player do the dash
         Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * playerStats.CurrentDashDistance * playerStats.CurrentDashDistanceMultiplier;
-        StartCoroutine(LerpPosition(targetPosition, playerStats.CurrentDashCooldown * playerStats.CurrentDashCooldownMultiplier));
+        StartCoroutine(LerpPosition(targetPosition, playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier));
     }
 
     private RaycastHit CheckForObstruction(Vector3 origin, Vector3 direction, float range)

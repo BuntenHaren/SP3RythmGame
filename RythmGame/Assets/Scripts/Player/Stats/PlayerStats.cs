@@ -7,10 +7,10 @@ using UnityEngine.Serialization;
 public class PlayerStats : ScriptableObject
 {
     [field: Header("Movement Variables")] 
-    public float BaseMovementSpeed { private set; get; } = 10;
-    public float BaseDashDistance { private set; get; } = 1;
-    public float BaseDashCooldown { private set; get; } = 1;
-    public float BaseDashDuration { private set; get; } = 0.1f;
+    public float BaseMovementSpeed = 10;
+    public float BaseDashDistance = 1;
+    public float BaseDashCooldown = 1;
+    public float BaseDashDuration = 0.1f;
     
     [field: Header("Movement Multipliers")]
     public float BaseMovementSpeedMultiplier = 1;
@@ -19,12 +19,12 @@ public class PlayerStats : ScriptableObject
     public float BaseDashDurationMultiplier = 1;
 
     [field: Header("Attack Variables")] 
-    public int BaseAttackDamage { private set; get; } = 1;
-    public float BaseAttackRate { private set; get; } = 1;
-    public float BaseAttackRadius { private set; get; } = 1;
-    public float BaseAttackDistance { private set; get; } = 1;
-    public float BasetimeForBeatWindow { private set; get; }
-    public float BaseJuiceAmountOnBeat { private set; get; } = 1;
+    public int BaseAttackDamage = 1;
+    public float BaseAttackRate = 1;
+    public float BaseAttackRadius = 1;
+    public float BaseAttackDistance = 1;
+    public float BasetimeForBeatWindow;
+    public float BaseJuiceAmountOnBeat = 1;
     
     [field: Header("Attack Multipliers")]
     public float BaseAttackDamageMultiplier = 1;
@@ -35,10 +35,14 @@ public class PlayerStats : ScriptableObject
 
     [field: Header("Health Multipliers")] 
     public float BaseHealOnAttack;
-    public float BaseHealOnAttackMultiplier;
+    public float BaseHealOnAttackMultiplier = 1;
     public float BaseHealingRecievedMultiplier = 1;
     public float BaseDamageRecievedMultiplier = 1;
     public float BaseMaxHealthMultiplier = 1;
+    
+    [field: Header("Charms")]
+    public Charm CurrentActiveCharm;
+    public Charm CurrentPassiveCharm;
     
     [HideInInspector]
     public float CurrentMovementSpeed, 
@@ -67,10 +71,6 @@ public class PlayerStats : ScriptableObject
         CurrentHealOnAttackMultiplier,
         CurrentMaxHealthMultiplier;
 
-    [field: Header("Charms")]
-    public Charm CurrentActiveCharm;
-    public Charm CurrentPassiveCharm;
-    
     public void ResetValues()
     {
         ResetCurrentVariables();
