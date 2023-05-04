@@ -34,7 +34,10 @@ namespace Bosses.States
                 return;
         
             numberOfBeatsWaited++;
-        
+            
+            if(numberOfBeatsWaited == firstPhaseStats.NumberOfBeatsWarningForStomp - 1)
+                behaviour.bossAnim.SetTrigger("HoofStomp");
+            
             if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
                 StartAttack();
         }
@@ -57,7 +60,7 @@ namespace Bosses.States
         private void StartAttack()
         {
             startedAttacking = true;
-            timer.StartTimer(3);
+            timer.StartTimer(1.5f);
             outerRingTelegraph.SetMesh(new Mesh());
 
             //Insert SFX code below this comment :)

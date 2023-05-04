@@ -45,10 +45,8 @@ namespace Bosses.States
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
                     firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
-                combine[i].transform = behaviour.GenerateCircles[0].transform.worldToLocalMatrix;
+                //combine[i].transform = behaviour.transform.localToWorldMatrix;
             }
-            
-            Debug.Log(combine);
             
             attackTelegraphMesh.CombineMeshes(combine);
             attackTelegraphMesh.name = "Telegraph mesh";

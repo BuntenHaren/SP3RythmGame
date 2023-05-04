@@ -25,6 +25,7 @@ namespace Bosses
 
         private void Start()
         {
+            bossAnim = GetComponentInChildren<Animator>();
             currentBossState = new IdleFirstPhase();
             GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
             currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
