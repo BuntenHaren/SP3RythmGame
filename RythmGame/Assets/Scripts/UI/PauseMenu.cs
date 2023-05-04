@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     private bool audioSettingsOpen = false;
 
     [SerializeField]
-    private PlayerHealth playerHealth;
+    private Health playerHealth;
 
     [SerializeField]
     private GameObject pauseMenuUI;
@@ -110,7 +110,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        playerHealth.Spawn();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
