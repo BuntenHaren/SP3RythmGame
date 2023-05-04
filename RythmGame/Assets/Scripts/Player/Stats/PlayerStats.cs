@@ -1,60 +1,110 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "RythmGame/Player/PlayerStats")]
 public class PlayerStats : ScriptableObject
 {
     [field: Header("Movement Variables")] 
-    public float BaseMovementSpeed { private set; get; } = 10;
-    public float BaseDashDistance { private set; get; } = 1;
-    public float BaseDashCooldown { private set; get; } = 1;
-    public float BaseDashDuration { private set; get; } = 0.1f;
+    public float BaseMovementSpeed = 10;
+    public float BaseDashDistance = 1;
+    public float BaseDashCooldown = 1;
+    public float BaseDashDuration = 0.1f;
+    
     [field: Header("Movement Multipliers")]
-    public float MovementSpeedMultiplier = 1;
-    public float DashDistanceMultiplier = 1;
-    public float DashCooldownMultiplier = 1;
-    public float DashDurationMultiplier = 1;
+    public float BaseMovementSpeedMultiplier = 1;
+    public float BaseDashDistanceMultiplier = 1;
+    public float BaseDashCooldownMultiplier = 1;
+    public float BaseDashDurationMultiplier = 1;
 
     [field: Header("Attack Variables")] 
-    public int BaseAttackDamage { private set; get; } = 1;
-    public float BaseAttackRate { private set; get; } = 1;
-    public float BaseAttackRadius { private set; get; } = 1;
-    public float BaseAttackDistance { private set; get; } = 1;
-    public float BasetimeForBeatWindow { private set; get; }
-    public float BaseJuiceAmountOnBeat { private set; get; } = 1;
+    public int BaseAttackDamage = 1;
+    public float BaseAttackRate = 1;
+    public float BaseAttackRadius = 1;
+    public float BaseAttackDistance = 1;
+    public float BasetimeForBeatWindow;
+    public float BaseJuiceAmountOnBeat = 1;
     
     [field: Header("Attack Multipliers")]
-    public float AttackDamageMultiplier = 1;
-    public float AttackRateMultiplier = 1;
-    public float AttackRadiusMultiplier = 1;
-    public float AttackDistanceMultiplier = 1;
-    public float JuiceAmountOnBeatMultiplier = 1;
+    public float BaseAttackDamageMultiplier = 1;
+    public float BaseAttackRateMultiplier = 1;
+    public float BaseAttackRadiusMultiplier = 1;
+    public float BaseAttackDistanceMultiplier = 1;
+    public float BaseJuiceAmountOnBeatMultiplier = 1;
 
     [field: Header("Health Multipliers")] 
-    public float HealOnAttack;
-    public float HealingRecievedMultiplier = 1;
-    public float DamageRecievedMultiplier = 1;
+    public float BaseHealOnAttack;
+    public float BaseHealOnAttackMultiplier = 1;
+    public float BaseHealingRecievedMultiplier = 1;
+    public float BaseDamageRecievedMultiplier = 1;
+    public float BaseMaxHealthMultiplier = 1;
     
-    public float CurrentMovementSpeed;
-    public float CurrentDashDistance;
-    public float CurrentDashCooldown;
-    public float CurrentDashDuration;
-
-    public int CurrentAttackDamage;
-    public float CurrentAttackRate;
-    public float CurrentAttackRadius;
-    public float CurrentAttackDistance;
-    public float CurrentTimeForBeatWindow;
-    public float CurrentJuiceAmountOnBeat;
-
     [field: Header("Charms")]
     public Charm CurrentActiveCharm;
     public Charm CurrentPassiveCharm;
     
+    [HideInInspector]
+    public float CurrentMovementSpeed, 
+        CurrentDashDistance, 
+        CurrentDashCooldown, 
+        CurrentDashDuration;
+
+    [HideInInspector]
+    public int CurrentAttackDamage;
+
+    [HideInInspector] public float CurrentAttackRate,
+        CurrentAttackRadius,
+        CurrentAttackDistance,
+        CurrentTimeForBeatWindow,
+        CurrentJuiceAmountOnBeat,
+        CurrentHealOnAttack,
+        CurrentAttackDamageMultiplier,
+        CurrentAttackRateMultiplier,
+        CurrentAttackRadiusMultiplier,
+        CurrentAttackDistanceMultiplier,
+        CurrentJuiceAmountOnBeatMultiplier,
+        CurrentMovementSpeedMultiplier,
+        CurrentDashDistanceMultiplier,
+        CurrentDashCooldownMultiplier,
+        CurrentDashDurationMultiplier,
+        CurrentHealOnAttackMultiplier,
+        CurrentMaxHealthMultiplier;
+
     public void ResetValues()
     {
-        
+        ResetCurrentVariables();
+        ResetMultiplierVariables();
     }
-    
+
+    private void ResetCurrentVariables()
+    {
+        CurrentMovementSpeed = BaseMovementSpeed;
+        CurrentDashCooldown = BaseDashCooldown;
+        CurrentDashDistance = BaseDashDistance;
+        CurrentDashDuration = BaseDashDuration; 
+        CurrentAttackDamage = BaseAttackDamage;
+        CurrentAttackRate = BaseAttackRate;
+        CurrentAttackRadius = BaseAttackRadius;
+        CurrentAttackDistance = BaseAttackDistance;
+        CurrentTimeForBeatWindow = BasetimeForBeatWindow;
+        CurrentJuiceAmountOnBeat = BaseJuiceAmountOnBeat;
+        CurrentHealOnAttack = BaseHealOnAttack;
+    }
+
+    private void ResetMultiplierVariables()
+    {
+        CurrentAttackDamageMultiplier = BaseAttackDamageMultiplier;
+        CurrentAttackRateMultiplier = BaseAttackRateMultiplier;
+        CurrentAttackRadiusMultiplier = BaseAttackRadiusMultiplier;
+        CurrentAttackDistanceMultiplier = BaseAttackDistanceMultiplier;
+        CurrentJuiceAmountOnBeatMultiplier = BaseJuiceAmountOnBeatMultiplier;
+        CurrentMovementSpeedMultiplier = BaseMovementSpeedMultiplier;
+        CurrentDashDistanceMultiplier = BaseDashDistanceMultiplier;
+        CurrentDashCooldownMultiplier = BaseDashCooldownMultiplier;
+        CurrentDashDurationMultiplier = BaseDashDurationMultiplier;
+        CurrentHealOnAttackMultiplier = BaseHealOnAttackMultiplier;
+        CurrentMaxHealthMultiplier = BaseMaxHealthMultiplier;
+    }
+
 }

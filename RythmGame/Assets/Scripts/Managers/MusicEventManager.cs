@@ -18,6 +18,8 @@ public class MusicEventManager : MonoBehaviour
 
     [SerializeField]
     private MusicEventPort musicEventPort;
+    [SerializeField, Range(0, 1)]
+    private float musicVolume;
     
     TimelineInfo timelineInfo;
     GCHandle timelineHandle;
@@ -61,6 +63,7 @@ public class MusicEventManager : MonoBehaviour
 
         musicInstance.setCallback(beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
         musicInstance.start();
+        musicInstance.setVolume(musicVolume);
     }
 
     public void ChangeMusicImmediate(EventReference eventName)
@@ -70,6 +73,7 @@ public class MusicEventManager : MonoBehaviour
         musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
         musicInstance.setCallback(beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
         musicInstance.start();
+        musicInstance.setVolume(musicVolume);
     }
     
     //Doesn't work for the moment and I can't be arsed to understand the fade out time rn so...
@@ -80,6 +84,7 @@ public class MusicEventManager : MonoBehaviour
         musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
         musicInstance.setCallback(beatCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
         musicInstance.start();
+        musicInstance.setVolume(musicVolume);
     }
 
     private void Update()

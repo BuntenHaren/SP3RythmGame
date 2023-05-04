@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f204a3e6e932d343ad519874fbeeb38, type: 3}
   m_Name: SecondPhaseStats
   m_EditorClassIdentifier: 
-  AmountOfSlices: 0
-  Range: 0
-  SectorAngle: 0
-  CircleDamage: 0
-  StompDamage: 0
-  NumberOfStompsTotal: 0
-  NumberOfBeatsWarningForStomp: 0
-  StompRadius: 0
-  IdleTimeRangeMax: 0
-  IdleTimeRangeMin: 0
-  ThresholdForEnrage: 0
+  PieSliceAmountOfSlices: 1
+  PieSliceRange: 1
+  PieSliceSectorAngle: 1
+  PieSliceCircleDamage: 1
+  PieSliceStartingOffset: 0
+  PieSliceAngleBetweenSlices: 0
+  StompDamage: 1
+  NumberOfStompsTotal: 1
+  NumberOfBeatsWarningForStomp: 1
+  StompRadius: 1
+  IdleTimeRangeMax: 1
+  IdleTimeRangeMin: 3
   HealingRecievedMultiplier: 1
   DamageRecievedMultiplier: 1

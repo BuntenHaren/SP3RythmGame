@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,17 +8,9 @@ using FMOD.Studio;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement Variables")]
+    [Header("Stats")] 
     [SerializeField]
-    private float baseMovementSpeed = 10;
-    
-    [Header("Dash Variables")]
-    [SerializeField]
-    private float baseDashCooldown = 2;
-    [SerializeField]
-    private float baseDashDistance = 5;
-    [SerializeField] 
-    private float baseDashDuration = 0.1f;
+    private PlayerStats playerStats;
     
     [Header("Animation and VFX")]
     [SerializeField]
@@ -28,19 +21,21 @@ public class PlayerController : MonoBehaviour
     private EventReference playerDash;
     
     //private dash variables
-    private float currentDashDistance;
-    private float currentDashDuration;
-    private float currentDashCooldownAmount;
     private bool dashReady = true;
     private Timer dashTimer;
     
     //private movement variables
-    private float currentMovementSpeed;
     private Rigidbody rb;
     private Vector3 newMove;
     private Vector2 moveDir;
+    private Animator currentDirectionAnimator;
 
     private PlayerHealth playerHealth;
+
+    private void Awake()
+    {
+        playerStats.ResetValues();
+    }
 
     private void Start()
     {
@@ -51,15 +46,11 @@ public class PlayerController : MonoBehaviour
         if(TryGetComponent(out Animator a))
             playerAnimator = a;
         
+        SetCurrentlyActiveAnimator();
+        
         //Get some new stuff ready
         dashTimer = new Timer();
         dashTimer.TimerDone += () => dashReady = true;
-        
-        //Set some current variables
-        currentDashDistance = baseDashDistance;
-        currentDashDuration = baseDashDuration;
-        currentDashCooldownAmount = baseDashCooldown;
-        currentMovementSpeed = baseMovementSpeed;
     }
 
     public void OnMove(InputValue value)
@@ -87,21 +78,13 @@ public class PlayerController : MonoBehaviour
         SetAnimations();
 
         //Move the character in the right direction
-        newMove = new Vector3(moveDir.x, 0, moveDir.y) * currentMovementSpeed;
+        newMove = playerStats.CurrentMovementSpeed * playerStats.CurrentMovementSpeedMultiplier * new Vector3(moveDir.x, 0, moveDir.y);
         newMove.y = rb.velocity.y;
         rb.velocity = newMove;
     }
 
     private void SetAnimations()
     {
-        //Set animator values
-        if(moveDir != Vector2.zero)
-            playerAnimator.SetBool("Run", true);
-        else
-        {
-            playerAnimator.SetBool("Run", false);
-        }
-
         if(moveDir == Vector2.up)
         {
             playerAnimator.SetTrigger("Up");
@@ -119,8 +102,32 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetTrigger("Right");
         }
         
+        SetCurrentlyActiveAnimator();
+
+        if(moveDir != Vector2.zero)
+        {
+            currentDirectionAnimator.SetBool("Run", true);
+        }
+        else
+        {
+            currentDirectionAnimator.SetBool("Run", false);
+        }
+
+        
     }
 
+    private void SetCurrentlyActiveAnimator()
+    {
+        foreach(var anim in GetComponentsInChildren<Animator>())
+        {
+            if(anim != playerAnimator)
+            {
+                currentDirectionAnimator = anim;
+                return;
+            }
+        }
+    }
+    
     private void Dash()
     {
         if(!dashReady)
@@ -130,14 +137,14 @@ public class PlayerController : MonoBehaviour
         RuntimeManager.PlayOneShot(playerDash);
         
         //Set some stuff for dash functionality
-        playerAnimator.SetBool("Dash", true);
-        playerHealth.MakeInvurnerableForTime(currentDashDuration);
-        dashTimer.StartTimer(currentDashCooldownAmount);
+        currentDirectionAnimator.SetBool("Dash", true);
+        playerHealth.MakeInvurnerableForTime(playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier);
+        dashTimer.StartTimer(playerStats.CurrentDashCooldown * playerStats.CurrentDashCooldownMultiplier);
         dashReady = false;
         
         //Actually make the player do the dash
-        Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * currentDashDistance;
-        StartCoroutine(LerpPosition(targetPosition, currentDashDuration));
+        Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * playerStats.CurrentDashDistance * playerStats.CurrentDashDistanceMultiplier;
+        StartCoroutine(LerpPosition(targetPosition, playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier));
     }
 
     private RaycastHit CheckForObstruction(Vector3 origin, Vector3 direction, float range)
@@ -172,6 +179,6 @@ public class PlayerController : MonoBehaviour
         
         //Finish up the dash movement
         transform.position = targetPosition;
-        playerAnimator.SetBool("Dash", false);
+        currentDirectionAnimator.SetBool("Dash", false);
     }
 }

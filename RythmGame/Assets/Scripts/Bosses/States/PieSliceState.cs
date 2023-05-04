@@ -10,7 +10,7 @@ namespace Bosses.States
         private Vector3 attackPosition;
         private Mesh attackTelegraphMesh;
 
-        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseState secondPhase, Health bossHealth, MusicEventPort beatPort)
+        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
         
@@ -41,9 +41,13 @@ namespace Bosses.States
             CombineInstance[] combine = new CombineInstance[firstPhaseStats.PieSliceAmountOfSlices];
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
-                combine[i].mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100, firstPhaseStats.PieSliceRange, firstPhaseStats.PieSliceSectorAngle);
+                combine[i].mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
+                    firstPhaseStats.PieSliceRange, 
+                    firstPhaseStats.PieSliceSectorAngle,
+                    firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
             }
-            attackTelegraphMesh.CombineMeshes(combine);
+            //attackTelegraphMesh.CombineMeshes(combine);
+            behaviour.GenerateCircles[0].SetMesh(attackTelegraphMesh);
         }
 
         public override void Update()

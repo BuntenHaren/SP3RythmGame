@@ -11,7 +11,7 @@ namespace Bosses.States
         private GenerateCircle outerRingTelegraph;
         private GenerateCircle innerCircleTelegraph;
 
-        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseState secondPhase, Health bossHealth, MusicEventPort beatPort)
+        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
             outerRingTelegraph = behaviour.GenerateCircles[0];
@@ -40,13 +40,13 @@ namespace Bosses.States
             attackTelegraphStarted = true;
             attackPosition = behaviour.GetPlayerPos();
             outerRingTelegraph.transform.position = attackPosition;
-            outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, firstPhaseStats.StompRadius - 0.1f, firstPhaseStats.StompRadius, 360));
+            outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, firstPhaseStats.StompRadius - 0.1f, firstPhaseStats.StompRadius, 360, 0));
             innerCircleTelegraph.transform.position = attackPosition;
         }
 
         public override void Update()
         {
-            innerCircleTelegraph.SetMesh(innerCircleTelegraph.CreateCircleMesh(100, firstPhaseStats.StompRadius * (numberOfBeatsWaited / (float)firstPhaseStats.NumberOfBeatsWarningForStomp), 360));
+            innerCircleTelegraph.SetMesh(innerCircleTelegraph.CreateCircleMesh(100, firstPhaseStats.StompRadius * (numberOfBeatsWaited / (float)firstPhaseStats.NumberOfBeatsWarningForStomp), 360, 0));
         }
 
         private void StartAttack()

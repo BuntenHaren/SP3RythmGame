@@ -5,6 +5,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField]
     private Health healthObject;
     [SerializeField]
+    private PlayerStats playerStats;
+    [SerializeField]
     private DeathPort deathPort;
 
     private Timer InvincibilityTimer;
@@ -59,7 +61,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         enabled = true;
         GetComponent<PlayerAttacks>().enabled = true;
         GetComponent<PlayerController>().enabled = true;
-        HealDamage(healthObject.MaxHealth);
+        HealDamage(healthObject.CurrentMaxHealth);
         Debug.Log(healthObject.CurrentHealth);
     }
 
@@ -82,5 +84,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void FixedUpdate()
     {
         InvincibilityTimer.UpdateTimer(Time.fixedDeltaTime);
+        healthObject.CurrentMaxHealth = healthObject.BaseMaxHealth * playerStats.CurrentMaxHealthMultiplier;
     }
 }
