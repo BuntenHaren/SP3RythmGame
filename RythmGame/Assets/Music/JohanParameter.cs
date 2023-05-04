@@ -22,6 +22,7 @@ public class JohanParameter : MonoBehaviour
 
     private bool Triggered = false;
     private bool SecondTrigger = false;
+    private bool FirstTime = false;
 
     private float OldValue = 0;
    
@@ -50,8 +51,8 @@ public class JohanParameter : MonoBehaviour
         {
             if (Triggered == false)
             {
-                OldValue = Value;
                 Value = OldValue + 1;
+                OldValue = Value;
                 TriggerParameters();
                 Triggered = true;
                 Debug.Log("true,false,change");
@@ -74,10 +75,12 @@ public class JohanParameter : MonoBehaviour
                 }
                 if (Value > 0)
                 {
-                    Value = OldValue - 1;
+                    //OldValue = Value;
+                    //Value = OldValue - 1;
+                    //OldValue = Value;
+                    //SecondTrigger = true;
+                    //Debug.Log("False,false,reset");
                 }
-                SecondTrigger = true;
-                Debug.Log("False,false,reset");
             }
             if (SecondTrigger == true)
             {
@@ -87,19 +90,31 @@ public class JohanParameter : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (ParameterChange == true)
         {
+            Debug.Log("ParameterChangeTrue");
             OldValue = Value;
             Value = OldValue + 1;
             TriggerParameters();
         }
         if (ParameterChange == false)
         {
-            OldValue = Value;
-            Value = OldValue + 2;
-            TriggerParameters();
+            Debug.Log("ParameterChangeTrue");
+            if (FirstTime == true)
+            {
+                Value = OldValue + 2;
+                OldValue = Value;
+                TriggerParameters();
+            }
+            if (FirstTime == false)
+            {
+                Value = OldValue + 1;
+                OldValue = Value;
+                TriggerParameters();
+                FirstTime = true;
+            }
         }
     }
 

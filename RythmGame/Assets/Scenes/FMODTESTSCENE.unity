@@ -161,6 +161,7 @@ MonoBehaviour:
   - Filip
   - Music
   - SFX
+  - Snuze
   CollisionTag: 
   PreloadSamples: 0
 --- !u!4 &59291132
@@ -402,6 +403,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3316062980249253142, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
+        type: 3}
+      propertyPath: musicVolume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3316062980249253142, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
       propertyPath: EventName.Path
