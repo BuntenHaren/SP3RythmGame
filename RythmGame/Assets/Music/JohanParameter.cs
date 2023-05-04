@@ -68,7 +68,14 @@ public class JohanParameter : MonoBehaviour
             if (SecondTrigger == false)
             {
                 Triggered = false;
-                Value = OldValue - 1;
+                if (Value == 0)
+                {
+                    return;
+                }
+                if (Value > 0)
+                {
+                    Value = OldValue - 1;
+                }
                 SecondTrigger = true;
                 Debug.Log("False,false,reset");
             }
