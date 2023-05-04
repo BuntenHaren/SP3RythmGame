@@ -9,6 +9,8 @@ namespace Bosses
     {
         [HideInInspector]
         public List<GenerateCircle> GenerateCircles;
+        [HideInInspector]
+        public Animator bossAnim;
 
         [SerializeField]
         private FirstPhaseStats firstPhaseStats;

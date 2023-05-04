@@ -7,13 +7,12 @@ namespace Bosses.States
         private int numberOfBeatsWaited;
         private bool attackTelegraphStarted;
         private bool startedAttacking;
-        private Vector3 attackPosition;
         private Mesh attackTelegraphMesh;
 
         public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
-        
+            attackTelegraphMesh = new Mesh();
         }
 
         public override void OnBeat()
@@ -36,17 +35,23 @@ namespace Bosses.States
         private void StartTelegraphAttack()
         {
             attackTelegraphStarted = true;
-            attackPosition = behaviour.GetPlayerPos();
+            
             
             CombineInstance[] combine = new CombineInstance[firstPhaseStats.PieSliceAmountOfSlices];
+            
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
                 combine[i].mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
                     firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
+                combine[i].transform = behaviour.GenerateCircles[0].transform.worldToLocalMatrix;
             }
-            //attackTelegraphMesh.CombineMeshes(combine);
+            
+            Debug.Log(combine);
+            
+            attackTelegraphMesh.CombineMeshes(combine);
+            attackTelegraphMesh.name = "Telegraph mesh";
             behaviour.GenerateCircles[0].SetMesh(attackTelegraphMesh);
         }
 

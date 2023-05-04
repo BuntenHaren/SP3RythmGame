@@ -8,6 +8,7 @@ namespace Bosses.States
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
             timer.StartTimer(Random.Range(firstPhaseStats.IdleTimeRangeMin, firstPhase.IdleTimeRangeMax));
+            behaviour.bossAnim
         }
 
         protected override void TimerDone()
@@ -16,7 +17,7 @@ namespace Bosses.States
             if(nextAttack >= 60)
                 behaviour.Transition(new PieSliceState());
             else
-                behaviour.Transition(new HoofStompState());
+                behaviour.Transition(new PieSliceState());
         }
     }
 }
