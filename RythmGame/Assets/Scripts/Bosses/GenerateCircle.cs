@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Bosses
 {
+    [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))]
     public class GenerateCircle : MonoBehaviour
     {
         private MeshFilter mf;
