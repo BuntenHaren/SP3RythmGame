@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthObject: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5, type: 2}
+  playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
   deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
 --- !u!114 &3851929254961021300
 MonoBehaviour:
@@ -86,10 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7474d93e232316943a1a3e88f0c89110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 5
-  baseDashCooldown: 1
-  baseDashDistance: 3
-  baseDashDuration: 0.1
+  playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
   playerAnimator: {fileID: 6522622991365465293}
   playerDash:
     Guid:
