@@ -257,6 +257,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 32040
+--- !u!114 &-6914001107872716724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Boss_Hit
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Boss/Boss_Hit
+  Guid:
+    Data1: -1559735029
+    Data2: 1323460015
+    Data3: -869394261
+    Data4: -2002369532
+  Banks:
+  - {fileID: 7317560920573927950}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 800
 --- !u!114 &-6887822156957136203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,10 +399,10 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638187962476938302
+  lastModified: 638187979719947998
   FileSizes:
   - Name: 
-    Value: 2094
+    Value: 2134
   Exists: 1
 --- !u!114 &-5236058414057084014
 MonoBehaviour:
@@ -440,7 +467,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 7317560920573927950}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -488,7 +515,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638187962476902081
+  lastModified: 638187979719902971
   FileSizes: []
   Exists: 1
 --- !u!114 &-3540376257540451863
@@ -883,6 +910,7 @@ MonoBehaviour:
   - {fileID: -6887822156957136203}
   - {fileID: -2452996297961004325}
   - {fileID: -2863399831488371166}
+  - {fileID: -6914001107872716724}
   EditorParameters:
   - {fileID: 4618167991616576824}
   - {fileID: -4528585200636216160}
@@ -891,7 +919,7 @@ MonoBehaviour:
   - {fileID: -3991837360455032571}
   StringsBanks:
   - {fileID: -5742849947029976355}
-  cacheTime: 638187964374813810
+  cacheTime: 638187979722380455
   cacheVersion: 131603
 --- !u!114 &449903127907797515
 MonoBehaviour:
@@ -1470,7 +1498,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638187964374813810
+  lastModified: 638187979722380455
   FileSizes: []
   Exists: 1
 --- !u!114 &7753349157751205399
