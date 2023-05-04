@@ -52,7 +52,7 @@ namespace Bosses.States
 
         public override void Update()
         {
-        
+            
         }
 
         private void StartAttack()
