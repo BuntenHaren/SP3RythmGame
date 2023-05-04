@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PauseMenu : MonoBehaviour
     private bool optionsOpen = false;
     private bool videoSettingsOpen = false;
     private bool audioSettingsOpen = false;
+
+    [SerializeField]
+    private Health playerHealth;
 
     [SerializeField]
     private GameObject pauseMenuUI;
@@ -102,5 +106,11 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Restart()
+    {
+        playerHealth.CurrentHealth = playerHealth.BaseMaxHealth;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
