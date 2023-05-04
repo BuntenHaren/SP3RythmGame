@@ -39,6 +39,7 @@ namespace Bosses.States
         {
             attackTelegraphStarted = true;
             attackPosition = behaviour.GetPlayerPos();
+            attackPosition.y = 0.05f;
             outerRingTelegraph.transform.position = attackPosition;
             outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, firstPhaseStats.StompRadius - 0.1f, firstPhaseStats.StompRadius, 360, 0));
             innerCircleTelegraph.transform.position = attackPosition;
@@ -54,7 +55,9 @@ namespace Bosses.States
             startedAttacking = true;
             timer.StartTimer(3);
             outerRingTelegraph.SetMesh(new Mesh());
-
+            
+            //Insert SFX code below this comment :)
+            
             Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
             foreach(Collider hit in potentialHit)
             {
