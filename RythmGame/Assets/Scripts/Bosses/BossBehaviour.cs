@@ -1,14 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bosses.States;
+using FMODUnity;
 using UnityEngine;
 
 namespace Bosses
 {
-    public class BossBehaviour : MonoBehaviour
+    public class BossBehaviour : MonoBehaviour, IDamageable
     {
         [HideInInspector]
         public List<GenerateCircle> GenerateCircles;
+        [HideInInspector]
+        public Animator bossAnim;
 
         [SerializeField]
         private FirstPhaseStats firstPhaseStats;
@@ -23,6 +26,7 @@ namespace Bosses
 
         private void Start()
         {
+            bossAnim = GetComponentInChildren<Animator>();
             currentBossState = new IdleFirstPhase();
             GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
             currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
@@ -66,6 +70,31 @@ namespace Bosses
         private void OnDisable()
         {
             beatPort.onBeat -= OnBeat;
+        }
+
+        public void TakeDamage(float amount)
+        {
+            bossHealth.CurrentMaxHealth -= amount;
+            bossAnim.SetTrigger("Hurt");
+            RuntimeManager.PlayOneShot(firstPhaseStats.HurtSFX);
+            if(bossHealth.CurrentMaxHealth <= 0)
+                Die();
+        }
+
+        public void TakeDamageOnBeat(float amount)
+        {
+            TakeDamage(amount);
+        }
+
+        public void HealDamage(float amount)
+        {
+            bossHealth.CurrentMaxHealth += amount;
+        }
+
+        private void Die()
+        {
+            bossAnim.SetTrigger("Death");
+            RuntimeManager.PlayOneShot(firstPhaseStats.DeathSFX);
         }
     }
 }
