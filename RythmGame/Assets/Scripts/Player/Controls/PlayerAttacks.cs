@@ -80,7 +80,6 @@ public class PlayerAttacks : MonoBehaviour
     private void ApplyOnBeatEffects()
     {
         actualAttackSFX = onBeatPlayerAttack;
-        juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.JuiceAmountOnBeatMultiplier;
     }
 
     private void AttackOffCooldown()
@@ -93,7 +92,7 @@ public class PlayerAttacks : MonoBehaviour
     {
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
         RuntimeManager.PlayOneShot(actualAttackSFX);
-        attackCooldownTimer.StartTimer(playerStats.CurrentAttackRate * playerStats.AttackRateMultiplier);
+        attackCooldownTimer.StartTimer(playerStats.CurrentAttackRate * playerStats.CurrentAttackRateMultiplier);
         readyToAttack = false;
     }
 
@@ -112,7 +111,7 @@ public class PlayerAttacks : MonoBehaviour
         float t = cam.transform.position.y / (cam.transform.position.y - mousePos.y);
         finalPoint = new Vector3(t * (mousePos.x - cam.transform.position.x) + cam.transform.position.x, 1, t * (mousePos.z - cam.transform.position.z) + cam.transform.position.z);
         Collider[] potentialHits = Physics.OverlapSphere(transform.position + 
-                                                         (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.AttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.AttackRadiusMultiplier);
+                                                         (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.CurrentAttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.CurrentAttackRadiusMultiplier);
         
         
         //So we don't damage ourselves accidentally
@@ -121,6 +120,8 @@ public class PlayerAttacks : MonoBehaviour
         {
             selfDamageables.Add(self);
         }
+
+        bool hitSomething = false;
         
         //Hit everything
         foreach(var potHit in potentialHits)
@@ -129,8 +130,15 @@ public class PlayerAttacks : MonoBehaviour
             {
                 if(selfDamageables.Contains(hit))
                     continue;
-                hit.TakeDamage(playerStats.CurrentAttackDamage * playerStats.AttackDamageMultiplier);
+                hit.TakeDamage(playerStats.CurrentAttackDamage * playerStats.CurrentAttackDamageMultiplier);
+                hitSomething = true;
             }
+        }
+
+        if(hitSomething)
+        {
+            juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.CurrentJuiceAmountOnBeatMultiplier;
+            playerHealth.CurrentHealth += playerStats.CurrentHealOnAttack * playerStats.CurrentHealOnAttackMultiplier;
         }
     }
     
@@ -142,6 +150,6 @@ public class PlayerAttacks : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(transform.position + (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.AttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.AttackRadiusMultiplier);
+        Gizmos.DrawSphere(transform.position + (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.CurrentAttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.CurrentAttackRadiusMultiplier);
     }
 }

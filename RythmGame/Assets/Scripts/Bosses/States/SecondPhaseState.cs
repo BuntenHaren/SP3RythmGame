@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SecondPhaseState : BossState
+namespace Bosses.States
 {
+    public class SecondPhaseState : BossState
+    {
     
+    }
 }

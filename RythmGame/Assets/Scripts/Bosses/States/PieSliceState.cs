@@ -1,62 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PieSliceState : FirstPhaseState
+namespace Bosses.States
 {
-    private int numberOfBeatsWaited;
-    private bool attackTelegraphStarted;
-    private bool startedAttacking;
-    private Vector3 attackPosition;
-    private GenerateCircle outerRingTelegraph;
-    private GenerateCircle innerCircleTelegraph;
-
-    public override void Entry(BossBehaviour bossBehaviour, BossStats firstPhase, BossStats secondPhase, Health bossHealth, MusicEventPort beatPort)
+    public class PieSliceState : FirstPhaseState
     {
-        base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
-        
-    }
+        private int numberOfBeatsWaited;
+        private bool attackTelegraphStarted;
+        private bool startedAttacking;
+        private Vector3 attackPosition;
+        private Mesh attackTelegraphMesh;
 
-    public override void OnBeat()
-    {
-        if(!attackTelegraphStarted)
+        public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
-            StartTelegraphAttack();
-            return;
+            base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
+        
         }
 
-        if(startedAttacking)
-            return;
-        
-        numberOfBeatsWaited++;
-        
-        if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
-            StartAttack();
-    }
+        public override void OnBeat()
+        {
+            if(!attackTelegraphStarted)
+            {
+                StartTelegraphAttack();
+                return;
+            }
 
-    private void StartTelegraphAttack()
-    {
-        attackTelegraphStarted = true;
-        attackPosition = behaviour.GetPlayerPos();
+            if(startedAttacking)
+                return;
         
-    }
-
-    public override void Update()
-    {
+            numberOfBeatsWaited++;
         
-    }
+            if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
+                StartAttack();
+        }
 
-    private void StartAttack()
-    {
-        startedAttacking = true;
-        timer.StartTimer(3);
+        private void StartTelegraphAttack()
+        {
+            attackTelegraphStarted = true;
+            attackPosition = behaviour.GetPlayerPos();
+            
+            CombineInstance[] combine = new CombineInstance[firstPhaseStats.PieSliceAmountOfSlices];
+            for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
+            {
+                combine[i].mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
+                    firstPhaseStats.PieSliceRange, 
+                    firstPhaseStats.PieSliceSectorAngle,
+                    firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
+            }
+            //attackTelegraphMesh.CombineMeshes(combine);
+            behaviour.GenerateCircles[0].SetMesh(attackTelegraphMesh);
+        }
+
+        public override void Update()
+        {
+        
+        }
+
+        private void StartAttack()
+        {
+            startedAttacking = true;
+            timer.StartTimer(3);
         
         
 
-    }
+        }
 
-    protected override void TimerDone()
-    {
-        behaviour.Transition(new IdleFirstPhase());
+        protected override void TimerDone()
+        {
+            behaviour.Transition(new IdleFirstPhase());
+        }
     }
 }
