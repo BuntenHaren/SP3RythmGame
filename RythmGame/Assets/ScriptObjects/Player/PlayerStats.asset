@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be374ed8216e18f4589d6d3b99d62a3f, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  MovementSpeedMultiplier: 1
-  DashDistanceMultiplier: 1
-  DashCooldownMultiplier: 1
-  DashDurationMultiplier: 1
-  AttackDamageMultiplier: 0.5
-  AttackRateMultiplier: 1
-  AttackRadiusMultiplier: 1
-  AttackDistanceMultiplier: 1
-  JuiceAmountOnBeatMultiplier: 1
-  HealOnAttack: 0
-  HealingRecievedMultiplier: 1
-  DamageRecievedMultiplier: 1
+  BaseMovementSpeedMultiplier: 50
+  BaseDashDistanceMultiplier: 1
+  BaseDashCooldownMultiplier: 1
+  BaseDashDurationMultiplier: 1
+  BaseAttackDamageMultiplier: 1
+  BaseAttackRateMultiplier: 1
+  BaseAttackRadiusMultiplier: 1
+  BaseAttackDistanceMultiplier: 1
+  BaseJuiceAmountOnBeatMultiplier: 1
+  BaseHealOnAttack: 0
+  BaseHealOnAttackMultiplier: 0
+  BaseHealingRecievedMultiplier: 1
+  BaseDamageRecievedMultiplier: 1
+  BaseMaxHealthMultiplier: 1
   CurrentMovementSpeed: 0
   CurrentDashDistance: 0
   CurrentDashCooldown: 0
@@ -34,6 +36,18 @@ MonoBehaviour:
   CurrentAttackDistance: 3.59
   CurrentTimeForBeatWindow: 0.15
   CurrentJuiceAmountOnBeat: 1
+  CurrentHealOnAttack: 0
+  CurrentAttackDamageMultiplier: 0
+  CurrentAttackRateMultiplier: 0
+  CurrentAttackRadiusMultiplier: 0
+  CurrentAttackDistanceMultiplier: 0
+  CurrentJuiceAmountOnBeatMultiplier: 0
+  CurrentMovementSpeedMultiplier: 0
+  CurrentDashDistanceMultiplier: 0
+  CurrentDashCooldownMultiplier: 0
+  CurrentDashDurationMultiplier: 0
+  CurrentHealOnAttackMultiplier: 0
+  CurrentMaxHealthMultiplier: 0
   CurrentActiveCharm: {fileID: 0}
   CurrentPassiveCharm: {fileID: 11400000, guid: 5f0bbd39a1992a4418c72b2f5927b16a,
     type: 2}
