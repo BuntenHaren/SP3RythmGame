@@ -12,8 +12,6 @@ namespace Bosses.States
         private Vector3 attackPosition;
         private GenerateCircle outerRingTelegraph;
         private GenerateCircle innerCircleTelegraph;
-        [SerializeField]
-        private EventReference hoofStompSound;
 
         public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
@@ -60,11 +58,10 @@ namespace Bosses.States
         private void StartAttack()
         {
             startedAttacking = true;
-            timer.StartTimer(1.5f);
+            timer.StartTimer(2);
             outerRingTelegraph.SetMesh(new Mesh());
-
-            //Insert SFX code below this comment :)
-            RuntimeManager.PlayOneShot(hoofStompSound);
+            
+            RuntimeManager.PlayOneShot(firstPhaseStats.HoofStompSFX);
             
             Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
             foreach(Collider hit in potentialHit)

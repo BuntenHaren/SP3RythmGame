@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 namespace Bosses
@@ -12,6 +13,7 @@ namespace Bosses
         public float PieSliceCircleDamage;
         public float PieSliceStartingOffset;
         public float PieSliceAngleBetweenSlices;
+        public int PieSliceAmountOfBeatsWarning;
 
         [field: Header("Hoof Stomp Attack Variables")]
         public float StompDamage;
@@ -30,5 +32,11 @@ namespace Bosses
         [field: Header("Health Multipliers")]
         public float HealingRecievedMultiplier = 1;
         public float DamageRecievedMultiplier = 1;
+
+        [field: Header("SFX")] 
+        public EventReference HoofStompSFX;
+        public EventReference PieSliceSFX;
+        public EventReference HurtSFX;
+        public EventReference DeathSFX;
     }
 }

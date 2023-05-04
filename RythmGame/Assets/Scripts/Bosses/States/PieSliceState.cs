@@ -1,13 +1,15 @@
+using FMODUnity;
 using UnityEngine;
 
 namespace Bosses.States
 {
-    public class PieSliceState : FirstPhaseState
+    public class PieSliceState : FirstPhaseState, IColliderListener
     {
         private int numberOfBeatsWaited;
         private bool attackTelegraphStarted;
         private bool startedAttacking;
         private Mesh attackTelegraphMesh;
+        private bool hasDamagedPlayer;
 
         public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
@@ -27,8 +29,11 @@ namespace Bosses.States
                 return;
         
             numberOfBeatsWaited++;
+            
+            if(numberOfBeatsWaited == firstPhaseStats.PieSliceAmountOfBeatsWarning - 4)
+                behaviour.bossAnim.SetTrigger("GroundToss");
         
-            if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
+            if(numberOfBeatsWaited >= firstPhaseStats.PieSliceAmountOfBeatsWarning)
                 StartAttack();
         }
 
@@ -61,15 +66,43 @@ namespace Bosses.States
         private void StartAttack()
         {
             startedAttacking = true;
-            timer.StartTimer(3);
-        
-        
+            timer.StartTimer(2);
+            RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceSFX);
+
+            
 
         }
 
         protected override void TimerDone()
         {
             behaviour.Transition(new IdleFirstPhase());
+        }
+
+        public void OnCollisionEnter(Collision collision)
+        {
+            
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            
+        }
+
+        public void OnCollisionStay(Collision collision)
+        {
+            
+        }
+
+        public void OnTriggerStay(Collider other)
+        {
+            if(hasDamagedPlayer)
+                return;
+
+            if(other.TryGetComponent(out PlayerHealth player))
+            {
+                player.TakeDamage(firstPhaseStats.PieSliceCircleDamage);
+                hasDamagedPlayer = true;
+            }
         }
     }
 }
