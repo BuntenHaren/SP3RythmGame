@@ -54,6 +54,13 @@ MonoBehaviour:
   healthObject: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5, type: 2}
   playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
   deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
+  playerHurtDeathSound:
+    Guid:
+      Data1: -1770308938
+      Data2: 1193100058
+      Data3: -1384482372
+      Data4: -629279224
+    Path: event:/SFX/Player/Player_Hurt+Death
 --- !u!114 &3851929254961021300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,8 +453,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409557292381173268, guid: 3b97c9829be57b041adb56e06d0cedb4,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409557292381173268, guid: 3b97c9829be57b041adb56e06d0cedb4,
+        type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000086426724
+      value: -0.0000009057747
       objectReference: {fileID: 0}
     - target: {fileID: 1409557292382796525, guid: 3b97c9829be57b041adb56e06d0cedb4,
         type: 3}
@@ -561,8 +573,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409557292605629676, guid: 3b97c9829be57b041adb56e06d0cedb4,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409557292605629676, guid: 3b97c9829be57b041adb56e06d0cedb4,
+        type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000058114523
+      value: 0.0000005813359
       objectReference: {fileID: 0}
     - target: {fileID: 1409557292613028363, guid: 3b97c9829be57b041adb56e06d0cedb4,
         type: 3}

@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -11,6 +13,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private PlayerStats playerStats;
     [SerializeField]
     private DeathPort deathPort;
+
+    [SerializeField]
+    private EventReference playerHurtDeathSound;
 
     private Timer InvincibilityTimer;
 
@@ -29,6 +34,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
+        RuntimeManager.PlayOneShot(playerHurtDeathSound);
+
         if(!healthObject.Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
@@ -41,6 +48,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamageOnBeat(float amount)
     {
+        RuntimeManager.PlayOneShot(playerHurtDeathSound);
+
         if (!healthObject.Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
@@ -53,6 +62,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void OnDeath()
     {
+        RuntimeManager.PlayOneShot(playerHurtDeathSound);
         MakeInvurnerableForTime(2f);
         enabled = false;
         GetComponent<PlayerAttacks>().enabled = false;
