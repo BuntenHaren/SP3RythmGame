@@ -25460,100 +25460,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 991165474}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1572094980
-MonoBehaviour:
+--- !u!95 &1572094979
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572094978}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef3bc0a9b85a3c4f99655885ec3ad28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GenerateCircles: []
-  bossAnim: {fileID: 0}
-  firstPhaseStats: {fileID: 11400000, guid: a1ba6a1c3e7cc1648b76df1ddd9b5ad5, type: 2}
-  secondPhaseStats: {fileID: 11400000, guid: 91a5d4d8d56ec4845aa240aad6961a36, type: 2}
-  bossHealth: {fileID: 11400000, guid: 63d5106a72b418b40bd6a6d7b933c9ff, type: 2}
-  beatPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
---- !u!210 &1572094981
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572094978}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
---- !u!54 &1572094982
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572094978}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &1572094983
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572094978}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1572094984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572094978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80bd679578034934dbb89d54546cd140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyBehavior: {fileID: 0}
-  enemiesInCombatCounter: {fileID: 0}
-  maxHealth: 10
-  damageColor: {r: 0, g: 0, b: 0, a: 0}
-  sr: {fileID: 0}
-  damageColorTime: 0
-  onBeatParticles: {fileID: 0}
-  anim: {fileID: 0}
-  deathPort: {fileID: 0}
-  enemyHitSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  enemyDeathSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1572339032
 GameObject:
   m_ObjectHideFlags: 0
@@ -31869,6 +31795,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1934734456}
+  - component: {fileID: 1934734459}
+  - component: {fileID: 1934734458}
+  - component: {fileID: 1934734457}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -31892,6 +31821,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1934734457
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934734455}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+--- !u!65 &1934734458
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934734455}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.51256, y: 1, z: 7.887108}
+  m_Center: {x: -0.5048417, y: 0, z: -8.992228}
+--- !u!114 &1934734459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934734455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef3bc0a9b85a3c4f99655885ec3ad28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GenerateCircles: []
+  bossAnim: {fileID: 0}
+  firstPhaseStats: {fileID: 11400000, guid: a1ba6a1c3e7cc1648b76df1ddd9b5ad5, type: 2}
+  secondPhaseStats: {fileID: 11400000, guid: 91a5d4d8d56ec4845aa240aad6961a36, type: 2}
+  bossHealth: {fileID: 11400000, guid: 63d5106a72b418b40bd6a6d7b933c9ff, type: 2}
+  beatPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
 --- !u!1001 &1940596951
 PrefabInstance:
   m_ObjectHideFlags: 0
