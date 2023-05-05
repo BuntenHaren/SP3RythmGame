@@ -12,7 +12,7 @@ public class MusicEventManager : MonoBehaviour
 {
     class TimelineInfo
     {
-        public int CurrentMusicBar = 0;
+        public int CurrentMusicBar;
         public StringWrapper LastMarker = new StringWrapper();
     }
 
@@ -29,9 +29,9 @@ public class MusicEventManager : MonoBehaviour
     EVENT_CALLBACK beatCallback;
     EventInstance musicInstance;
 
-    private int previousBeat = 0;
+    private int previousBeat;
 
-    private int newBeatLimit = 0;
+    private int newBeatLimit;
 
 #if UNITY_EDITOR
     void Reset()
@@ -110,7 +110,7 @@ public class MusicEventManager : MonoBehaviour
     void OnDestroy()
     {
         musicInstance.setUserData(IntPtr.Zero);
-        musicInstance.stop(STOP_MODE.IMMEDIATE);
+        musicInstance.stop(STOP_MODE.ALLOWFADEOUT);
         musicInstance.release();
         timelineHandle.Free();
     }
