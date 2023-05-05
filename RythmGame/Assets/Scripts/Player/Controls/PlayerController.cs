@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 newMove;
     private Vector2 moveDir;
     private Animator currentDirectionAnimator;
+    private float yHeight;
 
     private PlayerHealth playerHealth;
 
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         //Get some new stuff ready
         dashTimer = new Timer();
         dashTimer.TimerDone += () => dashReady = true;
+        yHeight = transform.position.y;
     }
 
     public void OnMove(InputValue value)
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         //Move the character in the right direction
         newMove = playerStats.CurrentMovementSpeed * playerStats.CurrentMovementSpeedMultiplier * new Vector3(moveDir.x, 0, moveDir.y);
-        newMove.y = rb.velocity.y;
+        newMove.y = 0;
         rb.velocity = newMove;
     }
 
