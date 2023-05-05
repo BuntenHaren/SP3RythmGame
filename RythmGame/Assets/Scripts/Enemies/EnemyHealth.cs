@@ -63,8 +63,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         health -= damage;
         //Hit sound
         RuntimeManager.PlayOneShot(enemyHitSound);
-        Instantiate(onBeatParticles);
-
+        Instantiate(onBeatParticles, transform);
         if (health <= 0)
         {
             //death sound

@@ -144,7 +144,10 @@ public class PlayerAttacks : MonoBehaviour
             {
                 if(selfDamageables.Contains(hit))
                     continue;
-                hit.TakeDamage(playerStats.CurrentAttackDamage * playerStats.CurrentAttackDamageMultiplier);
+                if(CheckIfWithinBeatTimeframe())
+                    hit.TakeDamageOnBeat(playerStats.CurrentAttackDamage * playerStats.CurrentAttackDamageMultiplier);
+                else
+                    hit.TakeDamage(playerStats.CurrentAttackDamage * playerStats.CurrentAttackDamageMultiplier);
                 hitSomething = true;
             }
         }
