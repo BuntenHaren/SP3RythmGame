@@ -51,12 +51,13 @@ namespace Bosses.States
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
                     firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
-                combine[i].transform = behaviour.transform.worldToLocalMatrix;
+                combine[i].transform = behaviour.transform.localToWorldMatrix;
             }
             
             attackTelegraphMesh.CombineMeshes(combine);
             attackTelegraphMesh.name = "Telegraph mesh";
             behaviour.GenerateCircles[0].SetMesh(attackTelegraphMesh);
+            behaviour.GenerateCircles[0].transform.position = behaviour.transform.position;
         }
 
         public override void Update()
