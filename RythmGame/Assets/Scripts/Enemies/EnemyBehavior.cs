@@ -23,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
     private float distanceToPlayer;
     public bool engaged;
     private Rigidbody rb;
+    private bool resetRbConstraints = false;
 
     //Health
     private int health;
@@ -74,8 +75,16 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (isDead)
             return;
+        if(resetRbConstraints && timeSinceAttack > moveDelay)
+        {
+            rb.freezeRotation = true;
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionZ;
+            resetRbConstraints = false;
+        }
         if (distanceToPlayer < attackRange && timeSinceAttack > attackCD && !attacking)
         {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             anim.SetBool("Moving", false);
             attacking = true;
             var randomNumber = Random.Range(0, 2);
@@ -127,6 +136,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void stopAttack()
     {
+        resetRbConstraints = true;
         attacking = false;
         timeSinceAttack = 0f;
         StartCoroutine(StopAttackDelay(0.1f));
