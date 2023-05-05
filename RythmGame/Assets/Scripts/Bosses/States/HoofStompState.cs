@@ -18,6 +18,7 @@ namespace Bosses.States
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
             outerRingTelegraph = behaviour.GenerateCircles[0];
             innerCircleTelegraph = behaviour.GenerateCircles[1];
+            behaviour.ResetTelegraphPositions();
         }
 
         public override void OnBeat()

@@ -15,6 +15,7 @@ namespace Bosses.States
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
             attackTelegraphMesh = new Mesh();
+            behaviour.ResetTelegraphPositions();
         }
 
         public override void OnBeat()
@@ -50,7 +51,7 @@ namespace Bosses.States
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
                     firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
-                //combine[i].transform = behaviour.transform.localToWorldMatrix;
+                combine[i].transform = behaviour.transform.worldToLocalMatrix;
             }
             
             attackTelegraphMesh.CombineMeshes(combine);
@@ -68,9 +69,6 @@ namespace Bosses.States
             startedAttacking = true;
             timer.StartTimer(2);
             RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceSFX);
-
-            
-
         }
 
         protected override void TimerDone()
