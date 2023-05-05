@@ -29,6 +29,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     [SerializeField]
     private Animator anim;
+    private Rigidbody rb;
     [SerializeField]
     private DeathPort deathPort;
 
@@ -39,6 +40,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        rb = gameObject.GetComponent<Rigidbody>();
         health = maxHealth;
     }
 
@@ -51,6 +53,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
@@ -68,6 +71,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
