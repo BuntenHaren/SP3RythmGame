@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemyBehavior enemyBehavior;
     [SerializeField]
     private EnemiesInCombatCounter enemiesInCombatCounter;
+    [SerializeField]
+    private EnemyHealthBar healthBar;
 
     //Stats
     [SerializeField]
@@ -42,17 +44,21 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         rb = gameObject.GetComponent<Rigidbody>();
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.SetHealth(health);
         //Hit sound
         RuntimeManager.PlayOneShot(enemyHitSound);
         if(health <= 0)
         {
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
+            //Add timer
+            Destroy(healthBar.gameObject);
             rb.constraints = RigidbodyConstraints.FreezeAll;
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
@@ -64,6 +70,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void TakeDamageOnBeat(float damage)
     {
         health -= damage;
+        healthBar.SetHealth(health);
         //Hit sound
         RuntimeManager.PlayOneShot(enemyHitSound);
         Instantiate(onBeatParticles, transform);
@@ -71,6 +78,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
+            //Add timer
+            Destroy(healthBar.gameObject);
             rb.constraints = RigidbodyConstraints.FreezeAll;
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
