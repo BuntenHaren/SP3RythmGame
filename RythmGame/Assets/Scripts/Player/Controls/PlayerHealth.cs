@@ -3,6 +3,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
+    private GameObject deathMenu;
+
+    [SerializeField]
     private Health healthObject;
     [SerializeField]
     private PlayerStats playerStats;
@@ -19,6 +22,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        healthObject.ResetHealth();
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
     }
@@ -54,6 +58,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         GetComponent<PlayerAttacks>().enabled = false;
         GetComponent<PlayerController>().enabled = false;
         deathPort.onPlayerDeath.Invoke(gameObject);
+        deathMenu.SetActive(true);
     }
 
     public void Spawn()
@@ -62,7 +67,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         GetComponent<PlayerAttacks>().enabled = true;
         GetComponent<PlayerController>().enabled = true;
         HealDamage(healthObject.CurrentMaxHealth);
-        Debug.Log(healthObject.CurrentHealth);
     }
 
     public void HealDamage(float amount)

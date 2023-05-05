@@ -26,6 +26,11 @@ public class AttackOnBeatTutorial : MonoBehaviour, IDamageable
 
     private SpriteRenderer sr;
 
+    void OnDisable()
+    {
+        musicEventPort.onBeat -= OnBeat;
+    }
+
     void Start()
     {
         sr = gameObject.GetComponent<SpriteRenderer>();

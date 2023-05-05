@@ -48,10 +48,12 @@ public class EnemyBehavior : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
-        if(!isDead)
-        {
-            eventPort.onBeat += Attack;
-        }
+        eventPort.onBeat += Attack;
+    }
+
+    void OnDisable()
+    {
+        eventPort.onBeat -= Attack;
     }
 
     void FixedUpdate()
@@ -66,6 +68,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Attack()
     {
+        if (isDead)
+            return;
         if (distanceToPlayer < attackRange && timeSinceAttack > attackCD && !attacking)
         {
             anim.SetBool("Moving", false);

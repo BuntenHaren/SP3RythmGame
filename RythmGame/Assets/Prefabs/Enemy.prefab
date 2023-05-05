@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156534835823617741}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.46174863, y: -0, z: -0, w: 0.8870109}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 156534837293774127}
-  m_Father: {fileID: 156534836675248397}
-  m_RootOrder: 0
+  m_Father: {fileID: 955585465980228924}
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &156534836426496360
 GameObject:
@@ -58,13 +58,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156534836426496360}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.00000035062, z: 0}
-  m_LocalScale: {x: 32.10366, y: 33.93442, z: 6.5384254}
+  m_LocalRotation: {x: 0.30070582, y: -0, z: -0, w: 0.95371693}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 32.10366, y: 33.934425, z: 6.5384264}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 156534836675248397}
-  m_RootOrder: 1
+  m_Father: {fileID: 955585465980228924}
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!135 &156534836426496363
 SphereCollider:
@@ -128,9 +128,8 @@ MonoBehaviour:
       Data4: 1769493068
     Path: event:/SFX/Enemy/Telegraph_Howl_Attack
   damageAmount: 25
-  minimumAttackWindUp: 0.1
-  attackHoldWaitTime: 0.2
-  anim: {fileID: 1904246249768545524}
+  minimumAttackWindUp: 1
+  attackHoldWaitTime: 2
 --- !u!212 &156534836426496361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -216,8 +215,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 156534835823617742}
-  - {fileID: 156534836426496356}
   - {fileID: 156534837050761953}
   - {fileID: 955585465980228924}
   m_Father: {fileID: 0}
@@ -231,7 +228,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156534836675248406}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -248,10 +245,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &156534836675248400
 MonoBehaviour:
@@ -344,7 +341,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156534836675248397}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &156534837050761955
 SphereCollider:
@@ -357,7 +354,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5.4376297
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &156534837293774131
 GameObject:
@@ -385,9 +382,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156534837293774131}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.19, z: -8.25}
-  m_LocalScale: {x: 15.591732, y: 16.480875, z: 3.1755059}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.19000053, z: -8.250003}
+  m_LocalScale: {x: 15.591732, y: 16.480877, z: 3.1755059}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156534835823617742}
@@ -456,9 +453,8 @@ MonoBehaviour:
       Data4: -429900980
     Path: event:/SFX/Enemy/Warewolf_Attack_Howl
   damageAmount: 25
-  minimumAttackWindUp: 0.1
-  attackHoldWaitTime: 0.2
-  anim: {fileID: 1904246249768545524}
+  minimumAttackWindUp: 1
+  attackHoldWaitTime: 2
 --- !u!212 &156534837293774124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -602,6 +598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Center.z
       value: -0.0000002384308
+      objectReference: {fileID: 0}
+    - target: {fileID: 555539106430006823, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.89674366
       objectReference: {fileID: 0}
     - target: {fileID: 555539106430006823, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
@@ -777,6 +778,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Center.z
       value: -0.00000012025247
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817829068932510211, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.34913024
       objectReference: {fileID: 0}
     - target: {fileID: 1817829068932510211, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
@@ -1280,6 +1286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6194806157526843531, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.38355035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194806157526843531, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
       propertyPath: m_Bounds.m_Extent.y
       value: 0.22495021
       objectReference: {fileID: 0}
@@ -1410,6 +1421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7677958187076067648, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.64097685
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677958187076067648, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
       propertyPath: m_Bounds.m_Extent.y
       value: 0.6128002
       objectReference: {fileID: 0}
@@ -1421,7 +1437,7 @@ PrefabInstance:
     - target: {fileID: 8020085225425370266, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8020085225425370266, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}
@@ -1687,6 +1703,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Center.z
       value: -5.4626437e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982537262006611647, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
+        type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.36337534
       objectReference: {fileID: 0}
     - target: {fileID: 8982537262006611647, guid: 1bfba2eaf2606e44baeb1e57c0b1fc31,
         type: 3}

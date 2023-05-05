@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be374ed8216e18f4589d6d3b99d62a3f, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  BaseMovementSpeed: 10
-  BaseDashDistance: 5
+  BaseMovementSpeed: 20
+  BaseDashDistance: 10
   BaseDashCooldown: 1
   BaseDashDuration: 0.1
   BaseMovementSpeedMultiplier: 1
   BaseDashDistanceMultiplier: 1
   BaseDashCooldownMultiplier: 1
   BaseDashDurationMultiplier: 1
-  BaseAttackDamage: 1
+  BaseAttackDamage: 25
   BaseAttackRate: 1
-  BaseAttackRadius: 1
-  BaseAttackDistance: 1
-  BasetimeForBeatWindow: 0
+  BaseAttackRadius: 7
+  BaseAttackDistance: 7
+  BasetimeForBeatWindow: 0.15
   BaseJuiceAmountOnBeat: 1
   BaseAttackDamageMultiplier: 1
   BaseAttackRateMultiplier: 1
@@ -39,15 +39,15 @@ MonoBehaviour:
   CurrentActiveCharm: {fileID: 0}
   CurrentPassiveCharm: {fileID: 11400000, guid: 5f0bbd39a1992a4418c72b2f5927b16a,
     type: 2}
-  CurrentMovementSpeed: 10
-  CurrentDashDistance: 5
+  CurrentMovementSpeed: 20
+  CurrentDashDistance: 10
   CurrentDashCooldown: 1
   CurrentDashDuration: 0.1
-  CurrentAttackDamage: 1
+  CurrentAttackDamage: 25
   CurrentAttackRate: 1
-  CurrentAttackRadius: 1
-  CurrentAttackDistance: 1
-  CurrentTimeForBeatWindow: 0
+  CurrentAttackRadius: 10
+  CurrentAttackDistance: 10
+  CurrentTimeForBeatWindow: 0.15
   CurrentJuiceAmountOnBeat: 1
   CurrentHealOnAttack: 0
   CurrentAttackDamageMultiplier: 1
