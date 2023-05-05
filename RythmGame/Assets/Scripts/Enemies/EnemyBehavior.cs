@@ -18,6 +18,8 @@ public class EnemyBehavior : MonoBehaviour
     private float moveAwayFromEnemySpeed;
     [SerializeField]
     private float distanceToStop;
+    [SerializeField]
+    private float moveDelay;
     private float distanceToPlayer;
     public bool engaged;
     private Rigidbody rb;
@@ -60,9 +62,12 @@ public class EnemyBehavior : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         timeSinceAttack += Time.deltaTime;
-        if(engaged && !isDead)
+        if (isDead)
+            return;
+        if (engaged && timeSinceAttack > moveDelay && !attacking)
         {
             Move();
+            Debug.Log("move");
         }
     }
 
@@ -126,8 +131,6 @@ public class EnemyBehavior : MonoBehaviour
         attacking = false;
         timeSinceAttack = 0f;
         StartCoroutine(StopAttackDelay(0.1f));
-        //Animator.SetBool("CircleAttack", false);
-        //Animator.SetBool("ConeAttack", false);
     }
     private IEnumerator StopAttackDelay(float waitTime)
     {
