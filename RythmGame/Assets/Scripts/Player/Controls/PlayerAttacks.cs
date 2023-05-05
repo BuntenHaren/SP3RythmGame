@@ -65,7 +65,6 @@ public class PlayerAttacks : MonoBehaviour
         if(CheckIfWithinBeatTimeframe())
         {
             ApplyOnBeatEffects();
-            Debug.Log("Attack was on beat!");
         }
         
         ActivateAttackStuff();
