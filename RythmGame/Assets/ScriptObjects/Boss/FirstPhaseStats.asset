@@ -18,6 +18,7 @@ MonoBehaviour:
   PieSliceCircleDamage: 1
   PieSliceStartingOffset: 0
   PieSliceAngleBetweenSlices: 0
+  PieSliceAmountOfBeatsWarning: 0
   StompDamage: 20
   NumberOfStompsTotal: 5
   NumberOfBeatsWarningForStomp: 2
@@ -27,3 +28,31 @@ MonoBehaviour:
   ThresholdForEnrage: 60
   HealingRecievedMultiplier: 1
   DamageRecievedMultiplier: 1
+  HoofStompSFX:
+    Guid:
+      Data1: 1095317061
+      Data2: 1211684299
+      Data3: -142449489
+      Data4: 143133606
+    Path: event:/SFX/Boss/Hoof_slam
+  PieSliceSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  HurtSFX:
+    Guid:
+      Data1: -1559735029
+      Data2: 1323460015
+      Data3: -869394261
+      Data4: -2002369532
+    Path: event:/SFX/Boss/Boss_Hit
+  DeathSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
