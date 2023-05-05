@@ -67,7 +67,6 @@ public class EnemyBehavior : MonoBehaviour
         if (engaged && timeSinceAttack > moveDelay && !attacking)
         {
             Move();
-            Debug.Log("move");
         }
     }
 
