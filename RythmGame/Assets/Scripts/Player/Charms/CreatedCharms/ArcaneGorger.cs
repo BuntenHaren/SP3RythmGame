@@ -9,7 +9,7 @@ public class ArcaneGorger : PassiveCharm
     private float BeatAccuracy = 0f;
 
     private float BeatAccuracyMultiplier = 1f;
-    private float BaseMultiplier = 0.5f;
+    private float BaseHeal = 20.0f;
     private float JuiceLevelMultiplier = 1f;
 
     private float DistanceToLastBeat = 0f;
@@ -22,7 +22,7 @@ public class ArcaneGorger : PassiveCharm
 
         // get beat window 
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
-        //playerStats.CurrentMaxHealth *= 0.75;                         for when there is a variable for max health
+        playerStats.CurrentMaxHealthMultiplier = 0.75f;
     }
 
     public override void OnPlayerAttackAction()
@@ -44,11 +44,11 @@ public class ArcaneGorger : PassiveCharm
             BeatAccuracy = 0f;
         }
 
-        // set heal multiplier
-        playerStats.CurrentHealOnAttack = BaseMultiplier * BeatAccuracy * JuiceLevelRatio;
+        // set healing
+        playerStats.CurrentHealOnAttack = BaseHeal * BeatAccuracy * JuiceLevelRatio;
 
-        Debug.Log("Beat accuracy: " + BeatAccuracy + 
-            "\nBase multiplier: " + BaseMultiplier + 
+        Debug.Log("Base heal: " + BaseHeal +
+            "\nBeat accuracy: " + BeatAccuracy + 
             "\nCurrent juice: " + juiceCounter.CurrentJuice + 
             "\nJuice ratio: " + JuiceLevelRatio + 
             "\nJuice multiplier: " + JuiceLevelMultiplier + 
