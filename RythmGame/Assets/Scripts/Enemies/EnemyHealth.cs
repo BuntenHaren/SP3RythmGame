@@ -77,7 +77,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (!isDead)
         {
-            isDead = true;
             health -= damage;
             healthBar.SetHealth(health);
             //Hit sound
@@ -85,6 +84,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             Instantiate(onBeatParticles, transform);
             if (health <= 0)
             {
+                isDead = true;
                 //death sound
                 RuntimeManager.PlayOneShot(enemyDeathSound);
                 //Add timer
