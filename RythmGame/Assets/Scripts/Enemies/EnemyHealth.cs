@@ -51,50 +51,48 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        if (!isDead)
+        if (isDead)
+            return;
+        health -= damage;
+        healthBar.SetHealth(health);
+        //Hit sound
+        RuntimeManager.PlayOneShot(enemyHitSound);
+        if (health <= 0)
         {
-            health -= damage;
-            healthBar.SetHealth(health);
-            //Hit sound
-            RuntimeManager.PlayOneShot(enemyHitSound);
-            if (health <= 0)
-            {
-                isDead = true;
+            isDead = true;
                 //death sound
                 RuntimeManager.PlayOneShot(enemyDeathSound);
-                //Add timer
-                Destroy(healthBar.gameObject);
-                rb.constraints = RigidbodyConstraints.FreezeAll;
-                deathPort.onEnemyDeath.Invoke(gameObject);
-                anim.SetBool("Dead", true);
-                enemyBehavior.isDead = true;
-                enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
-            }
+            //Add timer
+            Destroy(healthBar.gameObject);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            deathPort.onEnemyDeath.Invoke(gameObject);
+            anim.SetBool("Dead", true);
+            enemyBehavior.isDead = true;
+            enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
     public void TakeDamageOnBeat(float damage)
     {
-        if (!isDead)
+        if (isDead)
+            return;
+        health -= damage;
+        healthBar.SetHealth(health);
+        //Hit sound
+        RuntimeManager.PlayOneShot(enemyHitSound);
+        Instantiate(onBeatParticles, transform);
+        if (health <= 0)
         {
-            health -= damage;
-            healthBar.SetHealth(health);
-            //Hit sound
-            RuntimeManager.PlayOneShot(enemyHitSound);
-            Instantiate(onBeatParticles, transform);
-            if (health <= 0)
-            {
-                isDead = true;
-                //death sound
-                RuntimeManager.PlayOneShot(enemyDeathSound);
-                //Add timer
-                Destroy(healthBar.gameObject);
-                rb.constraints = RigidbodyConstraints.FreezeAll;
-                deathPort.onEnemyDeath.Invoke(gameObject);
-                anim.SetBool("Dead", true);
-                enemyBehavior.isDead = true;
-                enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
-            }
+            isDead = true;
+            //death sound
+            RuntimeManager.PlayOneShot(enemyDeathSound);
+            //Add timer
+            Destroy(healthBar.gameObject);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            deathPort.onEnemyDeath.Invoke(gameObject);
+            anim.SetBool("Dead", true);
+            enemyBehavior.isDead = true;
+            enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
