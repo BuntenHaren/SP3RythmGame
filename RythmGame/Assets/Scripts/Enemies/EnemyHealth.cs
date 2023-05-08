@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemiesInCombatCounter enemiesInCombatCounter;
     [SerializeField]
     private EnemyHealthBar healthBar;
+    private VirtualCameraController cameraController;
 
     //Stats
     [SerializeField]
@@ -45,6 +46,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -78,6 +80,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             return;
         health -= damage;
         healthBar.SetHealth(health);
+        cameraController.CameraZoomBeatAttack();
         //Hit sound
         RuntimeManager.PlayOneShot(enemyHitSound);
         Instantiate(onBeatParticles, transform);
