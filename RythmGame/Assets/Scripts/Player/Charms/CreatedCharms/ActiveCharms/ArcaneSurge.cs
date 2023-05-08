@@ -7,21 +7,32 @@ public class ArcaneSurge : ActiveCharm
 {
     private float DamageBuffMultiplier = 1f;
     private float DashCooldownMultiplier = 0.5f;
-    private float MoveSpeedMultiplier = 1.5f;
+    private float MoveSpeedMultiplier = 2f;
     private float AttackSpeedMultiplier = 2f;
 
 
     public override void ActivateCharm()
     {
-        base.ActivateCharm();
-        playerStats.CurrentAttackDamageMultiplier *= DamageBuffMultiplier;
-        playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
-        playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;
-        playerStats.CurrentAttackRateMultiplier *= AttackSpeedMultiplier;
+        Debug.Log("arcanesurge activated");
+        if (CheckIfCanActivate())
+        {
+            Debug.Log("can be activated");
+            base.ActivateCharm();
+
+            // detract juice
+            juiceCounter.CurrentJuice -= activationCost;
+
+            // change stats
+            playerStats.CurrentAttackDamageMultiplier *= DamageBuffMultiplier;
+            playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
+            playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;
+            playerStats.CurrentAttackRateMultiplier *= AttackSpeedMultiplier;
+        }
     }
 
     protected override void EndActivation()
     {
+        Debug.Log("Arcane surge ended");
         playerStats.CurrentAttackDamageMultiplier /= DamageBuffMultiplier;
         playerStats.CurrentDashCooldownMultiplier /= DashCooldownMultiplier;
         playerStats.CurrentMovementSpeedMultiplier /= MoveSpeedMultiplier;
