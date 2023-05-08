@@ -23004,7 +23004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d54828dab441844cb42dc9ee6012bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
+  eventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
   moveObjects:
   - {fileID: 1618883208}
   - {fileID: 1580234577}
@@ -37867,6 +37867,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816137090497053050, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3621327776889939892, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
