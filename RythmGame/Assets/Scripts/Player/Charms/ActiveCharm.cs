@@ -15,16 +15,13 @@ public abstract class ActiveCharm : Charm
     public override void Start()
     {
         activationTimer = new Timer();
+        activationTimer.TimerDone += EndActivation;
         base.Start();
     }
 
     public virtual void ActivateCharm()
     {
         activationTimer.StartTimer(activeDuration);
-        activationTimer.TimerDone = delegate()
-        { 
-            EndActivation(); 
-        };
         //Insert your SFX below this comment for the charm activation and probably start playing the active SFX as well :)
         
     }

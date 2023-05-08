@@ -13,16 +13,15 @@ public class ArcaneSurge : ActiveCharm
 
     public override void ActivateCharm()
     {
-        Debug.Log("arcanesurge activated");
         if (CheckIfCanActivate())
         {
-            Debug.Log("can be activated");
             base.ActivateCharm();
 
             // detract juice
             juiceCounter.CurrentJuice -= activationCost;
 
             // change stats
+            Debug.Log("Speed before: " + playerStats.CurrentMovementSpeedMultiplier);
             playerStats.CurrentAttackDamageMultiplier *= DamageBuffMultiplier;
             playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
             playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;
@@ -32,52 +31,11 @@ public class ArcaneSurge : ActiveCharm
 
     protected override void EndActivation()
     {
-        Debug.Log("Arcane surge ended");
+        Debug.Log("Speed endstart: " + playerStats.CurrentMovementSpeedMultiplier);
         playerStats.CurrentAttackDamageMultiplier /= DamageBuffMultiplier;
         playerStats.CurrentDashCooldownMultiplier /= DashCooldownMultiplier;
         playerStats.CurrentMovementSpeedMultiplier /= MoveSpeedMultiplier;
         playerStats.CurrentAttackRateMultiplier /= AttackSpeedMultiplier;
+        Debug.Log("Speed endend: " + playerStats.CurrentMovementSpeedMultiplier);
     }
 }
-
-/*
-[CreateAssetMenu(menuName = "RythmGame/Player/ActiveCharm")]
-public abstract class ActiveCharm : Charm
-{
-    [SerializeField]
-    protected float activationCost;
-    [SerializeField]
-    protected float activeDuration;
-
-    protected Timer activationTimer;
-
-    public override void Start()
-    {
-        activationTimer = new Timer();
-        base.Start();
-    }
-
-    public virtual void ActivateCharm()
-    {
-        activationTimer.StartTimer(activeDuration);
-        //Insert your SFX below this comment for the charm activation and probably start playing the active SFX as well :)
-
-    }
-
-    protected virtual bool CheckIfCanActivate()
-    {
-        return activationCost >= juiceCounter.CurrentJuice;
-    }
-
-    public override void Update()
-    {
-        activationTimer.UpdateTimer(Time.deltaTime);
-    }
-
-    protected virtual void EndActivation()
-    {
-
-    }
-
-}
-*/
