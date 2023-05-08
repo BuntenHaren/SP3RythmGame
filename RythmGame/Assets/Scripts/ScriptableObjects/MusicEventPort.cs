@@ -9,6 +9,8 @@ public class MusicEventPort : ScriptableObject
 
     private float timeForLastBeat;
     private float timeBetweenBeats;
+    [HideInInspector]
+    public float TimeBetweenBeats;
     
     public float GetDistanceToLastBeat()
     {
@@ -23,6 +25,7 @@ public class MusicEventPort : ScriptableObject
     private void OnBeat()
     {
         timeBetweenBeats = Time.realtimeSinceStartup - timeForLastBeat;
+        TimeBetweenBeats = Time.realtimeSinceStartup - timeForLastBeat;
         timeForLastBeat = Time.realtimeSinceStartup;
     }
 
