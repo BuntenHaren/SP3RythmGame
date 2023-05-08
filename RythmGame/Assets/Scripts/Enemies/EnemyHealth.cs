@@ -48,7 +48,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        originalColor = sr.color;
+        //originalColor = sr.color;
         cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         colorTimer += Time.deltaTime;
         if(colorTimer > damageColorTime)
         {
-            sr.color = originalColor;
+            //sr.color = originalColor;
         }
     }
 
@@ -126,7 +126,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void ChangeColor()
     {
-        sr.color = damageColor;
+        //sr.color = damageColor;
     }
 
 
