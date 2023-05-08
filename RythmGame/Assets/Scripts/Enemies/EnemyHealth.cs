@@ -24,11 +24,13 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField]
     private Color damageColor;
     [SerializeField]
-    private SpriteRenderer sr;
+    private Color originalColor;
     [SerializeField]
     private float damageColorTime;
     [SerializeField]
     private GameObject onBeatParticles;
+    [SerializeField]
+    private SpriteRenderer[] childSr;
 
     [SerializeField]
     private Animator anim;
@@ -43,7 +45,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private bool isDead = false;
     private float colorTimer;
-    private Color originalColor;
+    private bool changeColors;
+    private bool colorsHaveBeenChanged;
 
     void Awake()
     {
@@ -57,9 +60,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     void Update()
     {
         colorTimer += Time.deltaTime;
-        if(colorTimer > damageColorTime)
+        if(colorsHaveBeenChanged && colorTimer > damageColorTime)
         {
-            //sr.color = originalColor;
+            ChangeBackColor();
         }
     }
 
@@ -69,6 +72,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             return;
         if(!enemyBehavior.attacking)
                 anim.SetTrigger("Hurt");
+        ChangeColor();
+        changeColors = true;
         health -= damage;
         healthBar.SetHealth(health);
         //Hit sound
@@ -95,6 +100,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             return;
         if (!enemyBehavior.attacking)
                 anim.SetTrigger("Hurt");
+        ChangeColor();
+        changeColors = true;
         health -= damage;
         healthBar.SetHealth(health);
         cameraController.CameraZoomBeatAttack();
@@ -128,8 +135,21 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void ChangeColor()
     {
-        //sr.color = damageColor;
+        colorTimer = 0f;
+        for (int i = 0; i < childSr.Length; i++)
+        {
+            childSr[i].color = damageColor;
+        }
+        colorsHaveBeenChanged = true;
     }
 
+    private void ChangeBackColor()
+    {
+        for (int i = 0; i < childSr.Length; i++)
+        {
+            childSr[i].color = originalColor;
+        }
+        colorsHaveBeenChanged = false;
+    }
 
 }
