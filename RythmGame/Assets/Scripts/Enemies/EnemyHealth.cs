@@ -55,6 +55,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (isDead)
             return;
+        if(!enemyBehavior.attacking)
+                anim.SetTrigger("Hurt");
         health -= damage;
         healthBar.SetHealth(health);
         //Hit sound
@@ -78,6 +80,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (isDead)
             return;
+        if (!enemyBehavior.attacking)
+                anim.SetTrigger("Hurt");
         health -= damage;
         healthBar.SetHealth(health);
         cameraController.CameraZoomBeatAttack();

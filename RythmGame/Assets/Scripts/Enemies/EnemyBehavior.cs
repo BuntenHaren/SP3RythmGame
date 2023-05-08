@@ -41,7 +41,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float attackRange;
     private float timeSinceAttack = 5f;
-    private bool attacking = false;
+    [HideInInspector]
+    public bool attacking = false;
 
     //Animation
     [SerializeField]
