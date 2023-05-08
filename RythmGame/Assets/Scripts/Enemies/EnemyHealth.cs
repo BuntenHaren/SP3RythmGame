@@ -76,8 +76,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             isDead = true;
-                //death sound
-                RuntimeManager.PlayOneShot(enemyDeathSound);
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            //death sound
+            RuntimeManager.PlayOneShot(enemyDeathSound);
             //Add timer
             Destroy(healthBar.gameObject);
             rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -103,6 +104,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             isDead = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
             //Add timer
