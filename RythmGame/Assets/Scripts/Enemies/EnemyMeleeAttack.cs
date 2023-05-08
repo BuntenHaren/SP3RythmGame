@@ -90,7 +90,12 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     public void Attack()
     {
-        if(attacking && attackTimer > minimumAttackWindUp)
+        if (enemyScript.isDead == true)
+        {
+            AbortTelegraph();
+            return;
+        }
+        if (attacking && attackTimer > minimumAttackWindUp)
         {
             //Execute attack sound here
             if(isSwipe)
@@ -117,6 +122,11 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     public void StartTelegraph()
     {
+        if (enemyScript.isDead == true)
+        {
+            AbortTelegraph();
+            return;
+        }
         //Start of telegraph sound here
         if (isSwipe)
         {
@@ -140,5 +150,10 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         anim.SetBool("AttackHold", true);
+    }
+
+    private void AbortTelegraph()
+    {
+        sr.DOColor(originalColor, 0.2f).SetEase(Ease.OutSine);
     }
 }

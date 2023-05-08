@@ -39,20 +39,7 @@ public class AttackOnBeatTutorial : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        sr.DOFade(0f, 0.7f).OnComplete(() =>
-        {
-            wallCollider.SetActive(false);
-            gameObject.SetActive(false);
-        });
-        for (int i = 0; i < moveObjects.Length; i++)
-        {
-            moveObjects[i].StartMove();
-        }
 
-        for (int j = 0; j < rotateObjects.Length; j++)
-        {
-            rotateObjects[j].StartRotation();
-        }
     }
 
     public void TakeDamageOnBeat(float damage)
