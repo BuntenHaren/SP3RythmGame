@@ -15,13 +15,14 @@ public class ArcaneSurge : ActiveCharm
     {
         if (CheckIfCanActivate())
         {
+            // (these are for some reason activated twice if there is enough juice, but since cost=max juice we don't have to worry about that now)
+
             base.ActivateCharm();
 
             // detract juice
             juiceCounter.CurrentJuice -= activationCost;
 
             // change stats
-            Debug.Log("Speed before: " + playerStats.CurrentMovementSpeedMultiplier);
             playerStats.CurrentAttackDamageMultiplier *= DamageBuffMultiplier;
             playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
             playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;
