@@ -22,12 +22,14 @@ public class PlayerHealthBar : MonoBehaviour
     private Vector3 scaleTo;
 
     private float timeSinceBeat;
+    private Vector3 originalSize;
 
     private void Start()
     {
         SetMaxHealth(playerHealth.CurrentMaxHealth);
         eventPort.onBeat += OnBeat;
         SetHealth(playerHealth.BaseMaxHealth);
+        originalSize = transform.localScale;
     }
 
     void Update()
@@ -71,7 +73,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         transform.DOScale(scaleTo, scaleUpTime).SetEase(Ease.InOutSine).OnComplete(() =>
         {
-            transform.DOScale(new Vector3(1f, 1f, 1f), scaleDownTime).SetEase(Ease.InOutSine);
+            transform.DOScale(originalSize, scaleDownTime).SetEase(Ease.InOutSine);
         });
     }
 
