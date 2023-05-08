@@ -28,6 +28,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 219224
+--- !u!114 &-8505085862796254086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  StudioPath: parameter:/Progression
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 2276407099
+    data2: 2592615566
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-8171276360112509863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,6 +80,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 168142
+--- !u!114 &-7863930633132134130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Snuze/BossMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Snuze/BossMusic
+  Guid:
+    Data1: 222042484
+    Data2: 1088534875
+    Data3: 1996560273
+    Data4: -1930238687
+  Banks:
+  - {fileID: -7331546584108366754}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4852889209984269413}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 304000
 --- !u!114 &-7712903848015655608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +224,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Snuze.bank
   Name: Snuze
   StudioPath: bank:/Snuze
-  lastModified: 638187927863125937
+  lastModified: 638191442643489348
   FileSizes: []
   Exists: 1
 --- !u!114 &-7256613014738690943
@@ -344,10 +396,10 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638191409026250467
+  lastModified: 638191442642729079
   FileSizes:
   - Name: 
-    Value: 2184
+    Value: 2238
   Exists: 1
 --- !u!114 &-5236058414057084014
 MonoBehaviour:
@@ -418,6 +470,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1310
+--- !u!114 &-4350771186722861202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Hurt+Death
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_Hurt+Death
+  Guid:
+    Data1: -1770308938
+    Data2: 1193100058
+    Data3: -1384482372
+    Data4: -629279224
+  Banks:
+  - {fileID: 7317560920573927950}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
 --- !u!114 &-4144370773505573345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +539,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638191409026240511
+  lastModified: 638191442642699076
   FileSizes: []
   Exists: 1
 --- !u!114 &-3540376257540451863
@@ -882,16 +961,18 @@ MonoBehaviour:
   - {fileID: -2452996297961004325}
   - {fileID: -2863399831488371166}
   - {fileID: -242937761951299941}
-  - {fileID: 4106719297134192614}
+  - {fileID: -4350771186722861202}
+  - {fileID: -7863930633132134130}
   EditorParameters:
   - {fileID: 4618167991616576824}
   - {fileID: -4528585200636216160}
   - {fileID: -3043327921272882528}
+  - {fileID: -8505085862796254086}
   MasterBanks:
   - {fileID: -3991837360455032571}
   StringsBanks:
   - {fileID: -5742849947029976355}
-  cacheTime: 638191409026250467
+  cacheTime: 638191442643489348
   cacheVersion: 131603
 --- !u!114 &449903127907797515
 MonoBehaviour:
@@ -1152,7 +1233,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638187927862723722
+  lastModified: 638189030341795529
   FileSizes: []
   Exists: 1
 --- !u!114 &3869821697793530482
@@ -1199,33 +1280,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &4106719297134192614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: 
-  Guid:
-    Data1: -1770308938
-    Data2: 1193100058
-    Data3: -1384482372
-    Data4: -629279224
-  Banks:
-  - {fileID: 7317560920573927950}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 600
 --- !u!114 &4618167991616576824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1277,6 +1331,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 780
+--- !u!114 &4852889209984269413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMusic/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 2276407099
+    data2: 2592615566
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &5162916510769554567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,7 +1523,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638188869454215018
+  lastModified: 638189030341995571
   FileSizes: []
   Exists: 1
 --- !u!114 &7753349157751205399
@@ -1481,7 +1559,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Filip.bank
   Name: Filip
   StudioPath: bank:/Filip
-  lastModified: 638187927860083754
+  lastModified: 638189030339615032
   FileSizes: []
   Exists: 1
 --- !u!114 &8054430285837611731
@@ -1517,7 +1595,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Johan.bank
   Name: Johan
   StudioPath: bank:/Johan
-  lastModified: 638191409026210444
+  lastModified: 638191440494764887
   FileSizes: []
   Exists: 1
 --- !u!114 &8664333587888942640
