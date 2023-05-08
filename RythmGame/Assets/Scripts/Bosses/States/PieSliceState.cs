@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
 
@@ -8,14 +9,20 @@ namespace Bosses.States
         private int numberOfBeatsWaited;
         private bool attackTelegraphStarted;
         private bool startedAttacking;
-        private Mesh attackTelegraphMesh;
         private bool hasDamagedPlayer;
+        private GameObject[] telegraphs;
 
         public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
-            attackTelegraphMesh = new Mesh();
             behaviour.ResetTelegraphPositions();
+            telegraphs = new GameObject[firstPhaseStats.PieSliceAmountOfSlices];
+            
+            for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
+            {
+                telegraphs[i] = GameObject.Instantiate(behaviour.GenerateCircles[0].gameObject, behaviour.transform);
+                telegraphs[i].name = "Telegraph " + i;
+            }
         }
 
         public override void OnBeat()
@@ -42,22 +49,15 @@ namespace Bosses.States
         {
             attackTelegraphStarted = true;
             
-            
-            CombineInstance[] combine = new CombineInstance[firstPhaseStats.PieSliceAmountOfSlices];
-            
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
-                combine[i].mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
+                telegraphs[i].GetComponent<MeshFilter>().mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
-                    firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices);
-                combine[i].transform = behaviour.transform.localToWorldMatrix;
+                    firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices * i);
             }
             
-            attackTelegraphMesh.CombineMeshes(combine);
-            attackTelegraphMesh.name = "Telegraph mesh";
-            behaviour.GenerateCircles[0].SetMesh(attackTelegraphMesh);
-            behaviour.GenerateCircles[0].transform.position = behaviour.transform.position;
+            
         }
 
         public override void Update()
@@ -70,6 +70,7 @@ namespace Bosses.States
             startedAttacking = true;
             timer.StartTimer(2);
             RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceSFX);
+
         }
 
         protected override void TimerDone()
@@ -89,19 +90,26 @@ namespace Bosses.States
 
         public void OnCollisionStay(Collision collision)
         {
-            
+            if(hasDamagedPlayer || !startedAttacking)
+                return;
+
+            if(collision.gameObject.TryGetComponent(out PlayerHealth player))
+            {
+                player.TakeDamage(firstPhaseStats.PieSliceCircleDamage);
+                hasDamagedPlayer = true;
+                Debug.Log("Damaged player");
+            }
         }
 
         public void OnTriggerStay(Collider other)
         {
-            if(hasDamagedPlayer)
-                return;
 
-            if(other.TryGetComponent(out PlayerHealth player))
-            {
-                player.TakeDamage(firstPhaseStats.PieSliceCircleDamage);
-                hasDamagedPlayer = true;
-            }
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            behaviour.GenerateCircles[0].SetMesh(new Mesh());
         }
     }
 }
