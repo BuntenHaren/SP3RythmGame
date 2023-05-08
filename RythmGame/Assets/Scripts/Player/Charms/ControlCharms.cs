@@ -42,6 +42,11 @@ public class ControlCharms : MonoBehaviour
         
     }
 
+    private void OnActivateCharm()
+    {
+        playerStats.CurrentActiveCharm.ActivateCharm();
+    }
+
     private void OnEnable()
     {
         playerStats.CurrentActiveCharm.Start();

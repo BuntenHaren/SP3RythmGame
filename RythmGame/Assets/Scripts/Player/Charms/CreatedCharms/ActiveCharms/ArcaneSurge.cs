@@ -11,10 +11,9 @@ public class ArcaneSurge : ActiveCharm
     private float AttackSpeedMultiplier = 2f;
 
 
-    public override void Start()
+    public override void ActivateCharm()
     {
-        base.Start();
-
+        base.ActivateCharm();
         playerStats.CurrentAttackDamageMultiplier *= DamageBuffMultiplier;
         playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
         playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;

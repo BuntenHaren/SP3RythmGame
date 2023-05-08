@@ -41,8 +41,8 @@ public class PlayerStats : ScriptableObject
     public float BaseMaxHealthMultiplier = 1;
     
     [field: Header("Charms")]
-    public Charm CurrentActiveCharm;
-    public Charm CurrentPassiveCharm;
+    public ActiveCharm CurrentActiveCharm;
+    public PassiveCharm CurrentPassiveCharm;
     
     [HideInInspector]
     public float CurrentMovementSpeed, 
