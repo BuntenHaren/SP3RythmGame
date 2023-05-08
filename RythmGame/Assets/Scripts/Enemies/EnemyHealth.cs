@@ -42,13 +42,25 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public EventReference enemyDeathSound;
 
     private bool isDead = false;
+    private float colorTimer;
+    private Color originalColor;
 
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        originalColor = sr.color;
         cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+    }
+
+    void Update()
+    {
+        colorTimer += Time.deltaTime;
+        if(colorTimer > damageColorTime)
+        {
+            sr.color = originalColor;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -112,11 +124,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
     }
 
-    private IEnumerator ChangeColor()
+    private void ChangeColor()
     {
-        var originalColor = sr.color;
         sr.color = damageColor;
-        yield return new WaitForSeconds(damageColorTime);
-        sr.color = originalColor;
     }
+
+
 }
