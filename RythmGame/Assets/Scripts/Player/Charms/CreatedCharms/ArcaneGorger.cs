@@ -9,7 +9,7 @@ public class ArcaneGorger : PassiveCharm
     private float BeatAccuracy = 0f;
 
     private float BeatAccuracyMultiplier = 1f;
-    private float BaseHeal = 20.0f;
+    private float BaseHeal = 10.0f;
     private float JuiceLevelMultiplier = 1f;
 
     private float DistanceToLastBeat = 0f;

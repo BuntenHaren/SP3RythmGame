@@ -8,19 +8,19 @@ public class ControlCharms : MonoBehaviour
 
     void Start()
     {
-        //playerStats.CurrentActiveCharm.Start();
+        playerStats.CurrentActiveCharm.Start();
         playerStats.CurrentPassiveCharm.Start();
     }
 
     void Update()
     {
-        //playerStats.CurrentActiveCharm.Update();
+        playerStats.CurrentActiveCharm.Update();
         playerStats.CurrentPassiveCharm.Update();
     }
 
     private void FixedUpdate()
     {
-        //playerStats.CurrentActiveCharm.FixedUpdate();
+        playerStats.CurrentActiveCharm.FixedUpdate();
         playerStats.CurrentPassiveCharm.FixedUpdate();
     }
 
@@ -44,13 +44,13 @@ public class ControlCharms : MonoBehaviour
 
     private void OnEnable()
     {
-        //playerStats.CurrentActiveCharm.Start();
+        playerStats.CurrentActiveCharm.Start();
         playerStats.CurrentPassiveCharm.Start();
     }
 
     private void OnDisable()
     {
-        //playerStats.CurrentActiveCharm.Finish();
+        playerStats.CurrentActiveCharm.Finish();
         playerStats.CurrentPassiveCharm.Finish();
     }
 }
