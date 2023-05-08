@@ -6,7 +6,7 @@ using DG.Tweening;
 public class AttackOnBeatTutorial : MonoBehaviour, IDamageable
 {
     [SerializeField]
-    private MusicEventPort musicEventPort;
+    private MusicEventPort eventPort;
     [SerializeField]
     private MoveObject[] moveObjects;
     [SerializeField]
@@ -26,15 +26,27 @@ public class AttackOnBeatTutorial : MonoBehaviour, IDamageable
 
     private SpriteRenderer sr;
 
+    private float timeSinceBeat;
+
+    void Update()
+    {
+        timeSinceBeat += Time.deltaTime;
+        if (timeSinceBeat >= eventPort.TimeBetweenBeats - scaleUpTime)
+        {
+            timeSinceBeat = 0f;
+            BeatAnimation();
+        }
+    }
+
     void OnDisable()
     {
-        musicEventPort.onBeat -= OnBeat;
+        eventPort.onBeat -= OnBeat;
     }
 
     void Start()
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
-        musicEventPort.onBeat += OnBeat;
+        eventPort.onBeat += OnBeat;
     }
 
     public void TakeDamage(float damage)
@@ -66,6 +78,11 @@ public class AttackOnBeatTutorial : MonoBehaviour, IDamageable
     }
 
     private void OnBeat()
+    {
+        timeSinceBeat = 0f;
+    }
+
+    private void BeatAnimation()
     {
         transform.DOScale(scaleTo, scaleUpTime).SetEase(Ease.InOutSine).OnComplete(() =>
         {

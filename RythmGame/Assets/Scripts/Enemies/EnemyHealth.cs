@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemyBehavior enemyBehavior;
     [SerializeField]
     private EnemiesInCombatCounter enemiesInCombatCounter;
+    [SerializeField]
+    private EnemyHealthBar healthBar;
 
     //Stats
     [SerializeField]
@@ -38,21 +40,30 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public EventReference enemyHitSound;
     public EventReference enemyDeathSound;
 
+    private bool isDead = false;
+
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(float damage)
     {
+        if (isDead)
+            return;
         health -= damage;
+        healthBar.SetHealth(health);
         //Hit sound
         RuntimeManager.PlayOneShot(enemyHitSound);
-        if(health <= 0)
+        if (health <= 0)
         {
-            //death sound
-            RuntimeManager.PlayOneShot(enemyDeathSound);
+            isDead = true;
+                //death sound
+                RuntimeManager.PlayOneShot(enemyDeathSound);
+            //Add timer
+            Destroy(healthBar.gameObject);
             rb.constraints = RigidbodyConstraints.FreezeAll;
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);
@@ -63,14 +74,20 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamageOnBeat(float damage)
     {
+        if (isDead)
+            return;
         health -= damage;
+        healthBar.SetHealth(health);
         //Hit sound
         RuntimeManager.PlayOneShot(enemyHitSound);
         Instantiate(onBeatParticles, transform);
         if (health <= 0)
         {
+            isDead = true;
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
+            //Add timer
+            Destroy(healthBar.gameObject);
             rb.constraints = RigidbodyConstraints.FreezeAll;
             deathPort.onEnemyDeath.Invoke(gameObject);
             anim.SetBool("Dead", true);

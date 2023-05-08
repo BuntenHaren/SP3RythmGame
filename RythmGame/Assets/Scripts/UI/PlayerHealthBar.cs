@@ -21,11 +21,23 @@ public class PlayerHealthBar : MonoBehaviour
     [SerializeField]
     private Vector3 scaleTo;
 
+    private float timeSinceBeat;
+
     private void Start()
     {
         SetMaxHealth(playerHealth.CurrentMaxHealth);
-        eventPort.onBeat += HealthBarBeatAnimation;
+        eventPort.onBeat += OnBeat;
         SetHealth(playerHealth.BaseMaxHealth);
+    }
+
+    void Update()
+    {
+        timeSinceBeat += Time.deltaTime;
+        if (timeSinceBeat >= eventPort.TimeBetweenBeats - scaleUpTime)
+        {
+            timeSinceBeat = 0f;
+            HealthBarBeatAnimation();
+        }
     }
 
     private void OnEnable()
@@ -48,6 +60,11 @@ public class PlayerHealthBar : MonoBehaviour
     private void SetHealth(float health)
     {
         slider.value = playerHealth.CurrentHealth;
+    }
+
+    private void OnBeat()
+    {
+        timeSinceBeat = 0f;
     }
 
     private void HealthBarBeatAnimation()
