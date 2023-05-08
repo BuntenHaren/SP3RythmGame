@@ -10,48 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Johan/Room2
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Music/Johan/Room2
+  Path: 
   Guid:
-    Data1: 132302129
-    Data2: 1098246307
-    Data3: -1718854762
-    Data4: -989263980
-  Banks:
-  - {fileID: -1825966712911917570}
-  IsStream: 1
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: -210230724722395505}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 219224
---- !u!114 &-8505085862796254086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Progression
-  m_EditorClassIdentifier: 
-  Name: Progression
-  StudioPath: parameter:/Progression
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 2276407099
-    data2: 2592615566
-  Type: 0
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-8171276360112509863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,34 +54,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 168142
---- !u!114 &-7863930633132134130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Snuze/BossMusic
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Snuze/BossMusic
-  Guid:
-    Data1: 222042484
-    Data2: 1088534875
-    Data3: 1996560273
-    Data4: -1930238687
-  Banks:
-  - {fileID: -7331546584108366754}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 4852889209984269413}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 304000
 --- !u!114 &-7712903848015655608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,23 +64,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Enemy/Warewolf_Attack_Howl
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemy/Warewolf_Attack_Howl
+  Path: 
   Guid:
-    Data1: -618265613
-    Data2: 1241819269
-    Data3: -425628271
-    Data4: -429900980
-  Banks:
-  - {fileID: 6533660960100658058}
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
   IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3500
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-7712307853636520769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,17 +116,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Warewolf_Attack_Howl
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638176045739228178
-  FileSizes:
-  - Name: 
-    Value: 1468
-  Exists: 1
+  Path: event:/SFX/Enemy/Warewolf_Attack_Howl
+  Guid:
+    Data1: -618265613
+    Data2: 1241819269
+    Data3: -425628271
+    Data4: -429900
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-7465795454422534426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +175,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Snuze.bank
   Name: Snuze
   StudioPath: bank:/Snuze
-  lastModified: 638191442643489348
+  lastModified: 638191446421946929
   FileSizes: []
   Exists: 1
 --- !u!114 &-7256613014738690943
@@ -237,23 +188,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Enemy/Warewolf_Attack_Howl
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemy/Warewolf_Attack_Howl
+  Path: 
   Guid:
-    Data1: -618265613
-    Data2: 1241819269
-    Data3: -425628271
-    Data4: -429900980
-  Banks:
-  - {fileID: 7028799644998755265}
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
   IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3500
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-6955370869489336769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,19 +218,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: 
   Guid:
-    Data1: 1736013516
-    Data2: 1174857588
-    Data3: 1876497306
-    Data4: -1932669153
-  Banks:
-  - {fileID: 6533671315536824074}
-  IsStream: 1
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32040
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-6887822156957136203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,16 +267,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638175173240882068
-  FileSizes:
-  - Name: 
-    Value: 1156
-  Exists: 1
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-5979353596471059782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,23 +285,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Filip/Rum1
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Music/Filip/Rum1
+  Path: 
   Guid:
-    Data1: 1893945031
-    Data2: 1160126653
-    Data3: -1117576821
-    Data4: -1512990678
-  Banks:
-  - {fileID: 8054430285837611731}
-  IsStream: 1
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 170385
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-5812527672349776745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,22 +311,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Snuze
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Snuze
+  Path: 
   Guid:
-    Data1: 1736013516
-    Data2: 1174857588
-    Data3: 1876497306
-    Data4: -1932669153
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
   Banks: []
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32040
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-5742849947029976355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +342,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638191442642729079
+  lastModified: 638191446421166898
   FileSizes:
   - Name: 
     Value: 2238
@@ -411,14 +357,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/testbank.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/testbank.bank
-  Name: testbank
-  StudioPath: bank:/testbank
-  lastModified: 638173232651288903
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-4528585200636216160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,33 +416,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1310
---- !u!114 &-4350771186722861202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Player_Hurt+Death
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Player_Hurt+Death
-  Guid:
-    Data1: -1770308938
-    Data2: 1193100058
-    Data3: -1384482372
-    Data4: -629279224
-  Banks:
-  - {fileID: 7317560920573927950}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 600
 --- !u!114 &-4144370773505573345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,19 +430,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: 
   Guid:
-    Data1: 1736013516
-    Data2: 1174857588
-    Data3: 1876497306
-    Data4: -1932669153
-  Banks:
-  - {fileID: 3806287784457953894}
-  IsStream: 1
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32040
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-3991837360455032571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +457,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638191442642699076
+  lastModified: 638191446421116907
   FileSizes: []
   Exists: 1
 --- !u!114 &-3540376257540451863
@@ -576,14 +494,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638175173240872095
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-3043327921272882528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,14 +590,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Johan.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Johan.bank
-  Name: Johan
-  StudioPath: bank:/Johan
-  lastModified: 638176045739177908
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1444367438345262466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,18 +640,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: 
   Guid:
-    Data1: 1736013516
-    Data2: 1174857588
-    Data3: 1876497306
-    Data4: -1932669153
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
   Banks: []
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32040
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-1128443574244895136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,23 +662,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Player_Attack_Melee
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Player_Attack_Melee
+  Path: 
   Guid:
-    Data1: 1491594658
-    Data2: 1312788962
-    Data3: -429482597
-    Data4: -678446934
-  Banks:
-  - {fileID: 6533660960100658058}
-  IsStream: 1
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2313
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-640818459269212735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,19 +692,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: 
   Guid:
-    Data1: 1736013516
-    Data2: 1174857588
-    Data3: 1876497306
-    Data4: -1932669153
-  Banks:
-  - {fileID: 3869821697793530482}
-  IsStream: 1
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32040
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-630435216123197405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,23 +738,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Player_Attack_Melee_Crit
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Player_Attack_Melee_Crit
+  Path: 
   Guid:
-    Data1: -344386568
-    Data2: 1130062781
-    Data3: -998684515
-    Data4: 1530519288
-  Banks:
-  - {fileID: 7028799644998755265}
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 600
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-314045731992286017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,23 +764,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Enemy/Warewolf_Attack_Swipe
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemy/Warewolf_Attack_Swipe
+  Path: 
   Guid:
-    Data1: -795492207
-    Data2: 1255148732
-    Data3: 600845984
-    Data4: 560937281
-  Banks:
-  - {fileID: 7028799644998755265}
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
   IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-242937761951299941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,24 +817,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Room2/TestParamter Johan
+  m_Name: 
   m_EditorClassIdentifier: 
-  Name: TestParamter Johan
+  Name: 
   StudioPath: 
   Min: 0
-  Max: 3
+  Max: 0
   Default: 0
   ID:
-    data1: 1932034177
-    data2: 1006020491
-  Type: 2
+    data1: 0
+    data2: 0
+  Type: 0
   IsGlobal: 0
-  Labels:
-  - None
-  - One
-  - Two
-  - Three
-  Exists: 1
+  Labels: []
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,18 +871,18 @@ MonoBehaviour:
   - {fileID: -2452996297961004325}
   - {fileID: -2863399831488371166}
   - {fileID: -242937761951299941}
-  - {fileID: -4350771186722861202}
-  - {fileID: -7863930633132134130}
+  - {fileID: 4106719297134192614}
+  - {fileID: 834643058680133038}
   EditorParameters:
   - {fileID: 4618167991616576824}
   - {fileID: -4528585200636216160}
   - {fileID: -3043327921272882528}
-  - {fileID: -8505085862796254086}
+  - {fileID: 6678224385369972508}
   MasterBanks:
   - {fileID: -3991837360455032571}
   StringsBanks:
   - {fileID: -5742849947029976355}
-  cacheTime: 638191442643489348
+  cacheTime: 638191446421946929
   cacheVersion: 131603
 --- !u!114 &449903127907797515
 MonoBehaviour:
@@ -1001,6 +911,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &834643058680133038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Snuze/BossMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Snuze/BossMusic
+  Guid:
+    Data1: 222042484
+    Data2: 1088534875
+    Data3: 1996560273
+    Data4: -1930238687
+  Banks:
+  - {fileID: -7331546584108366754}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 9094346089345290104}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 304000
 --- !u!114 &1337031147974267478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,23 +976,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Player_Attack_Melee_Crit
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Player_Attack_Melee_Crit
+  Path: 
   Guid:
-    Data1: -344386568
-    Data2: 1130062781
-    Data3: -998684515
-    Data4: 1530519288
-  Banks:
-  - {fileID: 6533660960100658058}
-  IsStream: 1
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2213
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &1826007735369356106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,23 +1002,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Enemy/Warewolf_Attack_Swipe
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemy/Warewolf_Attack_Swipe
+  Path: 
   Guid:
-    Data1: -795492207
-    Data2: 1255148732
-    Data3: 600845984
-    Data4: 560937281
-  Banks:
-  - {fileID: 6533660960100658058}
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
   IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &2244691402178454876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,7 +1169,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638189030341795529
+  lastModified: 638187927862723722
   FileSizes: []
   Exists: 1
 --- !u!114 &3869821697793530482
@@ -1246,14 +1182,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 638173232651269423
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &4081184613923559362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1264,22 +1200,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/test2
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/test2
+  Path: 
   Guid:
-    Data1: -235607389
-    Data2: 1235477928
-    Data3: 886459268
-    Data4: -50100820
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
   Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &4106719297134192614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: 
+  Guid:
+    Data1: -1770308938
+    Data2: 1193100058
+    Data3: -1384482372
+    Data4: -629279224
+  Banks:
+  - {fileID: 7317560920573927950}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 600
 --- !u!114 &4618167991616576824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,30 +1294,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 780
---- !u!114 &4852889209984269413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/BossMusic/Progression
-  m_EditorClassIdentifier: 
-  Name: Progression
-  StudioPath: 
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 2276407099
-    data2: 2592615566
-  Type: 0
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
 --- !u!114 &5162916510769554567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,14 +1331,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/testbank.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/testbank.bank
-  Name: testbank
-  StudioPath: bank:/testbank
-  lastModified: 638169044664546641
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &5422091287470287924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,23 +1349,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Player_Attack_Melee
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Player_Attack_Melee
+  Path: 
   Guid:
-    Data1: 1491594658
-    Data2: 1312788962
-    Data3: -429482597
-    Data4: -678446934
-  Banks:
-  - {fileID: 7028799644998755265}
+    Data1: 0
+    Data2: 0
+    Data3: 0
+    Data4: 0
+  Banks: []
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 600
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &6533660960100658058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1437,14 +1375,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638176016367757852
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &6533671315536824074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,13 +1393,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 638173477607708046
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &6678224385369972508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  StudioPath: parameter:/Progression
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 2276407099
+    data2: 2592615566
+  Type: 0
+  IsGlobal: 1
+  Labels: []
   Exists: 1
 --- !u!114 &7028799644998755265
 MonoBehaviour:
@@ -1473,14 +1435,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638175173240902012
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &7187490505757653314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,7 +1485,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638189030341995571
+  lastModified: 638188869454215018
   FileSizes: []
   Exists: 1
 --- !u!114 &7753349157751205399
@@ -1536,14 +1498,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638175922162039694
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &7996363000751297457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,7 +1521,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Filip.bank
   Name: Filip
   StudioPath: bank:/Filip
-  lastModified: 638189030339615032
+  lastModified: 638187927860083754
   FileSizes: []
   Exists: 1
 --- !u!114 &8054430285837611731
@@ -1572,14 +1534,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Filip.bank
+  m_Name: 
   m_EditorClassIdentifier: 
-  Path: Assets/Music/Banks/Desktop/Filip.bank
-  Name: Filip
-  StudioPath: bank:/Filip
-  lastModified: 638176016367728111
+  Path: 
+  Name: 
+  StudioPath: 
+  lastModified: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &8640917996423885797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,7 +1557,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Johan.bank
   Name: Johan
   StudioPath: bank:/Johan
-  lastModified: 638191440494764887
+  lastModified: 638191409026210444
   FileSizes: []
   Exists: 1
 --- !u!114 &8664333587888942640
@@ -1618,6 +1580,30 @@ MonoBehaviour:
   ID:
     data1: 2113713324
     data2: 3115600231
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &9094346089345290104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMusic/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 2276407099
+    data2: 2592615566
   Type: 0
   IsGlobal: 1
   Labels: []
