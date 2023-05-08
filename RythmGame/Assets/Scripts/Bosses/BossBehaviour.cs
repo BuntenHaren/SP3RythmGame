@@ -60,6 +60,14 @@ namespace Bosses
             return potentialPlayer.transform.position;
         }
 
+        public void ResetTelegraphPositions()
+        {
+            foreach(var circle in GenerateCircles)
+            {
+                circle.transform.position = transform.position;
+            }
+        }
+
         public void Transition(BossState targetState)
         {
             currentBossState.Exit();
