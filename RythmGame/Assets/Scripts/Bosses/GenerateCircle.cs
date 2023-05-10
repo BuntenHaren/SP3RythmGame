@@ -7,12 +7,10 @@ namespace Bosses
     public class GenerateCircle : MonoBehaviour
     {
         private MeshFilter mf;
-        private MeshCollider collider;
     
         private void Start()
         {
             mf = GetComponent<MeshFilter>();
-            collider = GetComponent<MeshCollider>();
         }
 
         public Mesh CreateCircleMesh(int sides, float radius, float sectorAngle, float angleStartOffset)
@@ -150,6 +148,9 @@ namespace Bosses
 
         public void SetMesh(Mesh targetMesh)
         {
+            if(mf == null)
+                mf = GetComponent<MeshFilter>();
+            
             mf.mesh.Clear();
             mf.mesh = targetMesh;
         }

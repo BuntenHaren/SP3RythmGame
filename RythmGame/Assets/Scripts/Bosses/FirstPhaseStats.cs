@@ -14,6 +14,7 @@ namespace Bosses
         public float PieSliceStartingOffset;
         public float PieSliceAngleBetweenSlices;
         public int PieSliceAmountOfBeatsWarning;
+        public float PieSliceMaxAngleDeviation;
 
         [field: Header("Hoof Stomp Attack Variables")]
         public float StompDamage;

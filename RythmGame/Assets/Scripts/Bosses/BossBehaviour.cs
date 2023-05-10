@@ -105,22 +105,22 @@ namespace Bosses
             RuntimeManager.PlayOneShot(firstPhaseStats.DeathSFX);
         }
 
-        public void OnCollisionEnter(Collision collision)
+        public void CollisionEnter(Collision collision)
         {
             currentBossState.OnCollisionEnter(collision);
         }
 
-        public void OnTriggerEnter(Collider other)
+        public void TriggerEnter(Collider other)
         {
             currentBossState.OnTriggerEnter(other);
         }
 
-        public void OnCollisionStay(Collision collision)
+        public void CollisionStay(Collision collision)
         {
             currentBossState.OnCollisionStay(collision);
         }
 
-        public void OnTriggerStay(Collider other)
+        public void TriggerStay(Collider other)
         {
             currentBossState.OnTriggerStay(other);
         }

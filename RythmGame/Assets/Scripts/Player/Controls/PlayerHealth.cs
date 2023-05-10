@@ -4,20 +4,18 @@ using FMOD.Studio;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    private VirtualCameraController cameraController;
     [SerializeField]
     private GameObject deathMenu;
-
     [SerializeField]
     private Health healthObject;
     [SerializeField]
     private PlayerStats playerStats;
     [SerializeField]
     private DeathPort deathPort;
-
     [SerializeField]
     private EventReference playerHurtDeathSound;
 
+    private VirtualCameraController cameraController;
     private Timer InvincibilityTimer;
 
     private void OnValidate()
@@ -31,12 +29,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         healthObject.ResetHealth();
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
-        cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
+        cameraController = FindObjectOfType<VirtualCameraController>();
     }
 
     public void TakeDamage(float amount)
     {
         RuntimeManager.PlayOneShot(playerHurtDeathSound);
+        //Please, fixa en ordentlig camera prefab så man slipper en massa errors hela tiden pga det här
         cameraController.CameraShake();
         if (!healthObject.Invurnerable)
         {

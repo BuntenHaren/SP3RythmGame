@@ -10,21 +10,21 @@ public class ColliderBridge : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        _listener.OnCollisionStay(collision);
+        _listener.CollisionStay(collision);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        _listener.OnTriggerStay(other);
+        _listener.TriggerStay(other);
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        _listener.OnCollisionEnter(other);
+        _listener.CollisionEnter(other);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        _listener.OnTriggerEnter(other);
+        _listener.TriggerEnter(other);
     }
 }
