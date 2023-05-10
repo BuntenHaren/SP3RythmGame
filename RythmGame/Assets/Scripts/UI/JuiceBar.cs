@@ -21,6 +21,7 @@ public class JuiceBar : MonoBehaviour
         
         slider.maxValue = juiceCounter.MaxJuice;
         juiceCounter.onChange += ChangeSliderValue;
+        slider.value = juiceCounter.CurrentJuice;
     }
 
     private void ChangeSliderValue(float amount)
