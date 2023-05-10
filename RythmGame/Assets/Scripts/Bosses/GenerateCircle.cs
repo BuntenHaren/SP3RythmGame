@@ -68,10 +68,13 @@ namespace Bosses
             float x;
             float y;
             pointsList.Add(Vector3.zero);
+            float startOffset = angleStartOffset * (Mathf.PI / 180);
+            float angle = angleInDegrees * (Mathf.PI / 180);
+            
             for (int i = 0; i < sides + 2; i ++)
             {
-                x = radius * Mathf.Sin((angleInDegrees * Mathf.Deg2Rad * i + angleStartOffset * Mathf.Deg2Rad) / sides);
-                y = radius * Mathf.Cos((angleInDegrees * Mathf.Deg2Rad * i + angleStartOffset * Mathf.Deg2Rad) / sides);
+                x = radius * Mathf.Sin(startOffset + (angle * i) / sides);
+                y = radius * Mathf.Cos(startOffset + (angle * i) / sides);
                 pointsList.Add(new Vector3(x, 0, y));
             }
             Vector3[] points = pointsList.ToArray();
