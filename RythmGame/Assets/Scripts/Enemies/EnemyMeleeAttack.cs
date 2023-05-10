@@ -73,7 +73,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         attackTimer += Time.deltaTime;
 
-        if (attacking && attackTimer >= eventPort.TimeBetweenBeats - attackAnimationTime)
+        if (attacking && attackTimer >= minimumAttackWindUp - attackAnimationTime)
         {
             anim.SetBool("ExecuteAttack", true);
             anim.SetBool("AttackHold", false);
