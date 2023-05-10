@@ -9,6 +9,7 @@ public class VirtualCameraController : MonoBehaviour
     //private variables
     private CinemachineVirtualCamera vCam;
     private CinemachineFramingTransposer vCamTransposer;
+    private CinemachineBasicMultiChannelPerlin vCamPerlinChannel;
     private bool isAnimating = false;
 
     //Values
@@ -23,7 +24,7 @@ public class VirtualCameraController : MonoBehaviour
     {
         vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
         vCamTransposer = vCam.GetCinemachineComponent<CinemachineFramingTransposer>();
-        Debug.Log(vCamTransposer);
+        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     public void CameraZoom(float zoomEndValue, float zoomDuration)
@@ -43,5 +44,10 @@ public class VirtualCameraController : MonoBehaviour
             });
             isAnimating = false;
         }
+    }
+
+    public void CameraShake()
+    {
+
     }
 }
