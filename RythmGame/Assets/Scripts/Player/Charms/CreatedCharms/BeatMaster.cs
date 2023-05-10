@@ -22,6 +22,12 @@ public class BeatMaster : PassiveCharm
 
         // get beat window 
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
+
+
+        Debug.Log("XXXXXXXXXXXXXXXXXXXXX BEAT MASTER XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        Debug.Log("current: " + playerHealth.CurrentHealth);
+        Debug.Log("max mult: " + playerStats.CurrentMaxHealthMultiplier);
+        Debug.Log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
     }
 
     public override void OnPlayerAttackAction()
