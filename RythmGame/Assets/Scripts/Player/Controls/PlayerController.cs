@@ -167,6 +167,9 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchPassiveCharm()
     {
+        // finish old charm 
+        playerStats.CurrentPassiveCharm.Finish();
+        // switch charm
         if (playerStats.CurrentPassiveCharm == beatMaster)
         {
             playerStats.CurrentPassiveCharm = arcaneGorger;
@@ -178,6 +181,9 @@ public class PlayerController : MonoBehaviour
             playerStats.CurrentPassiveCharm = beatMaster;
             Debug.Log(playerStats.CurrentPassiveCharm);
         }
+
+        // start new charm
+        playerStats.CurrentPassiveCharm.Equip();
     }
 
     private RaycastHit CheckForObstruction(Vector3 origin, Vector3 direction, float range)

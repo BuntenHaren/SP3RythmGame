@@ -26,6 +26,8 @@ public class BeatMaster : PassiveCharm
 
     public override void OnPlayerAttackAction()
     {
+        base.OnPlayerAttackAction();
+
         // calculate juice gauge fill ratio
         JuiceLevelRatio = juiceCounter.CurrentJuice / juiceCounter.MaxJuice;
 
