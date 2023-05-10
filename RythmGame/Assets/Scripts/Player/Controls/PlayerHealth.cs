@@ -36,7 +36,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         RuntimeManager.PlayOneShot(playerHurtDeathSound);
         //Please, fixa en ordentlig camera prefab så man slipper en massa errors hela tiden pga det här
-        cameraController.CameraShake();
+        if(cameraController != null)
+            cameraController.CameraShake();
         if (!healthObject.Invurnerable)
         {
             healthObject.CurrentHealth -= amount;
