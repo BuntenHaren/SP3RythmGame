@@ -21,6 +21,11 @@ public abstract class Charm : ScriptableObject
         PlayerAttacks.onPlayerAttackAction += OnPlayerAttackAction;
     }
 
+    public virtual void Equip()
+    {
+
+    }
+
     public virtual void OnPlayerAttackAction()
     {
         
