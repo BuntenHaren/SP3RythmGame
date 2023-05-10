@@ -21,6 +21,9 @@ public class PlayerHealthBar : MonoBehaviour
     [SerializeField]
     private Vector3 scaleTo;
 
+    [SerializeField]
+    private float healthUpdateTime;
+
     private float timeSinceBeat;
     private Vector3 originalSize;
 
@@ -61,7 +64,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void SetHealth(float health)
     {
-        slider.value = playerHealth.CurrentHealth;
+        DOTween.To(() => slider.value, x => slider.value = x, playerHealth.CurrentHealth, healthUpdateTime);
     }
 
     private void OnBeat()

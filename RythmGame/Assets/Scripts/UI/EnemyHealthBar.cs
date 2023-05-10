@@ -9,6 +9,8 @@ public class EnemyHealthBar : MonoBehaviour
     private EnemyHealth enemyHealth;
     [SerializeField]
     private Slider slider;
+    [SerializeField]
+    private float healthUpdateTime;
 
     void Start()
     {
@@ -18,13 +20,12 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetMaxHealth(float health)
     {
-        Debug.Log("SetMaxHealth");
         slider.maxValue = health;
         slider.value = health;
     }
 
     public void SetHealth(float health)
     {
-        slider.value = health;
+        DOTween.To(() => slider.value, x => slider.value = x, health, healthUpdateTime);
     }
 }
