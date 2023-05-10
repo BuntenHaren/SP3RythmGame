@@ -23,8 +23,6 @@ public class VirtualCameraController : MonoBehaviour
     private float cameraShakeDuration;
     [SerializeField]
     private float cameraShakeAmplitude;
-    [SerializeField]
-    private float cameraShakeFrequency;
 
     void Start()
     {
