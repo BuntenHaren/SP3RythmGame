@@ -1,12 +1,14 @@
 using System;
-using Bosses;
 using UnityEngine;
 using Unity;
 
 public class ColliderBridge : MonoBehaviour
 {
-    [SerializeField]
-    private BossBehaviour _listener;
+    IColliderListener _listener;
+    public void Initialize(IColliderListener l)
+    {
+        _listener = l;
+    }
 
     private void OnCollisionStay(Collision collision)
     {
@@ -16,15 +18,5 @@ public class ColliderBridge : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         _listener.OnTriggerStay(other);
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        _listener.OnCollisionEnter(other);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        _listener.OnTriggerEnter(other);
     }
 }

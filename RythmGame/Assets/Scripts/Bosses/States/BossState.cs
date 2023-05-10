@@ -42,26 +42,6 @@ namespace Bosses.States
         {
         
         }
-        
-        public virtual void OnCollisionEnter(Collision collision)
-        {
-            
-        }
-
-        public virtual void OnTriggerEnter(Collider other)
-        {
-            
-        }
-
-        public virtual void OnCollisionStay(Collision collision)
-        {
-            
-        }
-
-        public virtual void OnTriggerStay(Collider other)
-        {
-            
-        }
 
         public virtual void Exit()
         {

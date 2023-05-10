@@ -25,7 +25,6 @@ public class PlayerStats : ScriptableObject
     public float BaseAttackDistance = 1;
     public float BasetimeForBeatWindow;
     public float BaseJuiceAmountOnBeat = 1;
-    public float BaseForceTowardAttack = 1;
     
     [field: Header("Attack Multipliers")]
     public float BaseAttackDamageMultiplier = 1;
