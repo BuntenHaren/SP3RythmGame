@@ -37,9 +37,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float amount)
     {
         RuntimeManager.PlayOneShot(playerHurtDeathSound);
-        cameraController.CameraShake();
         if (!healthObject.Invurnerable)
         {
+            cameraController.CameraShake();
             healthObject.CurrentHealth -= amount;
             if(healthObject.CurrentHealth <= 0)
             {
@@ -51,9 +51,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void TakeDamageOnBeat(float amount)
     {
         RuntimeManager.PlayOneShot(playerHurtDeathSound);
-        cameraController.CameraShake();
         if (!healthObject.Invurnerable)
         {
+            cameraController.CameraShake();
             healthObject.CurrentHealth -= amount;
             if (healthObject.CurrentHealth <= 0)
             {
