@@ -19,12 +19,18 @@ public class VirtualCameraController : MonoBehaviour
     private float BeatZoomInDuration;
     [SerializeField]
     private float BeatZoomOutDuration;
+    [SerializeField]
+    private float cameraShakeDuration;
+    [SerializeField]
+    private float cameraShakeAmplitude;
+    [SerializeField]
+    private float cameraShakeFrequency;
 
     void Start()
     {
         vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
         vCamTransposer = vCam.GetCinemachineComponent<CinemachineFramingTransposer>();
-        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        vCamPerlinChannel = vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     public void CameraZoom(float zoomEndValue, float zoomDuration)
@@ -48,6 +54,7 @@ public class VirtualCameraController : MonoBehaviour
 
     public void CameraShake()
     {
-
+        vCamPerlinChannel.m_AmplitudeGain = cameraShakeAmplitude;
+        DOTween.To(() => vCamPerlinChannel.m_AmplitudeGain, x => vCamPerlinChannel.m_AmplitudeGain = x, 0f, cameraShakeDuration);
     }
 }
