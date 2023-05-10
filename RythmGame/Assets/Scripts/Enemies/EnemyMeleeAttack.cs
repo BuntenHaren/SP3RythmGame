@@ -49,6 +49,9 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackTimer = 0f;
     [SerializeField]
     private float attackHoldWaitTime;
+    [SerializeField]
+    private float attackAnimationTime;
+
 
     //Parent Animator
     private Animator anim;
@@ -69,6 +72,14 @@ public class EnemyMeleeAttack : MonoBehaviour
     void Update()
     {
         attackTimer += Time.deltaTime;
+
+        if (attacking && attackTimer >= eventPort.TimeBetweenBeats - attackAnimationTime)
+        {
+            anim.SetBool("ExecuteAttack", true);
+            anim.SetBool("AttackHold", false);
+            anim.SetBool("SwipeAttack", false);
+            anim.SetBool("CircleAttack", false);
+        }
     }
 
     //Check if player is in damage area
@@ -106,10 +117,10 @@ public class EnemyMeleeAttack : MonoBehaviour
             {
                 RuntimeManager.PlayOneShot(warewolfHowlAttack);
             }
-            anim.SetBool("ExecuteAttack", true);
+            /*anim.SetBool("ExecuteAttack", true);
             anim.SetBool("AttackHold", false);
             anim.SetBool("SwipeAttack", false);
-            anim.SetBool("CircleAttack", false);
+            anim.SetBool("CircleAttack", false);*/
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
             if (playerInDamageArea)
             {
