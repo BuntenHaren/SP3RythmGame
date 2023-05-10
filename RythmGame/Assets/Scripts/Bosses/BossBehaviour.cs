@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Bosses
 {
-    public class BossBehaviour : MonoBehaviour, IDamageable
+    public class BossBehaviour : MonoBehaviour, IDamageable, IColliderListener
     {
         [HideInInspector]
         public List<GenerateCircle> GenerateCircles;
@@ -103,6 +103,26 @@ namespace Bosses
         {
             bossAnim.SetTrigger("Death");
             RuntimeManager.PlayOneShot(firstPhaseStats.DeathSFX);
+        }
+
+        public void OnCollisionEnter(Collision collision)
+        {
+            currentBossState.OnCollisionEnter(collision);
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            currentBossState.OnTriggerEnter(other);
+        }
+
+        public void OnCollisionStay(Collision collision)
+        {
+            currentBossState.OnCollisionStay(collision);
+        }
+
+        public void OnTriggerStay(Collider other)
+        {
+            currentBossState.OnTriggerStay(other);
         }
     }
 }
