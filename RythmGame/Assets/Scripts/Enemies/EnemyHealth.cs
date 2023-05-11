@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemiesInCombatCounter enemiesInCombatCounter;
     [SerializeField]
     private EnemyHealthBar healthBar;
+    private ExitBlockage exitBlockage;
     private VirtualCameraController cameraController;
 
     //Stats
@@ -50,6 +51,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        if (GameObject.Find("ExitBlockage") != null)
+        {
+            exitBlockage = GameObject.Find("ExitBlockage").GetComponent<ExitBlockage>();
+        }
+        if(exitBlockage != null)
+            exitBlockage.AddEnemyToList(enemyBehavior);
         rb = gameObject.GetComponent<Rigidbody>();
         //originalColor = sr.color;
         cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
@@ -91,6 +98,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
             enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
+            if (exitBlockage != null)
+                exitBlockage.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
@@ -121,6 +130,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
             enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
+            if (exitBlockage != null)
+                exitBlockage.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
