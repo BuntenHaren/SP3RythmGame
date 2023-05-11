@@ -36,7 +36,10 @@ public class BushCollision : MonoBehaviour
     private void BushWiggle()
     {
         var rotation = new Vector3(0f, 0f, Random.Range(positiveRotationPunch, negativeRotationPunch));
-        childTransform.DOPunchScale(scalePunch, duration, vibrato, elasticity);
+        childTransform.DOPunchScale(scalePunch, duration, vibrato, elasticity).SetEase(Ease.InOutSine).OnComplete(() =>
+        {
+            childTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
+        });
         childTransform.DOPunchRotation(rotation, duration, vibrato, elasticity);
     }
 }
