@@ -73,21 +73,15 @@ namespace Bosses.States
             }
             
             float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
-            Debug.Log("Angle " + angleTowardsPlayer);
-            angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
+            //We use -180 to turn everything back, because what i expected to be forward was in reality the opposite..
+            angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset -180;
             telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
-            Debug.Log(telegraphHolder.transform.rotation.eulerAngles);
         }
 
         private float GetAngleTowardsPlayerFromObject(Transform obj)
         {
-            Vector3 objRotation = obj.forward;
-            Vector3 vectorTowardsPlayer = behaviour.GetPlayerPos() - obj.position;
-            float ab = objRotation.x * vectorTowardsPlayer.x + objRotation.y * vectorTowardsPlayer.y + objRotation.z * vectorTowardsPlayer.z;
-            Debug.Log("objRotation " + objRotation.magnitude);
-            Debug.Log("vectortowards " + vectorTowardsPlayer.magnitude);
-            float value = Mathf.Acos(ab/(objRotation.magnitude * vectorTowardsPlayer.magnitude));
-            return value;
+            Vector3 vectorTowardsPlayer = behaviour.GetPlayerPos() - behaviour.transform.position;
+            return Vector3.SignedAngle(behaviour.transform.forward, vectorTowardsPlayer, Vector3.up);
         }
         
         public override void Update()
@@ -100,6 +94,7 @@ namespace Bosses.States
             startedAttacking = true;
             timer.StartTimer(2);
             RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceSFX);
+            
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
                 telegraphs[i].GetComponent<MeshCollider>().enabled = true;
@@ -120,6 +115,7 @@ namespace Bosses.States
             {
                 player.TakeDamage(firstPhaseStats.PieSliceCircleDamage);
                 hasDamagedPlayer = true;
+                
                 for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
                 {
                     telegraphs[i].GetComponent<MeshCollider>().enabled = false;
