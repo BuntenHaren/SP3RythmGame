@@ -37,8 +37,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     public EventReference telegraphSwipeAttack;
     public EventReference telegraphHowlAttack;
 
-    private bool playerInDamageArea = false;
-
     //Attack
     private PlayerHealth playerHealth;
     [SerializeField]

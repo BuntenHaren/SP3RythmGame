@@ -46,7 +46,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private bool isDead = false;
     private float colorTimer;
-    private bool changeColors;
     private bool colorsHaveBeenChanged;
 
     void Awake()
@@ -80,7 +79,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if(!enemyBehavior.attacking)
                 anim.SetTrigger("Hurt");
         ChangeColor();
-        changeColors = true;
         health -= damage;
         healthBar.SetHealth(health);
         //Hit sound
@@ -110,7 +108,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (!enemyBehavior.attacking)
                 anim.SetTrigger("Hurt");
         ChangeColor();
-        changeColors = true;
         health -= damage;
         healthBar.SetHealth(health);
         cameraController.CameraZoomBeatAttack();
