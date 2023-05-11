@@ -51,7 +51,9 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackHoldWaitTime;
     [SerializeField]
     private float attackAnimationTime;
-
+    private bool inCircleTrigger = false;
+    [HideInInspector]
+    public bool inSwipeTrigger = false;
 
     //Parent Animator
     private Animator anim;
@@ -87,7 +89,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
-            playerInDamageArea = true;
+            inCircleTrigger = true;
         }
     }
 
@@ -95,7 +97,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            playerInDamageArea = false;
+            inCircleTrigger = false;
         }
     }
 
@@ -122,7 +124,7 @@ public class EnemyMeleeAttack : MonoBehaviour
             anim.SetBool("SwipeAttack", false);
             anim.SetBool("CircleAttack", false);*/
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
-            if (playerInDamageArea)
+            if(inCircleTrigger || inSwipeTrigger)
             {
                 playerHealth.TakeDamage(damageAmount);
             }
