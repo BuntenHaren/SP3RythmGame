@@ -5,56 +5,77 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField] 
     private SpawnPort spawnPort;
     [SerializeField]
-    private GameObject objectToSpawn;
-    [SerializeField]
-    private float timeBetweenSpawns;
-    [SerializeField]
-    private int totalAmountToSpawn;
-    [SerializeField]
-    private List<EnemyBehavior> enemiesToKillBefore;
+    private DeathPort deathPort;
+    [SerializeField] 
+    private List<Wave> waves;
     [SerializeField]
     private List<Transform> spawnPoints;
 
-    private int spawnsLeft;
     private int currentSpawnPoint;
-    private Timer spawnTimer;
+    private int currentWave;
+    private List<GameObject> EnemiesAlive;
 
-    private void Start()
+    private void OnEnable()
     {
-        spawnsLeft = totalAmountToSpawn;
-        spawnTimer = new Timer();
-        spawnTimer.TimerDone += SpawnObject;
+        deathPort.onEnemyDeath += CountDeaths;
+    }
+
+    private void OnDisable()
+    {
+        deathPort.onEnemyDeath -= CountDeaths;
+    }
+
+    private void Awake()
+    {
         if(spawnPoints.Count == 0)
             spawnPoints.Add(transform);
     }
 
-    private void SpawnObject()
-    {
-        if(spawnsLeft <= 0)
-            return;
-
-        GameObject obj = Instantiate(objectToSpawn, spawnPoints[currentSpawnPoint]);
+    private void SpawnObject(GameObject obj)
+    { 
+        GameObject newObj = Instantiate(obj, spawnPoints[currentSpawnPoint]);
         currentSpawnPoint++;
+        
         if(currentSpawnPoint == spawnPoints.Count)
             currentSpawnPoint = 0;
-        spawnTimer.StartTimer(timeBetweenSpawns);
-        spawnsLeft--;
-        spawnPort.onEnemySpawn.Invoke(obj);
+        
+        spawnPort.onEnemySpawn.Invoke(newObj);
+        EnemiesAlive.Add(newObj);
     }
 
-    private void Update()
+    private void SpawnWave()
     {
-        spawnTimer.UpdateTimer(Time.deltaTime);
-        bool startSpawn = true;
-        for(int i = 0; i < enemiesToKillBefore.Count; i++)
+        if(currentWave >= waves.Count)
+            return;
+        
+        for(int i = 0; i < waves[currentWave].objects.Count; i++)
         {
-            if(enemiesToKillBefore[i].isDead)
-                startSpawn = false;
+            SpawnObject(waves[currentWave].objects[i]);
         }
-        if(startSpawn)
-            spawnTimer.StartTimer(timeBetweenSpawns);
+
+        currentWave++;
     }
+
+    private void CountDeaths(GameObject death)
+    {
+        if(EnemiesAlive.Contains(death))
+        {
+            EnemiesAlive.Remove(death);
+        }
+
+        EnemiesAlive.RemoveAll(obj => obj == null);
+        
+        if(EnemiesAlive.Count == 0)
+            SpawnWave();
+    }
+    
+}
+
+[CreateAssetMenu(menuName = "RythmGame/Enemy/Wave")]
+public class Wave : ScriptableObject
+{
+    public List<GameObject> objects;
 }
