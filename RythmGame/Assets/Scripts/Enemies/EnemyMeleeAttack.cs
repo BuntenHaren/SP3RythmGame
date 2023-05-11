@@ -37,8 +37,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     public EventReference telegraphSwipeAttack;
     public EventReference telegraphHowlAttack;
 
-    private bool playerInDamageArea = false;
-
     //Attack
     private PlayerHealth playerHealth;
     [SerializeField]
@@ -51,7 +49,10 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackHoldWaitTime;
     [SerializeField]
     private float attackAnimationTime;
-
+    private bool inCircleTrigger = false;
+    [HideInInspector]
+    public bool inSwipeTrigger = false;
+    private bool queueSounds = false;
 
     //Parent Animator
     private Animator anim;
@@ -73,12 +74,22 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         attackTimer += Time.deltaTime;
 
-        if (attacking && attackTimer >= minimumAttackWindUp - attackAnimationTime)
+        if (attacking && attackTimer >= minimumAttackWindUp - attackAnimationTime && queueSounds)
         {
+            //Execute attack sound here
+            if (isSwipe)
+            {
+                RuntimeManager.PlayOneShot(warewolfSwipeAttack);
+            }
+            else
+            {
+                RuntimeManager.PlayOneShot(warewolfHowlAttack);
+            }
             anim.SetBool("ExecuteAttack", true);
             anim.SetBool("AttackHold", false);
             anim.SetBool("SwipeAttack", false);
             anim.SetBool("CircleAttack", false);
+            queueSounds = false;
         }
     }
 
@@ -87,7 +98,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
-            playerInDamageArea = true;
+            inCircleTrigger = true;
         }
     }
 
@@ -95,7 +106,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            playerInDamageArea = false;
+            inCircleTrigger = false;
         }
     }
 
@@ -108,21 +119,12 @@ public class EnemyMeleeAttack : MonoBehaviour
         }
         if (attacking && attackTimer > minimumAttackWindUp)
         {
-            //Execute attack sound here
-            if(isSwipe)
-            {
-                RuntimeManager.PlayOneShot(warewolfSwipeAttack);
-            }
-            else
-            {
-                RuntimeManager.PlayOneShot(warewolfHowlAttack);
-            }
             /*anim.SetBool("ExecuteAttack", true);
             anim.SetBool("AttackHold", false);
             anim.SetBool("SwipeAttack", false);
             anim.SetBool("CircleAttack", false);*/
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
-            if (playerInDamageArea)
+            if(inCircleTrigger || inSwipeTrigger)
             {
                 playerHealth.TakeDamage(damageAmount);
             }
@@ -138,6 +140,7 @@ public class EnemyMeleeAttack : MonoBehaviour
             AbortTelegraph();
             return;
         }
+        queueSounds = true;
         //Start of telegraph sound here
         if (isSwipe)
         {

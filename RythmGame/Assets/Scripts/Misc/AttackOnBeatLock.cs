@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class AttackOnBeatTutorial : MonoBehaviour, IDamageable
+public class AttackOnBeatLock : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private MusicEventPort eventPort;

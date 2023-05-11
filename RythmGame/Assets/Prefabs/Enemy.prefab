@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 156534836426496360}
   m_LocalRotation: {x: 0.30070582, y: -0, z: -0, w: 0.95371693}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 32.10366, y: 33.934425, z: 6.5384264}
+  m_LocalScale: {x: 25, y: 25, z: 6.5384264}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 955585465980228924}
@@ -98,9 +98,9 @@ MonoBehaviour:
   enemyScript: {fileID: 156534836675248400}
   rotationPivot: {fileID: 0}
   sr: {fileID: 156534836426496361}
-  originalColor: {r: 1, g: 1, b: 1, a: 0}
-  windUpColor: {r: 1, g: 1, b: 1, a: 0.5882353}
-  executeColor: {r: 1, g: 1, b: 1, a: 1}
+  originalColor: {r: 1, g: 0.47843137, b: 0.47843137, a: 0}
+  windUpColor: {r: 1, g: 0.47843137, b: 0.47843137, a: 0.5882353}
+  executeColor: {r: 1, g: 0.47843137, b: 0.47843137, a: 1}
   warewolfSwipeAttack:
     Guid:
       Data1: -795492207
@@ -133,6 +133,7 @@ MonoBehaviour:
   minimumAttackWindUp: 1
   attackHoldWaitTime: 2
   attackAnimationTime: 0.15
+  inSwipeTrigger: 0
 --- !u!212 &156534836426496361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.47843137, b: 0.47843137, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -276,8 +277,8 @@ MonoBehaviour:
   isDead: 0
   coneAttackObject: {fileID: 156534837293774131}
   circleAttackObject: {fileID: 156534836426496360}
-  attackCD: 1
-  attackRange: 9
+  attackCD: 3
+  attackRange: 10
   attacking: 0
   anim: {fileID: 1904246249768545524}
 --- !u!114 &156534836675248407
@@ -409,9 +410,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 156534837293774127}
-  - component: {fileID: 156534837293774126}
   - component: {fileID: 156534837293774125}
   - component: {fileID: 156534837293774124}
+  - component: {fileID: 1197437621533918661}
   m_Layer: 2
   m_Name: ConeAttack
   m_TagString: Untagged
@@ -426,28 +427,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156534837293774131}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.19000053, z: -8.250003}
-  m_LocalScale: {x: 15.591732, y: 16.480877, z: 3.1755059}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5763936632178930512}
   m_Father: {fileID: 156534835823617742}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &156534837293774126
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156534837293774131}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &156534837293774125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,9 +453,9 @@ MonoBehaviour:
   enemyScript: {fileID: 156534836675248400}
   rotationPivot: {fileID: 156534835823617742}
   sr: {fileID: 156534837293774124}
-  originalColor: {r: 1, g: 0, b: 0, a: 0}
-  windUpColor: {r: 1, g: 0, b: 0, a: 0.39215687}
-  executeColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+  originalColor: {r: 1, g: 0.47843137, b: 0.47843137, a: 0}
+  windUpColor: {r: 1, g: 0.47843137, b: 0.47843137, a: 0.39215687}
+  executeColor: {r: 1, g: 0.47843137, b: 0.47843137, a: 0.39215687}
   warewolfSwipeAttack:
     Guid:
       Data1: -795492207
@@ -500,6 +488,7 @@ MonoBehaviour:
   minimumAttackWindUp: 1
   attackHoldWaitTime: 2
   attackAnimationTime: 0.15
+  inSwipeTrigger: 0
 --- !u!212 &156534837293774124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -541,17 +530,30 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7f69a8d9d00e4fe4db1f9eb378a00497, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0}
+  m_Sprite: {fileID: 21300000, guid: bc71403a18d584a4482b7d00fa0b56b3, type: 3}
+  m_Color: {r: 1, g: 0.4764151, b: 0.4764151, a: 0}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!135 &1197437621533918661
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156534837293774131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.1996975
+  m_Center: {x: 0, y: -3.3728, z: 0.0000020568855}
 --- !u!1 &1800683961711011560
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +864,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 156534836675248397}
   offset: {x: 0, y: 5, z: 10}
+--- !u!1 &8816711638572798157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5763936632178930512}
+  - component: {fileID: 3214942458512412935}
+  - component: {fileID: 5747756892431003819}
+  m_Layer: 2
+  m_Name: MeshCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5763936632178930512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816711638572798157}
+  m_LocalRotation: {x: -0.000000044703473, y: 0.00000029802317, z: -0.9171651, w: 0.39850757}
+  m_LocalPosition: {x: -0.28, y: -0.8, z: -0}
+  m_LocalScale: {x: 4.9898205, y: 4.9898205, z: 4.9898205}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 156534837293774127}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -133.03}
+--- !u!64 &3214942458512412935
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816711638572798157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4604935570686513599, guid: 7a33621106fb7c647ba535219fdbfdbd, type: 3}
+--- !u!114 &5747756892431003819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816711638572798157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935ba550857cad145aa324bb03057296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2362316736984599792
 PrefabInstance:
   m_ObjectHideFlags: 0
