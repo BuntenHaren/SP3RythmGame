@@ -37,6 +37,7 @@ namespace Bosses
         [field: Header("SFX")] 
         public EventReference HoofStompSFX;
         public EventReference PieSliceSFX;
+        public EventReference PieSliceTelegraphSFX;
         public EventReference HurtSFX;
         public EventReference DeathSFX;
     }

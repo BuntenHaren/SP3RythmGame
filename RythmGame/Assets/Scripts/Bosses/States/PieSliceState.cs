@@ -53,6 +53,8 @@ namespace Bosses.States
         private void StartTelegraphAttack()
         {
             attackTelegraphStarted = true;
+            RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceTelegraphSFX);
+            
             float angleTowardsPlayerOffset = Random.Range(0, firstPhaseStats.PieSliceMaxAngleDeviation * 2);
             
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
