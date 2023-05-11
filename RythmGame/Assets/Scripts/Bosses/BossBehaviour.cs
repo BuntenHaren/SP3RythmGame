@@ -57,6 +57,7 @@ namespace Bosses
             GameObject potentialPlayer = GameObject.FindWithTag("Player");
             if(potentialPlayer == null)
                 return transform.position;
+            
             return potentialPlayer.transform.position;
         }
 
@@ -65,6 +66,7 @@ namespace Bosses
             foreach(var circle in GenerateCircles)
             {
                 circle.transform.position = transform.position;
+                circle.transform.rotation = transform.rotation;
             }
         }
 
