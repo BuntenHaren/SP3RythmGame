@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class JuiceBar : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class JuiceBar : MonoBehaviour
     private JuiceCounter juiceCounter;
     [SerializeField]
     private Slider slider;
-    
+    [SerializeField]
+    private float sliderUpdateTime;
+
     private void Start()
     {
         if(slider == null)
@@ -18,11 +21,13 @@ public class JuiceBar : MonoBehaviour
         
         slider.maxValue = juiceCounter.MaxJuice;
         juiceCounter.onChange += ChangeSliderValue;
+        slider.value = juiceCounter.CurrentJuice;
     }
 
     private void ChangeSliderValue(float amount)
     {
-        slider.value += amount;
+        var changeTo = slider.value + amount;
+        DOTween.To(() => slider.value, x => slider.value = x, changeTo, sliderUpdateTime).SetEase(Ease.OutElastic);
     }
     
 }

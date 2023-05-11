@@ -23,18 +23,18 @@ public class ArcaneGorger : PassiveCharm
 
         // get beat window 
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
-    }
 
-    public override void Equip()
-    {
-        base.Equip();
         // multiply health
-        Debug.Log("current before: " + playerHealth.CurrentHealth);
-        Debug.Log("max mult before: " + playerStats.CurrentMaxHealthMultiplier);
+        Debug.Log("---- ARCANE GORGER START ----");
+        Debug.Log("Current health before reduction: " + playerHealth.CurrentHealth);
+        Debug.Log("Max health before reduction: " + playerHealth.CurrentMaxHealth);
+
         playerHealth.CurrentHealth *= MaxHealthMultiplier;
-        playerStats.CurrentMaxHealthMultiplier = MaxHealthMultiplier;
-        Debug.Log("current after: " + playerHealth.CurrentHealth);
-        Debug.Log("max mult after: " + playerStats.CurrentMaxHealthMultiplier);
+        playerStats.CurrentMaxHealthMultiplier *= MaxHealthMultiplier;
+
+        Debug.Log("Current health after reduction: " + playerHealth.CurrentHealth);
+        Debug.Log("Max health after reduction: " + playerHealth.CurrentMaxHealth);
+        Debug.Log("-----------------------");
     }
 
     public override void OnPlayerAttackAction()
@@ -73,9 +73,16 @@ public class ArcaneGorger : PassiveCharm
     public override void Finish()
     {
         base.Finish();
-
+        Debug.Log("---- ARCANE GORGER FINISH: ----");
         // reset health
+        Debug.Log("Max health before restoration: " + playerHealth.CurrentMaxHealth);
+        Debug.Log("Current health before restoration: " + playerHealth.CurrentHealth);
+
         playerStats.CurrentMaxHealthMultiplier /= MaxHealthMultiplier;
         playerHealth.CurrentHealth /= MaxHealthMultiplier;
+
+        Debug.Log("Current health before restoration: " + playerHealth.CurrentHealth);
+        Debug.Log("Max health after restoration: " + playerHealth.CurrentMaxHealth);
+        Debug.Log("-----------------------");
     }
 }

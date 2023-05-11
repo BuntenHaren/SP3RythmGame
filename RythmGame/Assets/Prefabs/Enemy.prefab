@@ -132,6 +132,7 @@ MonoBehaviour:
   damageAmount: 25
   minimumAttackWindUp: 1
   attackHoldWaitTime: 2
+  attackAnimationTime: 0.15
 --- !u!212 &156534836426496361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -498,6 +499,7 @@ MonoBehaviour:
   damageAmount: 25
   minimumAttackWindUp: 1
   attackHoldWaitTime: 2
+  attackAnimationTime: 0.15
 --- !u!212 &156534837293774124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -845,6 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4372886225202024143}
+  healthUpdateTime: 0.4
 --- !u!114 &1147457924086842068
 MonoBehaviour:
   m_ObjectHideFlags: 0
