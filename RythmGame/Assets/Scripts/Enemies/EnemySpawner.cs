@@ -72,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
 
         EnemiesAlive.RemoveAll(obj => obj == null);
         
-        if(EnemiesAlive.Count == 0)
+        if(EnemiesAlive.Count == 0 && enemiesToKillFirstDone)
             SpawnWave();
         
         if(!enemiesToKillFirstDone && enemiesToKillFirst.Contains(death))
