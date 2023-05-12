@@ -141,13 +141,13 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4686105744358325618}
-    m_Position: {x: -250, y: -60, z: 0}
+    m_Position: {x: -290, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5919043366189265670}
     m_Position: {x: 160, y: -250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1111205598869183593}
-    m_Position: {x: -220, y: 20, z: 0}
+    m_Position: {x: -230, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3296752101905512623}
     m_Position: {x: 270, y: 30, z: 0}
@@ -200,7 +200,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Wakeup
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1111205598869183593}
   m_Solo: 0

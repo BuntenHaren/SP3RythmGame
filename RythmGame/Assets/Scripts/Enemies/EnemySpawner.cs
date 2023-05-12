@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     private SpawnPort spawnPort;
     [SerializeField]
     private DeathPort deathPort;
+    [SerializeField]
+    private List<EnemyHealth> firstEnemies;
     [SerializeField] 
     private List<Wave> waves;
     [SerializeField]

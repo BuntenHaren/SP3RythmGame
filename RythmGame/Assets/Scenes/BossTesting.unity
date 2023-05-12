@@ -487,6 +487,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522622989987380630, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6522622990227362824, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1482,8 +1487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPort: {fileID: 11400000, guid: 849f723e6844d404cba7ecb0d4a7edf9, type: 2}
   deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
-  waves:
-  - {fileID: 11400000, guid: 19f52a9753506db4fa1873b2a1df9b0b, type: 2}
+  waves: []
   spawnPoints: []
 --- !u!4 &1925725194
 Transform:
