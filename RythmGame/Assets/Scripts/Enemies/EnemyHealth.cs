@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemiesInCombatCounter enemiesInCombatCounter;
     [SerializeField]
     private EnemyHealthBar healthBar;
+    private ExitBlockage exitBlockage;
     private VirtualCameraController cameraController;
 
     //Stats
@@ -45,11 +46,16 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private bool isDead = false;
     private float colorTimer;
-    private bool changeColors;
     private bool colorsHaveBeenChanged;
 
     void Awake()
     {
+        if (GameObject.Find("ExitBlockage") != null)
+        {
+            exitBlockage = GameObject.Find("ExitBlockage").GetComponent<ExitBlockage>();
+        }
+        if(exitBlockage != null)
+            exitBlockage.AddEnemyToList(enemyBehavior);
         rb = gameObject.GetComponent<Rigidbody>();
         //originalColor = sr.color;
         cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
@@ -73,7 +79,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if(!enemyBehavior.attacking)
                 anim.SetTrigger("Hurt");
         ChangeColor();
-        changeColors = true;
         health -= damage;
         healthBar.SetHealth(health);
         //Hit sound
@@ -91,6 +96,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
             enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
+            if (exitBlockage != null)
+                exitBlockage.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
@@ -101,7 +108,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (!enemyBehavior.attacking)
                 anim.SetTrigger("Hurt");
         ChangeColor();
-        changeColors = true;
         health -= damage;
         healthBar.SetHealth(health);
         cameraController.CameraZoomBeatAttack();
@@ -121,6 +127,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             anim.SetBool("Dead", true);
             enemyBehavior.isDead = true;
             enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
+            if (exitBlockage != null)
+                exitBlockage.RemoveEnemyFromList(enemyBehavior);
         }
     }
 

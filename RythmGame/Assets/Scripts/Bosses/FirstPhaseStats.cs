@@ -14,6 +14,7 @@ namespace Bosses
         public float PieSliceStartingOffset;
         public float PieSliceAngleBetweenSlices;
         public int PieSliceAmountOfBeatsWarning;
+        public float PieSliceMaxAngleDeviation;
 
         [field: Header("Hoof Stomp Attack Variables")]
         public float StompDamage;
@@ -36,6 +37,7 @@ namespace Bosses
         [field: Header("SFX")] 
         public EventReference HoofStompSFX;
         public EventReference PieSliceSFX;
+        public EventReference PieSliceTelegraphSFX;
         public EventReference HurtSFX;
         public EventReference DeathSFX;
     }

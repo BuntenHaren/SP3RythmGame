@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   BaseMovementSpeed: 20
-  BaseDashDistance: 10
+  BaseDashDistance: 12
   BaseDashCooldown: 1
-  BaseDashDuration: 0.1
+  BaseDashDuration: 0.2
   BaseMovementSpeedMultiplier: 1
   BaseDashDistanceMultiplier: 1
   BaseDashCooldownMultiplier: 1
@@ -26,6 +26,7 @@ MonoBehaviour:
   BaseAttackDistance: 7
   BasetimeForBeatWindow: 0.15
   BaseJuiceAmountOnBeat: 1
+  BaseForceTowardAttack: 1
   BaseAttackDamageMultiplier: 1
   BaseAttackRateMultiplier: 1
   BaseAttackRadiusMultiplier: 1
@@ -36,20 +37,20 @@ MonoBehaviour:
   BaseHealingRecievedMultiplier: 1
   BaseDamageRecievedMultiplier: 1
   BaseMaxHealthMultiplier: 1
-  CurrentActiveCharm: {fileID: 11400000, guid: 3a8d27d854d5b6042a61948f9dfb1abe, type: 2}
-  CurrentPassiveCharm: {fileID: 11400000, guid: 5f0bbd39a1992a4418c72b2f5927b16a,
+  CurrentActiveCharm: {fileID: 11400000, guid: 2c172f09b9066fd40bf717dcef8547c9, type: 2}
+  CurrentPassiveCharm: {fileID: 11400000, guid: 047f45e5a71b05447b517d930535f0fd,
     type: 2}
   CurrentMovementSpeed: 20
-  CurrentDashDistance: 10
+  CurrentDashDistance: 12
   CurrentDashCooldown: 1
-  CurrentDashDuration: 0.1
+  CurrentDashDuration: 0.2
   CurrentAttackDamage: 25
   CurrentAttackRate: 1
   CurrentAttackRadius: 7
   CurrentAttackDistance: 7
   CurrentTimeForBeatWindow: 0.15
   CurrentJuiceAmountOnBeat: 1
-  CurrentHealOnAttack: 1
+  CurrentHealOnAttack: 0
   CurrentAttackDamageMultiplier: 1
   CurrentAttackRateMultiplier: 1
   CurrentAttackRadiusMultiplier: 1
@@ -60,4 +61,4 @@ MonoBehaviour:
   CurrentDashCooldownMultiplier: 1
   CurrentDashDurationMultiplier: 1
   CurrentHealOnAttackMultiplier: 1
-  CurrentMaxHealthMultiplier: 0.75
+  CurrentMaxHealthMultiplier: 1

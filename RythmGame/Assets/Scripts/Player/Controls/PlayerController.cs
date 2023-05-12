@@ -33,17 +33,6 @@ public class PlayerController : MonoBehaviour
 
     private PlayerHealth playerHealth;
 
-    // private charm variables
-    [Header("Charms")]
-    // passive
-    [SerializeField]
-    private BeatMaster beatMaster;
-    [SerializeField]
-    private ArcaneGorger arcaneGorger;
-    // active
-    [SerializeField]
-    private ArcaneSurge arcaneSurge;
-
     private void Awake()
     {
         playerStats.ResetValues();
@@ -74,11 +63,6 @@ public class PlayerController : MonoBehaviour
     public void OnDash()
     {
         Dash();
-    }
-
-    public void OnSwitchPassiveCharm()
-    {
-        SwitchPassiveCharm();
     }
 
     private void Update()
@@ -163,21 +147,6 @@ public class PlayerController : MonoBehaviour
         //Actually make the player do the dash
         Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * playerStats.CurrentDashDistance * playerStats.CurrentDashDistanceMultiplier;
         StartCoroutine(LerpPosition(targetPosition, playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier));
-    }
-
-    private void SwitchPassiveCharm()
-    {
-        if (playerStats.CurrentPassiveCharm == beatMaster)
-        {
-            playerStats.CurrentPassiveCharm = arcaneGorger;
-            Debug.Log(playerStats.CurrentPassiveCharm);
-        } 
-        else 
-        if (playerStats.CurrentPassiveCharm == arcaneGorger)
-        {
-            playerStats.CurrentPassiveCharm = beatMaster;
-            Debug.Log(playerStats.CurrentPassiveCharm);
-        }
     }
 
     private RaycastHit CheckForObstruction(Vector3 origin, Vector3 direction, float range)
