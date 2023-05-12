@@ -55,25 +55,23 @@ namespace Bosses.States
             attackTelegraphStarted = true;
             RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceTelegraphSFX);
             
-            float angleTowardsPlayerOffset = Random.Range(0, firstPhaseStats.PieSliceMaxAngleDeviation * 2);
-            
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
                 telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[0].gameObject, telegraphHolder.transform);
                 attackMesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
-                    firstPhaseStats.PieSliceStartingOffset + firstPhaseStats.PieSliceSectorAngle * i + firstPhaseStats.PieSliceAngleBetweenSlices * i);
+                    firstPhaseStats.PieSliceSectorAngle * i + firstPhaseStats.PieSliceAngleBetweenSlices * i);
                 //combine[i].transform = behaviour.transform.localToWorldMatrix;
                 
                 telegraphs[i].GetComponent<GenerateCircle>().SetMesh(attackMesh);
                 telegraphs[i].GetComponent<MeshCollider>().sharedMesh = attackMesh;
                 telegraphs[i].GetComponent<MeshCollider>().enabled = false;
-                telegraphs[i].transform.localPosition = new Vector3(0, 0.05f, 0);
+                telegraphs[i].transform.localPosition = new Vector3(firstPhaseStats.PieSliceOriginOffset.x, 0.05f, firstPhaseStats.PieSliceOriginOffset.y);
             }
             
+            float angleTowardsPlayerOffset = Random.Range(0, firstPhaseStats.PieSliceMaxAngleDeviation * 2);
             float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
-            //We use -180 to turn everything back, because what i expected to be forward was in reality the opposite..
             angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
             telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
         }
