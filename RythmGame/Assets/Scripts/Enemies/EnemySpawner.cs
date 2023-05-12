@@ -73,9 +73,3 @@ public class EnemySpawner : MonoBehaviour
     }
     
 }
-
-[CreateAssetMenu(menuName = "RythmGame/Enemy/Wave")]
-public class Wave : ScriptableObject
-{
-    public List<GameObject> objects;
-}
