@@ -16,8 +16,11 @@ public class EnemyEngager : MonoBehaviour
         {
             for (int i = 0; i < enemies.Length; i++)
             {
-                enemies[i].engaged = true;
-                enemiesInCombatCounter.AddEnemyToList(enemies[i]);
+                if (enemies[i].engaged == false)
+                {
+                    enemies[i].engaged = true;
+                    enemiesInCombatCounter.AddEnemyToList(enemies[i]);
+                }
             }
         }
     }
