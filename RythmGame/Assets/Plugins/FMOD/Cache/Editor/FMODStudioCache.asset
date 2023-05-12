@@ -101,33 +101,6 @@ MonoBehaviour:
   lastModified: 638187115256248711
   FileSizes: []
   Exists: 1
---- !u!114 &-6750820890574244338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Enemy/Forest Cry
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemy/Forest Cry
-  Guid:
-    Data1: -1562005038
-    Data2: 1321751776
-    Data3: -896592496
-    Data4: -1268539224
-  Banks:
-  - {fileID: 3665720769150047377}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-6618206604458970873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,12 +463,12 @@ MonoBehaviour:
   - {fileID: -2400732234302987786}
   - {fileID: -6341566622533812488}
   - {fileID: 7917245589585842493}
-  - {fileID: -6750820890574244338}
   - {fileID: 897122927989698647}
   - {fileID: 6116181232345362714}
   - {fileID: -3485153076080014213}
   - {fileID: -7845787927207911118}
   - {fileID: -8566343230462976992}
+  - {fileID: 8788011364469857157}
   EditorParameters:
   - {fileID: 4689176431660486052}
   - {fileID: -6618206604458970873}
@@ -505,7 +478,7 @@ MonoBehaviour:
   - {fileID: 123069380484444869}
   StringsBanks:
   - {fileID: 8325251609124001452}
-  cacheTime: 638194834118569399
+  cacheTime: 638194858113967384
   cacheVersion: 131601
 --- !u!114 &123069380484444869
 MonoBehaviour:
@@ -522,7 +495,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638193213560727368
+  lastModified: 638194858111200962
   FileSizes: []
   Exists: 1
 --- !u!114 &739297234825508573
@@ -675,7 +648,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638194834118569399
+  lastModified: 638194858113967384
   FileSizes: []
   Exists: 1
 --- !u!114 &3755838955585793424
@@ -943,10 +916,10 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638194834117883506
+  lastModified: 638194858111278204
   FileSizes:
   - Name: 
-    Value: 2342
+    Value: 2348
   Exists: 1
 --- !u!114 &8637979527174894891
 MonoBehaviour:
@@ -972,3 +945,30 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &8788011364469857157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Boss/Boss_Death
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Boss/Boss_Death
+  Guid:
+    Data1: -1401725385
+    Data2: 1276823810
+    Data3: 1097077168
+    Data4: 1506100011
+  Banks:
+  - {fileID: 3665720769150047377}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7200
