@@ -1827,7 +1827,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 60346736}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2018208316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0ce6cde92c7d544692556fca465564e, type: 3}
@@ -10991,6 +10991,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8ce8cb189121bd47998e1139cda7aad, type: 3}
+--- !u!1 &366208397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 156534836675248406, guid: 66a1ab12149490943899d9f41c1691c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 497237253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &366890442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7752615315151677164, guid: ab9cc6ecc45dd6340a506df2d3024706,
@@ -15171,7 +15177,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 497237253}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 366208397}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0ce6cde92c7d544692556fca465564e, type: 3}
@@ -57164,7 +57170,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1062927230}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1952372933}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0ce6cde92c7d544692556fca465564e, type: 3}
@@ -59690,7 +59696,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh220466
+  m_Name: pb_Mesh254136
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -68237,7 +68243,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh221064
+  m_Name: pb_Mesh254734
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -81963,6 +81969,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPort: {fileID: 11400000, guid: 849f723e6844d404cba7ecb0d4a7edf9, type: 2}
   deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
+  enemiesToKillFirst:
+  - {fileID: 2018208316}
+  - {fileID: 1952372933}
+  - {fileID: 366208397}
   waves:
   - {fileID: 11400000, guid: 8ac23f5ca1498ee45b890c7dd3dd881f, type: 2}
   spawnPoints:
@@ -82234,6 +82244,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab9cc6ecc45dd6340a506df2d3024706, type: 3}
+--- !u!1 &1952372933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 156534836675248406, guid: 66a1ab12149490943899d9f41c1691c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1062927230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1953214780 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 156534836675248400, guid: 66a1ab12149490943899d9f41c1691c7,
@@ -83748,6 +83764,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1676580928044936390, guid: f8ce8cb189121bd47998e1139cda7aad,
     type: 3}
   m_PrefabInstance: {fileID: 1384155239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2018208316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 156534836675248406, guid: 66a1ab12149490943899d9f41c1691c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 60346736}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2022750498
 PrefabInstance:

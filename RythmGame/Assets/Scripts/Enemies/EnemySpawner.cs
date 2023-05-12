@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     private SpawnPort spawnPort;
     [SerializeField]
     private DeathPort deathPort;
+    [SerializeField]
+    private List<GameObject> enemiesToKillFirst;
     [SerializeField] 
     private List<Wave> waves;
     [SerializeField]
@@ -17,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private int currentSpawnPoint;
     private int currentWave;
     private List<GameObject> EnemiesAlive;
+    private bool enemiesToKillFirstDone;
 
     private void OnEnable()
     {
@@ -69,8 +72,18 @@ public class EnemySpawner : MonoBehaviour
 
         EnemiesAlive.RemoveAll(obj => obj == null);
         
-        if(EnemiesAlive.Count == 0)
+        if(EnemiesAlive.Count == 0 && enemiesToKillFirstDone)
             SpawnWave();
+        
+        if(!enemiesToKillFirstDone && enemiesToKillFirst.Contains(death))
+        {
+            enemiesToKillFirst.Remove(death);
+
+            if(enemiesToKillFirst.Count == 0)
+            {
+                SpawnWave();
+                enemiesToKillFirstDone = true;
+            }
+        }
     }
-    
 }
