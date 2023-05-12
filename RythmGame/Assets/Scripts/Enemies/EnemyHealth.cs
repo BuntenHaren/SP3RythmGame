@@ -13,6 +13,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemiesInCombatCounter enemiesInCombatCounter;
     [SerializeField]
     private EnemyHealthBar healthBar;
+    [SerializeField]
+    private WaveBlockage waveBlockage;
     private ExitBlockage exitBlockage;
     private VirtualCameraController cameraController;
 
@@ -98,6 +100,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
             if (exitBlockage != null)
                 exitBlockage.RemoveEnemyFromList(enemyBehavior);
+            if (waveBlockage != null)
+                waveBlockage.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
@@ -129,6 +133,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             enemiesInCombatCounter.RemoveEnemyFromList(enemyBehavior);
             if (exitBlockage != null)
                 exitBlockage.RemoveEnemyFromList(enemyBehavior);
+            if(waveBlockage != null)
+                waveBlockage.RemoveEnemyFromList(enemyBehavior);
         }
     }
 
