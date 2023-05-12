@@ -74,7 +74,7 @@ namespace Bosses.States
             
             float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
             //We use -180 to turn everything back, because what i expected to be forward was in reality the opposite..
-            angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset -180;
+            angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
             telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
         }
 
