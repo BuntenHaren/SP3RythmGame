@@ -24,6 +24,10 @@ public class AttackOnBeatLock : MonoBehaviour, IDamageable
     [SerializeField]
     private Vector3 originalScale;
 
+    //Color
+    [SerializeField]
+    private Color BeatMissColor;
+
     private SpriteRenderer sr;
 
     private float timeSinceBeat;
@@ -51,7 +55,7 @@ public class AttackOnBeatLock : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-
+        MissBeatAttack();
     }
 
     public void TakeDamageOnBeat(float damage)
@@ -87,6 +91,15 @@ public class AttackOnBeatLock : MonoBehaviour, IDamageable
         transform.DOScale(scaleTo, scaleUpTime).SetEase(Ease.InOutSine).OnComplete(() =>
         {
             transform.DOScale(originalScale, scaleDownTime).SetEase(Ease.InOutSine);
+        });
+    }
+
+    private void MissBeatAttack()
+    {
+        var originalColor = sr.color;
+        sr.DOColor(BeatMissColor, scaleUpTime).SetEase(Ease.InOutSine).OnComplete(() =>
+        {
+            sr.DOColor(originalColor, scaleDownTime).SetEase(Ease.InOutSine);
         });
     }
 
