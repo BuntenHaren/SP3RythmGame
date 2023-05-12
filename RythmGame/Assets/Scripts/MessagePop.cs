@@ -14,4 +14,12 @@ public class MessagePop : MonoBehaviour
             messageObject.SetActive(true);
         }
     }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            messageObject.SetActive(false);
+        }
+    }
 }
