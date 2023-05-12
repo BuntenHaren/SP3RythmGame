@@ -32,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if(spawnPoints.Count == 0)
             spawnPoints.Add(transform);
+        EnemiesAlive = new List<GameObject>();
     }
 
     private void SpawnObject(GameObject obj)
