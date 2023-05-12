@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: FirstPhaseStats
   m_EditorClassIdentifier: 
   PieSliceAmountOfSlices: 3
-  PieSliceRange: 10
+  PieSliceRange: 30
   PieSliceSectorAngle: 45
-  PieSliceCircleDamage: 1
+  PieSliceCircleDamage: 20
   PieSliceStartingOffset: 90
-  PieSliceAngleBetweenSlices: 10
-  PieSliceAmountOfBeatsWarning: 8
-  PieSliceMaxAngleDeviation: 0
+  PieSliceAngleBetweenSlices: 40
+  PieSliceAmountOfBeatsWarning: 2
+  PieSliceMaxAngleDeviation: 3
   StompDamage: 20
   NumberOfStompsTotal: 5
   NumberOfBeatsWarningForStomp: 2
@@ -38,11 +38,18 @@ MonoBehaviour:
     Path: event:/SFX/Boss/Hoof_slam
   PieSliceSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1979172677
+      Data2: 1145368258
+      Data3: -1414322545
+      Data4: -934497386
+    Path: event:/SFX/Boss/Pie_Slice_Attack
+  PieSliceTelegraphSFX:
+    Guid:
+      Data1: 1700166112
+      Data2: 1170669732
+      Data3: 1412882817
+      Data4: 1760259838
+    Path: event:/SFX/Boss/Telegraph_Pie_Slice_Attack
   HurtSFX:
     Guid:
       Data1: -1559735029
