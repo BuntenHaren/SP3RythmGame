@@ -9,10 +9,14 @@ public class ControlCharms : MonoBehaviour
     [Header("Charms")]
     // passive
     [SerializeField]
+    private EmptyCharm emptyCharm;
+    [SerializeField]
     private BeatMaster beatMaster;
     [SerializeField]
     private ArcaneGorger arcaneGorger;
     // active
+    [SerializeField]
+    private ActiveEmptyCharm activeEmptyCharm;
     [SerializeField]
     private ArcaneSurge arcaneSurge;
 
@@ -36,6 +40,7 @@ public class ControlCharms : MonoBehaviour
 
     private void SwitchPassiveCharm(PassiveCharm newPassiveCharm)
     {
+        Debug.Log("Switching charm from " + playerStats.CurrentPassiveCharm + " to " + newPassiveCharm);
         playerStats.CurrentPassiveCharm.Finish();
         playerStats.CurrentPassiveCharm = newPassiveCharm;
         playerStats.CurrentPassiveCharm.Start();
@@ -71,6 +76,11 @@ public class ControlCharms : MonoBehaviour
 
     public void OnSwitchPassiveCharm()
     {
+        if (playerStats.CurrentPassiveCharm == emptyCharm)
+        {
+            SwitchPassiveCharm(beatMaster);
+        }
+        else
         if (playerStats.CurrentPassiveCharm == beatMaster)
         {
             SwitchPassiveCharm(arcaneGorger);
@@ -78,7 +88,7 @@ public class ControlCharms : MonoBehaviour
         else
         if (playerStats.CurrentPassiveCharm == arcaneGorger)
         {
-            SwitchPassiveCharm(beatMaster);
+            SwitchPassiveCharm(emptyCharm);
         }
     }
 }

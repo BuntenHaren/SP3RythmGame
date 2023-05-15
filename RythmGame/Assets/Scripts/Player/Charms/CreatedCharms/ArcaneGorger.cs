@@ -78,6 +78,7 @@ public class ArcaneGorger : PassiveCharm
         Debug.Log("Max health before restoration: " + playerHealth.CurrentMaxHealth);
         Debug.Log("Current health before restoration: " + playerHealth.CurrentHealth);
 
+        playerStats.CurrentHealOnAttack = 0;
         playerStats.CurrentMaxHealthMultiplier /= MaxHealthMultiplier;
         playerHealth.CurrentHealth /= MaxHealthMultiplier;
 

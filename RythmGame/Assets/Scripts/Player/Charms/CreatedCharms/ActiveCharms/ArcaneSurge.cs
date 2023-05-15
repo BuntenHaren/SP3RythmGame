@@ -26,7 +26,7 @@ public class ArcaneSurge : ActiveCharm
             playerStats.CurrentAttackDamageMultiplier *= DamageBuffMultiplier;
             playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
             playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;
-            playerStats.CurrentAttackRateMultiplier *= AttackSpeedMultiplier;
+            //playerStats.CurrentAttackRateMultiplier *= AttackSpeedMultiplier;
         }
     }
 
@@ -36,7 +36,7 @@ public class ArcaneSurge : ActiveCharm
         playerStats.CurrentAttackDamageMultiplier /= DamageBuffMultiplier;
         playerStats.CurrentDashCooldownMultiplier /= DashCooldownMultiplier;
         playerStats.CurrentMovementSpeedMultiplier /= MoveSpeedMultiplier;
-        playerStats.CurrentAttackRateMultiplier /= AttackSpeedMultiplier;
+        //playerStats.CurrentAttackRateMultiplier /= AttackSpeedMultiplier;
         Debug.Log("Speed endend: " + playerStats.CurrentMovementSpeedMultiplier);
     }
 }
