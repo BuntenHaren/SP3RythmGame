@@ -13,10 +13,22 @@ public class JuiceBar : MonoBehaviour
     private Slider slider;
     [SerializeField]
     private float sliderUpdateTime;
+    [SerializeField]
+    private float juiceDrainPerSecond;
+    [SerializeField]
+    private float timeBeforeDrain;
+
+    [HideInInspector]
+    public bool startDrain = false;
+
+    private Timer drainTimer;
 
     private void Start()
     {
-        if(slider == null)
+        drainTimer = new Timer();
+        drainTimer.TimerDone += () => startDrain = true;
+
+        if (slider == null)
             slider = GetComponent<Slider>();
         
         slider.maxValue = juiceCounter.MaxJuice;
@@ -24,10 +36,36 @@ public class JuiceBar : MonoBehaviour
         slider.value = juiceCounter.CurrentJuice;
     }
 
+    void Update()
+    {
+        drainTimer.UpdateTimer(Time.fixedDeltaTime);
+    }
+
+    void FixedUpdate()
+    {
+        if (startDrain == true && juiceCounter.CurrentJuice > 0f)
+        {
+            juiceCounter.CurrentJuice -= juiceDrainPerSecond * Time.deltaTime;
+            if (juiceCounter.CurrentJuice < 0f)
+                juiceCounter.CurrentJuice = 0f;
+        }
+    }
+
     private void ChangeSliderValue(float amount)
     {
         var changeTo = slider.value + amount;
-        DOTween.To(() => slider.value, x => slider.value = x, changeTo, sliderUpdateTime).SetEase(Ease.OutElastic);
+        if (amount > 0.2f)
+        {
+            DOTween.To(() => slider.value, x => slider.value = x, changeTo, sliderUpdateTime).SetEase(Ease.OutElastic).OnComplete(() =>
+            {
+                startDrain = false;
+                drainTimer.StartTimer(timeBeforeDrain);
+            });
+        }
+        else
+        {
+            slider.value = changeTo;
+        }
     }
     
 }
