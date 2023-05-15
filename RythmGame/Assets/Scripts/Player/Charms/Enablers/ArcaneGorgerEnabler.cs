@@ -19,5 +19,11 @@ public class ArcaneGorgerEnabler : MonoBehaviour
         }
     }
 
-    
+    void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            textBox.SetActive(false);
+        }
+    }
 }
