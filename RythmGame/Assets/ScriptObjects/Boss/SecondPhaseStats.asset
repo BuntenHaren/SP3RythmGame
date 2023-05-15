@@ -12,17 +12,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f204a3e6e932d343ad519874fbeeb38, type: 3}
   m_Name: SecondPhaseStats
   m_EditorClassIdentifier: 
+  ChanceForMinionSpawn: 0
+  ChanceForStomp: 0
+  ChanceForCircle: 0
   PieSliceAmountOfSlices: 1
   PieSliceRange: 1
   PieSliceSectorAngle: 1
   PieSliceCircleDamage: 1
-  PieSliceStartingOffset: 0
   PieSliceAngleBetweenSlices: 0
+  PieSliceAmountOfBeatsWarning: 0
+  PieSliceMaxAngleDeviation: 0
+  PieSliceOriginOffset: {x: 0, y: 0}
   StompDamage: 1
   NumberOfStompsTotal: 1
   NumberOfBeatsWarningForStomp: 1
   StompRadius: 1
+  StompShockwaveSpeed: 0
+  StompShockwaveDamage: 0
+  StompShockwaveFinalSize: 0
   IdleTimeRangeMax: 1
   IdleTimeRangeMin: 3
+  ThresholdForEnrage: 0
   HealingRecievedMultiplier: 1
   DamageRecievedMultiplier: 1
+  HoofStompSFX:
+    Guid:
+      Data1: 946852741
+      Data2: 1250473332
+      Data3: 1404805800
+      Data4: -1802824595
+    Path: event:/SFX/Boss/Hoof_slam_empowered
+  PieSliceSFX:
+    Guid:
+      Data1: -1979172677
+      Data2: 1145368258
+      Data3: -1414322545
+      Data4: -934497386
+    Path: event:/SFX/Boss/Pie_Slice_Attack
+  PieSliceTelegraphSFX:
+    Guid:
+      Data1: 1700166112
+      Data2: 1170669732
+      Data3: 1412882817
+      Data4: 1760259838
+    Path: event:/SFX/Boss/Telegraph_Pie_Slice_Attack
+  HurtSFX:
+    Guid:
+      Data1: -1559735029
+      Data2: 1323460015
+      Data3: -869394261
+      Data4: -2002369532
+    Path: event:/SFX/Boss/Boss_Hit
+  DeathSFX:
+    Guid:
+      Data1: -1401725385
+      Data2: 1276823810
+      Data3: 1097077168
+      Data4: 1506100011
+    Path: event:/SFX/Boss/Boss_Death
