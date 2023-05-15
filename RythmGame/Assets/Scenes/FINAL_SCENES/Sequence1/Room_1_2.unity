@@ -41574,6 +41574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1902862350}
+  passiveCharmIcon: {fileID: 1340926229}
   playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
 --- !u!65 &970863903
 BoxCollider:
@@ -60111,7 +60112,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh100284
+  m_Name: pb_Mesh925334
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -61437,6 +61438,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1300095312}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1234500981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1629329630154562254, guid: f8695d862b513494596c950ff64459e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873486359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a78f15ab09532a4f84a8718b1929a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1235492202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64808,6 +64821,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1340747658}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1340926229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2683322762840257678, guid: f8695d862b513494596c950ff64459e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873486359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c0b72f4bb5e524396b2ff031adde7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1341839167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68577,7 +68602,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh100890
+  m_Name: pb_Mesh925940
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -70660,6 +70685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1025831321}
+  activeCharmIcon: {fileID: 1234500981}
   playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
 --- !u!65 &1540918911
 BoxCollider:

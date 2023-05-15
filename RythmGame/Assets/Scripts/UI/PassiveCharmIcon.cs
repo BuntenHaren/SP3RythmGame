@@ -6,8 +6,11 @@ using DG.Tweening;
 
 public class PassiveCharmIcon : MonoBehaviour
 {
-    public Sprite arcaneGorgerIcon;
-    public Sprite beatMasterIcon;
+    [SerializeField]
+    private PlayerStats playerStats;
+
+    public Sprite ArcaneGorgerIcon;
+    public Sprite BeatMasterIcon;
 
     [SerializeField]
     private Sprite emptyIcon;
@@ -15,12 +18,19 @@ public class PassiveCharmIcon : MonoBehaviour
     [SerializeField]
     private float fadeDuration;
 
-    private Sequence sequence;
     private Image image;
 
     void Awake()
     {
         image = gameObject.GetComponent<Image>();
+        if (playerStats.CurrentPassiveCharm.name == "ArcaneGorger")
+        {
+            image.sprite = ArcaneGorgerIcon;
+        }
+        else if (playerStats.CurrentPassiveCharm.name == "BeatMaster")
+        {
+            image.sprite = BeatMasterIcon;
+        }
     }
 
     public void ChangeIcon(Sprite sprite)
@@ -28,9 +38,7 @@ public class PassiveCharmIcon : MonoBehaviour
         image.DOFade(0f, fadeDuration).OnComplete(() =>
         {
             image.sprite = sprite;
-            //image.DOKill();
-            image.DOFade(150f, 100f);
+            image.DOFade(255f, 100f);
         });
     }
-
 }

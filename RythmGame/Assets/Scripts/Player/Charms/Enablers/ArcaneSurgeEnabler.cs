@@ -8,14 +8,20 @@ public class ArcaneSurgeEnabler : MonoBehaviour
     private GameObject textBox;
 
     [SerializeField]
+    private ActiveCharmIcon activeCharmIcon;
+    [SerializeField]
     private PlayerStats playerStats;
+
+    private bool activated = false;
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && !activated)
         {
             textBox.SetActive(true);
             playerStats.ArcaneSurgeEnabled = true;
+            activeCharmIcon.ChangeIcon(activeCharmIcon.ArcaneSurgeIcon);
+            activated = true;
         }
     }
 

@@ -4949,8 +4949,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 855, y: 242}
-  m_SizeDelta: {x: 32, y: 32}
+  m_AnchoredPosition: {x: 855, y: 251.94}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &79616930427427853
 CanvasRenderer:
@@ -4980,7 +4980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8cef37d73bb690041ac9f23ead7b1fb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5002,9 +5002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c0b72f4bb5e524396b2ff031adde7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arcaneGorgerIcon: {fileID: 21300000, guid: bb67b03c2969d104caba950c446f8c8d, type: 3}
-  beatMasterIcon: {fileID: 21300000, guid: 2a5c892bdd014164da633b8c6fd0f246, type: 3}
-  emptyIcon: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
+  ArcaneGorgerIcon: {fileID: 21300000, guid: bb67b03c2969d104caba950c446f8c8d, type: 3}
+  BeatMasterIcon: {fileID: 21300000, guid: 2a5c892bdd014164da633b8c6fd0f246, type: 3}
+  emptyIcon: {fileID: 21300000, guid: 8cef37d73bb690041ac9f23ead7b1fb9, type: 3}
   fadeDuration: 0.5
 --- !u!1 &5016725020769891086
 GameObject:
@@ -5237,8 +5238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 854.99994, y: 348.80304}
-  m_SizeDelta: {x: 32, y: 32}
+  m_AnchoredPosition: {x: 855, y: 418}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &268319415371438089
 CanvasRenderer:
@@ -5268,7 +5269,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8cef37d73bb690041ac9f23ead7b1fb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5290,6 +5291,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a78f15ab09532a4f84a8718b1929a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: e57ed1f7cfd78b144b706bb305f1b2bd, type: 2}
+  ArcaneSurgeIcon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+  emptyIcon: {fileID: 21300000, guid: 8cef37d73bb690041ac9f23ead7b1fb9, type: 3}
+  fadeDuration: 0.5
 --- !u!1 &5861097088040117445
 GameObject:
   m_ObjectHideFlags: 0
