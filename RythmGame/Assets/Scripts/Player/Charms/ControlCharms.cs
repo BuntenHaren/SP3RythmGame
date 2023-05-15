@@ -76,14 +76,21 @@ public class ControlCharms : MonoBehaviour
 
     public void OnSwitchPassiveCharm()
     {
-        if (playerStats.CurrentPassiveCharm == emptyCharm)
+        if (playerStats.CurrentPassiveCharm == emptyCharm && (playerStats.BeatMasterEnabled))
         {
             SwitchPassiveCharm(beatMaster);
         }
         else
         if (playerStats.CurrentPassiveCharm == beatMaster)
         {
-            SwitchPassiveCharm(arcaneGorger);
+            if (playerStats.ArcaneGorgerEnabled)
+            {
+                SwitchPassiveCharm(arcaneGorger);
+            }
+            else
+            {
+                SwitchPassiveCharm(emptyCharm);
+            }
         }
         else
         if (playerStats.CurrentPassiveCharm == arcaneGorger)
