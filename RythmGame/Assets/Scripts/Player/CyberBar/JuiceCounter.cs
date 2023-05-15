@@ -26,7 +26,7 @@ public class JuiceCounter : ScriptableObject
             }
             else if (currentJuice != value && value > MaxJuice)
             {
-                float juiceChange = value + currentJuice;
+                float juiceChange = MaxJuice - currentJuice;
                 currentJuice = MaxJuice;
                 onChange.Invoke(juiceChange);
             }
