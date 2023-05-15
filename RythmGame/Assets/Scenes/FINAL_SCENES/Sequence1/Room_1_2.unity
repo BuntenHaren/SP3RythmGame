@@ -1215,7 +1215,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Active charm Arcane Surge unlocked!
+  m_text: "Active Charm Arcane Surge Unlocked! \nPress Q When JuiceMeter Is Full
+    To Active"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4366a7fe640b637478f0c50b8c408b16, type: 2}
   m_sharedMaterial: {fileID: 8066208993479916194, guid: 4366a7fe640b637478f0c50b8c408b16,
@@ -1243,8 +1244,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1259,7 +1260,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -56013,10 +56014,10 @@ RectTransform:
   m_Father: {fileID: 1873486360}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0.2, y: 0}
-  m_AnchoredPosition: {x: 811.9999, y: 535}
-  m_SizeDelta: {x: -116.30005, y: 591.99994}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -223}
+  m_SizeDelta: {x: 505.5, y: 137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1025831323
 MonoBehaviour:
@@ -56713,7 +56714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.2998047, y: 0}
+  m_AnchoredPosition: {x: 3.2998047, y: 8}
   m_SizeDelta: {x: 100, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044827337
@@ -56736,7 +56737,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Passive charm Beat Master unlocked!
+  m_text: 'Passive Charm Beat Master Unlocked!
+
+    Base Damage Is Lowered. Damage
+    Is Increased
+
+    Based On Your Amount Of Juice'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4366a7fe640b637478f0c50b8c408b16, type: 2}
   m_sharedMaterial: {fileID: 8066208993479916194, guid: 4366a7fe640b637478f0c50b8c408b16,
@@ -60105,7 +60111,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh430864
+  m_Name: pb_Mesh100284
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -68571,7 +68577,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh431470
+  m_Name: pb_Mesh100890
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -80849,6 +80855,11 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8288458769539559446, guid: f8695d862b513494596c950ff64459e9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8578932889371376295, guid: f8695d862b513494596c950ff64459e9,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -81503,7 +81514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1902862351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -81520,10 +81531,10 @@ RectTransform:
   m_Father: {fileID: 1873486360}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0.2, y: 0}
-  m_AnchoredPosition: {x: 811.9999, y: 535}
-  m_SizeDelta: {x: -116.30005, y: 591.99994}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 595.45}
+  m_SizeDelta: {x: 562.6, y: 709.69995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902862352
 MonoBehaviour:
