@@ -16,11 +16,12 @@ public class ArcaneSurgeEnabler : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player") && !activated)
+        if (col.CompareTag("Player"))
         {
             textBox.SetActive(true);
             playerStats.ArcaneSurgeEnabled = true;
-            activeCharmIcon.ChangeIcon(activeCharmIcon.ArcaneSurgeIcon);
+            if(!activated)
+                activeCharmIcon.ChangeIcon(activeCharmIcon.ArcaneSurgeIcon);
             activated = true;
         }
     }

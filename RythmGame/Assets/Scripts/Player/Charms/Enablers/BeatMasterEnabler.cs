@@ -16,11 +16,12 @@ public class BeatMasterEnabler : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player") && !activated)
+        if (col.CompareTag("Player"))
         {
             textBox.SetActive(true);
             playerStats.BeatMasterEnabled = true;
-            passiveCharmIcon.ChangeIcon(passiveCharmIcon.BeatMasterIcon);
+            if(!activated)
+                passiveCharmIcon.ChangeIcon(passiveCharmIcon.BeatMasterIcon);
             activated = true;
         }
     }
