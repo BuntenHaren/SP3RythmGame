@@ -20,6 +20,11 @@ public class ControlCharms : MonoBehaviour
     [SerializeField]
     private ArcaneSurge arcaneSurge;
 
+    // charms enabled
+    public bool BeatMasterEnabled = false;
+    public bool ArcaneGorgerEnabled = false;
+    public bool ArcaneSurgeEnabled = false;
+
     void Start()
     {
         playerStats.CurrentActiveCharm.Start();
