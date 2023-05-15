@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class CharmEnabler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject charmObject;
+
+    void OnTriggerEnter(Collider col)
     {
-        
+        if (col.CompareTag("Player"))
+        {
+            charmObject.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
