@@ -72,6 +72,11 @@ public class PlayerStats : ScriptableObject
         CurrentHealOnAttackMultiplier,
         CurrentMaxHealthMultiplier;
 
+    [HideInInspector]
+    public bool BeatMasterEnabled,
+        ArcaneGorgerEnabled,
+        ArcaneSurgeEnabled;
+
     public void ResetValues()
     {
         ResetCurrentVariables();
@@ -91,6 +96,11 @@ public class PlayerStats : ScriptableObject
         CurrentTimeForBeatWindow = BasetimeForBeatWindow;
         CurrentJuiceAmountOnBeat = BaseJuiceAmountOnBeat;
         CurrentHealOnAttack = BaseHealOnAttack;
+
+        // charms
+        BeatMasterEnabled = false;
+        ArcaneGorgerEnabled = false;
+        ArcaneSurgeEnabled = false;
     }
 
     private void ResetMultiplierVariables()
