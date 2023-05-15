@@ -25,16 +25,30 @@ public class ArcaneGorger : PassiveCharm
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
 
         // multiply health
-        Debug.Log("---- ARCANE GORGER START ----");
+        Debug.Log("----- ARCANE GORGER START -----");
         Debug.Log("Current health before reduction: " + playerHealth.CurrentHealth);
         Debug.Log("Max health before reduction: " + playerHealth.CurrentMaxHealth);
+        Debug.Log("Max health multiplier before reduction: " + playerStats.CurrentMaxHealthMultiplier);
 
         playerHealth.CurrentHealth *= MaxHealthMultiplier;
         playerStats.CurrentMaxHealthMultiplier *= MaxHealthMultiplier;
 
         Debug.Log("Current health after reduction: " + playerHealth.CurrentHealth);
         Debug.Log("Max health after reduction: " + playerHealth.CurrentMaxHealth);
-        Debug.Log("-----------------------");
+        Debug.Log("Max health multiplier after reduction: " + playerStats.CurrentMaxHealthMultiplier);
+        Debug.Log("------------------------------");
+
+
+        /* test
+        Debug.Log("Initial multiplier: " + playerHealth.CurrentMaxHealth);
+        playerStats.CurrentMaxHealthMultiplier = 3f;
+        Debug.Log("multiplier = 3f: " + playerHealth.CurrentMaxHealth);
+        playerStats.CurrentMaxHealthMultiplier *= 0.5f;
+        Debug.Log("multiplier *= 0.5f: " + playerHealth.CurrentMaxHealth);
+        playerStats.CurrentMaxHealthMultiplier *= 0.5f;
+        Debug.Log("multiplier *= 0.5f: " + playerHealth.CurrentMaxHealth);
+        playerStats.CurrentMaxHealthMultiplier *= 6f;
+        Debug.Log("multiplier = 6f: " + playerHealth.CurrentMaxHealth);*/
     }
 
     public override void OnPlayerAttackAction()
@@ -77,13 +91,15 @@ public class ArcaneGorger : PassiveCharm
         // reset health
         Debug.Log("Max health before restoration: " + playerHealth.CurrentMaxHealth);
         Debug.Log("Current health before restoration: " + playerHealth.CurrentHealth);
+        Debug.Log("Max health multiplier before restoration: " + playerStats.CurrentMaxHealthMultiplier);
 
-        playerStats.CurrentHealOnAttack = 0;
-        playerStats.CurrentMaxHealthMultiplier /= MaxHealthMultiplier;
+        playerStats.CurrentHealOnAttack = 0f;
+        playerStats.CurrentMaxHealthMultiplier = 1f;
         playerHealth.CurrentHealth /= MaxHealthMultiplier;
 
         Debug.Log("Current health before restoration: " + playerHealth.CurrentHealth);
         Debug.Log("Max health after restoration: " + playerHealth.CurrentMaxHealth);
-        Debug.Log("-----------------------");
+        Debug.Log("Max health multiplier after restoration: " + playerStats.CurrentMaxHealthMultiplier);
+        Debug.Log("------------------------------");
     }
 }

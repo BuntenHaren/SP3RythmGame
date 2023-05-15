@@ -8,7 +8,7 @@ public class ArcaneSurge : ActiveCharm
     private float DamageBuffMultiplier = 1f;
     private float DashCooldownMultiplier = 0.5f;
     private float MoveSpeedMultiplier = 2f;
-    private float AttackSpeedMultiplier = 2f;
+    //private float AttackSpeedMultiplier = 2f;
 
 
     public override void ActivateCharm()

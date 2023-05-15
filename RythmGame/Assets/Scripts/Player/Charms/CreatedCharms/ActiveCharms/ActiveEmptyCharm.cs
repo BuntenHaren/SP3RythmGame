@@ -5,15 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "RythmGame/Player/ActiveEmptyCharm")]
 public class ActiveEmptyCharm : ActiveCharm
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void ActivateCharm()
     {
-
+        base.ActivateCharm();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void EndActivation()
     {
-
+        base.EndActivation();
     }
 }
