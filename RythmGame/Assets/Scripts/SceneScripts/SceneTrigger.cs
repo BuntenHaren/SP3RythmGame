@@ -15,7 +15,6 @@ public class SceneTrigger : MonoBehaviour
     void Start()
     {
         sceneChangeFade = GameObject.Find("SceneChangeFade").GetComponent<Image>();
-        sceneChangeFade.DOFade(0f, 1f).SetEase(Ease.InOutSine);
     }
 
     void OnTriggerEnter(Collider col)
