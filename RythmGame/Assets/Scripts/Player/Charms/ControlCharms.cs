@@ -19,6 +19,11 @@ public class ControlCharms : MonoBehaviour
     private ActiveEmptyCharm activeEmptyCharm;
     [SerializeField]
     private ArcaneSurge arcaneSurge;
+    // change charm icon
+    [SerializeField]
+    private PassiveCharmIcon passiveCharmIcon;
+    [SerializeField]
+    private ActiveCharmIcon activeCharmIcon;
 
     // Timer for delayed heal (after deactivating arcane gorger)
     private float delayTime = 0.05f;
@@ -90,6 +95,7 @@ public class ControlCharms : MonoBehaviour
         if (playerStats.CurrentPassiveCharm == emptyCharm && (playerStats.BeatMasterEnabled))
         {
             SwitchPassiveCharm(beatMaster);
+            passiveCharmIcon.ChangeIcon(passiveCharmIcon.BeatMasterIcon);
         }
         else
         if (playerStats.CurrentPassiveCharm == beatMaster)
@@ -97,16 +103,19 @@ public class ControlCharms : MonoBehaviour
             if (playerStats.ArcaneGorgerEnabled)
             {
                 SwitchPassiveCharm(arcaneGorger);
+                passiveCharmIcon.ChangeIcon(passiveCharmIcon.ArcaneGorgerIcon);
             }
             else
             {
                 SwitchPassiveCharm(emptyCharm);
+                passiveCharmIcon.ChangeIcon(passiveCharmIcon.emptyIcon);
             }
         }
         else
         if (playerStats.CurrentPassiveCharm == arcaneGorger)
         {
             SwitchPassiveCharm(emptyCharm);
+            passiveCharmIcon.ChangeIcon(passiveCharmIcon.emptyIcon);
 
             // activate delayed heal timer
             delayedHealTimer.StartTimer(delayTime);

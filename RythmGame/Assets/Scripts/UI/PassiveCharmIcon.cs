@@ -13,7 +13,7 @@ public class PassiveCharmIcon : MonoBehaviour
     public Sprite BeatMasterIcon;
 
     [SerializeField]
-    private Sprite emptyIcon;
+    public Sprite emptyIcon;
 
     [SerializeField]
     private float fadeDuration;
