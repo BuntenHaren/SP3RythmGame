@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2922902, y: 3.52981, z: 1}
-  m_Center: {x: -0.021010637, y: 1.2649062, z: -0.0000005640881}
+  m_Size: {x: 4.935548, y: 3.0599484, z: 1}
+  m_Center: {x: -0.13682318, y: 1.4916273, z: -0.0000028111435}
 --- !u!114 &1953627762314771016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +62,10 @@ MonoBehaviour:
   playerHealth: {fileID: 11400000, guid: 1c592e3c9e630624a9959a569de84dc5, type: 2}
   amountOfCharges: 3
   healingPerCharge: 40
+  sp0: {fileID: 21300000, guid: 7359956a547e6374081592821f9ce8e9, type: 3}
+  sp1: {fileID: 21300000, guid: 4571bb039da3d5c4c9c7cec2acaa8e72, type: 3}
+  sp2: {fileID: 21300000, guid: b108c05a6c6d0af4c85ddd3a1f860e75, type: 3}
+  sp3: {fileID: 21300000, guid: 289fb3e78df53ba448243b64d296ea3f, type: 3}
 --- !u!212 &1953627762314771019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -103,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 6be7562f8b34ee146853f08b5f924547, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 289fb3e78df53ba448243b64d296ea3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -158,5 +162,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7084036, y: 5.893333, z: 3.106308}
-  m_Center: {x: 0.7997651, y: 2.446666, z: 0.85334015}
+  m_Size: {x: 4.5905495, y: 5.893333, z: 2.8390808}
+  m_Center: {x: -0.0703125, y: 2.446666, z: 1.7510071}

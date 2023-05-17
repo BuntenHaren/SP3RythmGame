@@ -15,6 +15,9 @@ public class HealingObject : MonoBehaviour, IDamageable
     
     private int chargesLeft;
 
+    
+    public Sprite sp0, sp1, sp2, sp3;
+
     private void Start()
     {
         chargesLeft = amountOfCharges;
@@ -42,4 +45,20 @@ public class HealingObject : MonoBehaviour, IDamageable
     {
         throw new System.NotImplementedException();
     }
+
+    private void Update()
+    {
+        if (chargesLeft == 0)
+            GetComponent<SpriteRenderer>().sprite = sp0;
+        Debug.Log("0sprite");
+        if (chargesLeft == 1)
+            GetComponent<SpriteRenderer>().sprite = sp1;
+             Debug.Log("0sprite");
+        if (chargesLeft == 2)
+            GetComponent<SpriteRenderer>().sprite = sp2;
+        if (chargesLeft == 3)
+            GetComponent<SpriteRenderer>().sprite = sp3;
+    }
+
+
 }
