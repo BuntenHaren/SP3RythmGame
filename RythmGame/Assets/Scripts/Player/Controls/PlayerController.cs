@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     private PlayerHealth playerHealth;
 
+    private DashCoolDownUI dashCoolDownUI;
+
     private void Awake()
     {
         playerStats.ResetValues();
@@ -53,6 +55,9 @@ public class PlayerController : MonoBehaviour
         dashTimer = new Timer();
         dashTimer.TimerDone += () => dashReady = true;
         yHeight = transform.position.y;
+
+        if (GameObject.Find("DashCoolDown") != null)
+            dashCoolDownUI = GameObject.Find("DashCoolDown").GetComponent<DashCoolDownUI>();
     }
 
     public void OnMove(InputValue value)
@@ -143,7 +148,9 @@ public class PlayerController : MonoBehaviour
         playerHealth.MakeInvurnerableForTime(playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier);
         dashTimer.StartTimer(playerStats.CurrentDashCooldown * playerStats.CurrentDashCooldownMultiplier);
         dashReady = false;
-        
+        if(dashCoolDownUI != null)
+            dashCoolDownUI.DashIconCD();
+
         //Actually make the player do the dash
         Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * playerStats.CurrentDashDistance * playerStats.CurrentDashDistanceMultiplier;
         StartCoroutine(LerpPosition(targetPosition, playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier));
