@@ -20,16 +20,27 @@ public class ControlCharms : MonoBehaviour
     [SerializeField]
     private ArcaneSurge arcaneSurge;
 
+    // Timer for delayed heal (after deactivating arcane gorger)
+    private float delayTime = 0.05f;
+    protected Timer delayedHealTimer;
+
     void Start()
     {
         playerStats.CurrentActiveCharm.Start();
         playerStats.CurrentPassiveCharm.Start();
+
+        // timer for delayed heal
+        delayedHealTimer = new Timer();
+        delayedHealTimer.TimerDone += EndDelayedHeal;
     }
 
     void Update()
     {
         playerStats.CurrentActiveCharm.Update();
         playerStats.CurrentPassiveCharm.Update();
+
+        // increment delayed heal timer
+        delayedHealTimer.UpdateTimer(Time.deltaTime);
     }
 
     private void FixedUpdate()
@@ -96,6 +107,15 @@ public class ControlCharms : MonoBehaviour
         if (playerStats.CurrentPassiveCharm == arcaneGorger)
         {
             SwitchPassiveCharm(emptyCharm);
+
+            // activate delayed heal timer
+            delayedHealTimer.StartTimer(delayTime);
         }
+    }
+
+    private void EndDelayedHeal()
+    {
+        // heal after delay has finished
+        arcaneGorger.Heal();
     }
 }

@@ -25,16 +25,8 @@ public class ArcaneGorger : PassiveCharm
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
 
         // multiply health
-        Debug.Log("---- ARCANE GORGER START ----");
-        Debug.Log("Current health before reduction: " + playerHealth.CurrentHealth);
-        Debug.Log("Max health before reduction: " + playerHealth.CurrentMaxHealth);
-
         playerHealth.CurrentHealth *= MaxHealthMultiplier;
         playerStats.CurrentMaxHealthMultiplier *= MaxHealthMultiplier;
-
-        Debug.Log("Current health after reduction: " + playerHealth.CurrentHealth);
-        Debug.Log("Max health after reduction: " + playerHealth.CurrentMaxHealth);
-        Debug.Log("-----------------------");
     }
 
     public override void OnPlayerAttackAction()
@@ -60,30 +52,17 @@ public class ArcaneGorger : PassiveCharm
 
         // set healing
         playerStats.CurrentHealOnAttack = BaseHeal * BeatAccuracy * JuiceLevelRatio;
-
-        Debug.Log("Base heal: " + BaseHeal +
-            "\nBeat accuracy: " + BeatAccuracy + 
-            "\nCurrent juice: " + juiceCounter.CurrentJuice + 
-            "\nJuice ratio: " + JuiceLevelRatio + 
-            "\nJuice multiplier: " + JuiceLevelMultiplier + 
-            "\nHeal amount: " + playerStats.CurrentHealOnAttack + 
-            "\n");
     }
 
     public override void Finish()
     {
         base.Finish();
-        Debug.Log("---- ARCANE GORGER FINISH: ----");
-        // reset health
-        Debug.Log("Max health before restoration: " + playerHealth.CurrentMaxHealth);
-        Debug.Log("Current health before restoration: " + playerHealth.CurrentHealth);
-
         playerStats.CurrentHealOnAttack = 0;
         playerStats.CurrentMaxHealthMultiplier /= MaxHealthMultiplier;
-        playerHealth.CurrentHealth /= MaxHealthMultiplier;
+    }
 
-        Debug.Log("Current health before restoration: " + playerHealth.CurrentHealth);
-        Debug.Log("Max health after restoration: " + playerHealth.CurrentMaxHealth);
-        Debug.Log("-----------------------");
+    public void Heal()
+    {
+        playerHealth.CurrentHealth /= MaxHealthMultiplier;
     }
 }
