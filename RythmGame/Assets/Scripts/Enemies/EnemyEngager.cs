@@ -19,6 +19,8 @@ public class EnemyEngager : MonoBehaviour
                 if (enemies[i].engaged == false)
                 {
                     enemies[i].engaged = true;
+                    enemies[i].IdleSprite.SetActive(false);
+                    enemies[i].SpritesParent.SetActive(true);
                     enemiesInCombatCounter.AddEnemyToList(enemies[i]);
                 }
             }

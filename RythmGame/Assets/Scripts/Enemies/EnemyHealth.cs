@@ -47,8 +47,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public EventReference enemyDeathSound;
 
     private bool isDead = false;
-    private float colorTimer;
+    private bool changeToDeadSprite = false;
     private bool colorsHaveBeenChanged;
+    private float colorTimer;
+    private Timer deathTimer;
+
+    private GameObject deadSpriteLeft;
+    private GameObject deadSpriteRight;
+    private GameObject enemySpacing;
 
     void Awake()
     {
@@ -58,6 +64,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
         if(exitBlockage != null)
             exitBlockage.AddEnemyToList(enemyBehavior);
+
+        if(transform.Find("DeadSpriteLeft") != null)
+            deadSpriteLeft = transform.Find("DeadSpriteLeft").gameObject;
+        if (transform.Find("DeadSpriteRight") != null)
+            deadSpriteRight = transform.Find("DeadSpriteRight").gameObject;
+
+        if (transform.Find("EnemySpacing") != null)
+            enemySpacing = transform.Find("EnemySpacing").gameObject;
+
+        deathTimer = new Timer();
+        deathTimer.TimerDone += () => changeToDeadSprite = true;
         rb = gameObject.GetComponent<Rigidbody>();
         //originalColor = sr.color;
         cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
@@ -67,10 +84,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void Update()
     {
+        deathTimer.UpdateTimer(Time.fixedDeltaTime);
         colorTimer += Time.deltaTime;
         if(colorsHaveBeenChanged && colorTimer > damageColorTime)
         {
             ChangeBackColor();
+        }
+        if(changeToDeadSprite)
+        {
+            ChangetoDeadSprite();
         }
     }
 
@@ -87,8 +109,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         RuntimeManager.PlayOneShot(enemyHitSound);
         if (health <= 0)
         {
+            deathTimer.StartTimer(1f);
             isDead = true;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            enemySpacing.SetActive(false);
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
             //Add timer
@@ -120,8 +144,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         Instantiate(onBeatParticles, transform);
         if (health <= 0)
         {
+            deathTimer.StartTimer(1.5f);
             isDead = true;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            enemySpacing.SetActive(false);
             //death sound
             RuntimeManager.PlayOneShot(enemyDeathSound);
             //Add timer
@@ -164,6 +190,23 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             childSr[i].color = originalColor;
         }
         colorsHaveBeenChanged = false;
+    }
+
+    private void ChangetoDeadSprite()
+    {
+        Debug.Log("ChangeToDead");
+        if(anim.GetBool("FacingLeft"))
+        {
+            if(deadSpriteLeft != null)
+            deadSpriteLeft.SetActive(true);
+        }
+        else
+        {
+            if(deadSpriteRight != null)
+            deadSpriteRight.SetActive(true);
+        }
+        enemyBehavior.SpritesParent.SetActive(false);
+        changeToDeadSprite = false;
     }
 
 }
