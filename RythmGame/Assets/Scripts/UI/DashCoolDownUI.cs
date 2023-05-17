@@ -16,7 +16,7 @@ public class DashCoolDownUI : MonoBehaviour
 
     void Start()
     {
-        coolDownTime = playerStats.CurrentDashCooldown * playerStats.CurrentDashCooldownMultiplier;
+        coolDownTime = (playerStats.CurrentDashCooldown * playerStats.CurrentDashCooldownMultiplier) / 2;
         image = gameObject.GetComponent<Image>();
         image.fillAmount = 0.0f;
     }
