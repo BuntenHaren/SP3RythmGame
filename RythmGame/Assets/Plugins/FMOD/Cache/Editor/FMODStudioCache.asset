@@ -61,10 +61,34 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638200034006974733
+  lastModified: 638200073533063043
   FileSizes:
   - Name: 
-    Value: 2560
+    Value: 2606
+  Exists: 1
+--- !u!114 &-8707393015726622992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Room2new/TestParamter Johan
+  m_EditorClassIdentifier: 
+  Name: TestParamter Johan
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1932034177
+    data2: 1006020491
+  Type: 1
+  IsGlobal: 1
+  Labels: []
   Exists: 1
 --- !u!114 &-8694755604926528402
 MonoBehaviour:
@@ -172,7 +196,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 7
   Length: 2500
 --- !u!114 &-7280170782722637142
 MonoBehaviour:
@@ -216,7 +240,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Johan.bank
   Name: Johan
   StudioPath: bank:/Johan
-  lastModified: 638200027183095521
+  lastModified: 638200073500440936
   FileSizes: []
   Exists: 1
 --- !u!114 &-6568108409054453212
@@ -298,7 +322,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 7
   Length: 2000
 --- !u!114 &-5142503173825140573
 MonoBehaviour:
@@ -339,7 +363,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638200034006954723
+  lastModified: 638200073533023016
   FileSizes: []
   Exists: 1
 --- !u!114 &-4366064811377763410
@@ -357,7 +381,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/Filip.bank
   Name: Filip
   StudioPath: bank:/Filip
-  lastModified: 638199193521871783
+  lastModified: 638200073532933258
   FileSizes: []
   Exists: 1
 --- !u!114 &-3800660476398118800
@@ -570,7 +594,7 @@ MonoBehaviour:
   - {fileID: -4468239325472985465}
   StringsBanks:
   - {fileID: -8811784468611317194}
-  cacheTime: 638200034008529277
+  cacheTime: 638200073533063043
   cacheVersion: 131601
 --- !u!114 &112303728377111653
 MonoBehaviour:
@@ -597,7 +621,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 7
   Length: 2500
 --- !u!114 &2692743528570806338
 MonoBehaviour:
@@ -642,7 +666,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 7
   Length: 2000
 --- !u!114 &3171003033563515393
 MonoBehaviour:
@@ -723,7 +747,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5974998479747309862}
+  - {fileID: -8707393015726622992}
   MinDistance: 1
   MaxDistance: 20
   Length: 482181
@@ -742,7 +766,7 @@ MonoBehaviour:
   Path: Assets/Music/Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638194862552681455
+  lastModified: 638200069404645521
   FileSizes: []
   Exists: 1
 --- !u!114 &5713662802807727363
@@ -765,30 +789,6 @@ MonoBehaviour:
   ID:
     data1: 2276407099
     data2: 2592615566
-  Type: 0
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
---- !u!114 &5974998479747309862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Room2new/Combat
-  m_EditorClassIdentifier: 
-  Name: Combat
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2113713324
-    data2: 3115600231
   Type: 0
   IsGlobal: 1
   Labels: []
@@ -869,7 +869,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 7
   Length: 1071
 --- !u!114 &7335097634224757204
 MonoBehaviour:
@@ -896,7 +896,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 7
   Length: 1636
 --- !u!114 &7473721475498703187
 MonoBehaviour:
@@ -964,7 +964,7 @@ MonoBehaviour:
   Name: TestParamter Johan
   StudioPath: parameter:/TestParamter Johan
   Min: 0
-  Max: 3
+  Max: 1
   Default: 0
   ID:
     data1: 1932034177
