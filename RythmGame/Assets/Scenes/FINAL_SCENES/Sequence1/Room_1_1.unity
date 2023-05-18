@@ -505,6 +505,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2071905749}
     m_Modifications:
+    - target: {fileID: 199208283372174307, guid: f8695d862b513494596c950ff64459e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1109887413725801650, guid: f8695d862b513494596c950ff64459e9,
         type: 3}
       propertyPath: m_RootOrder
@@ -3048,7 +3053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.2998047, y: 0}
+  m_AnchoredPosition: {x: 3.2998047, y: 12}
   m_SizeDelta: {x: 100, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87130153
@@ -3071,7 +3076,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Attack On Beat
+  m_text: 'Attack On Beat To Deal Increased Damage
+
+    And Recieve More Juice!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4366a7fe640b637478f0c50b8c408b16, type: 2}
   m_sharedMaterial: {fileID: 8066208993479916194, guid: 4366a7fe640b637478f0c50b8c408b16,
@@ -3099,8 +3106,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3115,7 +3122,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -4089,6 +4096,65 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 131329707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &132277423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132277426}
+  - component: {fileID: 132277425}
+  - component: {fileID: 132277424}
+  m_Layer: 0
+  m_Name: OnBeatTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &132277424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132277423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27105603dcfef24cb324772827ab7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageObject: {fileID: 1786043376}
+--- !u!65 &132277425
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132277423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 39.2875, y: 14.3563595, z: 20.421335}
+  m_Center: {x: 7.3473396, y: 6.6781797, z: 1.9866152}
+--- !u!4 &132277426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132277423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 71.1, y: 0, z: -40.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &132807835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19117,7 +19183,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1694140
+  m_Name: pb_Mesh41956
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -54341,10 +54407,10 @@ RectTransform:
   m_Father: {fileID: 7609910}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0.2, y: 0}
-  m_AnchoredPosition: {x: 812, y: 511.8}
-  m_SizeDelta: {x: -116.300064, y: 638.39996}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 2, y: -197}
+  m_SizeDelta: {x: 483.30054, y: 106.19995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786043378
 MonoBehaviour:
@@ -59145,7 +59211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8867924, g: 0.2300641, b: 0.8028378, a: 1}
+  m_Color: {r: 0.70980394, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -62869,8 +62935,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 25.872017, y: 14.3563595, z: 15.402232}
-  m_Center: {x: 0.63959885, y: 6.6781797, z: -0.52293634}
+  m_Size: {x: 39.2875, y: 14.3563595, z: 20.421335}
+  m_Center: {x: 7.3473396, y: 6.6781797, z: 1.9866152}
 --- !u!4 &2057312069
 Transform:
   m_ObjectHideFlags: 0
