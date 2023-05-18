@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         dashTimer.UpdateTimer(Time.fixedDeltaTime);
+        //Debug.Log((playerStats.BaseDashCooldown * playerStats.CurrentDashCooldown * playerStats.BaseDashCooldownMultiplier * playerStats.CurrentDashCooldownMultiplier));
     }
     
     private void FixedUpdate()
