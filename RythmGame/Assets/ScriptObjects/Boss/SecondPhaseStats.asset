@@ -27,12 +27,13 @@ MonoBehaviour:
   NumberOfStompsTotal: 1
   NumberOfBeatsWarningForStomp: 1
   StompRadius: 1
-  StompShockwaveSpeed: 0
+  StompShockwaveTime: 0
   StompShockwaveDamage: 0
   StompShockwaveFinalSize: 0
+  StompShockwaveWidth: 0
   IdleTimeRangeMax: 1
   IdleTimeRangeMin: 3
-  ThresholdForEnrage: 0
+  EnragedTime: 0
   HealingRecievedMultiplier: 1
   DamageRecievedMultiplier: 1
   HoofStompSFX:
@@ -42,6 +43,13 @@ MonoBehaviour:
       Data3: 1404805800
       Data4: -1802824595
     Path: event:/SFX/Boss/Hoof_slam_empowered
+  StompShockwaveSFX:
+    Guid:
+      Data1: 708037700
+      Data2: 1158529375
+      Data3: 556042933
+      Data4: 1339867784
+    Path: event:/SFX/Boss/Shockwave
   PieSliceSFX:
     Guid:
       Data1: -1979172677
@@ -56,6 +64,13 @@ MonoBehaviour:
       Data3: 1412882817
       Data4: 1760259838
     Path: event:/SFX/Boss/Telegraph_Pie_Slice_Attack
+  MinionSpawnSFX:
+    Guid:
+      Data1: 555121996
+      Data2: 1339382378
+      Data3: 60604565
+      Data4: -2010704518
+    Path: event:/SFX/Boss/Minion_Spawn_Attack
   HurtSFX:
     Guid:
       Data1: -1559735029
