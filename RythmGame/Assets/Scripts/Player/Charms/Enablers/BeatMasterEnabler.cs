@@ -8,6 +8,9 @@ public class BeatMasterEnabler : MonoBehaviour
     private GameObject textBox;
 
     [SerializeField]
+    private PassiveCharm beatMaster;
+
+    [SerializeField]
     private PassiveCharmIcon passiveCharmIcon;
     [SerializeField]
     private PlayerStats playerStats;
@@ -23,6 +26,11 @@ public class BeatMasterEnabler : MonoBehaviour
             if(!activated)
                 passiveCharmIcon.ChangeIcon(passiveCharmIcon.BeatMasterIcon);
             activated = true;
+
+            if (playerStats.CurrentPassiveCharm != beatMaster)
+            {
+                playerStats.CurrentPassiveCharm = beatMaster;
+            }
         }
     }
 

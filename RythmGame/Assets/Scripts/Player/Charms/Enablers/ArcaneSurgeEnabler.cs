@@ -8,6 +8,9 @@ public class ArcaneSurgeEnabler : MonoBehaviour
     private GameObject textBox;
 
     [SerializeField]
+    private ActiveCharm arcaneSurge;
+
+    [SerializeField]
     private ActiveCharmIcon activeCharmIcon;
     [SerializeField]
     private PlayerStats playerStats;
@@ -23,6 +26,11 @@ public class ArcaneSurgeEnabler : MonoBehaviour
             if(!activated)
                 activeCharmIcon.ChangeIcon(activeCharmIcon.ArcaneSurgeIcon);
             activated = true;
+
+            if (playerStats.CurrentActiveCharm != arcaneSurge)
+            {
+                playerStats.CurrentActiveCharm = arcaneSurge;
+            }
         }
     }
 
