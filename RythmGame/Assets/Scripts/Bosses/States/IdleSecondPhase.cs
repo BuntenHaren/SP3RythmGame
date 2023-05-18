@@ -16,10 +16,10 @@ public class IdleSecondPhase : SecondPhaseState
     protected override void TimerDone()
     {
         float nextAttack = Random.Range(0f, secondPhaseStats.ChanceForStomp + secondPhaseStats.ChanceForCircle + secondPhaseStats.ChanceForMinionSpawn);
-        if(nextAttack < secondPhaseStats.ChanceForStomp)
-            behaviour.Transition(new HoofStompState());
-        else if(nextAttack < secondPhaseStats.ChanceForStomp + secondPhaseStats.ChanceForCircle)
-            behaviour.Transition(new PieSliceState());
+        if(nextAttack <= secondPhaseStats.ChanceForStomp)
+            behaviour.Transition(new SecondPhaseStomp());
+        else if(nextAttack <= secondPhaseStats.ChanceForStomp + secondPhaseStats.ChanceForCircle)
+            behaviour.Transition(new SecondPhasePieSlice());
         else
             behaviour.Transition(new MinionSpawnState());
     }
