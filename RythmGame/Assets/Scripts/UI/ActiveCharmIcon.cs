@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class ActiveCharmIcon : MonoBehaviour
+public class ActiveCharmIcon : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField]
     private PlayerStats playerStats;
+    [SerializeField]
+    private CharmDescription charmDescription;
 
     public Sprite ArcaneSurgeIcon;
     [SerializeField]
@@ -29,6 +32,7 @@ public class ActiveCharmIcon : MonoBehaviour
 
     private Image image;
     private RectTransform rectTransform;
+    private bool isPaused = false;
 
     void Awake()
     {
@@ -53,13 +57,26 @@ public class ActiveCharmIcon : MonoBehaviour
 
     public void OnPause()
     {
-        rectTransform.DOAnchorPos(pauseMoveTo, pauseMoveDuration).SetUpdate(true);
-        rectTransform.DOSizeDelta(pauseSizeTo, pauseScaleDuration).SetUpdate(true);
+        if (playerStats.CurrentPassiveCharm != null)
+        {
+            rectTransform.DOAnchorPos(pauseMoveTo, pauseMoveDuration).SetUpdate(true);
+            rectTransform.DOSizeDelta(pauseSizeTo, pauseScaleDuration).SetUpdate(true);
+            isPaused = true;
+        }
     }
 
     public void OnResume()
     {
         rectTransform.DOAnchorPos(originalPos, pauseMoveDuration);
         rectTransform.DOSizeDelta(originalScale, pauseScaleDuration);
+        isPaused = false;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(isPaused)
+        {
+            charmDescription.ShowDescription();
+        }
     }
 }

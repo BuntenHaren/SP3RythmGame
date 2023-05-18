@@ -12,6 +12,8 @@ public class ArcaneSurge : ActiveCharm
 
     private JuiceBar juiceBar;
 
+    public CharmDescriptions CharmDescription;
+
     public override void ActivateCharm()
     {
         if (CheckIfCanActivate() && (playerStats.ArcaneSurgeEnabled))
