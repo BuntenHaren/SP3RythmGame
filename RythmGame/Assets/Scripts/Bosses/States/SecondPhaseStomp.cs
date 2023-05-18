@@ -71,7 +71,7 @@ public class SecondPhaseStomp : SecondPhaseState
     private void StartAttack()
     {
         startedAttacking = true;
-        timer.StartTimer(secondPhaseStats.StompShockwaveTime + 0.2f);
+        timer.StartTimer(secondPhaseStats.StompShockwaveTime);
         outerRingTelegraph.SetMesh(new Mesh());
         
         RuntimeManager.PlayOneShot(secondPhaseStats.HoofStompSFX);
@@ -85,6 +85,7 @@ public class SecondPhaseStomp : SecondPhaseState
     {
         RuntimeManager.PlayOneShot(secondPhaseStats.StompShockwaveSFX);
         shockwave = true;
+        innerCircleTelegraph.SetMesh(new Mesh());
     }
 
     private void UpdateShockwave()
