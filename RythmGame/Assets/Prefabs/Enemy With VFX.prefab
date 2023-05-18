@@ -99,6 +99,8 @@ MonoBehaviour:
   damageAmount: 25
   minimumAttackWindUp: 0.1
   attackHoldWaitTime: 0.2
+  attackAnimationTime: 0
+  inSwipeTrigger: 0
 --- !u!212 &4591068363357251293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -288,7 +290,10 @@ MonoBehaviour:
   circleAttackObject: {fileID: 4591068364180540057}
   attackCD: 1
   attackRange: 10
+  attacking: 0
   anim: {fileID: 2880019117836730117}
+  SpritesParent: {fileID: 0}
+  IdleSprite: {fileID: 0}
 --- !u!114 &4591068363831087846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,12 +309,15 @@ MonoBehaviour:
   enemyBehavior: {fileID: 4591068363831087841}
   enemiesInCombatCounter: {fileID: 11400000, guid: 13b4da4028c28a44cac867565df91db6,
     type: 2}
+  healthBar: {fileID: 0}
+  waveBlockage: {fileID: 0}
   maxHealth: 100
   damageColor: {r: 1, g: 0.36320752, b: 0.36320752, a: 1}
-  sr: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
   damageColorTime: 0.5
   onBeatParticles: {fileID: 8785997882179965958, guid: b21e1852a05579e4b9669220cd4a1a81,
     type: 3}
+  childSr: []
   anim: {fileID: 2880019117836730117}
   deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
   enemyHitSound:
@@ -424,6 +432,8 @@ MonoBehaviour:
   damageAmount: 25
   minimumAttackWindUp: 0.1
   attackHoldWaitTime: 0.2
+  attackAnimationTime: 0
+  inSwipeTrigger: 0
 --- !u!212 &4591068364180540056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -526,12 +536,12 @@ PrefabInstance:
     - target: {fileID: 144205756723906167, guid: 0061928e834219a40ad37a526b224db2,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4781442861154173434, guid: 0061928e834219a40ad37a526b224db2,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6543471053170514115, guid: 0061928e834219a40ad37a526b224db2,
         type: 3}
@@ -626,12 +636,12 @@ PrefabInstance:
     - target: {fileID: 144205756723906167, guid: 0061928e834219a40ad37a526b224db2,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4781442861154173434, guid: 0061928e834219a40ad37a526b224db2,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6543471053170514115, guid: 0061928e834219a40ad37a526b224db2,
         type: 3}
