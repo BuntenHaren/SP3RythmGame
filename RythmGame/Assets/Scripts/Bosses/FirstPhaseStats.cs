@@ -39,6 +39,5 @@ namespace Bosses
         public EventReference PieSliceSFX;
         public EventReference PieSliceTelegraphSFX;
         public EventReference HurtSFX;
-        public EventReference DeathSFX;
     }
 }
