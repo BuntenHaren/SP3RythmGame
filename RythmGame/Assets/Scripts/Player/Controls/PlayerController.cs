@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        playerStats.ResetValues();
+        
     }
 
     private void Start()

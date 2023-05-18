@@ -31,6 +31,10 @@ public class PassiveCharmIcon : MonoBehaviour
         {
             image.sprite = BeatMasterIcon;
         }
+        else if (playerStats.CurrentPassiveCharm.name == "EmptyCharm")
+        {
+            image.sprite = emptyIcon;
+        }
     }
 
     public void ChangeIcon(Sprite sprite)

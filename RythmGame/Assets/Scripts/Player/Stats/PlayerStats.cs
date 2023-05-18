@@ -97,10 +97,10 @@ public class PlayerStats : ScriptableObject
         CurrentJuiceAmountOnBeat = BaseJuiceAmountOnBeat;
         CurrentHealOnAttack = BaseHealOnAttack;
 
-        /*/ charms
+        // charms
         BeatMasterEnabled = false;
         ArcaneGorgerEnabled = false;
-        ArcaneSurgeEnabled = false; */
+        ArcaneSurgeEnabled = false; 
     }
 
     private void ResetMultiplierVariables()
