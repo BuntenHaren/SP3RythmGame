@@ -15,6 +15,9 @@ public class HealingObject : MonoBehaviour, IDamageable
     
     private int chargesLeft;
 
+    
+    public Sprite sp0, sp1, sp2, sp3;
+
     private void Start()
     {
         chargesLeft = amountOfCharges;
@@ -22,17 +25,21 @@ public class HealingObject : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        if(chargesLeft <= 0)
-            return;
-
-        playerHealth.CurrentHealth += healingPerCharge;
-        chargesLeft--;
+        GetHit();
     }
 
     public void TakeDamageOnBeat(float amount)
+    {   
+        GetHit();
+    }
+
+    private void GetHit()
     {
         if(chargesLeft <= 0)
+        {
+            enabled = false;
             return;
+        }
 
         playerHealth.CurrentHealth += healingPerCharge;
         chargesLeft--;
@@ -42,4 +49,18 @@ public class HealingObject : MonoBehaviour, IDamageable
     {
         throw new System.NotImplementedException();
     }
+
+    private void Update()
+    {
+        if (chargesLeft == 0)
+            GetComponent<SpriteRenderer>().sprite = sp0;
+        if (chargesLeft == 1)
+            GetComponent<SpriteRenderer>().sprite = sp1;
+        if (chargesLeft == 2)
+            GetComponent<SpriteRenderer>().sprite = sp2;
+        if (chargesLeft == 3)
+            GetComponent<SpriteRenderer>().sprite = sp3;
+    }
+
+
 }

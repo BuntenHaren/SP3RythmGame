@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Bosses
 {
-    public class BossBehaviour : MonoBehaviour, IDamageable
+    public class BossBehaviour : MonoBehaviour, IDamageable, IColliderListener
     {
         [HideInInspector]
         public List<GenerateCircle> GenerateCircles;
@@ -57,6 +57,7 @@ namespace Bosses
             GameObject potentialPlayer = GameObject.FindWithTag("Player");
             if(potentialPlayer == null)
                 return transform.position;
+            
             return potentialPlayer.transform.position;
         }
 
@@ -65,6 +66,7 @@ namespace Bosses
             foreach(var circle in GenerateCircles)
             {
                 circle.transform.position = transform.position;
+                circle.transform.rotation = transform.rotation;
             }
         }
 
@@ -82,10 +84,10 @@ namespace Bosses
 
         public void TakeDamage(float amount)
         {
-            bossHealth.CurrentMaxHealth -= amount;
+            bossHealth.CurrentHealth -= amount;
             bossAnim.SetTrigger("Hurt");
             RuntimeManager.PlayOneShot(firstPhaseStats.HurtSFX);
-            if(bossHealth.CurrentMaxHealth <= 0)
+            if(bossHealth.CurrentHealth <= 0)
                 Die();
         }
 
@@ -96,13 +98,33 @@ namespace Bosses
 
         public void HealDamage(float amount)
         {
-            bossHealth.CurrentMaxHealth += amount;
+            bossHealth.CurrentHealth += amount;
         }
 
         private void Die()
         {
             bossAnim.SetTrigger("Death");
-            RuntimeManager.PlayOneShot(firstPhaseStats.DeathSFX);
+            RuntimeManager.PlayOneShot(secondPhaseStats.DeathSFX);
+        }
+
+        public void CollisionEnter(Collision collision)
+        {
+            currentBossState.OnCollisionEnter(collision);
+        }
+
+        public void TriggerEnter(Collider other)
+        {
+            currentBossState.OnTriggerEnter(other);
+        }
+
+        public void CollisionStay(Collision collision)
+        {
+            currentBossState.OnCollisionStay(collision);
+        }
+
+        public void TriggerStay(Collider other)
+        {
+            currentBossState.OnTriggerStay(other);
         }
     }
 }

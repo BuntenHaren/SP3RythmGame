@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d799268d001a94eb81d6345089422f, type: 3}
   m_Name: FirstPhaseStats
   m_EditorClassIdentifier: 
-  PieSliceAmountOfSlices: 3
-  PieSliceRange: 10
+  PieSliceAmountOfSlices: 2
+  PieSliceRange: 60
   PieSliceSectorAngle: 45
-  PieSliceCircleDamage: 1
-  PieSliceStartingOffset: 0
-  PieSliceAngleBetweenSlices: 0
-  PieSliceAmountOfBeatsWarning: 0
-  StompDamage: 20
-  NumberOfStompsTotal: 5
+  PieSliceCircleDamage: 25
+  PieSliceAngleBetweenSlices: 40
+  PieSliceAmountOfBeatsWarning: 2
+  PieSliceMaxAngleDeviation: 4
+  PieSliceOriginOffset: {x: 0, y: -2}
+  StompDamage: 15
+  NumberOfStompsTotal: 3
   NumberOfBeatsWarningForStomp: 2
-  StompRadius: 8
+  StompRadius: 12
   IdleTimeRangeMax: 1
   IdleTimeRangeMin: 3
   ThresholdForEnrage: 60
@@ -37,11 +38,18 @@ MonoBehaviour:
     Path: event:/SFX/Boss/Hoof_slam
   PieSliceSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1979172677
+      Data2: 1145368258
+      Data3: -1414322545
+      Data4: -934497386
+    Path: event:/SFX/Boss/Pie_Slice_Attack
+  PieSliceTelegraphSFX:
+    Guid:
+      Data1: 1700166112
+      Data2: 1170669732
+      Data3: 1412882817
+      Data4: 1760259838
+    Path: event:/SFX/Boss/Telegraph_Pie_Slice_Attack
   HurtSFX:
     Guid:
       Data1: -1559735029
@@ -49,10 +57,3 @@ MonoBehaviour:
       Data3: -869394261
       Data4: -2002369532
     Path: event:/SFX/Boss/Boss_Hit
-  DeathSFX:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 

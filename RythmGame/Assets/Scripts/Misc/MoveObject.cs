@@ -12,6 +12,6 @@ public class MoveObject : MonoBehaviour
 
     public void StartMove()
     {
-        transform.DOMove(targetPos, duration);
+        transform.DOLocalMove(targetPos, duration);
     }
 }

@@ -1,28 +1,33 @@
+using System;
 using System.Collections.Generic;
 using FMODUnity;
+using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Bosses.States
 {
-    public class PieSliceState : FirstPhaseState, IColliderListener
+    public class PieSliceState : FirstPhaseState
     {
         private int numberOfBeatsWaited;
         private bool attackTelegraphStarted;
         private bool startedAttacking;
         private bool hasDamagedPlayer;
+        private Mesh attackMesh;
         private GameObject[] telegraphs;
+        private GameObject telegraphHolder;
 
         public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
         {
             base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
             behaviour.ResetTelegraphPositions();
+            attackMesh = new Mesh();
             telegraphs = new GameObject[firstPhaseStats.PieSliceAmountOfSlices];
-            
-            for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
-            {
-                telegraphs[i] = GameObject.Instantiate(behaviour.GenerateCircles[0].gameObject, behaviour.transform);
-                telegraphs[i].name = "Telegraph " + i;
-            }
+            telegraphHolder = new GameObject("TelegraphHolder");
+            telegraphHolder.transform.parent = behaviour.transform;
+            telegraphHolder.transform.localPosition = Vector3.zero;
         }
 
         public override void OnBeat()
@@ -48,18 +53,35 @@ namespace Bosses.States
         private void StartTelegraphAttack()
         {
             attackTelegraphStarted = true;
+            RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceTelegraphSFX);
             
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
-                telegraphs[i].GetComponent<MeshFilter>().mesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
+                telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[2].gameObject, telegraphHolder.transform);
+                attackMesh = behaviour.GenerateCircles[2].CreateCircleMesh(100,
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
-                    firstPhaseStats.PieSliceStartingOffset * firstPhaseStats.PieSliceAngleBetweenSlices * i);
+                    firstPhaseStats.PieSliceSectorAngle * i + firstPhaseStats.PieSliceAngleBetweenSlices * i);
+                //combine[i].transform = behaviour.transform.localToWorldMatrix;
+                
+                telegraphs[i].GetComponent<GenerateCircle>().SetMesh(attackMesh);
+                telegraphs[i].GetComponent<MeshCollider>().sharedMesh = attackMesh;
+                telegraphs[i].GetComponent<MeshCollider>().enabled = false;
+                telegraphs[i].transform.localPosition = new Vector3(firstPhaseStats.PieSliceOriginOffset.x, 0.05f, firstPhaseStats.PieSliceOriginOffset.y);
             }
             
-            
+            float angleTowardsPlayerOffset = Random.Range(0, firstPhaseStats.PieSliceMaxAngleDeviation * 2);
+            float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
+            angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
+            telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
         }
 
+        private float GetAngleTowardsPlayerFromObject(Transform obj)
+        {
+            Vector3 vectorTowardsPlayer = behaviour.GetPlayerPos() - behaviour.transform.position;
+            return Vector3.SignedAngle(behaviour.transform.forward, vectorTowardsPlayer, Vector3.up);
+        }
+        
         public override void Update()
         {
             
@@ -70,7 +92,11 @@ namespace Bosses.States
             startedAttacking = true;
             timer.StartTimer(2);
             RuntimeManager.PlayOneShot(firstPhaseStats.PieSliceSFX);
-
+            
+            for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
+            {
+                telegraphs[i].GetComponent<MeshCollider>().enabled = true;
+            }
         }
 
         protected override void TimerDone()
@@ -78,38 +104,36 @@ namespace Bosses.States
             behaviour.Transition(new IdleFirstPhase());
         }
 
-        public void OnCollisionEnter(Collision collision)
-        {
-            
-        }
-
-        public void OnTriggerEnter(Collider other)
-        {
-            
-        }
-
-        public void OnCollisionStay(Collision collision)
+        public override void OnCollisionStay(Collision other)
         {
             if(hasDamagedPlayer || !startedAttacking)
                 return;
-
-            if(collision.gameObject.TryGetComponent(out PlayerHealth player))
+            
+            if(other.gameObject.TryGetComponent(out PlayerHealth player))
             {
                 player.TakeDamage(firstPhaseStats.PieSliceCircleDamage);
                 hasDamagedPlayer = true;
-                Debug.Log("Damaged player");
+                
+                for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
+                {
+                    telegraphs[i].GetComponent<MeshCollider>().enabled = false;
+                }
             }
         }
 
-        public void OnTriggerStay(Collider other)
+        private void DestroyTelegraphs()
         {
-
+            for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
+            {
+                GameObject.Destroy(telegraphs[i]);
+            }
+            GameObject.Destroy(telegraphHolder);
         }
 
         public override void Exit()
         {
             base.Exit();
-            behaviour.GenerateCircles[0].SetMesh(new Mesh());
+            DestroyTelegraphs();
         }
     }
 }

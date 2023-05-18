@@ -26,6 +26,8 @@ public class BeatMaster : PassiveCharm
 
     public override void OnPlayerAttackAction()
     {
+        base.OnPlayerAttackAction();
+
         // calculate juice gauge fill ratio
         JuiceLevelRatio = juiceCounter.CurrentJuice / juiceCounter.MaxJuice;
 
@@ -45,13 +47,5 @@ public class BeatMaster : PassiveCharm
 
         // set damage multiplier
         playerStats.CurrentAttackDamageMultiplier = BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy;
-
-        Debug.Log("Beat accuracy: " + BeatAccuracy + 
-            "\nBase multiplier: " + BaseMultiplier + 
-            "\nCurrent juice: " + juiceCounter.CurrentJuice + 
-            "\nJuice ratio: " + JuiceLevelRatio + 
-            "\nJuice multiplier: " + JuiceLevelMultiplier + 
-            "\nAttack damage multiplier: " + playerStats.CurrentAttackDamageMultiplier + 
-            "\n");
     }
 }

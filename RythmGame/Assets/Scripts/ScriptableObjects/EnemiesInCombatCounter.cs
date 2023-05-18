@@ -8,6 +8,12 @@ public class EnemiesInCombatCounter : ScriptableObject
     public List<EnemyBehavior> engagedEnemies = new List<EnemyBehavior>();
     public bool inCombat = false;
 
+    void OnDisable()
+    {
+        engagedEnemies.Clear();
+        inCombat = false;
+    }
+
     public void AddEnemyToList(EnemyBehavior enemy)
     {
         engagedEnemies.Add(enemy);

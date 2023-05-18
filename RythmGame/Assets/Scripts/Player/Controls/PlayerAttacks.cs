@@ -37,7 +37,6 @@ public class PlayerAttacks : MonoBehaviour
     private double lastBeatTime;
     private double timeBetweenBeats;
     private EventReference actualAttackSFX;
-    private Vector3 finalPoint;
     private Camera cam;
     private Animator currentDirectionAnimator;
 
@@ -48,13 +47,15 @@ public class PlayerAttacks : MonoBehaviour
 
         attackCooldownTimer = new Timer();
         attackCooldownTimer.TimerDone += AttackOffCooldown;
+        SetCurrentlyActiveAnimator();
     }
 
     private void OnAttack()
     {
-        if (!readyToAttack)
+        if(!readyToAttack)
             return;
 
+        readyToAttack = false;
         SetCurrentlyActiveAnimator();
         actualAttackSFX = PlayerAttack;
         currentDirectionAnimator.SetBool("Attack", true);
@@ -69,7 +70,7 @@ public class PlayerAttacks : MonoBehaviour
         
         ActivateAttackStuff();
         HitEverythingInRange();
-        
+
     }
 
     private void SetCurrentlyActiveAnimator()
@@ -97,7 +98,6 @@ public class PlayerAttacks : MonoBehaviour
 
     private void AttackOffCooldown()
     {
-        currentDirectionAnimator.SetBool("Attack", false);
         readyToAttack = true;
     }
 
@@ -106,7 +106,7 @@ public class PlayerAttacks : MonoBehaviour
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
         RuntimeManager.PlayOneShot(actualAttackSFX);
         attackCooldownTimer.StartTimer(playerStats.CurrentAttackRate * playerStats.CurrentAttackRateMultiplier);
-        readyToAttack = false;
+        GetComponent<Rigidbody>().position += (GetDirectionTowardsMouse() - transform.position).normalized * playerStats.BaseForceTowardAttack;
     }
 
     private bool CheckIfWithinBeatTimeframe()
@@ -115,17 +115,10 @@ public class PlayerAttacks : MonoBehaviour
     }
 
     private void HitEverythingInRange()
-    {
-        Vector2 mousePosOnScreen = Mouse.current.position.ReadValue();
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePosOnScreen.x, mousePosOnScreen.y, transform.position.y));
-        
-        //Honestly I don't care enough to figure out exactly how the math on this works right now, but it works so I'm gonna use it
-        //Using some math to calculate the point of intersection between the line going through the camera and the mouse position with the XZ-Plane
-        float t = cam.transform.position.y / (cam.transform.position.y - mousePos.y);
-        finalPoint = new Vector3(t * (mousePos.x - cam.transform.position.x) + cam.transform.position.x, 1, t * (mousePos.z - cam.transform.position.z) + cam.transform.position.z);
+    {        
+        Vector3 finalPoint = GetDirectionTowardsMouse();
         Collider[] potentialHits = Physics.OverlapSphere(transform.position + 
-                                                         (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.CurrentAttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.CurrentAttackRadiusMultiplier);
-        
+                                                         (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.CurrentAttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.CurrentAttackRadiusMultiplier); 
         
         //So we don't damage ourselves accidentally
         HashSet<IDamageable> selfDamageables = new HashSet<IDamageable>();
@@ -152,20 +145,32 @@ public class PlayerAttacks : MonoBehaviour
         }
 
         if(hitSomething)
-        {
-            juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.CurrentJuiceAmountOnBeatMultiplier;
-            playerHealth.CurrentHealth += playerStats.CurrentHealOnAttack * playerStats.CurrentHealOnAttackMultiplier;
-        }
+            ActivateOnHitStuff();
+    }
+
+    private void ActivateOnHitStuff()
+    {
+        juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.CurrentJuiceAmountOnBeatMultiplier;
+        playerHealth.CurrentHealth += playerStats.CurrentHealOnAttack * playerStats.CurrentHealOnAttackMultiplier;
+    }
+
+    private Vector3 GetDirectionTowardsMouse()
+    {
+        //Honestly I don't care enough to figure out exactly how the math on this works right now, but it works so I'm gonna use it
+        //Using some math to calculate the point of intersection between the line going through the camera and the mouse position with the XZ-Plane
+        Vector2 mousePosOnScreen = Mouse.current.position.ReadValue();
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePosOnScreen.x, mousePosOnScreen.y, transform.position.y));
+        
+        float t = cam.transform.position.y / (cam.transform.position.y - mousePos.y);
+        Vector3 finalPoint = new Vector3(t * (mousePos.x - cam.transform.position.x) + cam.transform.position.x, 1, t * (mousePos.z - cam.transform.position.z) + cam.transform.position.z);
+
+        return finalPoint;
     }
     
     private void FixedUpdate()
     {
         attackCooldownTimer.UpdateTimer(Time.fixedDeltaTime);
+        currentDirectionAnimator.SetBool("Attack", false);
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(transform.position + (finalPoint - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.CurrentAttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.CurrentAttackRadiusMultiplier);
-    }
+    
 }

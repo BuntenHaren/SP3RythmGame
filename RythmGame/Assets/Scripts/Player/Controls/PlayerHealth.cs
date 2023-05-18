@@ -4,6 +4,7 @@ using FMOD.Studio;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    private VirtualCameraController cameraController;
     [SerializeField]
     private GameObject deathMenu;
 
@@ -30,14 +31,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         healthObject.ResetHealth();
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
+        cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
     }
 
     public void TakeDamage(float amount)
     {
         RuntimeManager.PlayOneShot(playerHurtDeathSound);
-
-        if(!healthObject.Invurnerable)
+        if (!healthObject.Invurnerable)
         {
+            cameraController.CameraShake();
             healthObject.CurrentHealth -= amount;
             if(healthObject.CurrentHealth <= 0)
             {
@@ -49,9 +51,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void TakeDamageOnBeat(float amount)
     {
         RuntimeManager.PlayOneShot(playerHurtDeathSound);
-
         if (!healthObject.Invurnerable)
         {
+            cameraController.CameraShake();
             healthObject.CurrentHealth -= amount;
             if (healthObject.CurrentHealth <= 0)
             {

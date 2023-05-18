@@ -1,22 +1,30 @@
 using System;
+using Bosses;
 using UnityEngine;
 using Unity;
 
 public class ColliderBridge : MonoBehaviour
 {
-    IColliderListener _listener;
-    public void Initialize(IColliderListener l)
-    {
-        _listener = l;
-    }
+    [SerializeField]
+    private BossBehaviour _listener;
 
     private void OnCollisionStay(Collision collision)
     {
-        _listener.OnCollisionStay(collision);
+        _listener.CollisionStay(collision);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        _listener.OnTriggerStay(other);
+        _listener.TriggerStay(other);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        _listener.CollisionEnter(other);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        _listener.TriggerEnter(other);
     }
 }

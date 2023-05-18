@@ -48,8 +48,15 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    [HideInInspector]
+    public GameObject SpritesParent;
+    [HideInInspector]
+    public GameObject IdleSprite;
+
     void Start()
     {
+        SpritesParent = transform.Find("WerewolfMergedSideview").gameObject;
+        IdleSprite = transform.Find("IdleSprite").gameObject;
         rb = gameObject.GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
         eventPort.onBeat += Attack;

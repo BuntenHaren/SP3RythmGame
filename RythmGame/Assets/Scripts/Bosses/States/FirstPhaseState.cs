@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Bosses.States
 {
     public class FirstPhaseState : BossState
@@ -10,7 +12,8 @@ namespace Bosses.States
 
         private void CheckForEnrage(float amount)
         {
-            if(health.CurrentHealth <= firstPhaseStats.ThresholdForEnrage)
+            Debug.Log(health.CurrentHealth);
+            if(health.CurrentHealth <= health.CurrentMaxHealth * firstPhaseStats.ThresholdForEnrage)
                 behaviour.Transition(new NextPhaseState());
         }
 
