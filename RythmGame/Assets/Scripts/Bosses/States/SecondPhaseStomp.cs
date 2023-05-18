@@ -15,7 +15,7 @@ public class SecondPhaseStomp : SecondPhaseState
     private GenerateCircle innerCircleTelegraph;
     private float currentShockwaveSize;
     private float currentShockwaveTime;
-    private bool shockwave;
+    private bool shockwave = false;
 
     public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
     {
@@ -71,7 +71,7 @@ public class SecondPhaseStomp : SecondPhaseState
     private void StartAttack()
     {
         startedAttacking = true;
-        timer.StartTimer(2 + secondPhaseStats.StompShockwaveTime);
+        timer.StartTimer(secondPhaseStats.StompShockwaveTime + 0.2f);
         outerRingTelegraph.SetMesh(new Mesh());
         
         RuntimeManager.PlayOneShot(secondPhaseStats.HoofStompSFX);
@@ -84,9 +84,7 @@ public class SecondPhaseStomp : SecondPhaseState
     private void ActivateShockwave()
     {
         RuntimeManager.PlayOneShot(secondPhaseStats.StompShockwaveSFX);
-        UpdateShockwave();
         shockwave = true;
-        Debug.Log("Shockwave");
     }
 
     private void UpdateShockwave()
@@ -95,7 +93,6 @@ public class SecondPhaseStomp : SecondPhaseState
         currentShockwaveSize = secondPhaseStats.StompShockwaveFinalSize * (currentShockwaveTime / secondPhaseStats.StompShockwaveTime);
         Mesh shockwave = outerRingTelegraph.CreateHollowCircle(100, currentShockwaveSize, currentShockwaveSize + secondPhaseStats.StompShockwaveWidth, 360, 0);
         outerRingTelegraph.SetMesh(shockwave);
-        Debug.Log("Shockwave updated");
     }
 
     private void HitEverythingInRadius()
