@@ -255,12 +255,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e46bfde4b05501429cfe0b4f391b726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventPort: {fileID: 11400000, guid: 029837d2fd2b8e04888454e9b6766e89, type: 2}
   juiceCounter: {fileID: 11400000, guid: fa84ed04b96afbb41863e33abda536d5, type: 2}
   slider: {fileID: 126725680}
   sliderUpdateTime: 0
   juiceDrainPerSecond: 0
   timeBeforeDrain: 0
   startDrain: 0
+  glowImage: {fileID: 0}
+  glowFadeInTime: 0
+  glowFadeOutTime: 0
+  glowFadeTo: 0
 --- !u!1001 &179293021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,6 +483,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.98488426
       objectReference: {fileID: 0}
+    - target: {fileID: 6522622989795494837, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6522622989987380629, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -496,7 +506,7 @@ PrefabInstance:
     - target: {fileID: 6522622989987380630, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522622990227362824, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
@@ -552,6 +562,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.9893251
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522622990227362829, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6522622990509482533, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
@@ -1305,6 +1320,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3280695876033195725, guid: 5b6f638c49f8a564aa44b1a6c678277b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 669639772bd5b7d4b9bd6c8d33078e27, type: 2}
     - target: {fileID: 3280695876061847377, guid: 5b6f638c49f8a564aa44b1a6c678277b,
         type: 3}
       propertyPath: m_Convex

@@ -53,8 +53,8 @@ public class SecondPhasePieSlice : SecondPhaseState
         
         for(int i = 0; i < secondPhaseStats.PieSliceAmountOfSlices; i++)
         {
-            telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[0].gameObject, telegraphHolder.transform);
-            attackMesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
+            telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[2].gameObject, telegraphHolder.transform);
+            attackMesh = behaviour.GenerateCircles[2].CreateCircleMesh(100,
                 secondPhaseStats.PieSliceRange, 
                 secondPhaseStats.PieSliceSectorAngle,
                 secondPhaseStats.PieSliceSectorAngle * i + secondPhaseStats.PieSliceAngleBetweenSlices * i);

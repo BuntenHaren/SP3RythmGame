@@ -10,8 +10,13 @@ namespace Bosses.States
             Debug.Log("Enraged");
             health.Invurnerable = true;
             timer.StartTimer(secondPhaseStats.EnragedTime);
-            timer.TimerDone += () => behaviour.Transition(new IdleSecondPhase());
-        }        
+        }
+
+        protected override void TimerDone()
+        {
+            base.TimerDone();
+            behaviour.Transition(new IdleSecondPhase());
+        }
 
         public override void Exit()
         {

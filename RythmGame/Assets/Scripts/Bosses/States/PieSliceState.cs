@@ -57,8 +57,8 @@ namespace Bosses.States
             
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
-                telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[0].gameObject, telegraphHolder.transform);
-                attackMesh = behaviour.GenerateCircles[0].CreateCircleMesh(100,
+                telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[2].gameObject, telegraphHolder.transform);
+                attackMesh = behaviour.GenerateCircles[2].CreateCircleMesh(100,
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
                     firstPhaseStats.PieSliceSectorAngle * i + firstPhaseStats.PieSliceAngleBetweenSlices * i);
