@@ -22,12 +22,6 @@ public class BeatMaster : PassiveCharm
 
         // get beat window 
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
-
-
-        Debug.Log("XXXXXXXXXXXXXXXXXXXXX BEAT MASTER XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        Debug.Log("current: " + playerHealth.CurrentHealth);
-        Debug.Log("max mult: " + playerStats.CurrentMaxHealthMultiplier);
-        Debug.Log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
     }
 
     public override void OnPlayerAttackAction()
@@ -53,13 +47,5 @@ public class BeatMaster : PassiveCharm
 
         // set damage multiplier
         playerStats.CurrentAttackDamageMultiplier = BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy;
-
-        Debug.Log("Beat accuracy: " + BeatAccuracy + 
-            "\nBase multiplier: " + BaseMultiplier + 
-            "\nCurrent juice: " + juiceCounter.CurrentJuice + 
-            "\nJuice ratio: " + JuiceLevelRatio + 
-            "\nJuice multiplier: " + JuiceLevelMultiplier + 
-            "\nAttack damage multiplier: " + playerStats.CurrentAttackDamageMultiplier + 
-            "\n");
     }
 }
