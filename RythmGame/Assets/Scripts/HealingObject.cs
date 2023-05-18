@@ -25,17 +25,21 @@ public class HealingObject : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        if(chargesLeft <= 0)
-            return;
-
-        playerHealth.CurrentHealth += healingPerCharge;
-        chargesLeft--;
+        GetHit();
     }
 
     public void TakeDamageOnBeat(float amount)
+    {   
+        GetHit();
+    }
+
+    private void GetHit()
     {
         if(chargesLeft <= 0)
+        {
+            enabled = false;
             return;
+        }
 
         playerHealth.CurrentHealth += healingPerCharge;
         chargesLeft--;
@@ -50,10 +54,8 @@ public class HealingObject : MonoBehaviour, IDamageable
     {
         if (chargesLeft == 0)
             GetComponent<SpriteRenderer>().sprite = sp0;
-        Debug.Log("0sprite");
         if (chargesLeft == 1)
             GetComponent<SpriteRenderer>().sprite = sp1;
-             Debug.Log("0sprite");
         if (chargesLeft == 2)
             GetComponent<SpriteRenderer>().sprite = sp2;
         if (chargesLeft == 3)

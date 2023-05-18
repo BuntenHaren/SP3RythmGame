@@ -20,7 +20,7 @@ public class PassiveCharmIcon : MonoBehaviour
 
     private Image image;
 
-    void Awake()
+    void Start()
     {
         image = gameObject.GetComponent<Image>();
         if (playerStats.CurrentPassiveCharm.name == "ArcaneGorger")

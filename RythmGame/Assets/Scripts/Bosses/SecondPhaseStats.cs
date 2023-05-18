@@ -29,17 +29,15 @@ namespace Bosses
         public int NumberOfStompsTotal;
         public int NumberOfBeatsWarningForStomp;
         public float StompRadius;
-        public float StompShockwaveSpeed;
+        public float StompShockwaveTime;
         public float StompShockwaveDamage;
         public float StompShockwaveFinalSize;
+        public float StompShockwaveWidth;
     
         [field: Header("Idle State Variables")]
         public float IdleTimeRangeMax;
         public float IdleTimeRangeMin;
-    
-    
-        [field: Header("Thresholds")]
-        public float ThresholdForEnrage;
+        public float EnragedTime;
     
         [field: Header("Health Multipliers")]
         public float HealingRecievedMultiplier = 1;
@@ -47,8 +45,10 @@ namespace Bosses
 
         [field: Header("SFX")] 
         public EventReference HoofStompSFX;
+        public EventReference StompShockwaveSFX;
         public EventReference PieSliceSFX;
         public EventReference PieSliceTelegraphSFX;
+        public EventReference MinionSpawnSFX;
         public EventReference HurtSFX;
         public EventReference DeathSFX;
     }
