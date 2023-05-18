@@ -52,9 +52,10 @@ public class PlayerAttacks : MonoBehaviour
 
     private void OnAttack()
     {
-        if (!readyToAttack)
+        if(!readyToAttack)
             return;
 
+        readyToAttack = false;
         SetCurrentlyActiveAnimator();
         actualAttackSFX = PlayerAttack;
         currentDirectionAnimator.SetBool("Attack", true);
@@ -105,7 +106,6 @@ public class PlayerAttacks : MonoBehaviour
         //Start setting values and playing stuff for the attack like audio, animation, VFX etc.
         RuntimeManager.PlayOneShot(actualAttackSFX);
         attackCooldownTimer.StartTimer(playerStats.CurrentAttackRate * playerStats.CurrentAttackRateMultiplier);
-        readyToAttack = false;
         GetComponent<Rigidbody>().position += (GetDirectionTowardsMouse() - transform.position).normalized * playerStats.BaseForceTowardAttack;
     }
 
@@ -145,10 +145,13 @@ public class PlayerAttacks : MonoBehaviour
         }
 
         if(hitSomething)
-        {
-            juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.CurrentJuiceAmountOnBeatMultiplier;
-            playerHealth.CurrentHealth += playerStats.CurrentHealOnAttack * playerStats.CurrentHealOnAttackMultiplier;
-        }
+            ActivateOnHitStuff();
+    }
+
+    private void ActivateOnHitStuff()
+    {
+        juiceCounter.CurrentJuice += playerStats.CurrentJuiceAmountOnBeat * playerStats.CurrentJuiceAmountOnBeatMultiplier;
+        playerHealth.CurrentHealth += playerStats.CurrentHealOnAttack * playerStats.CurrentHealOnAttackMultiplier;
     }
 
     private Vector3 GetDirectionTowardsMouse()
@@ -169,10 +172,5 @@ public class PlayerAttacks : MonoBehaviour
         attackCooldownTimer.UpdateTimer(Time.fixedDeltaTime);
         currentDirectionAnimator.SetBool("Attack", false);
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        //Gizmos.DrawSphere(transform.position + (GetDirectionTowardsMouse() - transform.position).normalized * playerStats.CurrentAttackDistance * playerStats.CurrentAttackDistanceMultiplier, playerStats.CurrentAttackRadius * playerStats.CurrentAttackRadiusMultiplier);
-    }
+    
 }

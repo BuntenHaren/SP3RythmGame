@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -129,7 +129,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 813992689}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &121220180
+--- !u!114 &121220182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,28 +138,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 121220179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6494d9bea91c41742b4c1533bd232721, type: 3}
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameterTrigger: {fileID: 121220181}
-  spawnPort: {fileID: 11400000, guid: 849f723e6844d404cba7ecb0d4a7edf9, type: 2}
-  deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
---- !u!114 &121220181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121220179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - Master
+  - Master.strings
+  - Filip
+  - Johan
+  - Music
+  - SFX
+  - Snuze
   CollisionTag: 
-  Parameter: TestParamter Johan
-  TriggerEvent: 0
-  Value: 0
+  PreloadSamples: 0
 --- !u!1 &126725678
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +258,9 @@ MonoBehaviour:
   juiceCounter: {fileID: 11400000, guid: fa84ed04b96afbb41863e33abda536d5, type: 2}
   slider: {fileID: 126725680}
   sliderUpdateTime: 0
+  juiceDrainPerSecond: 0
+  timeBeforeDrain: 0
+  startDrain: 0
 --- !u!1001 &179293021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -472,6 +468,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522622989795494834, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.17321412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522622989795494834, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.98488426
+      objectReference: {fileID: 0}
     - target: {fileID: 6522622989987380629, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -601,6 +607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.00000032782552
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522622991145487981, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000005364418
       objectReference: {fileID: 0}
     - target: {fileID: 6522622991260479758, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
@@ -1096,7 +1107,7 @@ PrefabInstance:
     - target: {fileID: 3316062980249253142, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
       propertyPath: musicVolume
-      value: 0.05
+      value: 0.326
       objectReference: {fileID: 0}
     - target: {fileID: 3316062980249253142, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
@@ -1487,6 +1498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPort: {fileID: 11400000, guid: 849f723e6844d404cba7ecb0d4a7edf9, type: 2}
   deathPort: {fileID: 11400000, guid: a28db4af296a03f48a0a346575eb391f, type: 2}
+  enemiesToKillFirst: []
   waves: []
   spawnPoints: []
 --- !u!4 &1925725194
