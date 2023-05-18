@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "RythmGame/Player/EmptyCharm")]
 public class EmptyCharm : PassiveCharm
 {
-    public CharmDescriptions CharmDescription;
-
     // Start is called before the first frame update
     public override void Start()
     {

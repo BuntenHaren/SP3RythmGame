@@ -17,8 +17,6 @@ public class ArcaneGorger : PassiveCharm
     private float DistanceToNextBeat = 0f;
     private float BeatWindow;
 
-    public CharmDescriptions CharmDescription;
-
     public override void Start()
     {
         base.Start();
