@@ -12,6 +12,10 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     private Health playerHealth;
+    [SerializeField]
+    private ActiveCharmIcon activeCharmIcon;
+    [SerializeField]
+    private PassiveCharmIcon passiveCharmIcon;
 
     [SerializeField]
     private GameObject pauseMenuUI;
@@ -53,6 +57,8 @@ public class PauseMenu : MonoBehaviour
         mainPauseUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        activeCharmIcon.OnResume();
+        passiveCharmIcon.OnResume();
     }
 
     void Pause()
@@ -61,6 +67,8 @@ public class PauseMenu : MonoBehaviour
         mainPauseUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        activeCharmIcon.OnPause();
+        passiveCharmIcon.OnPause();
     }
 
     public void Options()
