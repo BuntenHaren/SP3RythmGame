@@ -55,7 +55,7 @@ public class CombatMusicMeter : MonoBehaviour
             }
             if (Triggered == true)
             {
-                Debug.Log("Returntrue2");
+                //Debug.Log("Returntrue2");
                 return;
             }
         }

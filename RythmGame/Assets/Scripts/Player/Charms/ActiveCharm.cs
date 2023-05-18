@@ -12,6 +12,8 @@ public abstract class ActiveCharm : Charm
 
     protected Timer activationTimer;
 
+    public CharmDescriptions CharmDescription;
+
     public override void Start()
     {
         activationTimer = new Timer();

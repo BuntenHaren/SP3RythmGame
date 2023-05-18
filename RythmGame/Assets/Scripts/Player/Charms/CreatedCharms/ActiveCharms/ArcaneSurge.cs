@@ -18,6 +18,8 @@ public class ArcaneSurge : ActiveCharm
 
     public override void ActivateCharm()
     {
+        Debug.Log("Can activate: " + CheckIfCanActivate());
+        Debug.Log("Juice: " + juiceCounter.CurrentJuice);
         if (CheckIfCanActivate() && (playerStats.ArcaneSurgeEnabled))
         {
             // (these are for some reason activated twice if there is enough juice, but since cost=max juice we don't have to worry about that now)
