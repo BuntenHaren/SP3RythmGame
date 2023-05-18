@@ -8,6 +8,10 @@ using DG.Tweening;
 public class JuiceBar : MonoBehaviour
 {
     [SerializeField]
+    private MusicEventPort eventPort;
+
+    [Header("JuiceBar")]
+    [SerializeField]
     private JuiceCounter juiceCounter;
     [SerializeField]
     private Slider slider;
@@ -17,14 +21,27 @@ public class JuiceBar : MonoBehaviour
     private float juiceDrainPerSecond;
     [SerializeField]
     private float timeBeforeDrain;
-
     [HideInInspector]
     public bool startDrain = false;
 
+    [Header("Glow")]
+    [SerializeField]
+    private Image glowImage;
+    [SerializeField]
+    private float glowFadeInTime;
+    [SerializeField]
+    private float glowFadeOutTime;
+    [SerializeField]
+    private float glowFadeTo;
+
+    //Private
     private Timer drainTimer;
+    private bool glow = false;
+    private float timeSinceBeat;
 
     private void Start()
     {
+        eventPort.onBeat += OnBeat;
         drainTimer = new Timer();
         drainTimer.TimerDone += () => startDrain = true;
 
@@ -39,6 +56,13 @@ public class JuiceBar : MonoBehaviour
     void Update()
     {
         drainTimer.UpdateTimer(Time.fixedDeltaTime);
+
+        timeSinceBeat += Time.deltaTime;
+        if (timeSinceBeat >= eventPort.TimeBetweenBeats - glowFadeInTime)
+        {
+            timeSinceBeat = 0f;
+            GlowPulse();
+        }
     }
 
     void FixedUpdate()
@@ -67,5 +91,33 @@ public class JuiceBar : MonoBehaviour
             slider.value = changeTo;
         }
     }
-    
+
+    public void ActivateGlow()
+    {
+        glowImage.DOFade(glowFadeTo, 0.5f);
+        glow = true;
+    }
+
+    public void RemoveGlow()
+    {
+        glow = false;
+        glowImage.DOFade(0f, 0.5f);
+    }
+
+    private void OnBeat()
+    {
+        timeSinceBeat = 0f;
+    }
+
+    private void GlowPulse()
+    {
+        if(glow)
+        {
+            glowImage.DOFade(1f, glowFadeInTime).SetEase(Ease.InOutSine).OnComplete(() =>
+            {
+                glowImage.DOFade(glowFadeTo, glowFadeOutTime).SetEase(Ease.InOutSine);
+            });
+        }
+    }
+
 }

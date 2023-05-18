@@ -10,6 +10,7 @@ public class ArcaneSurge : ActiveCharm
     private float MoveSpeedMultiplier = 2f;
     private float AttackSpeedMultiplier = 2f;
 
+    private JuiceBar juiceBar;
 
     public override void ActivateCharm()
     {
@@ -27,6 +28,12 @@ public class ArcaneSurge : ActiveCharm
             playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
             playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;
             //playerStats.CurrentAttackRateMultiplier *= AttackSpeedMultiplier;
+
+            if(GameObject.Find("JuiceBar").GetComponent<JuiceBar>() != null)
+            {
+                juiceBar = GameObject.Find("JuiceBar").GetComponent<JuiceBar>();
+                juiceBar.ActivateGlow();
+            }
         }
     }
 
@@ -38,5 +45,8 @@ public class ArcaneSurge : ActiveCharm
         playerStats.CurrentMovementSpeedMultiplier /= MoveSpeedMultiplier;
         //playerStats.CurrentAttackRateMultiplier /= AttackSpeedMultiplier;
         Debug.Log("Speed endend: " + playerStats.CurrentMovementSpeedMultiplier);
+
+        if (juiceBar != null)
+            juiceBar.RemoveGlow();
     }
 }
