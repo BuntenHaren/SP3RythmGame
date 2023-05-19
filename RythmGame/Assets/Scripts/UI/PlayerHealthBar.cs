@@ -26,11 +26,12 @@ public class PlayerHealthBar : MonoBehaviour
 
     private float timeSinceBeat;
     private Vector3 originalSize;
+    private bool heartReady;
 
     private void Start()
     {
         SetMaxHealth(playerHealth.CurrentMaxHealth);
-        eventPort.onBeat += OnBeat;
+        
         SetHealth(playerHealth.BaseMaxHealth);
         originalSize = transform.localScale;
     }
@@ -38,22 +39,23 @@ public class PlayerHealthBar : MonoBehaviour
     void Update()
     {
         timeSinceBeat += Time.deltaTime;
-        if(timeSinceBeat >= eventPort.TimeBetweenBeats - scaleUpTime)
+        if(eventPort.GetDistanceToNextBeat() <= scaleUpTime && heartReady)
         {
-            timeSinceBeat = 0f;
-            //HealthBarBeatAnimation();
+            HealthBarBeatAnimation();
+            heartReady = false;
         }
     }
 
     private void OnEnable()
     {
         playerHealth.onChange += SetHealth;
+        eventPort.onBeat += OnBeat;
     }
 
     private void OnDisable()
     {
         playerHealth.onChange -= SetHealth;
-        eventPort.onBeat -= HealthBarBeatAnimation;
+        eventPort.onBeat -= OnBeat;
     }
 
     private void SetMaxHealth(float health)
@@ -69,8 +71,8 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void OnBeat()
     {
-        timeSinceBeat = 0f;
-        HealthBarBeatAnimation();
+        //HealthBarBeatAnimation();
+        heartReady = true;
     }
 
     private void HealthBarBeatAnimation()
