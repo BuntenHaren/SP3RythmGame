@@ -99,6 +99,7 @@ public class MusicEventManager : MonoBehaviour
             musicEventPort.onBeat.Invoke();
             newBeatLimit = previousBeat;
         }
+        Debug.Log("Current beat: " + timelineInfo.CurrentMusicBar);
         
     }
 
