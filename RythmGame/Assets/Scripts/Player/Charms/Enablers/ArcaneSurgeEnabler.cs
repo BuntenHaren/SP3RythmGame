@@ -29,7 +29,10 @@ public class ArcaneSurgeEnabler : MonoBehaviour
 
             if (playerStats.CurrentActiveCharm != arcaneSurge)
             {
+                Debug.Log("Switching charm from " + playerStats.CurrentActiveCharm + " to " + arcaneSurge);
+                playerStats.CurrentActiveCharm.Finish();
                 playerStats.CurrentActiveCharm = arcaneSurge;
+                playerStats.CurrentActiveCharm.Start();
             }
         }
     }

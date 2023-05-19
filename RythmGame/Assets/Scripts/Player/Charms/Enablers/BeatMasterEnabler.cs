@@ -29,7 +29,10 @@ public class BeatMasterEnabler : MonoBehaviour
 
             if (playerStats.CurrentPassiveCharm != beatMaster)
             {
+                Debug.Log("Switching charm from " + playerStats.CurrentPassiveCharm + " to " + beatMaster);
+                playerStats.CurrentPassiveCharm.Finish();
                 playerStats.CurrentPassiveCharm = beatMaster;
+                playerStats.CurrentPassiveCharm.Start();
             }
         }
     }

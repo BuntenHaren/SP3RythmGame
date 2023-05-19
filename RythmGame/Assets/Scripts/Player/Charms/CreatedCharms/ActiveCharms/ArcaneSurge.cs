@@ -43,6 +43,8 @@ public class ArcaneSurge : ActiveCharm
 
     protected override void EndActivation()
     {
+        base.EndActivation();
+
         Debug.Log("Speed endstart: " + playerStats.CurrentMovementSpeedMultiplier);
         playerStats.CurrentAttackDamageMultiplier /= DamageBuffMultiplier;
         playerStats.CurrentMovementSpeedMultiplier /= MoveSpeedMultiplier;
