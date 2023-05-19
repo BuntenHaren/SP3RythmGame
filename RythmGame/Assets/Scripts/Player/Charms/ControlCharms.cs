@@ -54,7 +54,7 @@ public class ControlCharms : MonoBehaviour
         playerStats.CurrentPassiveCharm.FixedUpdate();
     }
 
-    private void SwitchPassiveCharm(PassiveCharm newPassiveCharm)
+    public void SwitchPassiveCharm(PassiveCharm newPassiveCharm)
     {
         Debug.Log("Switching charm from " + playerStats.CurrentPassiveCharm + " to " + newPassiveCharm);
         playerStats.CurrentPassiveCharm.Finish();
@@ -64,7 +64,7 @@ public class ControlCharms : MonoBehaviour
         
     }
     
-    private void SwitchActiveCharm(ActiveCharm newActiveCharm)
+    public void SwitchActiveCharm(ActiveCharm newActiveCharm)
     {
         playerStats.CurrentActiveCharm.Finish();
         playerStats.CurrentActiveCharm = newActiveCharm;
