@@ -71,7 +71,7 @@ public class PlayerAttacks : MonoBehaviour
         
         HitEverythingInRange();
         
-        currentDirectionAnimator.SetBool("Attack", true);
+        currentDirectionAnimator.SetTrigger("Attack");
 
     }
 
@@ -181,7 +181,6 @@ public class PlayerAttacks : MonoBehaviour
     private void FixedUpdate()
     {
         attackCooldownTimer.UpdateTimer(Time.fixedDeltaTime);
-        currentDirectionAnimator.SetBool("Attack", false);
     }
     
 }
