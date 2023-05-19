@@ -44,7 +44,11 @@ public class PlayerStats : ScriptableObject
     [field: Header("Charms")]
     public ActiveCharm CurrentActiveCharm;
     public PassiveCharm CurrentPassiveCharm;
-    
+    public bool ActiveCharmActivated,
+        BeatMasterEnabled,
+        ArcaneGorgerEnabled,
+        ArcaneSurgeEnabled;
+
     [HideInInspector]
     public float CurrentMovementSpeed, 
         CurrentDashDistance, 
@@ -72,10 +76,6 @@ public class PlayerStats : ScriptableObject
         CurrentHealOnAttackMultiplier,
         CurrentMaxHealthMultiplier;
 
-    [HideInInspector]
-    public bool BeatMasterEnabled,
-        ArcaneGorgerEnabled,
-        ArcaneSurgeEnabled;
 
     public void ResetValues()
     {
@@ -100,7 +100,8 @@ public class PlayerStats : ScriptableObject
         // charms
         BeatMasterEnabled = false;
         ArcaneGorgerEnabled = false;
-        ArcaneSurgeEnabled = false; 
+        ArcaneSurgeEnabled = false;
+        ActiveCharmActivated = false;
     }
 
     private void ResetMultiplierVariables()

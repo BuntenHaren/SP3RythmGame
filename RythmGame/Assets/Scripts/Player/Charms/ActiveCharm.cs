@@ -14,7 +14,7 @@ public abstract class ActiveCharm : Charm
 
     public CharmDescriptions CharmDescription;
 
-    private bool isActive;
+    public bool isActive;
 
     public override void Start()
     {
@@ -26,9 +26,10 @@ public abstract class ActiveCharm : Charm
     public virtual void ActivateCharm()
     {
         activationTimer.StartTimer(activeDuration);
+
         isActive = true;
         //Insert your SFX below this comment for the charm activation and probably start playing the active SFX as well :)
-
+        
     }
 
     protected virtual bool CheckIfCanActivate()
@@ -38,8 +39,10 @@ public abstract class ActiveCharm : Charm
 
     public override void Update()
     {
-        if(isActive)
+        if (isActive)
+        {
             activationTimer.UpdateTimer(Time.deltaTime);
+        }
     }
 
     protected virtual void EndActivation()
