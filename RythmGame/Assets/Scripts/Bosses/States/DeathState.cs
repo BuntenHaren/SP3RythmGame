@@ -4,6 +4,7 @@ using Bosses;
 using Bosses.States;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathState : SecondPhaseState
 {
@@ -13,6 +14,14 @@ public class DeathState : SecondPhaseState
         behaviour.bossAnim.SetTrigger("Death");
         RuntimeManager.PlayOneShot(secondPhase.DeathSFX);
         bossHealth.Invurnerable = true;
-        GameObject.FindWithTag("Music").GetComponent<StudioGlobalParameterTrigger>().Value = 4;
+        behaviour.MusicProgression(3);
+        timer.StartTimer(secondPhaseStats.DeathTime);
+    }
+
+    protected override void TimerDone()
+    {
+        base.TimerDone();
+        if(secondPhaseStats.SceneToLoadAfterDeath != null)
+            SceneManager.LoadScene(secondPhaseStats.SceneToLoadAfterDeath);
     }
 }

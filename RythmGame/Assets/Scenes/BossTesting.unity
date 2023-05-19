@@ -1155,6 +1155,16 @@ PrefabInstance:
       propertyPath: EventName.Guid.Data4
       value: -1930238687
       objectReference: {fileID: 0}
+    - target: {fileID: 4462143856876486347, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
+        type: 3}
+      propertyPath: Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462143856876486347, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
+        type: 3}
+      propertyPath: Parameter
+      value: Progression
+      objectReference: {fileID: 0}
     - target: {fileID: 4925542782663943086, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1220,8 +1230,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Music
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4462143856876486347, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a5c65212b9a1a34ebf9e1ee6cdc09b7, type: 3}
 --- !u!1001 &884507234
 PrefabInstance:
@@ -1234,6 +1243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474799876192148299, guid: 5b6f638c49f8a564aa44b1a6c678277b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1568230730670641172, guid: 5b6f638c49f8a564aa44b1a6c678277b,
         type: 3}

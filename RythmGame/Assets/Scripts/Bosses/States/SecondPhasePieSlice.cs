@@ -40,7 +40,7 @@ public class SecondPhasePieSlice : SecondPhaseState
     
         numberOfBeatsWaited++;
         
-        if(numberOfBeatsWaited == secondPhaseStats.PieSliceAmountOfBeatsWarning - 4)
+        if(numberOfBeatsWaited == secondPhaseStats.PieSliceAmountOfBeatsWarning - secondPhaseStats.PieSliceAnimDurationBeforeImpact)
             behaviour.bossAnim.SetTrigger("GroundToss");
     
         if(numberOfBeatsWaited >= secondPhaseStats.PieSliceAmountOfBeatsWarning)

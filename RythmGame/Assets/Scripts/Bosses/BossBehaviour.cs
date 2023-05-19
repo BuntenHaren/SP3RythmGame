@@ -30,6 +30,7 @@ namespace Bosses
             currentBossState = new IdleFirstPhase();
             GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
             currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
+            MusicProgression(1);
         }
 
         private void OnEnable()
@@ -76,6 +77,12 @@ namespace Bosses
             currentBossState.Exit();
             currentBossState = targetState;
             currentBossState.Entry(this, firstPhaseStats, secondPhaseStats, bossHealth, beatPort);
+        }
+
+        public void MusicProgression(int newProgression)
+        {
+            GameObject.FindWithTag("Music").GetComponent<StudioGlobalParameterTrigger>().Value = newProgression;
+            GameObject.FindWithTag("Music").GetComponent<StudioGlobalParameterTrigger>().TriggerParameters();
         }
 
         private void OnDisable()
