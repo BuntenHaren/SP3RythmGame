@@ -40,10 +40,13 @@ public class SecondPhaseStomp : SecondPhaseState
             return;
     
         numberOfBeatsWaited++;
-        
+
         if(numberOfBeatsWaited == secondPhaseStats.NumberOfBeatsWarningForStomp - 1)
+        {
             behaviour.bossAnim.SetTrigger("HoofStomp");
-        
+            innerCircleTelegraph.GetComponentInChildren<Animator>().SetTrigger("HoofCrash");
+        }
+
         if(numberOfBeatsWaited >= secondPhaseStats.NumberOfBeatsWarningForStomp)
             StartAttack();
     }
@@ -56,6 +59,7 @@ public class SecondPhaseStomp : SecondPhaseState
         outerRingTelegraph.transform.position = attackPosition;
         outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, secondPhaseStats.StompRadius - 0.1f, secondPhaseStats.StompRadius, 360, 0));
         innerCircleTelegraph.transform.position = attackPosition;
+        innerCircleTelegraph.GetComponentInChildren<Animator>().SetTrigger("HoofWindup");
     }
 
     public override void Update()
