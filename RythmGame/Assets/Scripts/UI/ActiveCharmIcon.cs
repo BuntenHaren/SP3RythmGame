@@ -48,10 +48,10 @@ public class ActiveCharmIcon : MonoBehaviour, IPointerEnterHandler
 
     public void ChangeIcon(Sprite sprite)
     {
-        image.DOFade(0f, fadeDuration).OnComplete(() =>
+        image.DOFade(0f, fadeDuration).SetUpdate(true).OnComplete(() =>
         {
             image.sprite = sprite;
-            image.DOFade(255f, 100f);
+            image.DOFade(1, 1).SetUpdate(true);
         });
     }
 
