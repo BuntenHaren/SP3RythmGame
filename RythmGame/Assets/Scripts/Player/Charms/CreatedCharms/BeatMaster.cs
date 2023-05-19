@@ -31,7 +31,6 @@ public class BeatMaster : PassiveCharm
 
         // calculate juice gauge fill ratio
         JuiceLevelRatio = juiceCounter.CurrentJuice / juiceCounter.MaxJuice;
-        Debug.Log("Juice level: " + JuiceLevelRatio);
 
         DistanceToLastBeat = beatPort.GetDistanceToLastBeat();
         DistanceToNextBeat = beatPort.GetDistanceToNextBeat();
@@ -51,12 +50,10 @@ public class BeatMaster : PassiveCharm
         if (!playerStats.ActiveCharmActivated)
         {
             playerStats.CurrentAttackDamageMultiplier = (BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy);
-            Debug.Log("Not activated damage: " + (BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy));
         }
         else
         {
             playerStats.CurrentAttackDamageMultiplier = (BaseMultiplier + JuiceLevelMultiplier * ActivatedJuiceLevelRatio + BeatAccuracy);
-            Debug.Log("Activated damage: " + (BaseMultiplier + JuiceLevelMultiplier * ActivatedJuiceLevelRatio + BeatAccuracy));
         }
     }
 }
