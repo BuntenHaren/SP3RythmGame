@@ -24,6 +24,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         telegraphHolder = new GameObject("TelegraphHolder");
         telegraphHolder.transform.parent = behaviour.transform;
         telegraphHolder.transform.localPosition = Vector3.zero;
+        Debug.Log("Boss pie slice");
     }
 
     public override void OnBeat()

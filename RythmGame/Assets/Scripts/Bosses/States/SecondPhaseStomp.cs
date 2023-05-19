@@ -132,9 +132,8 @@ public class SecondPhaseStomp : SecondPhaseState
     public override void Exit()
     {
         innerCircleTelegraph.SetMesh(new Mesh());
-        outerRingTelegraph.SetMesh(new Mesh());
+        outerRingTelegraph.SetMesh(outerRingTelegraph.CreateCircleMesh(0,0,0,0));
         innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = true;
         base.Exit();
-        Debug.Log("Exit stomp");
     }
 }
