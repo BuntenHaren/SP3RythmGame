@@ -11,21 +11,15 @@ public class ResetValues : MonoBehaviour
     private PassiveCharm emptyPassiveCharm;
     [SerializeField]
     private ActiveCharm emptyActiveCharm;
-    
+
 
     // Start is called before the first frame update
     void Awake()
     {
         playerStats.ResetValues();
 
-        if (playerStats.CurrentPassiveCharm != emptyPassiveCharm)
-        {
-            playerStats.CurrentPassiveCharm = emptyPassiveCharm;
-        }
-        if (playerStats.CurrentActiveCharm != emptyActiveCharm)
-        {
-            playerStats.CurrentActiveCharm = emptyActiveCharm;
-        }
+        GetComponent<ControlCharms>().SwitchPassiveCharm(emptyPassiveCharm);
+        GetComponent<ControlCharms>().SwitchActiveCharm(emptyActiveCharm);
     }
 
     // Update is called once per frame

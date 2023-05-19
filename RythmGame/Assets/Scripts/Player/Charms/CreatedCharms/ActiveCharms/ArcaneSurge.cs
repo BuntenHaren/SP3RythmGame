@@ -7,14 +7,12 @@ public class ArcaneSurge : ActiveCharm
 {
     [SerializeField]
     private float DamageBuffMultiplier = 1.5f;
-    //[SerializeField]
-    //private float DashCooldownMultiplier = 0.5f;
     [SerializeField]
     private float MoveSpeedMultiplier = 1.4f;
-    //[SerializeField]
-    //private float AttackSpeedMultiplier = 2f;
 
     private JuiceBar juiceBar;
+
+
 
     public override void ActivateCharm()
     {
@@ -24,17 +22,16 @@ public class ArcaneSurge : ActiveCharm
         {
             // (these are for some reason activated twice if there is enough juice, but since cost=max juice we don't have to worry about that now)
             Debug.Log("active activated");
-            //base.ActivateCharm();
             activationTimer.StartTimer(activeDuration);
+            playerStats.ActiveCharmActivated = true;
+
             // detract juice
             juiceCounter.CurrentJuice -= activationCost;
             Debug.Log("activated 3");
 
             // change stats
             playerStats.CurrentAttackDamageMultiplier *= DamageBuffMultiplier;
-            //playerStats.CurrentDashCooldownMultiplier *= DashCooldownMultiplier;
             playerStats.CurrentMovementSpeedMultiplier *= MoveSpeedMultiplier;
-            //playerStats.CurrentAttackRateMultiplier *= AttackSpeedMultiplier;
 
             if(GameObject.Find("JuiceBar").GetComponent<JuiceBar>() != null)
             {
@@ -48,11 +45,10 @@ public class ArcaneSurge : ActiveCharm
     {
         Debug.Log("Speed endstart: " + playerStats.CurrentMovementSpeedMultiplier);
         playerStats.CurrentAttackDamageMultiplier /= DamageBuffMultiplier;
-        //playerStats.CurrentDashCooldownMultiplier /= DashCooldownMultiplier;
         playerStats.CurrentMovementSpeedMultiplier /= MoveSpeedMultiplier;
-        //playerStats.CurrentAttackRateMultiplier /= AttackSpeedMultiplier;
         Debug.Log("Speed endend: " + playerStats.CurrentMovementSpeedMultiplier);
 
+        playerStats.ActiveCharmActivated = false;
         if (juiceBar != null)
             juiceBar.RemoveGlow();
     }
