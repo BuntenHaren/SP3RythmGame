@@ -92,7 +92,7 @@ public class SecondPhasePieSlice : SecondPhaseState
 
     protected override void TimerDone()
     {
-        behaviour.Transition(new IdleFirstPhase());
+        behaviour.Transition(new IdleSecondPhase());
     }
 
     public override void OnCollisionStay(Collision other)

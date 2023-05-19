@@ -16,6 +16,7 @@ public class SecondPhaseStomp : SecondPhaseState
     private float currentShockwaveSize;
     private float currentShockwaveTime;
     private bool shockwave = false;
+    private bool DamageDealt;
 
     public override void Entry(BossBehaviour bossBehaviour, FirstPhaseStats firstPhase, SecondPhaseStats secondPhase, Health bossHealth, MusicEventPort beatPort)
     {
@@ -86,6 +87,7 @@ public class SecondPhaseStomp : SecondPhaseState
         RuntimeManager.PlayOneShot(secondPhaseStats.StompShockwaveSFX);
         shockwave = true;
         innerCircleTelegraph.SetMesh(new Mesh());
+        //innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = false;
     }
 
     private void UpdateShockwave()
@@ -94,6 +96,20 @@ public class SecondPhaseStomp : SecondPhaseState
         currentShockwaveSize = secondPhaseStats.StompShockwaveFinalSize * (currentShockwaveTime / secondPhaseStats.StompShockwaveTime);
         Mesh shockwave = outerRingTelegraph.CreateHollowCircle(100, currentShockwaveSize, currentShockwaveSize + secondPhaseStats.StompShockwaveWidth, 360, 0);
         outerRingTelegraph.SetMesh(shockwave);
+        if(!DamageDealt)
+            DealDamage();
+    }
+    
+    private void DealDamage()
+    {
+        if((attackPosition - behaviour.GetPlayerPos()).magnitude < currentShockwaveSize)
+            return;
+        if((attackPosition - behaviour.GetPlayerPos()).magnitude > currentShockwaveSize + secondPhaseStats.StompShockwaveWidth)
+            return;
+        
+        GameObject potentialPlayer = GameObject.FindWithTag("Player");
+        potentialPlayer.GetComponent<IDamageable>().TakeDamage(secondPhaseStats.StompShockwaveDamage);
+        DamageDealt = true;
     }
 
     private void HitEverythingInRadius()
@@ -115,8 +131,10 @@ public class SecondPhaseStomp : SecondPhaseState
 
     public override void Exit()
     {
-        base.Exit();
         innerCircleTelegraph.SetMesh(new Mesh());
         outerRingTelegraph.SetMesh(new Mesh());
+        innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = true;
+        base.Exit();
+        Debug.Log("Exit stomp");
     }
 }
