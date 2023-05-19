@@ -62,7 +62,7 @@ public class PassiveCharmIcon : MonoBehaviour, IPointerEnterHandler
         image.DOFade(0f, fadeDuration).OnComplete(() =>
         {
             image.sprite = sprite;
-            image.DOFade(255f, 100f);
+            image.DOFade(1f, 1f);
         });
     }
 
