@@ -153,6 +153,11 @@ public class EnemyMeleeAttack : MonoBehaviour
         if (rotationPivot != null)
         {
             rotationPivot.rotation = Quaternion.LookRotation(rotationPivot.position - player.position);
+            transform.rotation = Quaternion.LookRotation(transform.position - player.position);
+            Vector3 eulerAngles = transform.rotation.eulerAngles;
+            eulerAngles.x = 90;
+            eulerAngles.z = 0;
+            transform.rotation = Quaternion.Euler(eulerAngles);
         }
         attackTimer = 0f;
         attacking = true;
