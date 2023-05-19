@@ -193,6 +193,8 @@ MonoBehaviour:
   arcaneGorger: {fileID: 11400000, guid: d565d87ca864bba489af732444f56ea4, type: 2}
   activeEmptyCharm: {fileID: 11400000, guid: 2c172f09b9066fd40bf717dcef8547c9, type: 2}
   arcaneSurge: {fileID: 11400000, guid: 3a8d27d854d5b6042a61948f9dfb1abe, type: 2}
+  passiveCharmIcon: {fileID: 0}
+  activeCharmIcon: {fileID: 0}
 --- !u!1 &1187404434201240896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,6 +2440,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5263234545056568269}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6522622991365465280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1409557292659717901, guid: 3b97c9829be57b041adb56e06d0cedb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5263234545056568269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &5436293440929949318
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522622991365465280}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!95 &6522622991365465293 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1409557292659717888, guid: 3b97c9829be57b041adb56e06d0cedb4,
