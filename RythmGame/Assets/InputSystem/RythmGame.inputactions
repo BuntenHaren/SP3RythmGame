@@ -831,6 +831,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "SceneChanger",
+            "id": "f5703bb9-ddc6-4c26-9544-d692a9fd8d32",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "11f42619-9ac0-460a-8f35-629ddd8ae132",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e2e0d98f-8562-4343-9c78-72e851c15288",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

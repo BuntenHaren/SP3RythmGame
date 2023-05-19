@@ -16,4 +16,10 @@ public class ChangeSceneOnTimer : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }
     }
+
+    public void OnSkip()
+    {
+        Debug.Log("skip");
+        SceneManager.LoadScene(sceneName);
+    }
 }
