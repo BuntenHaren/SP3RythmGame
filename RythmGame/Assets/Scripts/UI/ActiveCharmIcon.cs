@@ -69,6 +69,7 @@ public class ActiveCharmIcon : MonoBehaviour, IPointerEnterHandler
     {
         rectTransform.DOAnchorPos(originalPos, pauseMoveDuration);
         rectTransform.DOSizeDelta(originalScale, pauseScaleDuration);
+        charmDescription.HideDescription();
         isPaused = false;
     }
 

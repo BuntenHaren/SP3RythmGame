@@ -36,7 +36,6 @@ public class CharmDescription : MonoBehaviour, IPointerExitHandler
     {
         if (animationFinished)
         {
-            //Fix when charm scriptable objects are fixed
             if (isActiveCharm)
             {
                 title.text = playerStats.CurrentActiveCharm.CharmDescription.CharmTitle;

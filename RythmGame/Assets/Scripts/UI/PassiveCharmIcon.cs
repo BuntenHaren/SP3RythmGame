@@ -81,6 +81,7 @@ public class PassiveCharmIcon : MonoBehaviour, IPointerEnterHandler
         isPaused = false;
         rectTransform.DOAnchorPos(originalPos, pauseMoveDuration);
         rectTransform.DOSizeDelta(originalScale, pauseScaleDuration);
+        charmDescription.HideDescription();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
