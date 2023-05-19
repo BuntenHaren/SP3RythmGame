@@ -64,9 +64,9 @@ public class ArcaneGorger : PassiveCharm
 
     public override void Finish()
     {
-        base.Finish();
         playerStats.CurrentHealOnAttack = 0;
         playerStats.CurrentMaxHealthMultiplier /= MaxHealthMultiplier;
+        base.Finish();
     }
 
     public void Heal()
