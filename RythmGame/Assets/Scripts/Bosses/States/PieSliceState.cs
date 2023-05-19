@@ -72,7 +72,7 @@ namespace Bosses.States
             
             float angleTowardsPlayerOffset = Random.Range(0, firstPhaseStats.PieSliceMaxAngleDeviation * 2);
             float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
-            angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
+            angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset - firstPhaseStats.PieSliceSectorAngle;
             telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
         }
 

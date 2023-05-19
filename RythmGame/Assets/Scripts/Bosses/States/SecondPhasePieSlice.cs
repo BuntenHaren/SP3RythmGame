@@ -69,7 +69,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         float angleTowardsPlayerOffset = Random.Range(0, secondPhaseStats.PieSliceMaxAngleDeviation * 2);
         float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
         //We use -180 to turn everything back, because what i expected to be forward was in reality the opposite..
-        angleTowardsPlayer += -secondPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
+        angleTowardsPlayer += -secondPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset - (firstPhaseStats.PieSliceSectorAngle * firstPhaseStats.PieSliceAmountOfSlices) / 2;
         telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
     }
 
