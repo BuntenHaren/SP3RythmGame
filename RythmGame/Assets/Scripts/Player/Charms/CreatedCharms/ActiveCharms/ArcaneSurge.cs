@@ -22,7 +22,7 @@ public class ArcaneSurge : ActiveCharm
         {
             // (these are for some reason activated twice if there is enough juice, but since cost=max juice we don't have to worry about that now)
             Debug.Log("active activated");
-            activationTimer.StartTimer(activeDuration);
+
             playerStats.ActiveCharmActivated = true;
 
             // detract juice
@@ -38,20 +38,22 @@ public class ArcaneSurge : ActiveCharm
                 juiceBar = GameObject.Find("JuiceBar").GetComponent<JuiceBar>();
                 juiceBar.ActivateGlow();
             }
+            base.ActivateCharm();
         }
     }
 
     protected override void EndActivation()
     {
-        base.EndActivation();
-
         Debug.Log("Speed endstart: " + playerStats.CurrentMovementSpeedMultiplier);
         playerStats.CurrentAttackDamageMultiplier /= DamageBuffMultiplier;
         playerStats.CurrentMovementSpeedMultiplier /= MoveSpeedMultiplier;
         Debug.Log("Speed endend: " + playerStats.CurrentMovementSpeedMultiplier);
 
         playerStats.ActiveCharmActivated = false;
+
         if (juiceBar != null)
             juiceBar.RemoveGlow();
+
+        base.EndActivation();
     }
 }
