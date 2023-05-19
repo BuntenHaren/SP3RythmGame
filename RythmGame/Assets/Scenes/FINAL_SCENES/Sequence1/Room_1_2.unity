@@ -5064,23 +5064,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 145188647}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &146157115 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1953627762314771021, guid: 844f25733d533dc428729b2efddb093d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1212465075}
-  m_PrefabAsset: {fileID: 0}
---- !u!210 &146157120
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146157115}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!1001 &148743984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62733,6 +62716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealingObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516036097024221109, guid: 844f25733d533dc428729b2efddb093d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844f25733d533dc428729b2efddb093d, type: 3}
