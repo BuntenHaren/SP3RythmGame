@@ -20,6 +20,9 @@ public class BushCollision : MonoBehaviour
     [SerializeField]
     private float elasticity;
 
+    [SerializeField]
+    private ParticleSystem particles;
+
     void Start()
     {
         childTransform = gameObject.transform.GetChild(0);
@@ -36,6 +39,7 @@ public class BushCollision : MonoBehaviour
     private void BushWiggle()
     {
         var rotation = new Vector3(0f, 0f, Random.Range(positiveRotationPunch, negativeRotationPunch));
+        Instantiate(particles, transform);
         childTransform.DOPunchScale(scalePunch, duration, vibrato, elasticity).SetEase(Ease.InOutSine).OnComplete(() =>
         {
             childTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
