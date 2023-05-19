@@ -26,7 +26,6 @@ public class PlayerHealthBar : MonoBehaviour
 
     private float timeSinceBeat;
     private Vector3 originalSize;
-    private bool heartReady;
 
     private void Start()
     {
@@ -39,10 +38,10 @@ public class PlayerHealthBar : MonoBehaviour
     void Update()
     {
         timeSinceBeat += Time.deltaTime;
-        if(eventPort.GetDistanceToNextBeat() <= scaleUpTime && heartReady)
+        if(timeSinceBeat >= eventPort.TimeBetweenBeats - scaleUpTime)
         {
-            HealthBarBeatAnimation();
-            heartReady = false;
+            timeSinceBeat = 0f;
+            //HealthBarBeatAnimation();
         }
     }
 
@@ -71,8 +70,8 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void OnBeat()
     {
-        //HealthBarBeatAnimation();
-        heartReady = true;
+        timeSinceBeat = 0f;
+        HealthBarBeatAnimation();
     }
 
     private void HealthBarBeatAnimation()
