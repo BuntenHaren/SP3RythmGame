@@ -58,7 +58,6 @@ public class PlayerAttacks : MonoBehaviour
         readyToAttack = false;
         SetCurrentlyActiveAnimator();
         actualAttackSFX = PlayerAttack;
-        currentDirectionAnimator.SetBool("Attack", true);
         
         //This is temporary testing
         onPlayerAttackAction.Invoke();
@@ -69,7 +68,10 @@ public class PlayerAttacks : MonoBehaviour
         }
         
         ActivateAttackStuff();
+        
         HitEverythingInRange();
+        
+        currentDirectionAnimator.SetBool("Attack", true);
 
     }
 
