@@ -89,7 +89,6 @@ public class JuiceBar : MonoBehaviour
         else
         {
             slider.value = changeTo;
-            startDrain = false;
             drainTimer.StartTimer(timeBeforeDrain);
         }
     }
