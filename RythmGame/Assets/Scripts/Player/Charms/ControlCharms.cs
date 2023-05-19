@@ -27,16 +27,15 @@ public class ControlCharms : MonoBehaviour
 
     // Timer for delayed heal (after deactivating arcane gorger)
     private float delayTime = 0.05f;
-    protected Timer delayedHealTimer;
+    private Timer delayedHealTimer;
 
     void Start()
     {
-        playerStats.CurrentActiveCharm.Start();
-        playerStats.CurrentPassiveCharm.Start();
-
         // timer for delayed heal
         delayedHealTimer = new Timer();
         delayedHealTimer.TimerDone += EndDelayedHeal;
+        playerStats.CurrentActiveCharm.Start();
+        playerStats.CurrentPassiveCharm.Start();
     }
 
     void Update()
@@ -80,12 +79,14 @@ public class ControlCharms : MonoBehaviour
 
     private void OnEnable()
     {
+        
         playerStats.CurrentActiveCharm.Start();
         playerStats.CurrentPassiveCharm.Start();
     }
 
     private void OnDisable()
     {
+        delayedHealTimer.TimerDone -= EndDelayedHeal;
         playerStats.CurrentActiveCharm.Finish();
         playerStats.CurrentPassiveCharm.Finish();
     }

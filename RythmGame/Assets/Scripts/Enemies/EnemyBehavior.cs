@@ -121,8 +121,9 @@ public class EnemyBehavior : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
+            var target = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
             anim.SetBool("Moving", true);
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed);
         }
         else
         {

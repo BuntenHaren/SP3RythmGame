@@ -67,6 +67,7 @@ namespace Bosses
             {
                 circle.transform.position = transform.position;
                 circle.transform.rotation = transform.rotation;
+                circle.SetMesh(new Mesh());
             }
         }
 

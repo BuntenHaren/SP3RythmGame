@@ -40,7 +40,9 @@ public class HealingObject : MonoBehaviour, IDamageable
             enabled = false;
             return;
         }
-
+        
+        GetComponent<Animator>().SetTrigger("Heal");
+        GameObject.FindWithTag("Player").GetComponentInChildren<Animator>().SetTrigger("Heal");
         playerHealth.CurrentHealth += healingPerCharge;
         chargesLeft--;
     }

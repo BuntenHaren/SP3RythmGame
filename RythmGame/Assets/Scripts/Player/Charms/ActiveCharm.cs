@@ -14,7 +14,7 @@ public abstract class ActiveCharm : Charm
 
     public CharmDescriptions CharmDescription;
 
-    private bool isActive;
+    public bool isActive;
 
     public override void Start()
     {
