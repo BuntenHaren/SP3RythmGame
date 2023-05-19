@@ -41,7 +41,7 @@ public class HealingObject : MonoBehaviour, IDamageable
             return;
         }
         
-        GetComponent<Animator>().SetTrigger("Heal");
+        GetComponentInParent<Animator>().SetTrigger("Heal");
         GameObject.FindWithTag("Player").GetComponentInChildren<Animator>().SetTrigger("Heal");
         playerHealth.CurrentHealth += healingPerCharge;
         chargesLeft--;
@@ -55,7 +55,10 @@ public class HealingObject : MonoBehaviour, IDamageable
     private void Update()
     {
         if (chargesLeft == 0)
+        {
             GetComponent<SpriteRenderer>().sprite = sp0;
+            GetComponent<BoxCollider>().enabled = false;
+        }
         if (chargesLeft == 1)
             GetComponent<SpriteRenderer>().sprite = sp1;
         if (chargesLeft == 2)
