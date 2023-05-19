@@ -71,14 +71,16 @@ public class JuiceBar : MonoBehaviour
         {
             juiceCounter.CurrentJuice -= juiceDrainPerSecond * Time.deltaTime;
             if (juiceCounter.CurrentJuice < 0f)
+            {
                 juiceCounter.CurrentJuice = 0f;
+            }
         }
     }
 
     private void ChangeSliderValue(float amount)
     {
         var changeTo = slider.value + amount;
-        if (amount > 0.2f)
+        if (amount > 0f)
         {
             DOTween.To(() => slider.value, x => slider.value = x, changeTo, sliderUpdateTime).SetEase(Ease.OutElastic).OnComplete(() =>
             {
@@ -86,6 +88,7 @@ public class JuiceBar : MonoBehaviour
                 drainTimer.StartTimer(timeBeforeDrain);
             });
         }
+
         else
         {
             slider.value = changeTo;

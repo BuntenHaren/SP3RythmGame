@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
         //Check for obstruction and make it so you can't dash through walls
         RaycastHit potentialObstruction = CheckForObstruction(startPosition, dashDirection, dashDirection.magnitude);
         if(potentialObstruction.collider != null)
-            targetPosition = startPosition + dashDirection.normalized * (potentialObstruction.distance - 0.15f);
+            targetPosition = startPosition + dashDirection.normalized * (potentialObstruction.distance * 0.85f);
         
         //Incremental movement towards the target position
         while (time < duration)
