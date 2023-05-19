@@ -34,8 +34,13 @@ namespace Bosses.States
         
             numberOfBeatsWaited++;
             
-            if(numberOfBeatsWaited == firstPhaseStats.NumberOfBeatsWarningForStomp - 1)
+            if(numberOfBeatsWaited == firstPhaseStats.NumberOfBeatsWarningForStomp - firstPhaseStats.HoofStompAnimDurationBeforeImpact)
+                innerCircleTelegraph.GetComponentInChildren<Animator>().SetTrigger("HoofCrash");
+            
+            if(numberOfBeatsWaited == firstPhaseStats.NumberOfBeatsWarningForStomp - firstPhaseStats.HoofStompAnimDurationBeforeImpact)
+            {
                 behaviour.bossAnim.SetTrigger("HoofStomp");
+            }
             
             if(numberOfBeatsWaited >= firstPhaseStats.NumberOfBeatsWarningForStomp)
                 StartAttack();
@@ -49,6 +54,7 @@ namespace Bosses.States
             outerRingTelegraph.transform.position = attackPosition;
             outerRingTelegraph.SetMesh(outerRingTelegraph.CreateHollowCircle(100, firstPhaseStats.StompRadius - 0.1f, firstPhaseStats.StompRadius, 360, 0));
             innerCircleTelegraph.transform.position = attackPosition;
+            innerCircleTelegraph.GetComponentInChildren<Animator>().SetTrigger("HoofWindup");
         }
 
         public override void Update()
@@ -61,8 +67,11 @@ namespace Bosses.States
             startedAttacking = true;
             timer.StartTimer(2);
             outerRingTelegraph.SetMesh(new Mesh());
+            innerCircleTelegraph.SetMesh(new Mesh());
+            innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = false;
             
             RuntimeManager.PlayOneShot(firstPhaseStats.HoofStompSFX);
+            Debug.Log("Attacked");
             
             Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
             foreach(Collider hit in potentialHit)
@@ -85,6 +94,7 @@ namespace Bosses.States
             base.Exit();
             innerCircleTelegraph.SetMesh(new Mesh());
             outerRingTelegraph.SetMesh(new Mesh());
+            innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }

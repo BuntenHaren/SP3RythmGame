@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 namespace Bosses.States
@@ -10,6 +11,9 @@ namespace Bosses.States
             Debug.Log("Enraged");
             health.Invurnerable = true;
             timer.StartTimer(secondPhaseStats.EnragedTime);
+            behaviour.bossAnim.SetBool("Phase 2", true);
+            behaviour.bossAnim.SetTrigger("PhaseChange");
+            behaviour.MusicProgression(2);
         }
 
         protected override void TimerDone()
@@ -21,7 +25,6 @@ namespace Bosses.States
         public override void Exit()
         {
             base.Exit();
-            behaviour.bossAnim.SetBool("Phase 2", true);
             health.Invurnerable = false;
         }
     }

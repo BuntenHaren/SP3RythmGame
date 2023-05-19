@@ -15,12 +15,14 @@ namespace Bosses
         public int PieSliceAmountOfBeatsWarning;
         public float PieSliceMaxAngleDeviation;
         public Vector2 PieSliceOriginOffset;
+        public int PieSliceAnimDurationBeforeImpact;
 
         [field: Header("Hoof Stomp Attack Variables")]
         public float StompDamage;
         public int NumberOfStompsTotal;
         public int NumberOfBeatsWarningForStomp;
         public float StompRadius;
+        public int HoofStompAnimDurationBeforeImpact;
     
         [field: Header("Idle State Variables")]
         public float IdleTimeRangeMax;
