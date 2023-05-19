@@ -25,7 +25,6 @@ public class SecondPhaseStomp : SecondPhaseState
         innerCircleTelegraph = behaviour.GenerateCircles[1];
         behaviour.ResetTelegraphPositions();
         outerRingTelegraph.GetComponent<MeshRenderer>().enabled = true;
-        Debug.Log("Second phase stomp");
     }
 
     public override void OnBeat()
@@ -41,7 +40,10 @@ public class SecondPhaseStomp : SecondPhaseState
     
         numberOfBeatsWaited++;
 
-        if(numberOfBeatsWaited == secondPhaseStats.NumberOfBeatsWarningForStomp - 1)
+        if(numberOfBeatsWaited == secondPhaseStats.NumberOfBeatsWarningForStomp - secondPhaseStats.HoofStompAnimDurationBeforeImpact - 1)
+            innerCircleTelegraph.GetComponentInChildren<Animator>().SetTrigger("HoofCrash");
+        
+        if(numberOfBeatsWaited == secondPhaseStats.NumberOfBeatsWarningForStomp - secondPhaseStats.HoofStompAnimDurationBeforeImpact)
         {
             behaviour.bossAnim.SetTrigger("HoofStomp");
             innerCircleTelegraph.GetComponentInChildren<Animator>().SetTrigger("HoofCrash");
@@ -92,7 +94,7 @@ public class SecondPhaseStomp : SecondPhaseState
         RuntimeManager.PlayOneShot(secondPhaseStats.StompShockwaveSFX);
         shockwave = true;
         innerCircleTelegraph.SetMesh(new Mesh());
-        //innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = false;
+        innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = false;
     }
 
     private void UpdateShockwave()

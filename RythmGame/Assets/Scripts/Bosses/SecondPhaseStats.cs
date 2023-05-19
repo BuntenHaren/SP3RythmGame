@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ namespace Bosses
         public int PieSliceAmountOfBeatsWarning;
         public float PieSliceMaxAngleDeviation;
         public Vector2 PieSliceOriginOffset;
+        public int PieSliceAnimDurationBeforeImpact;
 
         [field: Header("Hoof Stomp Attack Variables")]
         public float StompDamage;
@@ -33,11 +35,19 @@ namespace Bosses
         public float StompShockwaveDamage;
         public float StompShockwaveFinalSize;
         public float StompShockwaveWidth;
-    
+        public int HoofStompAnimDurationBeforeImpact;
+        
+        [field: Header("Minion Spawn Attack Variables")]
+        public int MinionAmount;
+        public List<Vector3> spawnPoints;
+        public GameObject MinionToSpawn;
+        
         [field: Header("Idle State Variables")]
         public float IdleTimeRangeMax;
         public float IdleTimeRangeMin;
         public float EnragedTime;
+        public float DeathTime;
+        public string SceneToLoadAfterDeath;
     
         [field: Header("Health Multipliers")]
         public float HealingRecievedMultiplier = 1;

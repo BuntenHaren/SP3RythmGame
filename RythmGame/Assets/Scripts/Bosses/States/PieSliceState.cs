@@ -43,7 +43,7 @@ namespace Bosses.States
         
             numberOfBeatsWaited++;
             
-            if(numberOfBeatsWaited == firstPhaseStats.PieSliceAmountOfBeatsWarning - 4)
+            if(numberOfBeatsWaited == firstPhaseStats.PieSliceAmountOfBeatsWarning - firstPhaseStats.PieSliceAnimDurationBeforeImpact)
                 behaviour.bossAnim.SetTrigger("GroundToss");
         
             if(numberOfBeatsWaited >= firstPhaseStats.PieSliceAmountOfBeatsWarning)
