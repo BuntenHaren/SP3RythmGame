@@ -85,11 +85,14 @@ namespace Bosses
 
         public void TakeDamage(float amount)
         {
+            if(bossHealth.Invurnerable)
+                return;
+            
             bossHealth.CurrentHealth -= amount;
             bossAnim.SetTrigger("Hurt");
             RuntimeManager.PlayOneShot(firstPhaseStats.HurtSFX);
             if(bossHealth.CurrentHealth <= 0)
-                Die();
+                Transition(new DeathState());
         }
 
         public void TakeDamageOnBeat(float amount)
@@ -100,12 +103,6 @@ namespace Bosses
         public void HealDamage(float amount)
         {
             bossHealth.CurrentHealth += amount;
-        }
-
-        private void Die()
-        {
-            bossAnim.SetTrigger("Death");
-            RuntimeManager.PlayOneShot(secondPhaseStats.DeathSFX);
         }
 
         public void CollisionEnter(Collision collision)
