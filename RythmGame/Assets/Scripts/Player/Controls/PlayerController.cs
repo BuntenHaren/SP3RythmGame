@@ -179,7 +179,6 @@ public class PlayerController : MonoBehaviour
         if (potentialObstruction.collider != null)
         {
             targetPosition = startPosition + dashDirection.normalized * (potentialObstruction.distance - 2f);
-            Debug.Log(potentialObstruction.distance * 0.75f);
         }
         
         //Incremental movement towards the target position
