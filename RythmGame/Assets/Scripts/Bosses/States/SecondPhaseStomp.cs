@@ -24,6 +24,7 @@ public class SecondPhaseStomp : SecondPhaseState
         outerRingTelegraph = behaviour.GenerateCircles[0];
         innerCircleTelegraph = behaviour.GenerateCircles[1];
         behaviour.ResetTelegraphPositions();
+        outerRingTelegraph.GetComponent<MeshRenderer>().enabled = true;
         Debug.Log("Second phase stomp");
     }
 
@@ -132,7 +133,8 @@ public class SecondPhaseStomp : SecondPhaseState
     public override void Exit()
     {
         innerCircleTelegraph.SetMesh(new Mesh());
-        outerRingTelegraph.SetMesh(outerRingTelegraph.CreateCircleMesh(0,0,0,0));
+        outerRingTelegraph.SetMesh(new Mesh());
+        outerRingTelegraph.GetComponent<MeshRenderer>().enabled = false;
         innerCircleTelegraph.GetComponent<MeshRenderer>().enabled = true;
         base.Exit();
     }
