@@ -6,6 +6,7 @@ using UnityEngine;
 public class ArcaneGorger : PassiveCharm
 {
     private float JuiceLevelRatio = 0f;
+    private float ActivatedJuiceLevelRatio = 1.0f;
     private float BeatAccuracy = 0f;
 
     private float BeatAccuracyMultiplier = 1f;
@@ -51,7 +52,14 @@ public class ArcaneGorger : PassiveCharm
         }
 
         // set healing
-        playerStats.CurrentHealOnAttack = BaseHeal * BeatAccuracy * JuiceLevelRatio;
+        if (!playerStats.ActiveCharmActivated)
+        {
+            playerStats.CurrentHealOnAttack = BaseHeal * BeatAccuracy * JuiceLevelRatio;
+        }
+        else
+        {
+            playerStats.CurrentHealOnAttack = BaseHeal * BeatAccuracy * ActivatedJuiceLevelRatio;
+        }
     }
 
     public override void Finish()

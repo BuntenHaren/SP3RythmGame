@@ -5,15 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "RythmGame/Player/Beat Master")]
 public class BeatMaster : PassiveCharm
 {
-    private float JuiceLevelRatio = 0f;
-    private float BeatAccuracy = 0f;
+    private float JuiceLevelRatio = 0.0f;
+    private float ActivatedJuiceLevelRatio = 1.5f;
+    private float BeatAccuracy = 0.0f;
 
     private float BeatAccuracyMultiplier = 0.5f;
     private float BaseMultiplier = 0.5f;
-    private float JuiceLevelMultiplier = 1f;
+    private float JuiceLevelMultiplier = 1.0f;
 
-    private float DistanceToLastBeat = 0f;
-    private float DistanceToNextBeat = 0f;
+    private float DistanceToLastBeat = 0.0f;
+    private float DistanceToNextBeat = 0.0f;
     private float BeatWindow;
 
     public override void Start()
@@ -30,6 +31,7 @@ public class BeatMaster : PassiveCharm
 
         // calculate juice gauge fill ratio
         JuiceLevelRatio = juiceCounter.CurrentJuice / juiceCounter.MaxJuice;
+        Debug.Log("Juice level: " + JuiceLevelRatio);
 
         DistanceToLastBeat = beatPort.GetDistanceToLastBeat();
         DistanceToNextBeat = beatPort.GetDistanceToNextBeat();
@@ -42,10 +44,19 @@ public class BeatMaster : PassiveCharm
         }
         else
         {
-            BeatAccuracy = 0f;
+            BeatAccuracy = 0.0f;
         }
 
         // set damage multiplier
-        playerStats.CurrentAttackDamageMultiplier = BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy;
+        if (!playerStats.ActiveCharmActivated)
+        {
+            playerStats.CurrentAttackDamageMultiplier = (BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy);
+            Debug.Log("Not activated damage: " + (BaseMultiplier + JuiceLevelMultiplier * JuiceLevelRatio + BeatAccuracy));
+        }
+        else
+        {
+            playerStats.CurrentAttackDamageMultiplier = (BaseMultiplier + JuiceLevelMultiplier * ActivatedJuiceLevelRatio + BeatAccuracy);
+            Debug.Log("Activated damage: " + (BaseMultiplier + JuiceLevelMultiplier * ActivatedJuiceLevelRatio + BeatAccuracy));
+        }
     }
 }
