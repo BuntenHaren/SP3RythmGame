@@ -12,7 +12,6 @@ public class IdleSecondPhase : SecondPhaseState
         timer.StartTimer(Random.Range(secondPhase.IdleTimeRangeMin, secondPhase.IdleTimeRangeMax));
         behaviour.bossAnim.Play("Boss_Idle");
         behaviour.ResetTelegraphPositions();
-        Debug.Log("Boss Idle");
     }
 
     protected override void TimerDone()
