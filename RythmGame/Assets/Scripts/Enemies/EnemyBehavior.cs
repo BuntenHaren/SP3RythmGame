@@ -18,9 +18,12 @@ public class EnemyBehavior : MonoBehaviour
     private float moveAwayFromEnemySpeed;
     [SerializeField]
     private float distanceToStop;
+    [SerializeField]
+    private float moveDelay;
     private float distanceToPlayer;
     public bool engaged;
     private Rigidbody rb;
+    private bool resetRbConstraints = false;
 
     //Health
     private int health;
@@ -38,24 +41,39 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float attackRange;
     private float timeSinceAttack = 5f;
-    private bool attacking = false;
+    [HideInInspector]
+    public bool attacking = false;
 
     //Animation
     [SerializeField]
     private Animator anim;
 
+    [HideInInspector]
+    public GameObject SpritesParent;
+    [HideInInspector]
+    public GameObject IdleSprite;
+
     void Start()
     {
+        SpritesParent = transform.Find("WerewolfMergedSideview").gameObject;
+        IdleSprite = transform.Find("IdleSprite").gameObject;
         rb = gameObject.GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
         eventPort.onBeat += Attack;
+    }
+
+    void OnDisable()
+    {
+        eventPort.onBeat -= Attack;
     }
 
     void FixedUpdate()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         timeSinceAttack += Time.deltaTime;
-        if(engaged && !isDead)
+        if (isDead)
+            return;
+        if (engaged && timeSinceAttack > moveDelay && !attacking)
         {
             Move();
         }
@@ -65,8 +83,16 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (isDead)
             return;
+        if(resetRbConstraints && timeSinceAttack > moveDelay)
+        {
+            rb.freezeRotation = true;
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionZ;
+            resetRbConstraints = false;
+        }
         if (distanceToPlayer < attackRange && timeSinceAttack > attackCD && !attacking)
         {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             anim.SetBool("Moving", false);
             attacking = true;
             var randomNumber = Random.Range(0, 2);
@@ -95,8 +121,9 @@ public class EnemyBehavior : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) > distanceToStop && !attacking)
         {
+            var target = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
             anim.SetBool("Moving", true);
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed);
         }
         else
         {
@@ -118,11 +145,10 @@ public class EnemyBehavior : MonoBehaviour
 
     public void stopAttack()
     {
+        resetRbConstraints = true;
         attacking = false;
         timeSinceAttack = 0f;
         StartCoroutine(StopAttackDelay(0.1f));
-        //Animator.SetBool("CircleAttack", false);
-        //Animator.SetBool("ConeAttack", false);
     }
     private IEnumerator StopAttackDelay(float waitTime)
     {

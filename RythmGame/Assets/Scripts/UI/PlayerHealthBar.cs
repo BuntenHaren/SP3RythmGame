@@ -21,20 +21,40 @@ public class PlayerHealthBar : MonoBehaviour
     [SerializeField]
     private Vector3 scaleTo;
 
+    [SerializeField]
+    private float healthUpdateTime;
+
+    private float timeSinceBeat;
+    private Vector3 originalSize;
+
     private void Start()
     {
         SetMaxHealth(playerHealth.CurrentMaxHealth);
-        eventPort.onBeat += HealthBarBeatAnimation;
+        
+        SetHealth(playerHealth.BaseMaxHealth);
+        originalSize = transform.localScale;
+    }
+
+    void Update()
+    {
+        timeSinceBeat += Time.deltaTime;
+        if(timeSinceBeat >= eventPort.TimeBetweenBeats - scaleUpTime)
+        {
+            timeSinceBeat = 0f;
+            //HealthBarBeatAnimation();
+        }
     }
 
     private void OnEnable()
     {
         playerHealth.onChange += SetHealth;
+        eventPort.onBeat += OnBeat;
     }
 
     private void OnDisable()
     {
         playerHealth.onChange -= SetHealth;
+        eventPort.onBeat -= OnBeat;
     }
 
     private void SetMaxHealth(float health)
@@ -45,14 +65,20 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void SetHealth(float health)
     {
-        slider.value = playerHealth.CurrentHealth;
+        DOTween.To(() => slider.value, x => slider.value = x, playerHealth.CurrentHealth, healthUpdateTime);
+    }
+
+    private void OnBeat()
+    {
+        timeSinceBeat = 0f;
+        HealthBarBeatAnimation();
     }
 
     private void HealthBarBeatAnimation()
     {
         transform.DOScale(scaleTo, scaleUpTime).SetEase(Ease.InOutSine).OnComplete(() =>
         {
-            transform.DOScale(new Vector3(1f, 1f, 1f), scaleDownTime).SetEase(Ease.InOutSine);
+            transform.DOScale(originalSize, scaleDownTime).SetEase(Ease.InOutSine);
         });
     }
 

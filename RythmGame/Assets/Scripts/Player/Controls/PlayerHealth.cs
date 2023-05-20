@@ -1,13 +1,22 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    private VirtualCameraController cameraController;
+    [SerializeField]
+    private GameObject deathMenu;
+
     [SerializeField]
     private Health healthObject;
     [SerializeField]
     private PlayerStats playerStats;
     [SerializeField]
     private DeathPort deathPort;
+
+    [SerializeField]
+    private EventReference playerHurtDeathSound;
 
     private Timer InvincibilityTimer;
 
@@ -19,42 +28,44 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        healthObject.ResetHealth();
         InvincibilityTimer = new Timer();
         InvincibilityTimer.TimerDone += MakeVurnerableAgain;
+        cameraController = GameObject.Find("CM vcam1").GetComponent<VirtualCameraController>();
     }
 
     public void TakeDamage(float amount)
     {
-        if(!healthObject.Invurnerable)
-        {
-            healthObject.CurrentHealth -= amount;
-            Debug.Log(healthObject.CurrentHealth);
-            if(healthObject.CurrentHealth <= 0)
-            {
-                OnDeath();
-            }
-        }
+        DealDamage(amount);
     }
 
     public void TakeDamageOnBeat(float amount)
     {
-        if (!healthObject.Invurnerable)
-        {
-            healthObject.CurrentHealth -= amount;
-            if (healthObject.CurrentHealth <= 0)
-            {
-                OnDeath();
-            }
-        }
+        DealDamage(amount);
+    }
+
+    private void DealDamage(float amount)
+    {
+        if(healthObject.Invurnerable)
+            return;
+        
+        RuntimeManager.PlayOneShot(playerHurtDeathSound); 
+        cameraController.CameraShake();
+        healthObject.CurrentHealth -= amount;
+        
+        if(healthObject.CurrentHealth <= 0)
+            OnDeath();
     }
 
     private void OnDeath()
     {
+        RuntimeManager.PlayOneShot(playerHurtDeathSound);
         MakeInvurnerableForTime(2f);
         enabled = false;
         GetComponent<PlayerAttacks>().enabled = false;
         GetComponent<PlayerController>().enabled = false;
         deathPort.onPlayerDeath.Invoke(gameObject);
+        deathMenu.SetActive(true);
     }
 
     public void Spawn()
@@ -63,7 +74,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         GetComponent<PlayerAttacks>().enabled = true;
         GetComponent<PlayerController>().enabled = true;
         HealDamage(healthObject.CurrentMaxHealth);
-        Debug.Log(healthObject.CurrentHealth);
     }
 
     public void HealDamage(float amount)

@@ -12,32 +12,42 @@ public abstract class ActiveCharm : Charm
 
     protected Timer activationTimer;
 
+    public CharmDescriptions CharmDescription;
+
+    public bool isActive;
+
     public override void Start()
     {
         activationTimer = new Timer();
+        activationTimer.TimerDone += EndActivation;
         base.Start();
     }
 
     public virtual void ActivateCharm()
     {
         activationTimer.StartTimer(activeDuration);
+
+        isActive = true;
         //Insert your SFX below this comment for the charm activation and probably start playing the active SFX as well :)
         
     }
 
     protected virtual bool CheckIfCanActivate()
     {
-        return activationCost >= juiceCounter.CurrentJuice;
+        return activationCost <= juiceCounter.CurrentJuice;
     }
 
     public override void Update()
     {
-        activationTimer.UpdateTimer(Time.deltaTime);
+        if (isActive)
+        {
+            activationTimer.UpdateTimer(Time.deltaTime);
+        }
     }
 
     protected virtual void EndActivation()
     {
-        
+        isActive = false;
     }
     
 }

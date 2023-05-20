@@ -38,9 +38,14 @@ public class Health : ScriptableObject
         }
     }
 
-    private void OnEnable()
+    public void ResetHealth()
     {
         currentHealth = BaseMaxHealth;
         CurrentMaxHealth = BaseMaxHealth;
+    }
+
+    private void OnEnable()
+    {
+        ResetHealth();
     }
 }

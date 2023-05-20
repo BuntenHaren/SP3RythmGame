@@ -12,7 +12,7 @@ public class MusicEventManager : MonoBehaviour
 {
     class TimelineInfo
     {
-        public int CurrentMusicBar = 0;
+        public int CurrentMusicBar;
         public StringWrapper LastMarker = new StringWrapper();
     }
 
@@ -29,9 +29,9 @@ public class MusicEventManager : MonoBehaviour
     EVENT_CALLBACK beatCallback;
     EventInstance musicInstance;
 
-    private int previousBeat = 0;
+    private int previousBeat;
 
-    private int newBeatLimit = 0;
+    private int newBeatLimit;
 
 #if UNITY_EDITOR
     void Reset()
@@ -39,11 +39,6 @@ public class MusicEventManager : MonoBehaviour
         EventName = EventReference.Find("event:/music/music");
     }
 #endif
-    
-    void OnGUI()
-    {
-        GUILayout.Box(String.Format("Current Bar = {0}, Last Marker = {1}", timelineInfo.CurrentMusicBar, (string)timelineInfo.LastMarker));
-    }
 
     private void Start()
     {
@@ -106,11 +101,16 @@ public class MusicEventManager : MonoBehaviour
         }
         
     }
+    
+    void OnGUI()
+    {
+        GUILayout.Box(String.Format("Current Bar = {0}, Last Marker = {1}", timelineInfo.CurrentMusicBar, (string)timelineInfo.LastMarker));
+    }
 
     void OnDestroy()
     {
         musicInstance.setUserData(IntPtr.Zero);
-        musicInstance.stop(STOP_MODE.IMMEDIATE);
+        musicInstance.stop(STOP_MODE.ALLOWFADEOUT);
         musicInstance.release();
         timelineHandle.Free();
     }

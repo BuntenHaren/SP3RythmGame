@@ -6,11 +6,13 @@ using UnityEngine;
 public class ArcaneGorger : PassiveCharm
 {
     private float JuiceLevelRatio = 0f;
+    private float ActivatedJuiceLevelRatio = 1.0f;
     private float BeatAccuracy = 0f;
 
     private float BeatAccuracyMultiplier = 1f;
-    private float BaseMultiplier = 0.5f;
-    private float JuiceLevelMultiplier = 1f;
+    private float BaseHeal = 10.0f;
+    //private float JuiceLevelMultiplier = 1f;
+    private float MaxHealthMultiplier = 0.75f;
 
     private float DistanceToLastBeat = 0f;
     private float DistanceToNextBeat = 0f;
@@ -22,11 +24,16 @@ public class ArcaneGorger : PassiveCharm
 
         // get beat window 
         BeatWindow = playerStats.CurrentTimeForBeatWindow;
-        //playerStats.CurrentMaxHealth *= 0.75;                         for when there is a variable for max health
+
+        // multiply health
+        playerHealth.CurrentHealth *= MaxHealthMultiplier;
+        playerStats.CurrentMaxHealthMultiplier *= MaxHealthMultiplier;
     }
 
     public override void OnPlayerAttackAction()
     {
+        base.OnPlayerAttackAction();
+
         // calculate juice gauge fill ratio
         JuiceLevelRatio = juiceCounter.CurrentJuice / juiceCounter.MaxJuice;
 
@@ -44,15 +51,26 @@ public class ArcaneGorger : PassiveCharm
             BeatAccuracy = 0f;
         }
 
-        // set heal multiplier
-        playerStats.CurrentHealOnAttack = BaseMultiplier * BeatAccuracy * JuiceLevelRatio;
+        // set healing
+        if (!playerStats.ActiveCharmActivated)
+        {
+            playerStats.CurrentHealOnAttack = BaseHeal * BeatAccuracy * JuiceLevelRatio;
+        }
+        else
+        {
+            playerStats.CurrentHealOnAttack = BaseHeal * BeatAccuracy * ActivatedJuiceLevelRatio;
+        }
+    }
 
-        Debug.Log("Beat accuracy: " + BeatAccuracy + 
-            "\nBase multiplier: " + BaseMultiplier + 
-            "\nCurrent juice: " + juiceCounter.CurrentJuice + 
-            "\nJuice ratio: " + JuiceLevelRatio + 
-            "\nJuice multiplier: " + JuiceLevelMultiplier + 
-            "\nHeal amount: " + playerStats.CurrentHealOnAttack + 
-            "\n");
+    public override void Finish()
+    {
+        playerStats.CurrentHealOnAttack = 0;
+        playerStats.CurrentMaxHealthMultiplier /= MaxHealthMultiplier;
+        base.Finish();
+    }
+
+    public void Heal()
+    {
+        playerHealth.CurrentHealth /= MaxHealthMultiplier;
     }
 }

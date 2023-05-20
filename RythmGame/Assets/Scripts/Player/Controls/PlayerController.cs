@@ -29,12 +29,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 newMove;
     private Vector2 moveDir;
     private Animator currentDirectionAnimator;
+    private float yHeight;
 
     private PlayerHealth playerHealth;
 
+    private DashCoolDownUI dashCoolDownUI;
+
     private void Awake()
     {
-        playerStats.ResetValues();
+        
     }
 
     private void Start()
@@ -51,6 +54,10 @@ public class PlayerController : MonoBehaviour
         //Get some new stuff ready
         dashTimer = new Timer();
         dashTimer.TimerDone += () => dashReady = true;
+        yHeight = transform.position.y;
+
+        if (GameObject.Find("DashCoolDown") != null)
+            dashCoolDownUI = GameObject.Find("DashCoolDown").GetComponent<DashCoolDownUI>();
     }
 
     public void OnMove(InputValue value)
@@ -66,6 +73,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         dashTimer.UpdateTimer(Time.fixedDeltaTime);
+        //Debug.Log((playerStats.BaseDashCooldown * playerStats.CurrentDashCooldown * playerStats.BaseDashCooldownMultiplier * playerStats.CurrentDashCooldownMultiplier));
     }
     
     private void FixedUpdate()
@@ -79,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
         //Move the character in the right direction
         newMove = playerStats.CurrentMovementSpeed * playerStats.CurrentMovementSpeedMultiplier * new Vector3(moveDir.x, 0, moveDir.y);
-        newMove.y = rb.velocity.y;
+        newMove.y = 0;
         rb.velocity = newMove;
     }
 
@@ -141,7 +149,9 @@ public class PlayerController : MonoBehaviour
         playerHealth.MakeInvurnerableForTime(playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier);
         dashTimer.StartTimer(playerStats.CurrentDashCooldown * playerStats.CurrentDashCooldownMultiplier);
         dashReady = false;
-        
+        if(dashCoolDownUI != null)
+            dashCoolDownUI.DashIconCD();
+
         //Actually make the player do the dash
         Vector3 targetPosition = transform.position + new Vector3(moveDir.x, 0, moveDir.y) * playerStats.CurrentDashDistance * playerStats.CurrentDashDistanceMultiplier;
         StartCoroutine(LerpPosition(targetPosition, playerStats.CurrentDashDuration * playerStats.CurrentDashDurationMultiplier));
@@ -166,8 +176,10 @@ public class PlayerController : MonoBehaviour
         
         //Check for obstruction and make it so you can't dash through walls
         RaycastHit potentialObstruction = CheckForObstruction(startPosition, dashDirection, dashDirection.magnitude);
-        if(potentialObstruction.collider != null)
-            targetPosition = startPosition + dashDirection.normalized * potentialObstruction.distance;
+        if (potentialObstruction.collider != null)
+        {
+            targetPosition = startPosition + dashDirection.normalized * (potentialObstruction.distance - 2f);
+        }
         
         //Incremental movement towards the target position
         while (time < duration)

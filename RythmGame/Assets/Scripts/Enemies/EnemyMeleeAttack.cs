@@ -37,8 +37,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     public EventReference telegraphSwipeAttack;
     public EventReference telegraphHowlAttack;
 
-    private bool playerInDamageArea = false;
-
     //Attack
     private PlayerHealth playerHealth;
     [SerializeField]
@@ -49,13 +47,25 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackTimer = 0f;
     [SerializeField]
     private float attackHoldWaitTime;
+    [SerializeField]
+    private float attackAnimationTime;
+    private bool inCircleTrigger = false;
+    [HideInInspector]
+    public bool inSwipeTrigger = false;
+    private bool queueSounds = false;
 
     //Parent Animator
-    [SerializeField]
     private Animator anim;
+
+    void OnDisable()
+    {
+        eventPort.onBeat -= Attack;
+    }
 
     void Start()
     {
+        anim = transform.parent.GetComponentInChildren<Animator>(true);
+        Debug.Log(anim);
         player = GameObject.Find("Player").transform;
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         eventPort.onBeat += Attack;
@@ -64,31 +74,11 @@ public class EnemyMeleeAttack : MonoBehaviour
     void Update()
     {
         attackTimer += Time.deltaTime;
-    }
 
-    //Check if player is in damage area
-    void OnTriggerEnter(Collider col)
-    {
-        if(col.CompareTag("Player"))
-        {
-            playerInDamageArea = true;
-        }
-    }
-
-    void OnTriggerExit(Collider col)
-    {
-        if (col.CompareTag("Player"))
-        {
-            playerInDamageArea = false;
-        }
-    }
-
-    public void Attack()
-    {
-        if(attacking && attackTimer > minimumAttackWindUp)
+        if (attacking && attackTimer >= minimumAttackWindUp - attackAnimationTime && queueSounds)
         {
             //Execute attack sound here
-            if(isSwipe)
+            if (isSwipe)
             {
                 RuntimeManager.PlayOneShot(warewolfSwipeAttack);
             }
@@ -100,8 +90,42 @@ public class EnemyMeleeAttack : MonoBehaviour
             anim.SetBool("AttackHold", false);
             anim.SetBool("SwipeAttack", false);
             anim.SetBool("CircleAttack", false);
+            queueSounds = false;
+        }
+    }
+
+    //Check if player is in damage area
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.CompareTag("Player"))
+        {
+            inCircleTrigger = true;
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            inCircleTrigger = false;
+        }
+    }
+
+    public void Attack()
+    {
+        if (enemyScript.isDead == true)
+        {
+            AbortTelegraph();
+            return;
+        }
+        if (attacking && attackTimer > minimumAttackWindUp)
+        {
+            /*anim.SetBool("ExecuteAttack", true);
+            anim.SetBool("AttackHold", false);
+            anim.SetBool("SwipeAttack", false);
+            anim.SetBool("CircleAttack", false);*/
             sr.DOColor(originalColor, 0.4f).SetEase(Ease.InBack);
-            if (playerInDamageArea)
+            if(inCircleTrigger || inSwipeTrigger)
             {
                 playerHealth.TakeDamage(damageAmount);
             }
@@ -112,6 +136,12 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     public void StartTelegraph()
     {
+        if (enemyScript.isDead == true)
+        {
+            AbortTelegraph();
+            return;
+        }
+        queueSounds = true;
         //Start of telegraph sound here
         if (isSwipe)
         {
@@ -124,6 +154,11 @@ public class EnemyMeleeAttack : MonoBehaviour
         if (rotationPivot != null)
         {
             rotationPivot.rotation = Quaternion.LookRotation(rotationPivot.position - player.position);
+            transform.rotation = Quaternion.LookRotation(transform.position - player.position);
+            Vector3 eulerAngles = transform.rotation.eulerAngles;
+            eulerAngles.x = 90;
+            eulerAngles.z = 0;
+            transform.rotation = Quaternion.Euler(eulerAngles);
         }
         attackTimer = 0f;
         attacking = true;
@@ -135,5 +170,10 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         anim.SetBool("AttackHold", true);
+    }
+
+    private void AbortTelegraph()
+    {
+        sr.DOColor(originalColor, 0.2f).SetEase(Ease.OutSine);
     }
 }

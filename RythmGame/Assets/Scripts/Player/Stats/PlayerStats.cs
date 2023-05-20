@@ -25,6 +25,7 @@ public class PlayerStats : ScriptableObject
     public float BaseAttackDistance = 1;
     public float BasetimeForBeatWindow;
     public float BaseJuiceAmountOnBeat = 1;
+    public float BaseForceTowardAttack = 1;
     
     [field: Header("Attack Multipliers")]
     public float BaseAttackDamageMultiplier = 1;
@@ -41,9 +42,13 @@ public class PlayerStats : ScriptableObject
     public float BaseMaxHealthMultiplier = 1;
     
     [field: Header("Charms")]
-    public Charm CurrentActiveCharm;
-    public Charm CurrentPassiveCharm;
-    
+    public ActiveCharm CurrentActiveCharm;
+    public PassiveCharm CurrentPassiveCharm;
+    public bool ActiveCharmActivated,
+        BeatMasterEnabled,
+        ArcaneGorgerEnabled,
+        ArcaneSurgeEnabled;
+
     [HideInInspector]
     public float CurrentMovementSpeed, 
         CurrentDashDistance, 
@@ -71,6 +76,7 @@ public class PlayerStats : ScriptableObject
         CurrentHealOnAttackMultiplier,
         CurrentMaxHealthMultiplier;
 
+
     public void ResetValues()
     {
         ResetCurrentVariables();
@@ -90,6 +96,12 @@ public class PlayerStats : ScriptableObject
         CurrentTimeForBeatWindow = BasetimeForBeatWindow;
         CurrentJuiceAmountOnBeat = BaseJuiceAmountOnBeat;
         CurrentHealOnAttack = BaseHealOnAttack;
+
+        // charms
+        BeatMasterEnabled = false;
+        ArcaneGorgerEnabled = false;
+        ArcaneSurgeEnabled = false;
+        ActiveCharmActivated = false;
     }
 
     private void ResetMultiplierVariables()

@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 namespace Bosses
@@ -10,14 +11,18 @@ namespace Bosses
         public float PieSliceRange;
         public float PieSliceSectorAngle;
         public float PieSliceCircleDamage;
-        public float PieSliceStartingOffset;
         public float PieSliceAngleBetweenSlices;
+        public int PieSliceAmountOfBeatsWarning;
+        public float PieSliceMaxAngleDeviation;
+        public Vector2 PieSliceOriginOffset;
+        public int PieSliceAnimDurationBeforeImpact;
 
         [field: Header("Hoof Stomp Attack Variables")]
         public float StompDamage;
         public int NumberOfStompsTotal;
         public int NumberOfBeatsWarningForStomp;
         public float StompRadius;
+        public int HoofStompAnimDurationBeforeImpact;
     
         [field: Header("Idle State Variables")]
         public float IdleTimeRangeMax;
@@ -30,5 +35,11 @@ namespace Bosses
         [field: Header("Health Multipliers")]
         public float HealingRecievedMultiplier = 1;
         public float DamageRecievedMultiplier = 1;
+
+        [field: Header("SFX")] 
+        public EventReference HoofStompSFX;
+        public EventReference PieSliceSFX;
+        public EventReference PieSliceTelegraphSFX;
+        public EventReference HurtSFX;
     }
 }
