@@ -26,6 +26,7 @@ namespace Bosses
 
         private void Start()
         {
+            bossHealth.Invurnerable = false;
             bossAnim = GetComponentInChildren<Animator>();
             currentBossState = new IdleFirstPhase();
             GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
