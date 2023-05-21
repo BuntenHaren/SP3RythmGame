@@ -41,7 +41,7 @@ public class PlayerHealthBar : MonoBehaviour
         if(timeSinceBeat >= eventPort.TimeBetweenBeats - scaleUpTime)
         {
             timeSinceBeat = 0f;
-            //HealthBarBeatAnimation();
+            HealthBarBeatAnimation();
         }
     }
 
@@ -71,7 +71,6 @@ public class PlayerHealthBar : MonoBehaviour
     private void OnBeat()
     {
         timeSinceBeat = 0f;
-        HealthBarBeatAnimation();
     }
 
     private void HealthBarBeatAnimation()
