@@ -3116,7 +3116,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Attack On Beat To Deal Increased Damage\nAnd Recieve More Magenergy\u2122"
+  m_text: 'Attack On Beat To Deal Increased Damage
+
+    And Recieve More Magenergy'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4366a7fe640b637478f0c50b8c408b16, type: 2}
   m_sharedMaterial: {fileID: 8066208993479916194, guid: 4366a7fe640b637478f0c50b8c408b16,
@@ -3909,6 +3911,65 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 120926526}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &127102894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 127102897}
+  - component: {fileID: 127102896}
+  - component: {fileID: 127102895}
+  m_Layer: 0
+  m_Name: MoveTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &127102895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127102894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27105603dcfef24cb324772827ab7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageObject: {fileID: 322287420}
+--- !u!65 &127102896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127102894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 39.2875, y: 14.3563595, z: 29.334074}
+  m_Center: {x: 7.3473396, y: 6.6781797, z: 6.4429846}
+--- !u!4 &127102897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127102894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 71.1, y: 0, z: -83.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &127447466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6057,7 +6118,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WASD To Move
+  m_text: 'WASD To Move
+
+    Left Click To Attack'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4366a7fe640b637478f0c50b8c408b16, type: 2}
   m_sharedMaterial: {fileID: 8066208993479916194, guid: 4366a7fe640b637478f0c50b8c408b16,
@@ -6598,7 +6661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252998863}
   m_LocalRotation: {x: 0.46174863, y: -0, z: -0, w: 0.8870109}
-  m_LocalPosition: {x: 75.9, y: 33.06083, z: -86.07234}
+  m_LocalPosition: {x: 75.9, y: 33.06083, z: -101.66234}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8308,8 +8371,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.2, y: 0}
-  m_AnchoredPosition: {x: 812, y: 511.90002}
-  m_SizeDelta: {x: -116.3001, y: 639.39996}
+  m_AnchoredPosition: {x: 812, y: 493.19507}
+  m_SizeDelta: {x: -116.3001, y: 676.8102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322287422
 MonoBehaviour:
@@ -31575,7 +31638,7 @@ PrefabInstance:
     - target: {fileID: 3033234220384953701, guid: cb2821133e7b874418a0b39f065fb4ef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -86.07234
+      value: -101.66234
       objectReference: {fileID: 0}
     - target: {fileID: 3033234220384953701, guid: cb2821133e7b874418a0b39f065fb4ef,
         type: 3}
@@ -40412,7 +40475,7 @@ PrefabInstance:
     - target: {fileID: 1584531055942937508, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -65.8
+      value: -81.39
       objectReference: {fileID: 0}
     - target: {fileID: 1584531055942937508, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}

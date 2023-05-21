@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f204a3e6e932d343ad519874fbeeb38, type: 3}
   m_Name: SecondPhaseStats
   m_EditorClassIdentifier: 
-  ChanceForMinionSpawn: 100
-  ChanceForStomp: 0
-  ChanceForCircle: 0
-  PieSliceAmountOfSlices: 5
+  ChanceForMinionSpawn: 0
+  ChanceForStomp: 50
+  ChanceForCircle: 50
+  PieSliceAmountOfSlices: 10
   PieSliceRange: 70
   PieSliceSectorAngle: 20
   PieSliceCircleDamage: 20
@@ -23,16 +23,16 @@ MonoBehaviour:
   PieSliceAmountOfBeatsWarning: 3
   PieSliceMaxAngleDeviation: 0
   PieSliceOriginOffset: {x: 0, y: 0}
-  PieSliceAnimDurationBeforeImpact: 4
-  StompDamage: 10
+  PieSliceAnimDurationBeforeImpact: 3
+  StompDamage: 30
   NumberOfStompsTotal: 3
-  NumberOfBeatsWarningForStomp: 4
+  NumberOfBeatsWarningForStomp: 3
   StompRadius: 12
   StompShockwaveTime: 2
   StompShockwaveDamage: 10
   StompShockwaveFinalSize: 100
   StompShockwaveWidth: 2
-  HoofStompAnimDurationBeforeImpact: 1
+  HoofStompAnimDurationBeforeImpact: 2
   MinionAmount: 2
   spawnPoints:
   - {x: -37.8, y: 0, z: 7.7}
@@ -42,7 +42,7 @@ MonoBehaviour:
   IdleTimeRangeMax: 1
   IdleTimeRangeMin: 3
   EnragedTime: 5
-  DeathTime: 5
+  DeathTime: 2
   SceneToLoadAfterDeath: Credits
   HealingRecievedMultiplier: 1
   DamageRecievedMultiplier: 1
