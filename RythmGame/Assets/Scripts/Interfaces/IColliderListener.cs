@@ -7,6 +7,6 @@ public interface IColliderListener
 {
     public void CollisionEnter(Collision collision);
     public void TriggerEnter(Collider other);
-    public void CollisionStay(Collision collision);
+    public void CollisionStay(Collision collision, string name);
     public void TriggerStay(Collider other);
 }

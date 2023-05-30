@@ -104,10 +104,10 @@ public class SecondPhaseStomp : SecondPhaseState
         Mesh shockwave = outerRingTelegraph.CreateHollowCircle(100, currentShockwaveSize, currentShockwaveSize + secondPhaseStats.StompShockwaveWidth, 360, 0);
         outerRingTelegraph.SetMesh(shockwave);
         if(!DamageDealt)
-            DealDamage();
+            TryDealDamage();
     }
     
-    private void DealDamage()
+    private void TryDealDamage()
     {
         if((attackPosition - behaviour.GetPlayerPos()).magnitude < currentShockwaveSize)
             return;
@@ -124,7 +124,7 @@ public class SecondPhaseStomp : SecondPhaseState
         Collider[] potentialHit = Physics.OverlapSphere(attackPosition, secondPhaseStats.StompRadius);
         foreach(Collider hit in potentialHit)
         {
-            if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable damaged))
+            if(hit.gameObject.TryGetComponent(out PlayerHealth damaged))
             {
                 damaged.TakeDamage(secondPhaseStats.StompDamage);
             }

@@ -58,6 +58,7 @@ namespace Bosses.States
             for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)
             {
                 telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[2].gameObject, telegraphHolder.transform);
+                telegraphs[i].name = "Pie Slice " + i;
                 attackMesh = behaviour.GenerateCircles[2].CreateCircleMesh(100,
                     firstPhaseStats.PieSliceRange, 
                     firstPhaseStats.PieSliceSectorAngle,
@@ -71,12 +72,12 @@ namespace Bosses.States
             }
             
             float angleTowardsPlayerOffset = Random.Range(0, firstPhaseStats.PieSliceMaxAngleDeviation * 2);
-            float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
+            float angleTowardsPlayer = GetAngleTowardsPlayerFromObject();
             angleTowardsPlayer += -firstPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
             telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
         }
 
-        private float GetAngleTowardsPlayerFromObject(Transform obj)
+        private float GetAngleTowardsPlayerFromObject()
         {
             Vector3 vectorTowardsPlayer = behaviour.GetPlayerPos() - behaviour.transform.position;
             return Vector3.SignedAngle(behaviour.transform.forward, vectorTowardsPlayer, Vector3.up);
@@ -97,6 +98,8 @@ namespace Bosses.States
             {
                 telegraphs[i].GetComponent<MeshCollider>().enabled = true;
             }
+
+            telegraphs[telegraphs.Length - 1].GetComponent<MeshCollider>().enabled = false;
         }
 
         protected override void TimerDone()
@@ -104,7 +107,7 @@ namespace Bosses.States
             behaviour.Transition(new IdleFirstPhase());
         }
 
-        public override void OnCollisionStay(Collision other)
+        public override void OnCollisionStay(Collision other, string name)
         {
             if(hasDamagedPlayer || !startedAttacking)
                 return;
@@ -112,6 +115,7 @@ namespace Bosses.States
             if(other.gameObject.TryGetComponent(out PlayerHealth player))
             {
                 player.TakeDamage(firstPhaseStats.PieSliceCircleDamage);
+                Debug.Log(name);
                 hasDamagedPlayer = true;
                 
                 for(int i = 0; i < firstPhaseStats.PieSliceAmountOfSlices; i++)

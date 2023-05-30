@@ -19,6 +19,7 @@ namespace Bosses.States
         protected override void TimerDone()
         {
             base.TimerDone();
+            behaviour.bossAnim.runtimeAnimatorController = secondPhaseStats.SecondPhaseAnimController;
             behaviour.Transition(new IdleSecondPhase());
         }
 

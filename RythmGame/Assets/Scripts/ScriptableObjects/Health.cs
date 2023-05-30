@@ -31,8 +31,9 @@ public class Health : ScriptableObject
             {
                 float healthChange = value - currentHealth;
                 if(value > CurrentMaxHealth)
-                    return;
-                currentHealth = value;
+                    currentHealth = CurrentMaxHealth;
+                else
+                    currentHealth = value;
                 onChange.Invoke(healthChange);
             }
         }
