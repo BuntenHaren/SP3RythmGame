@@ -76,16 +76,7 @@ public class PlayerAttacks : MonoBehaviour
     }
 
     private void SetCurrentlyActiveAnimator()
-    {
-        if(Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) > -135 && Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) <= -45)
-            playerAnimator.SetTrigger("Left");
-        if(Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) > -45 && Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) <= 45)
-            playerAnimator.SetTrigger("Up");
-        if(Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) > 45 && Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) <= 135)
-            playerAnimator.SetTrigger("Right");
-        if(Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) > 135 || Vector3.SignedAngle(gameObject.transform.forward, GetDirectionTowardsMouse(), Vector3.up) < -135)
-            playerAnimator.SetTrigger("Down");
-        
+    {        
         foreach (var anim in GetComponentsInChildren<Animator>())
         {
             if (anim != playerAnimator)

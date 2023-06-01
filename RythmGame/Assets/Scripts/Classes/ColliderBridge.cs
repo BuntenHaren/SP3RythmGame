@@ -10,7 +10,7 @@ public class ColliderBridge : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        _listener.CollisionStay(collision);
+        _listener.CollisionStay(collision, gameObject.name);
     }
 
     private void OnTriggerStay(Collider other)

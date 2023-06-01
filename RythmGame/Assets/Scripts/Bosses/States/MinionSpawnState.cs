@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Bosses;
+using FMODUnity;
 using UnityEngine;
 
 public class MinionSpawnState : SecondPhaseState
@@ -12,6 +13,10 @@ public class MinionSpawnState : SecondPhaseState
         base.Entry(bossBehaviour, firstPhase, secondPhase, bossHealth, beatPort);
         if(secondPhaseStats.spawnPoints.Count == 0)
             secondPhaseStats.spawnPoints.Add(behaviour.transform.position);
+        timer.StartTimer(2);
+        behaviour.bossAnim.SetTrigger("Summon");
+        RuntimeManager.PlayOneShot(secondPhaseStats.MinionSpawnSFX);
+        SpawnWave();
     }
     
     private void SpawnObject(GameObject obj)
@@ -30,5 +35,10 @@ public class MinionSpawnState : SecondPhaseState
             SpawnObject(secondPhaseStats.MinionToSpawn);
         }
     }
-    
+
+    protected override void TimerDone()
+    {
+        base.TimerDone();
+        behaviour.Transition(new IdleSecondPhase());
+    }
 }

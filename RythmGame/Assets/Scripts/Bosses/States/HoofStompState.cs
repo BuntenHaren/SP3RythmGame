@@ -76,7 +76,7 @@ namespace Bosses.States
             Collider[] potentialHit = Physics.OverlapSphere(attackPosition, firstPhaseStats.StompRadius);
             foreach(Collider hit in potentialHit)
             {
-                if(hit.gameObject.TryGetComponent<IDamageable>(out IDamageable damaged))
+                if(hit.gameObject.TryGetComponent(out PlayerHealth damaged))
                 {
                     damaged.TakeDamage(firstPhaseStats.StompDamage);
                 }

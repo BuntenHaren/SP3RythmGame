@@ -55,6 +55,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         for(int i = 0; i < secondPhaseStats.PieSliceAmountOfSlices; i++)
         {
             telegraphs[i] = Object.Instantiate(behaviour.GenerateCircles[2].gameObject, telegraphHolder.transform);
+            telegraphs[i].name = "Pie Slice " + i;
             attackMesh = behaviour.GenerateCircles[2].CreateCircleMesh(100,
                 secondPhaseStats.PieSliceRange, 
                 secondPhaseStats.PieSliceSectorAngle,
@@ -70,7 +71,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
         //We use -180 to turn everything back, because what i expected to be forward was in reality the opposite..
         angleTowardsPlayer += -secondPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
-        telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
+        //telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
     }
 
     private float GetAngleTowardsPlayerFromObject(Transform obj)
@@ -84,10 +85,15 @@ public class SecondPhasePieSlice : SecondPhaseState
         startedAttacking = true;
         timer.StartTimer(2);
         RuntimeManager.PlayOneShot(secondPhaseStats.PieSliceSFX);
+
+        Vector3 directionTowardsPlayer = behaviour.GetPlayerPos() - behaviour.transform.position;
+        directionTowardsPlayer.Normalize();
         
         for(int i = 0; i < secondPhaseStats.PieSliceAmountOfSlices; i++)
         {
-            telegraphs[i].GetComponent<MeshCollider>().enabled = true;
+            //telegraphs[i].GetComponent<MeshCollider>().enabled = true;
+            //Måste egentligen beräkna exakta vinklar för att se om spelaren borde ta damage eller inte. Använd inte colliders för det
+            //if(Vector3.Dot(directionTowardsPlayer, behaviour.transform.forward) )
         }
     }
 
@@ -96,7 +102,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         behaviour.Transition(new IdleSecondPhase());
     }
 
-    public override void OnCollisionStay(Collision other)
+    public override void OnCollisionStay(Collision other, string name)
     {
         if(hasDamagedPlayer || !startedAttacking)
             return;
@@ -104,6 +110,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         if(other.gameObject.TryGetComponent(out PlayerHealth player))
         {
             player.TakeDamage(secondPhaseStats.PieSliceCircleDamage);
+            Debug.Log("Phase 2 " + name);
             hasDamagedPlayer = true;
             
             for(int i = 0; i < secondPhaseStats.PieSliceAmountOfSlices; i++)

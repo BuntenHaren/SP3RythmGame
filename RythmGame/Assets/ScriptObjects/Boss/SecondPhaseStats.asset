@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f204a3e6e932d343ad519874fbeeb38, type: 3}
   m_Name: SecondPhaseStats
   m_EditorClassIdentifier: 
-  ChanceForMinionSpawn: 0
+  ChanceForMinionSpawn: 5
   ChanceForStomp: 50
   ChanceForCircle: 50
   PieSliceAmountOfSlices: 10
@@ -20,7 +20,7 @@ MonoBehaviour:
   PieSliceSectorAngle: 20
   PieSliceCircleDamage: 20
   PieSliceAngleBetweenSlices: 20
-  PieSliceAmountOfBeatsWarning: 3
+  PieSliceAmountOfBeatsWarning: 4
   PieSliceMaxAngleDeviation: 0
   PieSliceOriginOffset: {x: 0, y: 0}
   PieSliceAnimDurationBeforeImpact: 3
@@ -95,3 +95,5 @@ MonoBehaviour:
       Data3: 1097077168
       Data4: 1506100011
     Path: event:/SFX/Boss/Boss_Death
+  SecondPhaseAnimController: {fileID: 9100000, guid: d726c6da2aabc0743a7dc8d2255663ad,
+    type: 2}

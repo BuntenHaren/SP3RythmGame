@@ -53,7 +53,7 @@ namespace Bosses.States
             
         }
 
-        public virtual void OnCollisionStay(Collision collision)
+        public virtual void OnCollisionStay(Collision collision, string name)
         {
             
         }

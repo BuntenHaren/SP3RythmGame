@@ -123,9 +123,9 @@ namespace Bosses
             currentBossState.OnTriggerEnter(other);
         }
 
-        public void CollisionStay(Collision collision)
+        public void CollisionStay(Collision collision, string name)
         {
-            currentBossState.OnCollisionStay(collision);
+            currentBossState.OnCollisionStay(collision, name);
         }
 
         public void TriggerStay(Collider other)

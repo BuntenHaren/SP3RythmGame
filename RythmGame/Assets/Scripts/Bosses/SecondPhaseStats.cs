@@ -61,5 +61,6 @@ namespace Bosses
         public EventReference MinionSpawnSFX;
         public EventReference HurtSFX;
         public EventReference DeathSFX;
+        public RuntimeAnimatorController SecondPhaseAnimController;
     }
 }
