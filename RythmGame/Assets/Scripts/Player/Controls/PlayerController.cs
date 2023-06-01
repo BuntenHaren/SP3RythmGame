@@ -173,6 +173,7 @@ public class PlayerController : MonoBehaviour
         float time = 0;
         Vector3 startPosition = transform.position;
         Vector3 dashDirection = targetPosition - startPosition;
+        startPosition += dashDirection * 0.02f;
         
         //Check for obstruction and make it so you can't dash through walls
         RaycastHit potentialObstruction = CheckForObstruction(startPosition, dashDirection, dashDirection.magnitude);

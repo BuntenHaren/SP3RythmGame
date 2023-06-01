@@ -98,8 +98,6 @@ namespace Bosses.States
             {
                 telegraphs[i].GetComponent<MeshCollider>().enabled = true;
             }
-
-            telegraphs[telegraphs.Length - 1].GetComponent<MeshCollider>().enabled = false;
         }
 
         protected override void TimerDone()

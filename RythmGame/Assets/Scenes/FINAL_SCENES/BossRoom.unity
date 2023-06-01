@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2254,6 +2254,18 @@ PrefabInstance:
       propertyPath: baseMovementSpeed
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4120878237849127857, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: firstPhaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: a1ba6a1c3e7cc1648b76df1ddd9b5ad5,
+        type: 2}
+    - target: {fileID: 4120878237849127857, guid: b4a2b186af76c56439f9e10794272418,
+        type: 3}
+      propertyPath: secondPhaseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 91a5d4d8d56ec4845aa240aad6961a36,
+        type: 2}
     - target: {fileID: 6072389841993779465, guid: b4a2b186af76c56439f9e10794272418,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12970,6 +12982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280695875127377192, guid: 5b6f638c49f8a564aa44b1a6c678277b,
         type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280695875127377192, guid: 5b6f638c49f8a564aa44b1a6c678277b,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -12978,6 +12995,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 107eea254a800bf44bdb5721b940c184, type: 2}
+    - target: {fileID: 3280695875127377199, guid: 5b6f638c49f8a564aa44b1a6c678277b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3280695876033195714, guid: 5b6f638c49f8a564aa44b1a6c678277b,
         type: 3}
       propertyPath: m_IsTrigger
@@ -12987,7 +13009,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 5d41cef6f3d79b442aafded5dbdd7581, type: 2}
     - target: {fileID: 3280695876061847376, guid: 5b6f638c49f8a564aa44b1a6c678277b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -32397,7 +32419,7 @@ PrefabInstance:
     - target: {fileID: 3033234220384953701, guid: cb2821133e7b874418a0b39f065fb4ef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3896071
+      value: -1.3896066
       objectReference: {fileID: 0}
     - target: {fileID: 3033234220384953701, guid: cb2821133e7b874418a0b39f065fb4ef,
         type: 3}
@@ -38308,7 +38330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079399272}
   m_LocalRotation: {x: 0.46174863, y: -0, z: -0, w: 0.8870109}
-  m_LocalPosition: {x: -1.3896071, y: 42.181335, z: -70.51394}
+  m_LocalPosition: {x: -1.3896066, y: 42.181335, z: -70.51394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

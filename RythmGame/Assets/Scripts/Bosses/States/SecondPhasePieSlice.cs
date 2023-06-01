@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bosses;
 using Bosses.States;
 using FMODUnity;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SecondPhasePieSlice : SecondPhaseState
@@ -24,7 +25,6 @@ public class SecondPhasePieSlice : SecondPhaseState
         telegraphHolder = new GameObject("TelegraphHolder");
         telegraphHolder.transform.parent = behaviour.transform;
         telegraphHolder.transform.localPosition = Vector3.zero;
-        Debug.Log("Boss pie slice");
     }
 
     public override void OnBeat()
@@ -71,7 +71,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         float angleTowardsPlayer = GetAngleTowardsPlayerFromObject(telegraphHolder.transform);
         //We use -180 to turn everything back, because what i expected to be forward was in reality the opposite..
         angleTowardsPlayer += -secondPhaseStats.PieSliceMaxAngleDeviation + angleTowardsPlayerOffset;
-        //telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
+        telegraphHolder.transform.Rotate(Vector3.up, angleTowardsPlayer);
     }
 
     private float GetAngleTowardsPlayerFromObject(Transform obj)
@@ -91,7 +91,7 @@ public class SecondPhasePieSlice : SecondPhaseState
         
         for(int i = 0; i < secondPhaseStats.PieSliceAmountOfSlices; i++)
         {
-            //telegraphs[i].GetComponent<MeshCollider>().enabled = true;
+            telegraphs[i].GetComponent<MeshCollider>().enabled = true;
             //Måste egentligen beräkna exakta vinklar för att se om spelaren borde ta damage eller inte. Använd inte colliders för det
             //if(Vector3.Dot(directionTowardsPlayer, behaviour.transform.forward) )
         }

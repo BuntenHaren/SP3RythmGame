@@ -27,6 +27,7 @@ namespace Bosses
         private void Start()
         {
             bossHealth.Invurnerable = false;
+            bossHealth.CurrentHealth = bossHealth.BaseMaxHealth;
             bossAnim = GetComponentInChildren<Animator>();
             currentBossState = new IdleFirstPhase();
             GenerateCircles = GetComponentsInChildren<GenerateCircle>().ToList();
@@ -52,6 +53,11 @@ namespace Bosses
         private void OnBeat()
         {
         
+        }
+
+        public BossState GetCurrentState()
+        {
+            return currentBossState;
         }
 
         public Vector3 GetPlayerPos()

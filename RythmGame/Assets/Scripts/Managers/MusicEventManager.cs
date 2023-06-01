@@ -102,11 +102,6 @@ public class MusicEventManager : MonoBehaviour
         
     }
     
-    void OnGUI()
-    {
-        GUILayout.Box(String.Format("Current Bar = {0}, Last Marker = {1}", timelineInfo.CurrentMusicBar, (string)timelineInfo.LastMarker));
-    }
-
     void OnDestroy()
     {
         musicInstance.setUserData(IntPtr.Zero);

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1654442049198922910}
   - component: {fileID: 3931127047261943256}
   - component: {fileID: 7739270753550880568}
+  - component: {fileID: 4120878237849127857}
   m_Layer: 7
   m_Name: Main Character
   m_TagString: Player
@@ -195,6 +196,20 @@ MonoBehaviour:
   arcaneSurge: {fileID: 11400000, guid: 3a8d27d854d5b6042a61948f9dfb1abe, type: 2}
   passiveCharmIcon: {fileID: 0}
   activeCharmIcon: {fileID: 0}
+--- !u!114 &4120878237849127857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375341716502672327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbf397e3320f084f98ed3cd348e6f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPhaseStats: {fileID: 11400000, guid: a1ba6a1c3e7cc1648b76df1ddd9b5ad5, type: 2}
+  secondPhaseStats: {fileID: 11400000, guid: 91a5d4d8d56ec4845aa240aad6961a36, type: 2}
 --- !u!1 &1187404434201240896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,6 +2404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Extent.y
       value: 0.27812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112106370644024004, guid: 3b97c9829be57b041adb56e06d0cedb4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2920955693534558238, guid: 3b97c9829be57b041adb56e06d0cedb4,
         type: 3}

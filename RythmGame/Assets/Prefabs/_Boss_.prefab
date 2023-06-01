@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3280695875069090916}
   - component: {fileID: 3280695875069090939}
   - component: {fileID: 3280695875069090919}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: _Boss_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,8 +81,7 @@ GameObject:
   - component: {fileID: 3280695875127377195}
   - component: {fileID: 3280695875127377192}
   - component: {fileID: 3280695875127377193}
-  - component: {fileID: 3440084289225613210}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: Pie Slice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +164,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!114 &3280695875127377193
@@ -180,19 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cd38f3458afa540b3dc1aa30205298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3440084289225613210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3280695875127377199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f976e83948c854da44df8c806bbf5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _listener: {fileID: 3280695875069090919}
 --- !u!1 &3280695876033195712
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d41cef6f3d79b442aafded5dbdd7581, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
