@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7627816651464497578}
   - component: {fileID: 3038563560053723090}
   - component: {fileID: 5372055323223088040}
+  - component: {fileID: 4604202328542196116}
   m_Layer: 0
   m_Name: OnBeatEffect
   m_TagString: Untagged
@@ -116,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.9
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -169,8 +170,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 12
-      minScalar: 4
+      scalar: 18
+      minScalar: 8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -223,7 +224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.97121596, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.96862745, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1363,8 +1364,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 1, b: 0.98080873, a: 0}
-        key1: {r: 0, g: 1, b: 0.98039216, a: 1}
+        key0: {r: 1, g: 0, b: 0.96862745, a: 0}
+        key1: {r: 0.735849, g: 0.31585974, b: 0.65607446, a: 1}
         key2: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1381,7 +1382,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 13493
-        atime2: 27371
+        atime2: 48573
         atime3: 65535
         atime4: 65535
         atime5: 0
@@ -1392,8 +1393,8 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.7830189, g: 0.36565503, b: 0.7126724, a: 0}
-        key1: {r: 0, g: 0.990005, b: 1, a: 0.98039216}
+        key0: {r: 1, g: 0, b: 0.96862745, a: 0}
+        key1: {r: 0.6862745, g: 0, b: 0.96862745, a: 0.98039216}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 1}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1411,7 +1412,7 @@ ParticleSystem:
         atime0: 0
         atime1: 14071
         atime2: 15035
-        atime3: 37779
+        atime3: 50886
         atime4: 65535
         atime5: 0
         atime6: 0
@@ -3985,7 +3986,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 1
     lifetime:
@@ -4820,7 +4821,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4871,3 +4871,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4604202328542196116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785997882179965958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd17020e099728346b2c7a2d71171db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectDistance: 0
+  timeBeforeMoveToPlayer: 0.6

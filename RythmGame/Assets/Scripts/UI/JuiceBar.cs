@@ -34,6 +34,16 @@ public class JuiceBar : MonoBehaviour
     [SerializeField]
     private float glowFadeTo;
 
+    [Header("Scale")]
+    [SerializeField]
+    private Vector3 scaleTo;
+    [SerializeField]
+    private float scaleUpTime;
+    [SerializeField]
+    private float scaleDownTime;
+    [SerializeField]
+    private Vector3 originalScale;
+
     //Private
     private Timer drainTimer;
     private bool glow = false;
@@ -82,6 +92,10 @@ public class JuiceBar : MonoBehaviour
         var changeTo = slider.value + amount;
         if (amount > 0f)
         {
+            transform.DOScale(scaleTo, scaleUpTime).SetEase(Ease.InOutSine).OnComplete(() =>
+            {
+                transform.DOScale(originalScale, scaleDownTime).SetEase(Ease.InOutSine);
+            });
             DOTween.To(() => slider.value, x => slider.value = x, changeTo, sliderUpdateTime).SetEase(Ease.OutElastic).OnComplete(() =>
             {
                 startDrain = false;

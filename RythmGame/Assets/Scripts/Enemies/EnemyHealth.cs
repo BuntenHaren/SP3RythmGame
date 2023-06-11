@@ -194,7 +194,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void ChangetoDeadSprite()
     {
-        Debug.Log("ChangeToDead");
         if(anim.GetBool("FacingLeft"))
         {
             if(deadSpriteLeft != null)
